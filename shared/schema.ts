@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, integer } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer, boolean, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -16,6 +16,37 @@ export const studySettings = pgTable("study_settings", {
   sleepTime: text("sleep_time").notNull().default("23:00"),
   dailyStudyHours: integer("daily_study_hours").notNull().default(6),
   dailyStudyMinutes: integer("daily_study_minutes").notNull().default(0),
+});
+
+// Users table with authentication and roles
+export const users = pgTable("users", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  email: text("email").notNull().unique(),
+  password: text("password").notNull(),
+  name: text("name").notNull(),
+  userType: text("user_type").notNull().default("student"), // "student" or "teacher"
+  bio: text("bio"),
+  avatar: text("avatar"),
+  isVerified: boolean("is_verified").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Content created by teachers
+export const content = pgTable("content", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  teacherId: varchar("teacher_id").references(() => users.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  contentType: text("content_type").notNull(), // "video", "article", "quiz", etc.
+  contentUrl: text("content_url"),
+  thumbnailUrl: text("thumbnail_url"),
+  tags: text("tags").array(),
+  isPublished: boolean("is_published").notNull().default(false),
+  viewCount: integer("view_count").notNull().default(0),
+  likeCount: integer("like_count").notNull().default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
 
 // Global subjects - independent of study cycles
@@ -50,6 +81,31 @@ export const insertStudySettingsSchema = createInsertSchema(studySettings).omit(
   id: true,
 });
 
+export const insertUserSchema = createInsertSchema(users).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+}).extend({
+  confirmPassword: z.string().min(6),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
+
+export const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
+export const insertContentSchema = createInsertSchema(content).omit({
+  id: true,
+  teacherId: true,
+  viewCount: true,
+  likeCount: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
 export const insertGlobalSubjectSchema = createInsertSchema(globalSubjects).omit({
   id: true,
   createdAt: true,
@@ -69,6 +125,13 @@ export type Subject = typeof subjects.$inferSelect;
 
 export type InsertStudySettings = z.infer<typeof insertStudySettingsSchema>;
 export type StudySettings = typeof studySettings.$inferSelect;
+
+export type InsertUser = z.infer<typeof insertUserSchema>;
+export type User = typeof users.$inferSelect;
+export type LoginData = z.infer<typeof loginSchema>;
+
+export type InsertContent = z.infer<typeof insertContentSchema>;
+export type Content = typeof content.$inferSelect;
 
 export type InsertGlobalSubject = z.infer<typeof insertGlobalSubjectSchema>;
 export type GlobalSubject = typeof globalSubjects.$inferSelect;
@@ -103,6 +166,20 @@ export type WeekSchedule = {
 // Extended types for full subject data with time allocation
 export type CycleSubjectWithDetails = CycleSubject & {
   globalSubject: GlobalSubject;
+};
+
+// Content with teacher information
+export type ContentWithTeacher = Content & {
+  teacher: Pick<User, 'id' | 'name' | 'avatar' | 'userType'>;
+};
+
+// Current session user
+export type SessionUser = {
+  id: string;
+  email: string;
+  name: string;
+  userType: string;
+  avatar?: string;
 };
 
 export type StudyCycleData = {
