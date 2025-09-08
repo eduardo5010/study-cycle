@@ -8,13 +8,15 @@ interface DashboardOverviewProps {
   settings: StudySettings;
   totalWeeks: number;
   onNewCycle: () => void;
+  onCompleteCycle?: () => void;
 }
 
 export default function DashboardOverview({ 
   subjects, 
   settings, 
   totalWeeks, 
-  onNewCycle 
+  onNewCycle,
+  onCompleteCycle
 }: DashboardOverviewProps) {
   const { t } = useLanguage();
   
@@ -39,14 +41,25 @@ export default function DashboardOverview({
             {t('app.subtitle')}
           </p>
         </div>
-        <button 
-          onClick={onNewCycle}
-          className="mt-4 md:mt-0 bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium"
-          data-testid="button-new-cycle"
-        >
-          <Plus className="w-4 h-4 mr-2 inline" />
-          {t('dashboard.newCycle')}
-        </button>
+        <div className="flex flex-col sm:flex-row gap-3 mt-4 md:mt-0">
+          {onCompleteCycle && subjects.length > 0 && (
+            <button 
+              onClick={onCompleteCycle}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center justify-center min-h-[40px]"
+              data-testid="button-complete-cycle"
+            >
+              <span className="truncate">{t('dashboard.completeCycle')}</span>
+            </button>
+          )}
+          <button 
+            onClick={onNewCycle}
+            className="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium flex items-center justify-center min-h-[40px]"
+            data-testid="button-new-cycle"
+          >
+            <Plus className="w-4 h-4 mr-2 flex-shrink-0" />
+            <span className="truncate">{t('dashboard.newCycle')}</span>
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

@@ -50,11 +50,11 @@ export default function StudySettingsComponent({
       </div>
       <button 
         onClick={onEdit}
-        className="w-full mt-4 bg-muted text-muted-foreground px-4 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium"
+        className="w-full mt-4 bg-muted text-muted-foreground px-4 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium flex items-center justify-center min-h-[40px]"
         data-testid="button-edit-settings"
       >
-        <Edit className="w-4 h-4 mr-2 inline" />
-        {t('settings.edit')}
+        <Edit className="w-4 h-4 mr-2 flex-shrink-0" />
+        <span className="truncate">{t('settings.edit')}</span>
       </button>
     </div>
   );
