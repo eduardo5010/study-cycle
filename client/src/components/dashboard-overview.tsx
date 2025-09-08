@@ -1,6 +1,7 @@
 import { Plus, Calendar, Book, Clock, TrendingUp } from "lucide-react";
 import { Subject, StudySettings } from "@shared/schema";
 import { formatDuration } from "@/lib/schedule-generator";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface DashboardOverviewProps {
   subjects: Subject[];
@@ -15,6 +16,8 @@ export default function DashboardOverview({
   totalWeeks, 
   onNewCycle 
 }: DashboardOverviewProps) {
+  const { t } = useLanguage();
+  
   const totalStudyTime = subjects.reduce((total, subject) => {
     return total + (subject.hours * 60 + subject.minutes);
   }, 0);
@@ -30,10 +33,10 @@ export default function DashboardOverview({
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
         <div>
           <h2 className="text-2xl font-bold text-foreground mb-2" data-testid="title-current-cycle">
-            Ciclo de Estudo Atual
+            {t('dashboard.currentCycle')}
           </h2>
           <p className="text-muted-foreground" data-testid="text-subtitle">
-            Gerencie seu cronograma e acompanhe o progresso
+            {t('app.subtitle')}
           </p>
         </div>
         <button 
@@ -42,7 +45,7 @@ export default function DashboardOverview({
           data-testid="button-new-cycle"
         >
           <Plus className="w-4 h-4 mr-2 inline" />
-          Novo Ciclo
+          {t('dashboard.newCycle')}
         </button>
       </div>
 
@@ -50,7 +53,7 @@ export default function DashboardOverview({
         <div className="bg-card p-6 rounded-xl border border-border shadow-sm" data-testid="card-total-weeks">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-muted-foreground text-sm font-medium">Total de Semanas</p>
+              <p className="text-muted-foreground text-sm font-medium">{t('dashboard.totalWeeks')}</p>
               <p className="text-2xl font-bold text-foreground mt-1" data-testid="text-total-weeks">
                 {totalWeeks}
               </p>
@@ -64,7 +67,7 @@ export default function DashboardOverview({
         <div className="bg-card p-6 rounded-xl border border-border shadow-sm" data-testid="card-subjects">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-muted-foreground text-sm font-medium">Disciplinas</p>
+              <p className="text-muted-foreground text-sm font-medium">{t('dashboard.subjects')}</p>
               <p className="text-2xl font-bold text-foreground mt-1" data-testid="text-subjects-count">
                 {subjects.length}
               </p>
@@ -78,7 +81,7 @@ export default function DashboardOverview({
         <div className="bg-card p-6 rounded-xl border border-border shadow-sm" data-testid="card-daily-hours">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-muted-foreground text-sm font-medium">Horas Diárias</p>
+              <p className="text-muted-foreground text-sm font-medium">{t('dashboard.dailyHours')}</p>
               <p className="text-2xl font-bold text-foreground mt-1" data-testid="text-daily-hours">
                 {formatDuration(settings.dailyStudyHours, settings.dailyStudyMinutes)}
               </p>
@@ -92,7 +95,7 @@ export default function DashboardOverview({
         <div className="bg-card p-6 rounded-xl border border-border shadow-sm" data-testid="card-progress">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-muted-foreground text-sm font-medium">Progresso</p>
+              <p className="text-muted-foreground text-sm font-medium">{t('dashboard.progress')}</p>
               <p className="text-2xl font-bold text-foreground mt-1" data-testid="text-progress-percent">
                 {progress}%
               </p>

@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const formSchema = insertSubjectSchema.extend({
   hours: z.number().min(0).max(23),
@@ -25,6 +26,7 @@ interface AddSubjectModalProps {
 
 export default function AddSubjectModal({ isOpen, onClose, onSubmit }: AddSubjectModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useLanguage();
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -57,18 +59,18 @@ export default function AddSubjectModal({ isOpen, onClose, onSubmit }: AddSubjec
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-md" data-testid="modal-add-subject">
         <DialogHeader>
-          <DialogTitle data-testid="modal-title">Adicionar Nova Disciplina</DialogTitle>
+          <DialogTitle data-testid="modal-title">{t('subjects.add')}</DialogTitle>
         </DialogHeader>
         
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4" data-testid="form-add-subject">
           <div>
             <Label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-              Nome da Disciplina
+              {t('subjects.name')}
             </Label>
             <Input
               id="name"
               type="text"
-              placeholder="Ex: Matemática"
+              placeholder={t('subjects.nameExample')}
               {...form.register("name")}
               className="w-full"
               data-testid="input-subject-name"
@@ -83,7 +85,7 @@ export default function AddSubjectModal({ isOpen, onClose, onSubmit }: AddSubjec
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label htmlFor="hours" className="block text-sm font-medium text-foreground mb-2">
-                Horas
+                {t('subjects.hours')}
               </Label>
               <Input
                 id="hours"
@@ -104,7 +106,7 @@ export default function AddSubjectModal({ isOpen, onClose, onSubmit }: AddSubjec
             
             <div>
               <Label htmlFor="minutes" className="block text-sm font-medium text-foreground mb-2">
-                Minutos
+                {t('subjects.minutes')}
               </Label>
               <Select 
                 value={form.watch("minutes")?.toString() || "0"}
@@ -136,7 +138,7 @@ export default function AddSubjectModal({ isOpen, onClose, onSubmit }: AddSubjec
               className="flex-1"
               data-testid="button-cancel"
             >
-              Cancelar
+              {t('modal.cancel')}
             </Button>
             <Button 
               type="submit" 
@@ -144,7 +146,7 @@ export default function AddSubjectModal({ isOpen, onClose, onSubmit }: AddSubjec
               className="flex-1"
               data-testid="button-add-subject-submit"
             >
-              {isSubmitting ? "Adicionando..." : "Adicionar"}
+              {isSubmitting ? t('modal.adding') : t('modal.add')}
             </Button>
           </div>
         </form>

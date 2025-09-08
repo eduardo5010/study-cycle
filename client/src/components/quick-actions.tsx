@@ -1,4 +1,5 @@
 import { Plus, Settings, Download } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface QuickActionsProps {
   onAddSubject: () => void;
@@ -11,10 +12,12 @@ export default function QuickActions({
   onConfigureSchedule, 
   onExportSchedule 
 }: QuickActionsProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="bg-card rounded-xl border border-border shadow-sm p-6">
       <h3 className="text-lg font-semibold text-foreground mb-4" data-testid="title-quick-actions">
-        Ações Rápidas
+        {t('actions.title')}
       </h3>
       <div className="space-y-3">
         <button 
@@ -25,7 +28,7 @@ export default function QuickActions({
           <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
             <Plus className="text-primary h-4 w-4" />
           </div>
-          <span className="font-medium text-foreground">Adicionar Disciplina</span>
+          <span className="font-medium text-foreground">{t('actions.addSubject')}</span>
         </button>
         <button 
           onClick={onConfigureSchedule}
@@ -35,7 +38,7 @@ export default function QuickActions({
           <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
             <Settings className="text-secondary h-4 w-4" />
           </div>
-          <span className="font-medium text-foreground">Configurar Horários</span>
+          <span className="font-medium text-foreground">{t('actions.configureSchedule')}</span>
         </button>
         <button 
           onClick={onExportSchedule}
@@ -45,7 +48,7 @@ export default function QuickActions({
           <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
             <Download className="text-green-600 h-4 w-4" />
           </div>
-          <span className="font-medium text-foreground">Exportar Cronograma</span>
+          <span className="font-medium text-foreground">{t('actions.exportSchedule')}</span>
         </button>
       </div>
     </div>

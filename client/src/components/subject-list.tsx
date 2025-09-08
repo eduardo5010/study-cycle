@@ -1,26 +1,29 @@
 import { Subject } from "@shared/schema";
 import { formatDuration, getSubjectDotColor } from "@/lib/schedule-generator";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SubjectListProps {
   subjects: Subject[];
 }
 
 export default function SubjectList({ subjects }: SubjectListProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="bg-card rounded-xl border border-border shadow-sm p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-foreground" data-testid="title-subject-list">
-          Disciplinas
+          {t('subjects.title')}
         </h3>
         <span className="text-sm text-muted-foreground" data-testid="subjects-count">
-          {subjects.length} disciplina{subjects.length !== 1 ? 's' : ''}
+          {subjects.length} {subjects.length === 1 ? t('subjects.count') : t('subjects.countPlural')}
         </span>
       </div>
       
       {subjects.length === 0 ? (
         <div className="text-center py-8" data-testid="empty-subjects">
           <p className="text-muted-foreground text-sm">
-            Nenhuma disciplina adicionada ainda
+            {t('subjects.empty')}
           </p>
         </div>
       ) : (

@@ -11,11 +11,13 @@ import StudySettingsComponent from "@/components/study-settings";
 import SubjectList from "@/components/subject-list";
 import AddSubjectModal from "@/components/add-subject-modal";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Dashboard() {
   const [isAddSubjectModalOpen, setIsAddSubjectModalOpen] = useState(false);
   const queryClient = useQueryClient();
   const { toast } = useToast();
+  const { t, language } = useLanguage();
 
   // Fetch subjects
   const { data: subjects = [], isLoading: subjectsLoading } = useQuery<Subject[]>({
@@ -36,14 +38,14 @@ export default function Dashboard() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/subjects"] });
       toast({
-        title: "Disciplina adicionada",
-        description: "A disciplina foi adicionada com sucesso.",
+        title: t('toast.subjectAdded'),
+        description: t('toast.subjectAddedDesc'),
       });
     },
     onError: () => {
       toast({
-        title: "Erro",
-        description: "Não foi possível adicionar a disciplina.",
+        title: t('toast.error'),
+        description: t('toast.subjectError'),
         variant: "destructive",
       });
     },
@@ -84,7 +86,7 @@ export default function Dashboard() {
   }
 
   // Generate schedule based on current subjects and settings
-  const weeks = generateStudySchedule(subjects, settings);
+  const weeks = generateStudySchedule(subjects, settings, language);
   
   // Calculate total cycle time
   const totalCycleMinutes = subjects.reduce((total, subject) => {
@@ -102,38 +104,38 @@ export default function Dashboard() {
 
   const handleNewCycle = () => {
     toast({
-      title: "Funcionalidade em desenvolvimento",
-      description: "A criação de novos ciclos será implementada em breve.",
+      title: t('toast.featureInDev'),
+      description: t('toast.newCycleInDev'),
     });
   };
 
   const handleConfigureSchedule = () => {
     toast({
-      title: "Funcionalidade em desenvolvimento",
-      description: "A configuração de horários será implementada em breve.",
+      title: t('toast.featureInDev'),
+      description: t('toast.configureInDev'),
     });
   };
 
   const handleExportSchedule = () => {
     if (weeks.length === 0) {
       toast({
-        title: "Nenhum cronograma para exportar",
-        description: "Adicione disciplinas para gerar um cronograma.",
+        title: t('toast.noScheduleExport'),
+        description: t('toast.noScheduleExportDesc'),
         variant: "destructive",
       });
       return;
     }
     
     toast({
-      title: "Funcionalidade em desenvolvimento",
-      description: "A exportação de cronograma será implementada em breve.",
+      title: t('toast.featureInDev'),
+      description: t('toast.exportInDev'),
     });
   };
 
   const handleEditSettings = () => {
     toast({
-      title: "Funcionalidade em desenvolvimento",
-      description: "A edição de configurações será implementada em breve.",
+      title: t('toast.featureInDev'),
+      description: t('toast.editInDev'),
     });
   };
 

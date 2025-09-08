@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { WeekSchedule } from "@shared/schema";
 import { getSubjectBgColor, getSubjectDotColor } from "@/lib/schedule-generator";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface WeeklyScheduleProps {
   weeks: WeekSchedule[];
@@ -10,17 +11,18 @@ interface WeeklyScheduleProps {
 
 export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps) {
   const [currentWeek, setCurrentWeek] = useState(0);
+  const { t } = useLanguage();
 
   if (weeks.length === 0) {
     return (
       <div className="lg:col-span-2">
         <div className="bg-card rounded-xl border border-border shadow-sm p-6">
           <h3 className="text-lg font-semibold text-foreground mb-6" data-testid="title-weekly-schedule">
-            Cronograma Semanal
+            {t('schedule.title')}
           </h3>
           <div className="text-center py-12" data-testid="empty-schedule">
             <p className="text-muted-foreground">
-              Adicione disciplinas para gerar o cronograma automaticamente
+              {t('schedule.empty')}
             </p>
           </div>
         </div>
@@ -39,7 +41,7 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
       <div className="bg-card rounded-xl border border-border shadow-sm p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-semibold text-foreground" data-testid="title-weekly-schedule">
-            Cronograma Semanal
+            {t('schedule.title')}
           </h3>
           <div className="flex items-center space-x-2">
             <button 
@@ -51,7 +53,7 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
               <ChevronLeft className="h-4 w-4" />
             </button>
             <span className="text-sm font-medium text-foreground px-3 py-1 bg-muted rounded-lg" data-testid="text-current-week">
-              Semana {currentWeekData?.weekNumber || 1}
+              {t('schedule.week')} {currentWeekData?.weekNumber || 1}
             </span>
             <button 
               onClick={() => setCurrentWeek(Math.min(weeks.length - 1, currentWeek + 1))}
@@ -77,7 +79,7 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
               }`}
               data-testid={`button-week-${week.weekNumber}`}
             >
-              Semana {week.weekNumber}
+              {t('schedule.week')} {week.weekNumber}
             </button>
           ))}
         </div>
@@ -91,7 +93,7 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
                   {day.day}
                 </h4>
                 <span className="text-sm text-muted-foreground" data-testid={`day-total-${dayIndex}`}>
-                  {Math.floor(day.totalMinutes / 60)}h {day.totalMinutes % 60}min planejados
+                  {Math.floor(day.totalMinutes / 60)}h {day.totalMinutes % 60}min {t('dashboard.plannedTime')}
                 </span>
               </div>
               {day.slots.length > 0 ? (
@@ -119,7 +121,7 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
                 </div>
               ) : (
                 <div className="text-center py-4" data-testid={`day-empty-${dayIndex}`}>
-                  <p className="text-sm text-muted-foreground">Nenhum estudo planejado</p>
+                  <p className="text-sm text-muted-foreground">{t('schedule.noStudy')}</p>
                 </div>
               )}
             </div>
