@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Programınızı yönetin ve ilerlemeyi takip edin",
+  
+  "nav.dashboard": "Kontrol Paneli",
+  "nav.subjects": "Dersler",
+  "nav.settings": "Ayarlar",
+  
+  "dashboard.currentCycle": "Mevcut Çalışma Döngüsü",
+  "dashboard.newCycle": "Yeni Döngü",
+  "dashboard.totalWeeks": "Toplam Hafta",
+  "dashboard.subjects": "Dersler",
+  "dashboard.dailyHours": "Günlük Saatler",
+  "dashboard.progress": "İlerleme",
+  "dashboard.plannedTime": "planlandı",
+  
+  "schedule.title": "Haftalık Program",
+  "schedule.week": "Hafta",
+  "schedule.empty": "Programı otomatik olarak oluşturmak için dersler ekleyin",
+  "schedule.noStudy": "Planlanmış çalışma yok",
+  
+  "actions.title": "Hızlı İşlemler",
+  "actions.addSubject": "Ders Ekle",
+  "actions.configureSchedule": "Program Yapılandır",
+  "actions.exportSchedule": "Program Dışa Aktar",
+  
+  "settings.title": "Mevcut Ayarlar",
+  "settings.wakeTime": "Uyanma Saati",
+  "settings.sleepTime": "Uyku Saati",
+  "settings.dailyStudyTime": "Günlük Çalışma Süresi",
+  "settings.totalCycleTime": "Toplam Döngü Süresi",
+  "settings.edit": "Ayarları Düzenle",
+  
+  "subjects.title": "Dersler",
+  "subjects.count": "ders",
+  "subjects.countPlural": "ders",
+  "subjects.empty": "Henüz ders eklenmedi",
+  "subjects.add": "Yeni Ders Ekle",
+  "subjects.name": "Ders Adı",
+  "subjects.hours": "Saatler",
+  "subjects.minutes": "Dakikalar",
+  "subjects.nameExample": "Örnek: Matematik",
+  
+  "modal.cancel": "İptal",
+  "modal.add": "Ekle",
+  "modal.adding": "Ekleniyor...",
+  
+  "toast.subjectAdded": "Ders eklendi",
+  "toast.subjectAddedDesc": "Ders başarıyla eklendi.",
+  "toast.error": "Hata",
+  "toast.subjectError": "Ders eklenemedi.",
+  "toast.noScheduleExport": "Dışa aktarılacak program yok",
+  "toast.noScheduleExportDesc": "Program oluşturmak için dersler ekleyin.",
+  "toast.featureInDev": "Özellik geliştiriliyor",
+  "toast.newCycleInDev": "Yeni döngü oluşturma yakında uygulanacak.",
+  "toast.configureInDev": "Program yapılandırması yakında uygulanacak.",
+  "toast.exportInDev": "Program dışa aktarımı yakında uygulanacak.",
+  "toast.editInDev": "Ayar düzenleme yakında uygulanacak.",
+  
+  "days.monday": "Pazartesi",
+  "days.tuesday": "Salı",
+  "days.wednesday": "Çarşamba",
+  "days.thursday": "Perşembe",
+  "days.friday": "Cuma",
+  "days.saturday": "Cumartesi",
+  "days.sunday": "Pazar",
+  
+  "language.select": "Dil seçin",
+  "language.current": "Mevcut dil"
+}

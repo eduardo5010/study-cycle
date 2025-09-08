@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Hantera ditt schema och spåra framsteg",
+  
+  "nav.dashboard": "Instrumentpanel",
+  "nav.subjects": "Ämnen",
+  "nav.settings": "Inställningar",
+  
+  "dashboard.currentCycle": "Aktuell studiecykel",
+  "dashboard.newCycle": "Ny cykel",
+  "dashboard.totalWeeks": "Totalt antal veckor",
+  "dashboard.subjects": "Ämnen",
+  "dashboard.dailyHours": "Dagliga timmar",
+  "dashboard.progress": "Framsteg",
+  "dashboard.plannedTime": "planerat",
+  
+  "schedule.title": "Veckoschema",
+  "schedule.week": "Vecka",
+  "schedule.empty": "Lägg till ämnen för att automatiskt generera schemat",
+  "schedule.noStudy": "Ingen studie planerad",
+  
+  "actions.title": "Snabbåtgärder",
+  "actions.addSubject": "Lägg till ämne",
+  "actions.configureSchedule": "Konfigurera schema",
+  "actions.exportSchedule": "Exportera schema",
+  
+  "settings.title": "Nuvarande inställningar",
+  "settings.wakeTime": "Uppvakningstid",
+  "settings.sleepTime": "Sovtid",
+  "settings.dailyStudyTime": "Daglig studietid",
+  "settings.totalCycleTime": "Total cykeltid",
+  "settings.edit": "Redigera inställningar",
+  
+  "subjects.title": "Ämnen",
+  "subjects.count": "ämne",
+  "subjects.countPlural": "ämnen",
+  "subjects.empty": "Inga ämnen tillagda ännu",
+  "subjects.add": "Lägg till nytt ämne",
+  "subjects.name": "Ämnesnamn",
+  "subjects.hours": "Timmar",
+  "subjects.minutes": "Minuter",
+  "subjects.nameExample": "T.ex.: Matematik",
+  
+  "modal.cancel": "Avbryt",
+  "modal.add": "Lägg till",
+  "modal.adding": "Lägger till...",
+  
+  "toast.subjectAdded": "Ämne tillagt",
+  "toast.subjectAddedDesc": "Ämnet lades till framgångsrikt.",
+  "toast.error": "Fel",
+  "toast.subjectError": "Kunde inte lägga till ämnet.",
+  "toast.noScheduleExport": "Inget schema att exportera",
+  "toast.noScheduleExportDesc": "Lägg till ämnen för att generera ett schema.",
+  "toast.featureInDev": "Funktion under utveckling",
+  "toast.newCycleInDev": "Skapande av nya cykler kommer snart att implementeras.",
+  "toast.configureInDev": "Schemakonfiguration kommer snart att implementeras.",
+  "toast.exportInDev": "Schemaexport kommer snart att implementeras.",
+  "toast.editInDev": "Redigering av inställningar kommer snart att implementeras.",
+  
+  "days.monday": "Måndag",
+  "days.tuesday": "Tisdag",
+  "days.wednesday": "Onsdag",
+  "days.thursday": "Torsdag",
+  "days.friday": "Fredag",
+  "days.saturday": "Lördag",
+  "days.sunday": "Söndag",
+  
+  "language.select": "Välj språk",
+  "language.current": "Nuvarande språk"
+}

@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Hallitse aikatauluasi ja seuraa edistymistä",
+  
+  "nav.dashboard": "Kojelauta",
+  "nav.subjects": "Aineet",
+  "nav.settings": "Asetukset",
+  
+  "dashboard.currentCycle": "Nykyinen opiskelusykli",
+  "dashboard.newCycle": "Uusi sykli",
+  "dashboard.totalWeeks": "Viikkojen kokonaismäärä",
+  "dashboard.subjects": "Aineet",
+  "dashboard.dailyHours": "Päivittäiset tunnit",
+  "dashboard.progress": "Edistyminen",
+  "dashboard.plannedTime": "suunniteltu",
+  
+  "schedule.title": "Viikkoaikataulu",
+  "schedule.week": "Viikko",
+  "schedule.empty": "Lisää aineita luodaksesi aikataulun automaattisesti",
+  "schedule.noStudy": "Ei suunniteltuja opintoja",
+  
+  "actions.title": "Pikatoiminnot",
+  "actions.addSubject": "Lisää aine",
+  "actions.configureSchedule": "Määritä aikataulu",
+  "actions.exportSchedule": "Vie aikataulu",
+  
+  "settings.title": "Nykyiset asetukset",
+  "settings.wakeTime": "Heräämisaika",
+  "settings.sleepTime": "Nukkumaanmenoaika",
+  "settings.dailyStudyTime": "Päivittäinen opiskeluaika",
+  "settings.totalCycleTime": "Syklin kokonaisaika",
+  "settings.edit": "Muokkaa asetuksia",
+  
+  "subjects.title": "Aineet",
+  "subjects.count": "aine",
+  "subjects.countPlural": "ainetta",
+  "subjects.empty": "Aineita ei ole vielä lisätty",
+  "subjects.add": "Lisää uusi aine",
+  "subjects.name": "Aineen nimi",
+  "subjects.hours": "Tunnit",
+  "subjects.minutes": "Minuutit",
+  "subjects.nameExample": "Esim.: Matematiikka",
+  
+  "modal.cancel": "Peruuta",
+  "modal.add": "Lisää",
+  "modal.adding": "Lisätään...",
+  
+  "toast.subjectAdded": "Aine lisätty",
+  "toast.subjectAddedDesc": "Aine lisättiin onnistuneesti.",
+  "toast.error": "Virhe",
+  "toast.subjectError": "Aineen lisääminen epäonnistui.",
+  "toast.noScheduleExport": "Ei aikataulua vietäväksi",
+  "toast.noScheduleExportDesc": "Lisää aineita luodaksesi aikataulun.",
+  "toast.featureInDev": "Toiminto kehitteillä",
+  "toast.newCycleInDev": "Uusien syklien luominen toteutetaan pian.",
+  "toast.configureInDev": "Aikataulun määritys toteutetaan pian.",
+  "toast.exportInDev": "Aikataulun vienti toteutetaan pian.",
+  "toast.editInDev": "Asetusten muokkaus toteutetaan pian.",
+  
+  "days.monday": "Maanantai",
+  "days.tuesday": "Tiistai",
+  "days.wednesday": "Keskiviikko",
+  "days.thursday": "Torstai",
+  "days.friday": "Perjantai",
+  "days.saturday": "Lauantai",
+  "days.sunday": "Sunnuntai",
+  
+  "language.select": "Valitse kieli",
+  "language.current": "Nykyinen kieli"
+}

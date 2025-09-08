@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Administrer dit skema og spor fremskridt",
+  
+  "nav.dashboard": "Dashboard",
+  "nav.subjects": "Fag",
+  "nav.settings": "Indstillinger",
+  
+  "dashboard.currentCycle": "Nuværende studiecyklus",
+  "dashboard.newCycle": "Ny cyklus",
+  "dashboard.totalWeeks": "Samlet antal uger",
+  "dashboard.subjects": "Fag",
+  "dashboard.dailyHours": "Daglige timer",
+  "dashboard.progress": "Fremgang",
+  "dashboard.plannedTime": "planlagt",
+  
+  "schedule.title": "Ugeskema",
+  "schedule.week": "Uge",
+  "schedule.empty": "Tilføj fag for automatisk at generere skemaet",
+  "schedule.noStudy": "Ingen studier planlagt",
+  
+  "actions.title": "Hurtige handlinger",
+  "actions.addSubject": "Tilføj fag",
+  "actions.configureSchedule": "Konfigurer skema",
+  "actions.exportSchedule": "Eksporter skema",
+  
+  "settings.title": "Nuværende indstillinger",
+  "settings.wakeTime": "Opvågningstid",
+  "settings.sleepTime": "Sengetid",
+  "settings.dailyStudyTime": "Daglig studietid",
+  "settings.totalCycleTime": "Samlet cyklustid",
+  "settings.edit": "Rediger indstillinger",
+  
+  "subjects.title": "Fag",
+  "subjects.count": "fag",
+  "subjects.countPlural": "fag",
+  "subjects.empty": "Ingen fag tilføjet endnu",
+  "subjects.add": "Tilføj nyt fag",
+  "subjects.name": "Fagnavn",
+  "subjects.hours": "Timer",
+  "subjects.minutes": "Minutter",
+  "subjects.nameExample": "F.eks.: Matematik",
+  
+  "modal.cancel": "Annuller",
+  "modal.add": "Tilføj",
+  "modal.adding": "Tilføjer...",
+  
+  "toast.subjectAdded": "Fag tilføjet",
+  "toast.subjectAddedDesc": "Faget blev tilføjet med succes.",
+  "toast.error": "Fejl",
+  "toast.subjectError": "Kunne ikke tilføje faget.",
+  "toast.noScheduleExport": "Intet skema at eksportere",
+  "toast.noScheduleExportDesc": "Tilføj fag for at generere et skema.",
+  "toast.featureInDev": "Funktion under udvikling",
+  "toast.newCycleInDev": "Oprettelse af nye cyklusser vil snart blive implementeret.",
+  "toast.configureInDev": "Skemakonfiguration vil snart blive implementeret.",
+  "toast.exportInDev": "Skemaeksport vil snart blive implementeret.",
+  "toast.editInDev": "Redigering af indstillinger vil snart blive implementeret.",
+  
+  "days.monday": "Mandag",
+  "days.tuesday": "Tirsdag",
+  "days.wednesday": "Onsdag",
+  "days.thursday": "Torsdag",
+  "days.friday": "Fredag",
+  "days.saturday": "Lørdag",
+  "days.sunday": "Søndag",
+  
+  "language.select": "Vælg sprog",
+  "language.current": "Nuværende sprog"
+}

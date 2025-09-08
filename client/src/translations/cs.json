@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Spravujte svůj rozvrh a sledujte pokrok",
+  
+  "nav.dashboard": "Nástěnka",
+  "nav.subjects": "Předměty",
+  "nav.settings": "Nastavení",
+  
+  "dashboard.currentCycle": "Aktuální studijní cyklus",
+  "dashboard.newCycle": "Nový cyklus",
+  "dashboard.totalWeeks": "Celkový počet týdnů",
+  "dashboard.subjects": "Předměty",
+  "dashboard.dailyHours": "Denní hodiny",
+  "dashboard.progress": "Pokrok",
+  "dashboard.plannedTime": "naplánováno",
+  
+  "schedule.title": "Týdenní rozvrh",
+  "schedule.week": "Týden",
+  "schedule.empty": "Přidejte předměty pro automatické vygenerování rozvrhu",
+  "schedule.noStudy": "Žádné studium naplánováno",
+  
+  "actions.title": "Rychlé akce",
+  "actions.addSubject": "Přidat předmět",
+  "actions.configureSchedule": "Konfigurovat rozvrh",
+  "actions.exportSchedule": "Exportovat rozvrh",
+  
+  "settings.title": "Aktuální nastavení",
+  "settings.wakeTime": "Čas buzení",
+  "settings.sleepTime": "Čas spánku",
+  "settings.dailyStudyTime": "Denní doba studia",
+  "settings.totalCycleTime": "Celkový čas cyklu",
+  "settings.edit": "Upravit nastavení",
+  
+  "subjects.title": "Předměty",
+  "subjects.count": "předmět",
+  "subjects.countPlural": "předmětů",
+  "subjects.empty": "Zatím nebyly přidány žádné předměty",
+  "subjects.add": "Přidat nový předmět",
+  "subjects.name": "Název předmětu",
+  "subjects.hours": "Hodiny",
+  "subjects.minutes": "Minuty",
+  "subjects.nameExample": "Např.: Matematika",
+  
+  "modal.cancel": "Zrušit",
+  "modal.add": "Přidat",
+  "modal.adding": "Přidávání...",
+  
+  "toast.subjectAdded": "Předmět přidán",
+  "toast.subjectAddedDesc": "Předmět byl úspěšně přidán.",
+  "toast.error": "Chyba",
+  "toast.subjectError": "Nepodařilo se přidat předmět.",
+  "toast.noScheduleExport": "Žádný rozvrh k exportu",
+  "toast.noScheduleExportDesc": "Přidejte předměty pro vygenerování rozvrhu.",
+  "toast.featureInDev": "Funkce ve vývoji",
+  "toast.newCycleInDev": "Vytváření nových cyklů bude brzy implementováno.",
+  "toast.configureInDev": "Konfigurace rozvrhu bude brzy implementována.",
+  "toast.exportInDev": "Export rozvrhu bude brzy implementován.",
+  "toast.editInDev": "Úprava nastavení bude brzy implementována.",
+  
+  "days.monday": "Pondělí",
+  "days.tuesday": "Úterý",
+  "days.wednesday": "Středa",
+  "days.thursday": "Čtvrtek",
+  "days.friday": "Pátek",
+  "days.saturday": "Sobota",
+  "days.sunday": "Neděle",
+  
+  "language.select": "Vybrat jazyk",
+  "language.current": "Aktuální jazyk"
+}

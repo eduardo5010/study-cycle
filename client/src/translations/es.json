@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Gestiona tu horario y sigue el progreso",
+  
+  "nav.dashboard": "Panel",
+  "nav.subjects": "Materias",
+  "nav.settings": "Configuración",
+  
+  "dashboard.currentCycle": "Ciclo de Estudio Actual",
+  "dashboard.newCycle": "Nuevo Ciclo",
+  "dashboard.totalWeeks": "Total de Semanas",
+  "dashboard.subjects": "Materias",
+  "dashboard.dailyHours": "Horas Diarias",
+  "dashboard.progress": "Progreso",
+  "dashboard.plannedTime": "planificado",
+  
+  "schedule.title": "Horario Semanal",
+  "schedule.week": "Semana",
+  "schedule.empty": "Añade materias para generar automáticamente el horario",
+  "schedule.noStudy": "Ningún estudio planificado",
+  
+  "actions.title": "Acciones Rápidas",
+  "actions.addSubject": "Añadir Materia",
+  "actions.configureSchedule": "Configurar Horario",
+  "actions.exportSchedule": "Exportar Horario",
+  
+  "settings.title": "Configuración Actual",
+  "settings.wakeTime": "Hora de Despertar",
+  "settings.sleepTime": "Hora de Dormir",
+  "settings.dailyStudyTime": "Tiempo Diario de Estudio",
+  "settings.totalCycleTime": "Tiempo Total del Ciclo",
+  "settings.edit": "Editar Configuración",
+  
+  "subjects.title": "Materias",
+  "subjects.count": "materia",
+  "subjects.countPlural": "materias",
+  "subjects.empty": "Ninguna materia añadida aún",
+  "subjects.add": "Añadir Nueva Materia",
+  "subjects.name": "Nombre de la Materia",
+  "subjects.hours": "Horas",
+  "subjects.minutes": "Minutos",
+  "subjects.nameExample": "Ej: Matemáticas",
+  
+  "modal.cancel": "Cancelar",
+  "modal.add": "Añadir",
+  "modal.adding": "Añadiendo...",
+  
+  "toast.subjectAdded": "Materia añadida",
+  "toast.subjectAddedDesc": "La materia se añadió con éxito.",
+  "toast.error": "Error",
+  "toast.subjectError": "No se pudo añadir la materia.",
+  "toast.noScheduleExport": "No hay horario para exportar",
+  "toast.noScheduleExportDesc": "Añade materias para generar un horario.",
+  "toast.featureInDev": "Funcionalidad en desarrollo",
+  "toast.newCycleInDev": "La creación de nuevos ciclos se implementará pronto.",
+  "toast.configureInDev": "La configuración de horarios se implementará pronto.",
+  "toast.exportInDev": "La exportación de horarios se implementará pronto.",
+  "toast.editInDev": "La edición de configuración se implementará pronto.",
+  
+  "days.monday": "Lunes",
+  "days.tuesday": "Martes",
+  "days.wednesday": "Miércoles",
+  "days.thursday": "Jueves",
+  "days.friday": "Viernes",
+  "days.saturday": "Sábado",
+  "days.sunday": "Domingo",
+  
+  "language.select": "Seleccionar idioma",
+  "language.current": "Idioma actual"
+}

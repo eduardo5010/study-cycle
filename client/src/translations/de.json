@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Verwalten Sie Ihren Zeitplan und verfolgen Sie den Fortschritt",
+  
+  "nav.dashboard": "Dashboard",
+  "nav.subjects": "Fächer",
+  "nav.settings": "Einstellungen",
+  
+  "dashboard.currentCycle": "Aktueller Lernzyklus",
+  "dashboard.newCycle": "Neuer Zyklus",
+  "dashboard.totalWeeks": "Gesamtwochen",
+  "dashboard.subjects": "Fächer",
+  "dashboard.dailyHours": "Tägliche Stunden",
+  "dashboard.progress": "Fortschritt",
+  "dashboard.plannedTime": "geplant",
+  
+  "schedule.title": "Wochenplan",
+  "schedule.week": "Woche",
+  "schedule.empty": "Fügen Sie Fächer hinzu, um automatisch den Zeitplan zu generieren",
+  "schedule.noStudy": "Kein Lernen geplant",
+  
+  "actions.title": "Schnelle Aktionen",
+  "actions.addSubject": "Fach hinzufügen",
+  "actions.configureSchedule": "Zeitplan konfigurieren",
+  "actions.exportSchedule": "Zeitplan exportieren",
+  
+  "settings.title": "Aktuelle Einstellungen",
+  "settings.wakeTime": "Aufwachzeit",
+  "settings.sleepTime": "Schlafenszeit",
+  "settings.dailyStudyTime": "Tägliche Lernzeit",
+  "settings.totalCycleTime": "Gesamtzykluszeit",
+  "settings.edit": "Einstellungen bearbeiten",
+  
+  "subjects.title": "Fächer",
+  "subjects.count": "Fach",
+  "subjects.countPlural": "Fächer",
+  "subjects.empty": "Noch keine Fächer hinzugefügt",
+  "subjects.add": "Neues Fach hinzufügen",
+  "subjects.name": "Fachname",
+  "subjects.hours": "Stunden",
+  "subjects.minutes": "Minuten",
+  "subjects.nameExample": "z.B.: Mathematik",
+  
+  "modal.cancel": "Abbrechen",
+  "modal.add": "Hinzufügen",
+  "modal.adding": "Hinzufügen...",
+  
+  "toast.subjectAdded": "Fach hinzugefügt",
+  "toast.subjectAddedDesc": "Das Fach wurde erfolgreich hinzugefügt.",
+  "toast.error": "Fehler",
+  "toast.subjectError": "Das Fach konnte nicht hinzugefügt werden.",
+  "toast.noScheduleExport": "Kein Zeitplan zum Exportieren",
+  "toast.noScheduleExportDesc": "Fügen Sie Fächer hinzu, um einen Zeitplan zu generieren.",
+  "toast.featureInDev": "Funktion in Entwicklung",
+  "toast.newCycleInDev": "Die Erstellung neuer Zyklen wird bald implementiert.",
+  "toast.configureInDev": "Die Zeitplankonfiguration wird bald implementiert.",
+  "toast.exportInDev": "Der Zeitplanexport wird bald implementiert.",
+  "toast.editInDev": "Die Bearbeitung von Einstellungen wird bald implementiert.",
+  
+  "days.monday": "Montag",
+  "days.tuesday": "Dienstag",
+  "days.wednesday": "Mittwoch",
+  "days.thursday": "Donnerstag",
+  "days.friday": "Freitag",
+  "days.saturday": "Samstag",
+  "days.sunday": "Sonntag",
+  
+  "language.select": "Sprache auswählen",
+  "language.current": "Aktuelle Sprache"
+}

@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "管理您的时间表并跟踪进度",
+  
+  "nav.dashboard": "仪表板",
+  "nav.subjects": "科目",
+  "nav.settings": "设置",
+  
+  "dashboard.currentCycle": "当前学习周期",
+  "dashboard.newCycle": "新周期",
+  "dashboard.totalWeeks": "总周数",
+  "dashboard.subjects": "科目",
+  "dashboard.dailyHours": "每日小时",
+  "dashboard.progress": "进度",
+  "dashboard.plannedTime": "计划",
+  
+  "schedule.title": "每周时间表",
+  "schedule.week": "周",
+  "schedule.empty": "添加科目以自动生成时间表",
+  "schedule.noStudy": "没有计划学习",
+  
+  "actions.title": "快速操作",
+  "actions.addSubject": "添加科目",
+  "actions.configureSchedule": "配置时间表",
+  "actions.exportSchedule": "导出时间表",
+  
+  "settings.title": "当前设置",
+  "settings.wakeTime": "起床时间",
+  "settings.sleepTime": "睡觉时间",
+  "settings.dailyStudyTime": "每日学习时间",
+  "settings.totalCycleTime": "总周期时间",
+  "settings.edit": "编辑设置",
+  
+  "subjects.title": "科目",
+  "subjects.count": "个科目",
+  "subjects.countPlural": "个科目",
+  "subjects.empty": "尚未添加科目",
+  "subjects.add": "添加新科目",
+  "subjects.name": "科目名称",
+  "subjects.hours": "小时",
+  "subjects.minutes": "分钟",
+  "subjects.nameExample": "例如：数学",
+  
+  "modal.cancel": "取消",
+  "modal.add": "添加",
+  "modal.adding": "添加中...",
+  
+  "toast.subjectAdded": "科目已添加",
+  "toast.subjectAddedDesc": "科目已成功添加。",
+  "toast.error": "错误",
+  "toast.subjectError": "无法添加科目。",
+  "toast.noScheduleExport": "没有时间表可导出",
+  "toast.noScheduleExportDesc": "添加科目以生成时间表。",
+  "toast.featureInDev": "功能开发中",
+  "toast.newCycleInDev": "创建新周期功能即将实现。",
+  "toast.configureInDev": "时间表配置功能即将实现。",
+  "toast.exportInDev": "时间表导出功能即将实现。",
+  "toast.editInDev": "设置编辑功能即将实现。",
+  
+  "days.monday": "星期一",
+  "days.tuesday": "星期二",
+  "days.wednesday": "星期三",
+  "days.thursday": "星期四",
+  "days.friday": "星期五",
+  "days.saturday": "星期六",
+  "days.sunday": "星期日",
+  
+  "language.select": "选择语言",
+  "language.current": "当前语言"
+}

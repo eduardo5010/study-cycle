@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Manage your schedule and track progress",
+  
+  "nav.dashboard": "Dashboard",
+  "nav.subjects": "Subjects",
+  "nav.settings": "Settings",
+  
+  "dashboard.currentCycle": "Current Study Cycle",
+  "dashboard.newCycle": "New Cycle",
+  "dashboard.totalWeeks": "Total Weeks",
+  "dashboard.subjects": "Subjects",
+  "dashboard.dailyHours": "Daily Hours",
+  "dashboard.progress": "Progress",
+  "dashboard.plannedTime": "planned",
+  
+  "schedule.title": "Weekly Schedule",
+  "schedule.week": "Week",
+  "schedule.empty": "Add subjects to automatically generate the schedule",
+  "schedule.noStudy": "No study planned",
+  
+  "actions.title": "Quick Actions",
+  "actions.addSubject": "Add Subject",
+  "actions.configureSchedule": "Configure Schedule",
+  "actions.exportSchedule": "Export Schedule",
+  
+  "settings.title": "Current Settings",
+  "settings.wakeTime": "Wake Time",
+  "settings.sleepTime": "Sleep Time",
+  "settings.dailyStudyTime": "Daily Study Time",
+  "settings.totalCycleTime": "Total Cycle Time",
+  "settings.edit": "Edit Settings",
+  
+  "subjects.title": "Subjects",
+  "subjects.count": "subject",
+  "subjects.countPlural": "subjects",
+  "subjects.empty": "No subjects added yet",
+  "subjects.add": "Add New Subject",
+  "subjects.name": "Subject Name",
+  "subjects.hours": "Hours",
+  "subjects.minutes": "Minutes",
+  "subjects.nameExample": "Ex: Mathematics",
+  
+  "modal.cancel": "Cancel",
+  "modal.add": "Add",
+  "modal.adding": "Adding...",
+  
+  "toast.subjectAdded": "Subject added",
+  "toast.subjectAddedDesc": "The subject was added successfully.",
+  "toast.error": "Error",
+  "toast.subjectError": "Could not add the subject.",
+  "toast.noScheduleExport": "No schedule to export",
+  "toast.noScheduleExportDesc": "Add subjects to generate a schedule.",
+  "toast.featureInDev": "Feature in development",
+  "toast.newCycleInDev": "Creating new cycles will be implemented soon.",
+  "toast.configureInDev": "Schedule configuration will be implemented soon.",
+  "toast.exportInDev": "Schedule export will be implemented soon.",
+  "toast.editInDev": "Settings editing will be implemented soon.",
+  
+  "days.monday": "Monday",
+  "days.tuesday": "Tuesday",
+  "days.wednesday": "Wednesday",
+  "days.thursday": "Thursday",
+  "days.friday": "Friday",
+  "days.saturday": "Saturday",
+  "days.sunday": "Sunday",
+  
+  "language.select": "Select language",
+  "language.current": "Current language"
+}

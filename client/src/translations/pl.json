@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Zarządzaj harmonogramem i śledź postępy",
+  
+  "nav.dashboard": "Panel główny",
+  "nav.subjects": "Przedmioty",
+  "nav.settings": "Ustawienia",
+  
+  "dashboard.currentCycle": "Aktualny cykl nauki",
+  "dashboard.newCycle": "Nowy cykl",
+  "dashboard.totalWeeks": "Łączna liczba tygodni",
+  "dashboard.subjects": "Przedmioty",
+  "dashboard.dailyHours": "Godziny dzienne",
+  "dashboard.progress": "Postęp",
+  "dashboard.plannedTime": "zaplanowane",
+  
+  "schedule.title": "Harmonogram tygodniowy",
+  "schedule.week": "Tydzień",
+  "schedule.empty": "Dodaj przedmioty, aby automatycznie wygenerować harmonogram",
+  "schedule.noStudy": "Brak zaplanowanej nauki",
+  
+  "actions.title": "Szybkie działania",
+  "actions.addSubject": "Dodaj przedmiot",
+  "actions.configureSchedule": "Konfiguruj harmonogram",
+  "actions.exportSchedule": "Eksportuj harmonogram",
+  
+  "settings.title": "Aktualne ustawienia",
+  "settings.wakeTime": "Czas budzenia",
+  "settings.sleepTime": "Czas snu",
+  "settings.dailyStudyTime": "Dzienny czas nauki",
+  "settings.totalCycleTime": "Łączny czas cyklu",
+  "settings.edit": "Edytuj ustawienia",
+  
+  "subjects.title": "Przedmioty",
+  "subjects.count": "przedmiot",
+  "subjects.countPlural": "przedmiotów",
+  "subjects.empty": "Nie dodano jeszcze żadnych przedmiotów",
+  "subjects.add": "Dodaj nowy przedmiot",
+  "subjects.name": "Nazwa przedmiotu",
+  "subjects.hours": "Godziny",
+  "subjects.minutes": "Minuty",
+  "subjects.nameExample": "Np.: Matematyka",
+  
+  "modal.cancel": "Anuluj",
+  "modal.add": "Dodaj",
+  "modal.adding": "Dodawanie...",
+  
+  "toast.subjectAdded": "Przedmiot dodany",
+  "toast.subjectAddedDesc": "Przedmiot został pomyślnie dodany.",
+  "toast.error": "Błąd",
+  "toast.subjectError": "Nie można dodać przedmiotu.",
+  "toast.noScheduleExport": "Brak harmonogramu do eksportu",
+  "toast.noScheduleExportDesc": "Dodaj przedmioty, aby wygenerować harmonogram.",
+  "toast.featureInDev": "Funkcja w opracowaniu",
+  "toast.newCycleInDev": "Tworzenie nowych cykli zostanie wkrótce zaimplementowane.",
+  "toast.configureInDev": "Konfiguracja harmonogramu zostanie wkrótce zaimplementowana.",
+  "toast.exportInDev": "Eksport harmonogramu zostanie wkrótce zaimplementowany.",
+  "toast.editInDev": "Edycja ustawień zostanie wkrótce zaimplementowana.",
+  
+  "days.monday": "Poniedziałek",
+  "days.tuesday": "Wtorek",
+  "days.wednesday": "Środa",
+  "days.thursday": "Czwartek",
+  "days.friday": "Piątek",
+  "days.saturday": "Sobota",
+  "days.sunday": "Niedziela",
+  
+  "language.select": "Wybierz język",
+  "language.current": "Aktualny język"
+}

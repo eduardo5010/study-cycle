@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Управляйте расписанием и отслеживайте прогресс",
+  
+  "nav.dashboard": "Панель управления",
+  "nav.subjects": "Предметы",
+  "nav.settings": "Настройки",
+  
+  "dashboard.currentCycle": "Текущий учебный цикл",
+  "dashboard.newCycle": "Новый цикл",
+  "dashboard.totalWeeks": "Всего недель",
+  "dashboard.subjects": "Предметы",
+  "dashboard.dailyHours": "Часов в день",
+  "dashboard.progress": "Прогресс",
+  "dashboard.plannedTime": "запланировано",
+  
+  "schedule.title": "Недельное расписание",
+  "schedule.week": "Неделя",
+  "schedule.empty": "Добавьте предметы для автоматического создания расписания",
+  "schedule.noStudy": "Учеба не запланирована",
+  
+  "actions.title": "Быстрые действия",
+  "actions.addSubject": "Добавить предмет",
+  "actions.configureSchedule": "Настроить расписание",
+  "actions.exportSchedule": "Экспорт расписания",
+  
+  "settings.title": "Текущие настройки",
+  "settings.wakeTime": "Время подъема",
+  "settings.sleepTime": "Время сна",
+  "settings.dailyStudyTime": "Ежедневное время учебы",
+  "settings.totalCycleTime": "Общее время цикла",
+  "settings.edit": "Изменить настройки",
+  
+  "subjects.title": "Предметы",
+  "subjects.count": "предмет",
+  "subjects.countPlural": "предметов",
+  "subjects.empty": "Предметы еще не добавлены",
+  "subjects.add": "Добавить новый предмет",
+  "subjects.name": "Название предмета",
+  "subjects.hours": "Часы",
+  "subjects.minutes": "Минуты",
+  "subjects.nameExample": "Например: Математика",
+  
+  "modal.cancel": "Отмена",
+  "modal.add": "Добавить",
+  "modal.adding": "Добавление...",
+  
+  "toast.subjectAdded": "Предмет добавлен",
+  "toast.subjectAddedDesc": "Предмет был успешно добавлен.",
+  "toast.error": "Ошибка",
+  "toast.subjectError": "Не удалось добавить предмет.",
+  "toast.noScheduleExport": "Нет расписания для экспорта",
+  "toast.noScheduleExportDesc": "Добавьте предметы для создания расписания.",
+  "toast.featureInDev": "Функция в разработке",
+  "toast.newCycleInDev": "Создание новых циклов будет реализовано в ближайшее время.",
+  "toast.configureInDev": "Настройка расписания будет реализована в ближайшее время.",
+  "toast.exportInDev": "Экспорт расписания будет реализован в ближайшее время.",
+  "toast.editInDev": "Редактирование настроек будет реализовано в ближайшее время.",
+  
+  "days.monday": "Понедельник",
+  "days.tuesday": "Вторник",
+  "days.wednesday": "Среда",
+  "days.thursday": "Четверг",
+  "days.friday": "Пятница",
+  "days.saturday": "Суббота",
+  "days.sunday": "Воскресенье",
+  
+  "language.select": "Выбрать язык",
+  "language.current": "Текущий язык"
+}

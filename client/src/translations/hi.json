@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "अपने शेड्यूल का प्रबंधन करें और प्रगति ट्रैक करें",
+  
+  "nav.dashboard": "डैशबोर्ड",
+  "nav.subjects": "विषय",
+  "nav.settings": "सेटिंग्स",
+  
+  "dashboard.currentCycle": "वर्तमान अध्ययन चक्र",
+  "dashboard.newCycle": "नया चक्र",
+  "dashboard.totalWeeks": "कुल सप्ताह",
+  "dashboard.subjects": "विषय",
+  "dashboard.dailyHours": "दैनिक घंटे",
+  "dashboard.progress": "प्रगति",
+  "dashboard.plannedTime": "नियोजित",
+  
+  "schedule.title": "साप्ताहिक कार्यक्रम",
+  "schedule.week": "सप्ताह",
+  "schedule.empty": "शेड्यूल स्वचालित रूप से बनाने के लिए विषय जोड़ें",
+  "schedule.noStudy": "कोई अध्ययन नियोजित नहीं",
+  
+  "actions.title": "त्वरित कार्य",
+  "actions.addSubject": "विषय जोड़ें",
+  "actions.configureSchedule": "शेड्यूल कॉन्फ़िगर करें",
+  "actions.exportSchedule": "शेड्यूल निर्यात करें",
+  
+  "settings.title": "वर्तमान सेटिंग्स",
+  "settings.wakeTime": "जागने का समय",
+  "settings.sleepTime": "सोने का समय",
+  "settings.dailyStudyTime": "दैनिक अध्ययन समय",
+  "settings.totalCycleTime": "कुल चक्र समय",
+  "settings.edit": "सेटिंग्स संपादित करें",
+  
+  "subjects.title": "विषय",
+  "subjects.count": "विषय",
+  "subjects.countPlural": "विषय",
+  "subjects.empty": "अभी तक कोई विषय नहीं जोड़ा गया",
+  "subjects.add": "नया विषय जोड़ें",
+  "subjects.name": "विषय का नाम",
+  "subjects.hours": "घंटे",
+  "subjects.minutes": "मिनट",
+  "subjects.nameExample": "उदाहरण: गणित",
+  
+  "modal.cancel": "रद्द करें",
+  "modal.add": "जोड़ें",
+  "modal.adding": "जोड़ा जा रहा है...",
+  
+  "toast.subjectAdded": "विषय जोड़ा गया",
+  "toast.subjectAddedDesc": "विषय सफलतापूर्वक जोड़ा गया।",
+  "toast.error": "त्रुटि",
+  "toast.subjectError": "विषय जोड़ने में असमर्थ।",
+  "toast.noScheduleExport": "निर्यात करने के लिए कोई शेड्यूल नहीं",
+  "toast.noScheduleExportDesc": "शेड्यूल बनाने के लिए विषय जोड़ें।",
+  "toast.featureInDev": "सुविधा विकास में",
+  "toast.newCycleInDev": "नए चक्र बनाना जल्द ही लागू किया जाएगा।",
+  "toast.configureInDev": "शेड्यूल कॉन्फ़िगरेशन जल्द ही लागू किया जाएगा।",
+  "toast.exportInDev": "शेड्यूल निर्यात जल्द ही लागू किया जाएगा।",
+  "toast.editInDev": "सेटिंग्स संपादन जल्द ही लागू किया जाएगा।",
+  
+  "days.monday": "सोमवार",
+  "days.tuesday": "मंगलवार",
+  "days.wednesday": "बुधवार",
+  "days.thursday": "गुरुवार",
+  "days.friday": "शुक्रवार",
+  "days.saturday": "शनिवार",
+  "days.sunday": "रविवार",
+  
+  "language.select": "भाषा चुनें",
+  "language.current": "वर्तमान भाषा"
+}

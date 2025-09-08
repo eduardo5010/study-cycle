@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "일정을 관리하고 진행 상황을 추적하세요",
+  
+  "nav.dashboard": "대시보드",
+  "nav.subjects": "과목",
+  "nav.settings": "설정",
+  
+  "dashboard.currentCycle": "현재 학습 사이클",
+  "dashboard.newCycle": "새 사이클",
+  "dashboard.totalWeeks": "총 주수",
+  "dashboard.subjects": "과목",
+  "dashboard.dailyHours": "일일 시간",
+  "dashboard.progress": "진행률",
+  "dashboard.plannedTime": "계획",
+  
+  "schedule.title": "주간 일정",
+  "schedule.week": "주",
+  "schedule.empty": "과목을 추가하여 일정을 자동으로 생성하세요",
+  "schedule.noStudy": "학습 계획 없음",
+  
+  "actions.title": "빠른 작업",
+  "actions.addSubject": "과목 추가",
+  "actions.configureSchedule": "일정 구성",
+  "actions.exportSchedule": "일정 내보내기",
+  
+  "settings.title": "현재 설정",
+  "settings.wakeTime": "기상 시간",
+  "settings.sleepTime": "취침 시간",
+  "settings.dailyStudyTime": "일일 학습 시간",
+  "settings.totalCycleTime": "총 사이클 시간",
+  "settings.edit": "설정 편집",
+  
+  "subjects.title": "과목",
+  "subjects.count": "과목",
+  "subjects.countPlural": "과목",
+  "subjects.empty": "아직 추가된 과목이 없습니다",
+  "subjects.add": "새 과목 추가",
+  "subjects.name": "과목명",
+  "subjects.hours": "시간",
+  "subjects.minutes": "분",
+  "subjects.nameExample": "예: 수학",
+  
+  "modal.cancel": "취소",
+  "modal.add": "추가",
+  "modal.adding": "추가 중...",
+  
+  "toast.subjectAdded": "과목이 추가되었습니다",
+  "toast.subjectAddedDesc": "과목이 성공적으로 추가되었습니다.",
+  "toast.error": "오류",
+  "toast.subjectError": "과목을 추가할 수 없습니다.",
+  "toast.noScheduleExport": "내보낼 일정이 없습니다",
+  "toast.noScheduleExportDesc": "일정을 생성하려면 과목을 추가하세요.",
+  "toast.featureInDev": "기능 개발 중",
+  "toast.newCycleInDev": "새 사이클 생성 기능은 곧 구현될 예정입니다.",
+  "toast.configureInDev": "일정 구성 기능은 곧 구현될 예정입니다.",
+  "toast.exportInDev": "일정 내보내기 기능은 곧 구현될 예정입니다.",
+  "toast.editInDev": "설정 편집 기능은 곧 구현될 예정입니다.",
+  
+  "days.monday": "월요일",
+  "days.tuesday": "화요일",
+  "days.wednesday": "수요일",
+  "days.thursday": "목요일",
+  "days.friday": "금요일",
+  "days.saturday": "토요일",
+  "days.sunday": "일요일",
+  
+  "language.select": "언어 선택",
+  "language.current": "현재 언어"
+}

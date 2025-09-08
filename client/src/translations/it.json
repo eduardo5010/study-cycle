@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Gestisci la tua pianificazione e monitora i progressi",
+  
+  "nav.dashboard": "Dashboard",
+  "nav.subjects": "Materie",
+  "nav.settings": "Impostazioni",
+  
+  "dashboard.currentCycle": "Ciclo di Studio Attuale",
+  "dashboard.newCycle": "Nuovo Ciclo",
+  "dashboard.totalWeeks": "Settimane Totali",
+  "dashboard.subjects": "Materie",
+  "dashboard.dailyHours": "Ore Giornaliere",
+  "dashboard.progress": "Progresso",
+  "dashboard.plannedTime": "pianificato",
+  
+  "schedule.title": "Pianificazione Settimanale",
+  "schedule.week": "Settimana",
+  "schedule.empty": "Aggiungi materie per generare automaticamente la pianificazione",
+  "schedule.noStudy": "Nessuno studio pianificato",
+  
+  "actions.title": "Azioni Rapide",
+  "actions.addSubject": "Aggiungi Materia",
+  "actions.configureSchedule": "Configura Pianificazione",
+  "actions.exportSchedule": "Esporta Pianificazione",
+  
+  "settings.title": "Impostazioni Attuali",
+  "settings.wakeTime": "Ora di Risveglio",
+  "settings.sleepTime": "Ora di Sonno",
+  "settings.dailyStudyTime": "Tempo di Studio Giornaliero",
+  "settings.totalCycleTime": "Tempo Totale del Ciclo",
+  "settings.edit": "Modifica Impostazioni",
+  
+  "subjects.title": "Materie",
+  "subjects.count": "materia",
+  "subjects.countPlural": "materie",
+  "subjects.empty": "Nessuna materia aggiunta ancora",
+  "subjects.add": "Aggiungi Nuova Materia",
+  "subjects.name": "Nome della Materia",
+  "subjects.hours": "Ore",
+  "subjects.minutes": "Minuti",
+  "subjects.nameExample": "Es: Matematica",
+  
+  "modal.cancel": "Annulla",
+  "modal.add": "Aggiungi",
+  "modal.adding": "Aggiungendo...",
+  
+  "toast.subjectAdded": "Materia aggiunta",
+  "toast.subjectAddedDesc": "La materia è stata aggiunta con successo.",
+  "toast.error": "Errore",
+  "toast.subjectError": "Impossibile aggiungere la materia.",
+  "toast.noScheduleExport": "Nessuna pianificazione da esportare",
+  "toast.noScheduleExportDesc": "Aggiungi materie per generare una pianificazione.",
+  "toast.featureInDev": "Funzionalità in sviluppo",
+  "toast.newCycleInDev": "La creazione di nuovi cicli sarà implementata presto.",
+  "toast.configureInDev": "La configurazione della pianificazione sarà implementata presto.",
+  "toast.exportInDev": "L'esportazione della pianificazione sarà implementata presto.",
+  "toast.editInDev": "La modifica delle impostazioni sarà implementata presto.",
+  
+  "days.monday": "Lunedì",
+  "days.tuesday": "Martedì",
+  "days.wednesday": "Mercoledì",
+  "days.thursday": "Giovedì",
+  "days.friday": "Venerdì",
+  "days.saturday": "Sabato",
+  "days.sunday": "Domenica",
+  
+  "language.select": "Seleziona lingua",
+  "language.current": "Lingua attuale"
+}

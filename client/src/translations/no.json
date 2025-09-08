@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Administrer timeplanen din og spor fremgang",
+  
+  "nav.dashboard": "Dashbord",
+  "nav.subjects": "Fag",
+  "nav.settings": "Innstillinger",
+  
+  "dashboard.currentCycle": "Gjeldende studiesyklus",
+  "dashboard.newCycle": "Ny syklus",
+  "dashboard.totalWeeks": "Totalt antall uker",
+  "dashboard.subjects": "Fag",
+  "dashboard.dailyHours": "Daglige timer",
+  "dashboard.progress": "Fremgang",
+  "dashboard.plannedTime": "planlagt",
+  
+  "schedule.title": "Ukentlig timeplan",
+  "schedule.week": "Uke",
+  "schedule.empty": "Legg til fag for å automatisk generere timeplanen",
+  "schedule.noStudy": "Ingen studier planlagt",
+  
+  "actions.title": "Raske handlinger",
+  "actions.addSubject": "Legg til fag",
+  "actions.configureSchedule": "Konfigurer timeplan",
+  "actions.exportSchedule": "Eksporter timeplan",
+  
+  "settings.title": "Gjeldende innstillinger",
+  "settings.wakeTime": "Oppvåkningstid",
+  "settings.sleepTime": "Sengetid",
+  "settings.dailyStudyTime": "Daglig studietid",
+  "settings.totalCycleTime": "Total syklustid",
+  "settings.edit": "Rediger innstillinger",
+  
+  "subjects.title": "Fag",
+  "subjects.count": "fag",
+  "subjects.countPlural": "fag",
+  "subjects.empty": "Ingen fag lagt til ennå",
+  "subjects.add": "Legg til nytt fag",
+  "subjects.name": "Fagnavn",
+  "subjects.hours": "Timer",
+  "subjects.minutes": "Minutter",
+  "subjects.nameExample": "F.eks.: Matematikk",
+  
+  "modal.cancel": "Avbryt",
+  "modal.add": "Legg til",
+  "modal.adding": "Legger til...",
+  
+  "toast.subjectAdded": "Fag lagt til",
+  "toast.subjectAddedDesc": "Faget ble lagt til med suksess.",
+  "toast.error": "Feil",
+  "toast.subjectError": "Kunne ikke legge til faget.",
+  "toast.noScheduleExport": "Ingen timeplan å eksportere",
+  "toast.noScheduleExportDesc": "Legg til fag for å generere en timeplan.",
+  "toast.featureInDev": "Funksjon under utvikling",
+  "toast.newCycleInDev": "Oppretting av nye sykluser vil snart bli implementert.",
+  "toast.configureInDev": "Timeplankonfigurasjon vil snart bli implementert.",
+  "toast.exportInDev": "Timeplaneksport vil snart bli implementert.",
+  "toast.editInDev": "Redigering av innstillinger vil snart bli implementert.",
+  
+  "days.monday": "Mandag",
+  "days.tuesday": "Tirsdag",
+  "days.wednesday": "Onsdag",
+  "days.thursday": "Torsdag",
+  "days.friday": "Fredag",
+  "days.saturday": "Lørdag",
+  "days.sunday": "Søndag",
+  
+  "language.select": "Velg språk",
+  "language.current": "Gjeldende språk"
+}

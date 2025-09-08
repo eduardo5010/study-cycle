@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Beheer je schema en volg voortgang",
+  
+  "nav.dashboard": "Dashboard",
+  "nav.subjects": "Vakken",
+  "nav.settings": "Instellingen",
+  
+  "dashboard.currentCycle": "Huidige studiecyclus",
+  "dashboard.newCycle": "Nieuwe cyclus",
+  "dashboard.totalWeeks": "Totaal weken",
+  "dashboard.subjects": "Vakken",
+  "dashboard.dailyHours": "Dagelijkse uren",
+  "dashboard.progress": "Voortgang",
+  "dashboard.plannedTime": "gepland",
+  
+  "schedule.title": "Weekschema",
+  "schedule.week": "Week",
+  "schedule.empty": "Voeg vakken toe om automatisch het schema te genereren",
+  "schedule.noStudy": "Geen studie gepland",
+  
+  "actions.title": "Snelle acties",
+  "actions.addSubject": "Vak toevoegen",
+  "actions.configureSchedule": "Schema configureren",
+  "actions.exportSchedule": "Schema exporteren",
+  
+  "settings.title": "Huidige instellingen",
+  "settings.wakeTime": "Opstaan tijd",
+  "settings.sleepTime": "Slaap tijd",
+  "settings.dailyStudyTime": "Dagelijkse studietijd",
+  "settings.totalCycleTime": "Totale cyclustijd",
+  "settings.edit": "Instellingen bewerken",
+  
+  "subjects.title": "Vakken",
+  "subjects.count": "vak",
+  "subjects.countPlural": "vakken",
+  "subjects.empty": "Nog geen vakken toegevoegd",
+  "subjects.add": "Nieuw vak toevoegen",
+  "subjects.name": "Vaknaam",
+  "subjects.hours": "Uren",
+  "subjects.minutes": "Minuten",
+  "subjects.nameExample": "Bijv.: Wiskunde",
+  
+  "modal.cancel": "Annuleren",
+  "modal.add": "Toevoegen",
+  "modal.adding": "Toevoegen...",
+  
+  "toast.subjectAdded": "Vak toegevoegd",
+  "toast.subjectAddedDesc": "Het vak is succesvol toegevoegd.",
+  "toast.error": "Fout",
+  "toast.subjectError": "Kon het vak niet toevoegen.",
+  "toast.noScheduleExport": "Geen schema om te exporteren",
+  "toast.noScheduleExportDesc": "Voeg vakken toe om een schema te genereren.",
+  "toast.featureInDev": "Functie in ontwikkeling",
+  "toast.newCycleInDev": "Het maken van nieuwe cycli zal binnenkort worden geïmplementeerd.",
+  "toast.configureInDev": "Schema configuratie zal binnenkort worden geïmplementeerd.",
+  "toast.exportInDev": "Schema export zal binnenkort worden geïmplementeerd.",
+  "toast.editInDev": "Instellingen bewerken zal binnenkort worden geïmplementeerd.",
+  
+  "days.monday": "Maandag",
+  "days.tuesday": "Dinsdag",
+  "days.wednesday": "Woensdag",
+  "days.thursday": "Donderdag",
+  "days.friday": "Vrijdag",
+  "days.saturday": "Zaterdag",
+  "days.sunday": "Zondag",
+  
+  "language.select": "Taal selecteren",
+  "language.current": "Huidige taal"
+}

@@ -1,0 +1,70 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "إدارة جدولك الزمني وتتبع التقدم",
+  
+  "nav.dashboard": "لوحة القيادة",
+  "nav.subjects": "المواد",
+  "nav.settings": "الإعدادات",
+  
+  "dashboard.currentCycle": "دورة الدراسة الحالية",
+  "dashboard.newCycle": "دورة جديدة",
+  "dashboard.totalWeeks": "إجمالي الأسابيع",
+  "dashboard.subjects": "المواد",
+  "dashboard.dailyHours": "الساعات اليومية",
+  "dashboard.progress": "التقدم",
+  "dashboard.plannedTime": "مخطط",
+  
+  "schedule.title": "الجدول الأسبوعي",
+  "schedule.week": "أسبوع",
+  "schedule.empty": "أضف مواد لإنشاء الجدول تلقائياً",
+  "schedule.noStudy": "لا توجد دراسة مخططة",
+  
+  "actions.title": "الإجراءات السريعة",
+  "actions.addSubject": "إضافة مادة",
+  "actions.configureSchedule": "تكوين الجدول",
+  "actions.exportSchedule": "تصدير الجدول",
+  
+  "settings.title": "الإعدادات الحالية",
+  "settings.wakeTime": "وقت الاستيقاظ",
+  "settings.sleepTime": "وقت النوم",
+  "settings.dailyStudyTime": "وقت الدراسة اليومي",
+  "settings.totalCycleTime": "إجمالي وقت الدورة",
+  "settings.edit": "تحرير الإعدادات",
+  
+  "subjects.title": "المواد",
+  "subjects.count": "مادة",
+  "subjects.countPlural": "مواد",
+  "subjects.empty": "لم يتم إضافة أي مواد بعد",
+  "subjects.add": "إضافة مادة جديدة",
+  "subjects.name": "اسم المادة",
+  "subjects.hours": "ساعات",
+  "subjects.minutes": "دقائق",
+  "subjects.nameExample": "مثال: الرياضيات",
+  
+  "modal.cancel": "إلغاء",
+  "modal.add": "إضافة",
+  "modal.adding": "جاري الإضافة...",
+  
+  "toast.subjectAdded": "تم إضافة المادة",
+  "toast.subjectAddedDesc": "تم إضافة المادة بنجاح.",
+  "toast.error": "خطأ",
+  "toast.subjectError": "تعذرت إضافة المادة.",
+  "toast.noScheduleExport": "لا يوجد جدول للتصدير",
+  "toast.noScheduleExportDesc": "أضف مواد لإنشاء جدول.",
+  "toast.featureInDev": "الميزة قيد التطوير",
+  "toast.newCycleInDev": "سيتم تنفيذ إنشاء دورات جديدة قريباً.",
+  "toast.configureInDev": "سيتم تنفيذ تكوين الجدول قريباً.",
+  "toast.exportInDev": "سيتم تنفيذ تصدير الجدول قريباً.",
+  "toast.editInDev": "سيتم تنفيذ تحرير الإعدادات قريباً.",
+  
+  "days.monday": "الاثنين",
+  "days.tuesday": "الثلاثاء",
+  "days.wednesday": "الأربعاء",
+  "days.thursday": "الخميس",
+  "days.friday": "الجمعة",
+  "days.saturday": "السبت",
+  "days.sunday": "الأحد",
+  
+  "language.select": "اختيار اللغة",
+  "language.current": "اللغة الحالية"
+}
