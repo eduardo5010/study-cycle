@@ -6,7 +6,10 @@ import {
   insertStudySettingsSchema, 
   insertStudyCycleSchema,
   insertGlobalSubjectSchema,
-  insertCycleSubjectSchema 
+  insertCycleSubjectSchema,
+  insertUserSchema,
+  loginSchema,
+  insertContentSchema
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -215,6 +218,114 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     } catch (error) {
       res.status(500).json({ message: "Failed to delete study cycle" });
+    }
+  });
+  
+  // Authentication endpoints
+  app.post("/api/auth/register", async (req, res) => {
+    try {
+      const validatedData = insertUserSchema.parse(req.body);
+      const existingUser = await storage.getUserByEmail(validatedData.email);
+      
+      if (existingUser) {
+        return res.status(400).json({ message: "Email already registered" });
+      }
+      
+      const user = await storage.createUser(validatedData);
+      const sessionUser = {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        userType: user.userType,
+        avatar: user.avatar
+      };
+      
+      res.status(201).json(sessionUser);
+    } catch (error) {
+      res.status(400).json({ message: "Invalid registration data" });
+    }
+  });
+  
+  app.post("/api/auth/login", async (req, res) => {
+    try {
+      const validatedData = loginSchema.parse(req.body);
+      const user = await storage.getUserByEmail(validatedData.email);
+      
+      if (!user || user.password !== validatedData.password) {
+        return res.status(401).json({ message: "Invalid credentials" });
+      }
+      
+      const sessionUser = {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        userType: user.userType,
+        avatar: user.avatar
+      };
+      
+      res.json(sessionUser);
+    } catch (error) {
+      res.status(400).json({ message: "Invalid login data" });
+    }
+  });
+  
+  app.get("/api/auth/me", async (req, res) => {
+    // Mock response since we don't have real sessions
+    res.json(null);
+  });
+  
+  app.post("/api/auth/logout", (req, res) => {
+    res.status(204).send();
+  });
+  
+  app.post("/api/auth/switch-to-teacher", async (req, res) => {
+    try {
+      // Mock user for now
+      const mockUser = {
+        id: "mock-id",
+        email: "user@example.com",
+        name: "User",
+        userType: "teacher",
+        avatar: null
+      };
+      
+      res.json(mockUser);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to switch to teacher" });
+    }
+  });
+  
+  // Clear all cycle data endpoint
+  app.delete("/api/cycles/clear", async (req, res) => {
+    try {
+      const cleared = await storage.clearAllCycleData();
+      if (cleared) {
+        res.status(204).send();
+      } else {
+        res.status(500).json({ message: "Failed to clear cycle data" });
+      }
+    } catch (error) {
+      res.status(500).json({ message: "Failed to clear cycle data" });
+    }
+  });
+  
+  // Content management endpoints
+  app.get("/api/content", async (req, res) => {
+    try {
+      const content = await storage.getAllContent();
+      res.json(content);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch content" });
+    }
+  });
+  
+  app.post("/api/content", async (req, res) => {
+    try {
+      const validatedData = insertContentSchema.parse(req.body);
+      const content = await storage.createContent(validatedData, "mock-teacher-id");
+      res.status(201).json(content);
+    } catch (error) {
+      res.status(400).json({ message: "Invalid content data" });
     }
   });
 
