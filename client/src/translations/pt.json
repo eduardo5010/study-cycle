@@ -8,6 +8,7 @@
   
   "dashboard.currentCycle": "Ciclo de Estudo Atual",
   "dashboard.newCycle": "Novo Ciclo",
+  "dashboard.completeCycle": "Concluir Ciclo",
   "dashboard.totalWeeks": "Total de Semanas",
   "dashboard.subjects": "Disciplinas",
   "dashboard.dailyHours": "Horas Diárias",
@@ -70,6 +71,9 @@
   "toast.exportInDev": "A exportação de cronograma será implementada em breve.",
   "toast.editInDev": "A edição de configurações será implementada em breve.",
   "toast.editSubjectInDev": "A edição de disciplinas será implementada em breve.",
+  "toast.cycleCompleted": "Ciclo concluído",
+  "toast.cycleCompletedDesc": "O ciclo foi concluído e todas as informações foram removidas.",
+  "toast.cycleCompletedConfirm": "Tem certeza que deseja concluir este ciclo? Todas as informações serão removidas.",
   
   "days.monday": "Segunda-feira",
   "days.tuesday": "Terça-feira",

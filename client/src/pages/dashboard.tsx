@@ -139,6 +139,22 @@ export default function Dashboard() {
     });
   };
 
+  const handleCompleteCycle = () => {
+    if (confirm(t('toast.cycleCompletedConfirm'))) {
+      // Clear all subjects
+      subjects.forEach(subject => {
+        fetch(`/api/subjects/${subject.id}`, { method: 'DELETE' });
+      });
+      
+      queryClient.invalidateQueries({ queryKey: ['/api/subjects'] });
+      
+      toast({
+        title: t('toast.cycleCompleted'),
+        description: t('toast.cycleCompletedDesc'),
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen" data-testid="dashboard-page">
       <Header />
@@ -149,6 +165,7 @@ export default function Dashboard() {
           settings={settings}
           totalWeeks={weeks.length}
           onNewCycle={handleNewCycle}
+          onCompleteCycle={handleCompleteCycle}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
