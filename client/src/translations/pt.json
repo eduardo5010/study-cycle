@@ -36,10 +36,17 @@
   "subjects.countPlural": "disciplinas",
   "subjects.empty": "Nenhuma disciplina adicionada ainda",
   "subjects.add": "Adicionar Nova Disciplina",
+  "subjects.addGlobal": "Adicionar Disciplina Global",
+  "subjects.globalTitle": "Disciplinas Globais",
+  "subjects.emptyGlobal": "Nenhuma disciplina global cadastrada",
+  "subjects.pageTitle": "Gerenciar Disciplinas",
+  "subjects.pageDescription": "Adicione e gerencie disciplinas que podem ser usadas em qualquer ciclo de estudos",
   "subjects.name": "Nome da Disciplina",
   "subjects.hours": "Horas",
   "subjects.minutes": "Minutos",
   "subjects.nameExample": "Ex: Matemática",
+  "subjects.createdAt": "Criada em",
+  "subjects.confirmDelete": "Tem certeza que deseja excluir esta disciplina? Esta ação não pode ser desfeita.",
   
   "modal.cancel": "Cancelar",
   "modal.add": "Adicionar",
@@ -47,6 +54,12 @@
   
   "toast.subjectAdded": "Disciplina adicionada",
   "toast.subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
+  "toast.globalSubjectAdded": "Disciplina global adicionada",
+  "toast.globalSubjectAddedDesc": "A disciplina global foi adicionada com sucesso.",
+  "toast.globalSubjectError": "Não foi possível adicionar a disciplina global.",
+  "toast.globalSubjectDeleted": "Disciplina global excluída",
+  "toast.globalSubjectDeletedDesc": "A disciplina global foi excluída com sucesso.",
+  "toast.globalSubjectDeleteError": "Não foi possível excluir a disciplina global.",
   "toast.error": "Erro",
   "toast.subjectError": "Não foi possível adicionar a disciplina.",
   "toast.noScheduleExport": "Nenhum cronograma para exportar",
@@ -56,6 +69,7 @@
   "toast.configureInDev": "A configuração de horários será implementada em breve.",
   "toast.exportInDev": "A exportação de cronograma será implementada em breve.",
   "toast.editInDev": "A edição de configurações será implementada em breve.",
+  "toast.editSubjectInDev": "A edição de disciplinas será implementada em breve.",
   
   "days.monday": "Segunda-feira",
   "days.tuesday": "Terça-feira",
@@ -66,5 +80,7 @@
   "days.sunday": "Domingo",
   
   "language.select": "Selecionar idioma",
-  "language.current": "Idioma atual"
+  "language.current": "Idioma atual",
+  
+  "common.loading": "Carregando..."
 }

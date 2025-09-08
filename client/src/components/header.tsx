@@ -16,10 +16,10 @@ export default function Header() {
             <h1 className="text-xl font-bold text-foreground">{t('app.title')}</h1>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#dashboard" className="text-primary font-medium border-b-2 border-primary pb-1" data-testid="nav-dashboard">
+            <a href="/dashboard" className="text-primary font-medium border-b-2 border-primary pb-1" data-testid="nav-dashboard">
               {t('nav.dashboard')}
             </a>
-            <a href="#subjects" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-subjects">
+            <a href="/subjects" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-subjects">
               {t('nav.subjects')}
             </a>
             <a href="#settings" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-settings">
