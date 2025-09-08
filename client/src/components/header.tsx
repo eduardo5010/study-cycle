@@ -1,6 +1,7 @@
 import { Bell, User, GraduationCap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSelector from "@/components/language-selector";
+import ThemeToggle from "@/components/theme-toggle";
 
 export default function Header() {
   const { t } = useLanguage();
@@ -27,6 +28,7 @@ export default function Header() {
             </a>
           </nav>
           <div className="flex items-center space-x-3">
+            <ThemeToggle />
             <LanguageSelector />
             <button className="p-2 text-muted-foreground hover:text-foreground transition-colors" data-testid="button-notifications">
               <Bell className="h-4 w-4" />
