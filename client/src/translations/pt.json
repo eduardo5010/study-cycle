@@ -131,5 +131,20 @@
   "currentSubject.timeRemaining": "Tempo restante",
   "currentSubject.startStudying": "Começar a Estudar",
   
-  "modal.loading": "Carregando..."
+  "cycle.editTitle": "Editar Ciclo",
+  "cycle.currentInfo": "Informações do Ciclo Atual",
+  "cycle.subjectsCount": "Número de disciplinas",
+  "cycle.dangerZone": "Zona de Perigo",
+  "cycle.deleteWarningTitle": "Excluir Ciclo Completo",
+  "cycle.deleteWarningDesc": "Esta ação irá remover permanentemente todas as disciplinas, horários e dados do ciclo atual. Esta ação não pode ser desfeita.",
+  "cycle.deleteCycle": "Excluir Ciclo",
+  "cycle.confirmDelete": "Tem certeza absoluta?",
+  "cycle.confirmDeleteDesc": "Digite CONFIRMAR para excluir permanentemente o ciclo.",
+  "cycle.confirmDeleteButton": "Sim, Excluir Definitivamente",
+  "cycle.deleteSuccess": "Ciclo excluído com sucesso",
+  "cycle.deleteSuccessDesc": "Todos os dados do ciclo foram removidos.",
+  "cycle.deleteError": "Erro ao excluir o ciclo. Tente novamente.",
+  
+  "modal.loading": "Carregando...",
+  "modal.close": "Fechar"
 }

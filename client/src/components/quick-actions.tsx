@@ -1,16 +1,18 @@
-import { Plus, Settings, Download } from "lucide-react";
+import { Plus, Settings, Download, Edit3 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface QuickActionsProps {
   onAddSubject: () => void;
   onConfigureSchedule: () => void;
   onExportSchedule: () => void;
+  onEditCycle?: () => void;
 }
 
 export default function QuickActions({ 
   onAddSubject, 
   onConfigureSchedule, 
-  onExportSchedule 
+  onExportSchedule,
+  onEditCycle
 }: QuickActionsProps) {
   const { t } = useLanguage();
 
@@ -50,6 +52,19 @@ export default function QuickActions({
           </div>
           <span className="font-medium text-foreground truncate">{t('actions.exportSchedule')}</span>
         </button>
+        
+        {onEditCycle && (
+          <button 
+            onClick={onEditCycle}
+            className="w-full flex items-center space-x-3 p-3 text-left hover:bg-accent rounded-lg transition-colors min-h-[52px]"
+            data-testid="button-edit-cycle"
+          >
+            <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Edit3 className="text-orange-600 dark:text-orange-300 h-4 w-4" />
+            </div>
+            <span className="font-medium text-foreground truncate">{t('actions.editCycle')}</span>
+          </button>
+        )}
       </div>
     </div>
   );

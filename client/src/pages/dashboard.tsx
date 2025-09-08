@@ -11,11 +11,13 @@ import StudySettingsComponent from "@/components/study-settings";
 import SubjectList from "@/components/subject-list";
 import AddSubjectModal from "@/components/add-subject-modal";
 import CurrentSubject from "@/components/current-subject";
+import CycleEditModal from "@/components/cycle-edit-modal";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Dashboard() {
   const [isAddSubjectModalOpen, setIsAddSubjectModalOpen] = useState(false);
+  const [isCycleEditModalOpen, setIsCycleEditModalOpen] = useState(false);
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const { t, language } = useLanguage();
@@ -140,20 +142,37 @@ export default function Dashboard() {
     });
   };
 
-  const handleCompleteCycle = () => {
+  const handleCompleteCycle = async () => {
     if (confirm(t('toast.cycleCompletedConfirm'))) {
-      // Clear all subjects
-      subjects.forEach(subject => {
-        fetch(`/api/subjects/${subject.id}`, { method: 'DELETE' });
-      });
-      
-      queryClient.invalidateQueries({ queryKey: ['/api/subjects'] });
-      
-      toast({
-        title: t('toast.cycleCompleted'),
-        description: t('toast.cycleCompletedDesc'),
-      });
+      try {
+        const response = await fetch('/api/cycles/clear', { method: 'DELETE' });
+        
+        if (response.ok) {
+          queryClient.invalidateQueries({ queryKey: ['/api/subjects'] });
+          
+          toast({
+            title: t('toast.cycleCompleted'),
+            description: t('toast.cycleCompletedDesc'),
+          });
+        } else {
+          throw new Error('Failed to clear cycle');
+        }
+      } catch (error) {
+        toast({
+          title: t('toast.error'),
+          description: "Erro ao concluir o ciclo. Tente novamente.",
+          variant: "destructive",
+        });
+      }
     }
+  };
+  
+  const handleEditCycle = () => {
+    setIsCycleEditModalOpen(true);
+  };
+  
+  const handleCycleDeleted = () => {
+    queryClient.invalidateQueries({ queryKey: ['/api/subjects'] });
   };
 
   return (
@@ -180,6 +199,7 @@ export default function Dashboard() {
               onAddSubject={() => setIsAddSubjectModalOpen(true)}
               onConfigureSchedule={handleConfigureSchedule}
               onExportSchedule={handleExportSchedule}
+              onEditCycle={handleEditCycle}
             />
 
             <StudySettingsComponent
@@ -197,6 +217,13 @@ export default function Dashboard() {
         isOpen={isAddSubjectModalOpen}
         onClose={() => setIsAddSubjectModalOpen(false)}
         onSubmit={handleAddSubject}
+      />
+      
+      <CycleEditModal
+        isOpen={isCycleEditModalOpen}
+        onClose={() => setIsCycleEditModalOpen(false)}
+        subjects={subjects}
+        onCycleDeleted={handleCycleDeleted}
       />
     </div>
   );
