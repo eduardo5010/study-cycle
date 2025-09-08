@@ -10,6 +10,7 @@ import QuickActions from "@/components/quick-actions";
 import StudySettingsComponent from "@/components/study-settings";
 import SubjectList from "@/components/subject-list";
 import AddSubjectModal from "@/components/add-subject-modal";
+import CurrentSubject from "@/components/current-subject";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -169,7 +170,10 @@ export default function Dashboard() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <WeeklySchedule weeks={weeks} subjects={subjects} />
+          <div className="lg:col-span-2 space-y-6">
+            <CurrentSubject weeks={weeks} subjects={subjects} />
+            <WeeklySchedule weeks={weeks} subjects={subjects} />
+          </div>
 
           <div className="space-y-6">
             <QuickActions
