@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(220, 14%, 96%);
+  --foreground: hsl(220, 9%, 9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(220, 9%, 9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(220, 9%, 9%);
+  --primary: hsl(213, 86%, 40%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(187, 95%, 38%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(220, 13%, 91%);
+  --muted-foreground: hsl(220, 9%, 46%);
+  --accent: hsl(213, 86%, 95%);
+  --accent-foreground: hsl(213, 86%, 40%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(220, 13%, 87%);
+  --input: hsl(220, 13%, 87%);
+  --ring: hsl(213, 86%, 40%);
+  --chart-1: hsl(213, 86%, 40%);
+  --chart-2: hsl(187, 95%, 38%);
+  --chart-3: hsl(42, 92%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(0, 0%, 100%);
+  --sidebar-foreground: hsl(220, 9%, 9%);
+  --sidebar-primary: hsl(213, 86%, 40%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(213, 86%, 95%);
+  --sidebar-accent-foreground: hsl(213, 86%, 40%);
+  --sidebar-border: hsl(220, 13%, 87%);
+  --sidebar-ring: hsl(213, 86%, 40%);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 8px;
+}
+
+.dark {
+  --background: hsl(220, 14%, 4%);
+  --foreground: hsl(220, 9%, 91%);
+  --card: hsl(220, 14%, 8%);
+  --card-foreground: hsl(220, 9%, 91%);
+  --popover: hsl(220, 14%, 4%);
+  --popover-foreground: hsl(220, 9%, 91%);
+  --primary: hsl(213, 86%, 50%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(187, 95%, 45%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(220, 13%, 9%);
+  --muted-foreground: hsl(220, 9%, 54%);
+  --accent: hsl(213, 86%, 15%);
+  --accent-foreground: hsl(213, 86%, 50%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(220, 13%, 13%);
+  --input: hsl(220, 13%, 13%);
+  --ring: hsl(213, 86%, 50%);
+  --sidebar: hsl(220, 14%, 8%);
+  --sidebar-foreground: hsl(220, 9%, 91%);
+  --sidebar-primary: hsl(213, 86%, 50%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(213, 86%, 15%);
+  --sidebar-accent-foreground: hsl(213, 86%, 50%);
+  --sidebar-border: hsl(220, 13%, 13%);
+  --sidebar-ring: hsl(213, 86%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom subject colors */
+.subject-color-0 { @apply bg-primary text-primary-foreground; }
+.subject-color-1 { @apply bg-secondary text-secondary-foreground; }
+.subject-color-2 { @apply bg-green-500 text-white; }
+.subject-color-3 { @apply bg-purple-500 text-white; }
+.subject-color-4 { @apply bg-orange-500 text-white; }
+.subject-color-5 { @apply bg-pink-500 text-white; }
+.subject-color-6 { @apply bg-indigo-500 text-white; }
+.subject-color-7 { @apply bg-yellow-500 text-white; }
+
+.subject-dot-0 { @apply bg-primary; }
+.subject-dot-1 { @apply bg-secondary; }
+.subject-dot-2 { @apply bg-green-500; }
+.subject-dot-3 { @apply bg-purple-500; }
+.subject-dot-4 { @apply bg-orange-500; }
+.subject-dot-5 { @apply bg-pink-500; }
+.subject-dot-6 { @apply bg-indigo-500; }
+.subject-dot-7 { @apply bg-yellow-500; }
+
+.subject-bg-0 { @apply bg-primary bg-opacity-10 text-primary; }
+.subject-bg-1 { @apply bg-secondary bg-opacity-10 text-secondary; }
+.subject-bg-2 { @apply bg-green-50 text-green-800; }
+.subject-bg-3 { @apply bg-purple-50 text-purple-800; }
+.subject-bg-4 { @apply bg-orange-50 text-orange-800; }
+.subject-bg-5 { @apply bg-pink-50 text-pink-800; }
+.subject-bg-6 { @apply bg-indigo-50 text-indigo-800; }
+.subject-bg-7 { @apply bg-yellow-50 text-yellow-800; }
