@@ -189,3 +189,194 @@ export type StudyCycleData = {
   cycleSubjects?: CycleSubjectWithDetails[]; // New structure
   weeks: WeekSchedule[];
 };
+
+// Courses and Careers
+export const courses = pgTable("courses", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  description: text("description"),
+  category: text("category").notNull(), // e.g., "Programming", "Math", "Science"
+  level: text("level").notNull().default("beginner"), // "beginner", "intermediate", "advanced"
+  thumbnailUrl: text("thumbnail_url"),
+  isCareer: boolean("is_career").notNull().default(false), // true if it's a career path
+  estimatedHours: integer("estimated_hours").notNull().default(0),
+  enrollmentCount: integer("enrollment_count").notNull().default(0),
+  rating: integer("rating").notNull().default(0), // 0-5 stars * 100 (e.g., 450 = 4.5 stars)
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const courseModules = pgTable("course_modules", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  courseId: varchar("course_id").references(() => courses.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  orderIndex: integer("order_index").notNull().default(0),
+  estimatedMinutes: integer("estimated_minutes").notNull().default(0),
+});
+
+export const userCourses = pgTable("user_courses", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  courseId: varchar("course_id").references(() => courses.id),
+  currentModuleId: varchar("current_module_id").references(() => courseModules.id),
+  progress: integer("progress").notNull().default(0), // 0-100 percentage
+  isCompleted: boolean("is_completed").notNull().default(false),
+  enrolledAt: timestamp("enrolled_at").notNull().defaultNow(),
+  completedAt: timestamp("completed_at"),
+});
+
+// Gamification
+export const userXp = pgTable("user_xp", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id).unique(),
+  totalXp: integer("total_xp").notNull().default(0),
+  monthlyXp: integer("monthly_xp").notNull().default(0),
+  weeklyXp: integer("weekly_xp").notNull().default(0),
+  dailyXp: integer("daily_xp").notNull().default(0),
+  lastXpDate: text("last_xp_date"),
+});
+
+export const streaks = pgTable("streaks", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id).unique(),
+  currentStreak: integer("current_streak").notNull().default(0),
+  longestStreak: integer("longest_streak").notNull().default(0),
+  freezesUsed: integer("freezes_used").notNull().default(0),
+  freezesAvailable: integer("freezes_available").notNull().default(2),
+  lastStudyDate: text("last_study_date"),
+});
+
+export const leagues = pgTable("leagues", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(), // "Bronze", "Silver", "Gold", etc.
+  minXp: integer("min_xp").notNull().default(0),
+  orderIndex: integer("order_index").notNull().default(0),
+});
+
+export const userLeagues = pgTable("user_leagues", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  leagueId: varchar("league_id").references(() => leagues.id),
+  monthlyXp: integer("monthly_xp").notNull().default(0),
+  rank: integer("rank").notNull().default(0),
+  month: text("month").notNull(), // "2025-01"
+});
+
+export const achievements = pgTable("achievements", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  description: text("description"),
+  iconUrl: text("icon_url"),
+  requirement: text("requirement").notNull(), // JSON string with achievement criteria
+  xpReward: integer("xp_reward").notNull().default(0),
+});
+
+export const userAchievements = pgTable("user_achievements", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  achievementId: varchar("achievement_id").references(() => achievements.id),
+  unlockedAt: timestamp("unlocked_at").notNull().defaultNow(),
+});
+
+export const certificates = pgTable("certificates", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  courseId: varchar("course_id").references(() => courses.id),
+  certificateUrl: text("certificate_url"),
+  issuedAt: timestamp("issued_at").notNull().defaultNow(),
+});
+
+export const tasks = pgTable("tasks", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  isCompleted: boolean("is_completed").notNull().default(false),
+  xpReward: integer("xp_reward").notNull().default(10),
+  completedAt: timestamp("completed_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const projects = pgTable("projects", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  courseId: varchar("course_id").references(() => courses.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  repositoryUrl: text("repository_url"),
+  isCompleted: boolean("is_completed").notNull().default(false),
+  completedAt: timestamp("completed_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const notifications = pgTable("notifications", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  title: text("title").notNull(),
+  message: text("message").notNull(),
+  type: text("type").notNull(), // "achievement", "course", "league", "system"
+  isRead: boolean("is_read").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// Insert schemas
+export const insertCourseSchema = createInsertSchema(courses).omit({
+  id: true,
+  enrollmentCount: true,
+  rating: true,
+  createdAt: true,
+});
+
+export const insertUserCourseSchema = createInsertSchema(userCourses).omit({
+  id: true,
+  enrolledAt: true,
+  completedAt: true,
+});
+
+export const insertNotificationSchema = createInsertSchema(notifications).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertTaskSchema = createInsertSchema(tasks).omit({
+  id: true,
+  createdAt: true,
+  completedAt: true,
+});
+
+export const insertProjectSchema = createInsertSchema(projects).omit({
+  id: true,
+  createdAt: true,
+  completedAt: true,
+});
+
+// Types
+export type Course = typeof courses.$inferSelect;
+export type InsertCourse = z.infer<typeof insertCourseSchema>;
+
+export type CourseModule = typeof courseModules.$inferSelect;
+
+export type UserCourse = typeof userCourses.$inferSelect;
+export type InsertUserCourse = z.infer<typeof insertUserCourseSchema>;
+
+export type UserXp = typeof userXp.$inferSelect;
+export type Streak = typeof streaks.$inferSelect;
+export type League = typeof leagues.$inferSelect;
+export type UserLeague = typeof userLeagues.$inferSelect;
+export type Achievement = typeof achievements.$inferSelect;
+export type UserAchievement = typeof userAchievements.$inferSelect;
+export type Certificate = typeof certificates.$inferSelect;
+
+export type Task = typeof tasks.$inferSelect;
+export type InsertTask = z.infer<typeof insertTaskSchema>;
+
+export type Project = typeof projects.$inferSelect;
+export type InsertProject = z.infer<typeof insertProjectSchema>;
+
+export type Notification = typeof notifications.$inferSelect;
+export type InsertNotification = z.infer<typeof insertNotificationSchema>;
+
+export type CourseWithProgress = Course & {
+  progress?: number;
+  currentModule?: CourseModule;
+};
