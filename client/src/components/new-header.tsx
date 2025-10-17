@@ -98,24 +98,18 @@ export default function NewHeader() {
             {/* Botões de Navegação */}
             <nav className="hidden lg:flex items-center space-x-2">
               <Link href="/home">
-                <a>
-                  <Button variant="ghost" size="sm" data-testid="nav-dashboard">
-                    {t('nav.dashboard')}
-                  </Button>
+                <a className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" data-testid="nav-dashboard">
+                  {t('nav.dashboard')}
                 </a>
               </Link>
               <Link href="/subjects">
-                <a>
-                  <Button variant="ghost" size="sm" data-testid="nav-subjects">
-                    {t('nav.subjects')}
-                  </Button>
+                <a className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" data-testid="nav-subjects">
+                  {t('nav.subjects')}
                 </a>
               </Link>
               <Link href="/settings">
-                <a>
-                  <Button variant="ghost" size="sm" data-testid="nav-settings">
-                    {t('nav.settings')}
-                  </Button>
+                <a className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" data-testid="nav-settings">
+                  {t('nav.settings')}
                 </a>
               </Link>
             </nav>
