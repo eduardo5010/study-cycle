@@ -1,8 +1,25 @@
-# StudyCycle - Study Schedule Management Application
+# StudyCycle - Comprehensive Learning Management Platform
 
 ## Overview
 
-StudyCycle is a comprehensive study schedule management application built to help users create, organize, and track their study cycles. The application allows users to add subjects with specific time allocations, configure daily study settings, and automatically generate optimized weekly study schedules. The system calculates study cycles based on available study time and distributes subjects across multiple weeks for effective learning management.
+StudyCycle is an advanced learning management platform that combines study schedule optimization with gamification and course management. The platform helps users create and track study cycles while providing a comprehensive learning experience through courses, achievements, streak tracking, and competitive leagues. The system features intelligent schedule generation, progress tracking, and a rich gamification system to keep users engaged and motivated.
+
+## Recent Updates (January 2025)
+
+### Platform Redesign
+The platform underwent a major redesign implementing a modern learning management system with:
+
+- **New Layout**: Horizontal header with comprehensive navigation, vertical sidebar for main sections
+- **Gamification System**: Streak tracking, XP system, competitive leagues, achievements, and certificates
+- **Course Management**: Course enrollment, progress tracking, and course discovery
+- **Enhanced Navigation**: Dedicated pages for courses, calendar, chats, events, and language learning
+
+### Key Features Added
+- **Header**: Universal search, explore menu, streak counter, notifications dropdown, comprehensive profile menu
+- **Sidebar**: Quick navigation to Home, Courses, Calendar, Chats, Events, English, and Mandarin sections
+- **Home Page**: Dual-section layout with gamification dashboard and integrated StudyCycle functionality
+- **Courses Page**: Enrolled courses with progress tracking and course discovery with search
+- **Mock Data**: Gamification features currently use mock data for demonstration purposes
 
 ## User Preferences
 
