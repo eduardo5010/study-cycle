@@ -42,15 +42,17 @@ export default function NewHeader() {
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 gap-4">
             {/* Logo + Nome */}
-            <Link href="/home">
-              <a className="flex items-center space-x-3 flex-shrink-0" data-testid="logo-link">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <GraduationCap className="text-primary-foreground h-6 w-6" />
-                </div>
-                <h1 className="text-xl font-bold text-foreground hidden md:block">
-                  {t('app.title')}
-                </h1>
-              </a>
+            <Link 
+              href="/home" 
+              className="flex items-center space-x-3 flex-shrink-0" 
+              data-testid="logo-link"
+            >
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <GraduationCap className="text-primary-foreground h-6 w-6" />
+              </div>
+              <h1 className="text-xl font-bold text-foreground hidden md:block">
+                {t('app.title')}
+              </h1>
             </Link>
 
             {/* Botão Explorar */}
@@ -97,20 +99,26 @@ export default function NewHeader() {
 
             {/* Botões de Navegação */}
             <nav className="hidden lg:flex items-center space-x-2">
-              <Link href="/home">
-                <a className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" data-testid="nav-dashboard">
-                  {t('nav.dashboard')}
-                </a>
+              <Link 
+                href="/home"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" 
+                data-testid="nav-dashboard"
+              >
+                {t('nav.dashboard')}
               </Link>
-              <Link href="/subjects">
-                <a className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" data-testid="nav-subjects">
-                  {t('nav.subjects')}
-                </a>
+              <Link 
+                href="/subjects"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" 
+                data-testid="nav-subjects"
+              >
+                {t('nav.subjects')}
               </Link>
-              <Link href="/settings">
-                <a className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" data-testid="nav-settings">
-                  {t('nav.settings')}
-                </a>
+              <Link 
+                href="/settings"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" 
+                data-testid="nav-settings"
+              >
+                {t('nav.settings')}
               </Link>
             </nav>
 
