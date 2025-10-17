@@ -146,5 +146,72 @@
   "cycle.deleteError": "Erro ao excluir o ciclo. Tente novamente.",
   
   "modal.loading": "Carregando...",
-  "modal.close": "Fechar"
+  "modal.close": "Fechar",
+  
+  "nav.explore": "Explorar",
+  "nav.knowledgeAreas": "Áreas de Conhecimento",
+  
+  "search.placeholder": "Pesquisar por tópico ou pergunta",
+  
+  "notifications.title": "Notificações",
+  "notifications.empty": "Nenhuma notificação",
+  
+  "profile.studentHome": "Página inicial do aluno",
+  "profile.personalInfo": "Informações pessoais",
+  "profile.subscriptions": "Minhas assinaturas",
+  "profile.paymentMethods": "Métodos de pagamento",
+  "profile.requestFeature": "Solicitar uma funcionalidade",
+  "profile.help": "Ajuda",
+  
+  "sidebar.home": "Início",
+  "sidebar.courses": "Cursos",
+  "sidebar.calendar": "Calendário",
+  "sidebar.chats": "Chats",
+  "sidebar.events": "Eventos",
+  "sidebar.english": "Inglês",
+  "sidebar.mandarin": "Mandarim",
+  
+  "home.welcome": "Olá",
+  "home.studyCycle": "StudyCycle",
+  
+  "course.progress": "Progresso",
+  "course.continue": "Continuar",
+  
+  "stats.overview": "Visão Geral",
+  "stats.tasksCompleted": "Tarefas concluídas",
+  "stats.projectsCompleted": "Projetos concluídos",
+  "stats.certificatesEarned": "Certificados conquistados",
+  
+  "league.title": "Liga",
+  "league.yourRank": "Sua posição",
+  "league.daysLeft": "dias restantes",
+  
+  "streak.title": "Sequência",
+  "streak.days": "dias",
+  
+  "xp.monthly": "XP Mensal",
+  "xp.today": "hoje",
+  
+  "certificates.title": "Certificados",
+  
+  "achievements.title": "Conquistas",
+  
+  "courses.programming": "Programação",
+  "courses.math": "Matemática",
+  "courses.science": "Ciências",
+  "courses.languages": "Idiomas",
+  "courses.enrolled": "Meus Cursos",
+  "courses.available": "Todos os Cursos",
+  "courses.searchPlaceholder": "Buscar cursos...",
+  "courses.students": "alunos",
+  "courses.enroll": "Matricular",
+  
+  "categories.programming": "Programação",
+  "categories.math": "Matemática",
+  "categories.science": "Ciências",
+  "categories.languages": "Idiomas",
+  
+  "levels.beginner": "Iniciante",
+  "levels.intermediate": "Intermediário",
+  "levels.advanced": "Avançado"
 }
