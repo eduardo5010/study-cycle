@@ -366,9 +366,6 @@ export default function HomePage() {
 
         {/* Seção 2: StudyCycle */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-foreground" data-testid="section-studycycle">
-            {t('home.studyCycle')}
-          </h2>
 
           <DashboardOverview
             subjects={subjects}
