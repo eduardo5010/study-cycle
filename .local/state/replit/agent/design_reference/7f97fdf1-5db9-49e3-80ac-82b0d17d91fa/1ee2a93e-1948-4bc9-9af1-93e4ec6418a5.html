@@ -1,0 +1,476 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyCycle - Gerenciador de Ciclos de Estudo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["var(--font-sans)"],
+                    serif: ["var(--font-serif)"],
+                    mono: ["var(--font-mono)"],
+                }
+            },
+        }
+    };
+    </script>
+    <style>
+        :root {
+            --background: hsl(220 14% 96%);
+            --foreground: hsl(220 9% 9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(220 9% 9%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(220 9% 9%);
+            --primary: hsl(213 86% 40%);
+            --primary-foreground: hsl(0 0% 98%);
+            --secondary: hsl(187 95% 38%);
+            --secondary-foreground: hsl(0 0% 98%);
+            --muted: hsl(220 13% 91%);
+            --muted-foreground: hsl(220 9% 46%);
+            --accent: hsl(213 86% 95%);
+            --accent-foreground: hsl(213 86% 40%);
+            --destructive: hsl(0 84% 60%);
+            --destructive-foreground: hsl(0 0% 98%);
+            --border: hsl(220 13% 87%);
+            --input: hsl(220 13% 87%);
+            --ring: hsl(213 86% 40%);
+            --radius: 8px;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- @COMPONENT: AppLayout -->
+    <div class="min-h-screen">
+        <!-- Header -->
+        <!-- @COMPONENT: Header -->
+        <header class="bg-card border-b border-border shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-primary-foreground text-lg"></i>
+                        </div>
+                        <h1 class="text-xl font-bold text-foreground">StudyCycle</h1>
+                    </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#dashboard" class="text-primary font-medium border-b-2 border-primary pb-1">Dashboard</a>
+                        <a href="#subjects" class="text-muted-foreground hover:text-foreground transition-colors">Disciplinas</a>
+                        <a href="#settings" class="text-muted-foreground hover:text-foreground transition-colors">Configurações</a>
+                    </nav>
+                    <div class="flex items-center space-x-3">
+                        <button class="p-2 text-muted-foreground hover:text-foreground transition-colors">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-muted-foreground"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- @END_COMPONENT: Header -->
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Dashboard Overview -->
+            <!-- @COMPONENT: DashboardOverview -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-foreground mb-2">Ciclo de Estudo Atual</h2>
+                        <p class="text-muted-foreground">Gerencie seu cronograma e acompanhe o progresso</p>
+                    </div>
+                    <button class="mt-4 md:mt-0 bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                        <i class="fas fa-plus mr-2"></i>
+                        Novo Ciclo
+                    </button>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-card p-6 rounded-xl border border-border shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted-foreground text-sm font-medium">Total de Semanas</p>
+                                <p class="text-2xl font-bold text-foreground mt-1" data-bind="cycle.totalWeeks">3</p>
+                            </div>
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-calendar-alt text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-6 rounded-xl border border-border shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted-foreground text-sm font-medium">Disciplinas</p>
+                                <p class="text-2xl font-bold text-foreground mt-1" data-bind="subjects.count">8</p>
+                            </div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-book text-secondary"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-6 rounded-xl border border-border shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted-foreground text-sm font-medium">Horas Diárias</p>
+                                <p class="text-2xl font-bold text-foreground mt-1" data-bind="config.dailyHours">6h</p>
+                            </div>
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                                <i class="fas fa-clock text-accent-foreground"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-6 rounded-xl border border-border shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted-foreground text-sm font-medium">Progresso</p>
+                                <p class="text-2xl font-bold text-foreground mt-1">67%</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-line text-green-600"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3 w-full bg-muted rounded-full h-2">
+                            <div class="bg-green-500 h-2 rounded-full" style="width: 67%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_COMPONENT: DashboardOverview -->
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Weekly Schedule -->
+                <!-- @COMPONENT: WeeklySchedule -->
+                <div class="lg:col-span-2">
+                    <div class="bg-card rounded-xl border border-border shadow-sm p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-semibold text-foreground">Cronograma Semanal</h3>
+                            <div class="flex items-center space-x-2">
+                                <button class="p-2 text-muted-foreground hover:text-foreground transition-colors">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <span class="text-sm font-medium text-foreground px-3 py-1 bg-muted rounded-lg">Semana 1</span>
+                                <button class="p-2 text-muted-foreground hover:text-foreground transition-colors">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Week Navigation -->
+                        <div class="flex space-x-2 mb-6 overflow-x-auto">
+                            <!-- @MAP: weeks.map(week => ( -->
+                            <button class="flex-shrink-0 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
+                                Semana 1
+                            </button>
+                            <button class="flex-shrink-0 px-4 py-2 bg-muted text-muted-foreground rounded-lg text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                                Semana 2
+                            </button>
+                            <button class="flex-shrink-0 px-4 py-2 bg-muted text-muted-foreground rounded-lg text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                                Semana 3
+                            </button>
+                            <!-- @END_MAP )) -->
+                        </div>
+
+                        <!-- Daily Schedule -->
+                        <div class="space-y-4">
+                            <!-- @MAP: days.map(day => ( -->
+                            <div class="border border-border rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="font-medium text-foreground">Segunda-feira</h4>
+                                    <span class="text-sm text-muted-foreground">6h 0min planejados</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between p-3 bg-accent rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                            <span class="font-medium text-accent-foreground">Matemática</span>
+                                        </div>
+                                        <div class="text-sm text-accent-foreground font-mono">08:00 - 10:30</div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-secondary/10 rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                            <span class="font-medium text-foreground">Física</span>
+                                        </div>
+                                        <div class="text-sm text-foreground font-mono">14:00 - 16:30</div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                            <span class="font-medium text-green-800">Química</span>
+                                        </div>
+                                        <div class="text-sm text-green-800 font-mono">19:00 - 20:00</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-border rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="font-medium text-foreground">Terça-feira</h4>
+                                    <span class="text-sm text-muted-foreground">5h 30min planejados</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                            <span class="font-medium text-purple-800">História</span>
+                                        </div>
+                                        <div class="text-sm text-purple-800 font-mono">08:00 - 11:00</div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                            <span class="font-medium text-orange-800">Biologia</span>
+                                        </div>
+                                        <div class="text-sm text-orange-800 font-mono">14:00 - 16:30</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: WeeklySchedule -->
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Quick Actions -->
+                    <!-- @COMPONENT: QuickActions -->
+                    <div class="bg-card rounded-xl border border-border shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Ações Rápidas</h3>
+                        <div class="space-y-3">
+                            <button class="w-full flex items-center space-x-3 p-3 text-left hover:bg-accent rounded-lg transition-colors">
+                                <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-plus text-primary text-sm"></i>
+                                </div>
+                                <span class="font-medium text-foreground">Adicionar Disciplina</span>
+                            </button>
+                            <button class="w-full flex items-center space-x-3 p-3 text-left hover:bg-accent rounded-lg transition-colors">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-cog text-secondary text-sm"></i>
+                                </div>
+                                <span class="font-medium text-foreground">Configurar Horários</span>
+                            </button>
+                            <button class="w-full flex items-center space-x-3 p-3 text-left hover:bg-accent rounded-lg transition-colors">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-download text-green-600 text-sm"></i>
+                                </div>
+                                <span class="font-medium text-foreground">Exportar Cronograma</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: QuickActions -->
+
+                    <!-- Study Settings -->
+                    <!-- @COMPONENT: StudySettings -->
+                    <div class="bg-card rounded-xl border border-border shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Configurações Atuais</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-muted-foreground">Horário de Acordar</span>
+                                <span class="text-sm font-medium text-foreground font-mono" data-bind="settings.wakeTime">07:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-muted-foreground">Horário de Dormir</span>
+                                <span class="text-sm font-medium text-foreground font-mono" data-bind="settings.sleepTime">23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-muted-foreground">Tempo Diário de Estudo</span>
+                                <span class="text-sm font-medium text-foreground font-mono" data-bind="settings.dailyStudyTime">6h 0min</span>
+                            </div>
+                            <hr class="border-border">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-muted-foreground">Tempo Total do Ciclo</span>
+                                <span class="text-sm font-medium text-foreground font-mono">24h 30min</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 bg-muted text-muted-foreground px-4 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium">
+                            <i class="fas fa-edit mr-2"></i>
+                            Editar Configurações
+                        </button>
+                    </div>
+                    <!-- @END_COMPONENT: StudySettings -->
+
+                    <!-- Subject List -->
+                    <!-- @COMPONENT: SubjectList -->
+                    <div class="bg-card rounded-xl border border-border shadow-sm p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-foreground">Disciplinas</h3>
+                            <span class="text-sm text-muted-foreground">8 disciplinas</span>
+                        </div>
+                        <div class="space-y-3 max-h-64 overflow-y-auto">
+                            <!-- @MAP: subjects.map(subject => ( -->
+                            <div class="flex items-center justify-between p-3 border border-border rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                    <span class="text-sm font-medium text-foreground" data-bind="subject.name">Matemática</span>
+                                </div>
+                                <span class="text-sm text-muted-foreground font-mono" data-bind="subject.duration">3h 0min</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 border border-border rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <span class="text-sm font-medium text-foreground">Física</span>
+                                </div>
+                                <span class="text-sm text-muted-foreground font-mono">2h 30min</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 border border-border rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    <span class="text-sm font-medium text-foreground">Química</span>
+                                </div>
+                                <span class="text-sm text-muted-foreground font-mono">2h 0min</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 border border-border rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                    <span class="text-sm font-medium text-foreground">História</span>
+                                </div>
+                                <span class="text-sm text-muted-foreground font-mono">4h 0min</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 border border-border rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                    <span class="text-sm font-medium text-foreground">Biologia</span>
+                                </div>
+                                <span class="text-sm text-muted-foreground font-mono">3h 30min</span>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: SubjectList -->
+                </div>
+            </div>
+
+            <!-- Modal for Adding Subject -->
+            <!-- @COMPONENT: AddSubjectModal @STATE: isOpen:boolean = false -->
+            <div id="addSubjectModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+                <div class="bg-card rounded-xl shadow-xl max-w-md w-full mx-4 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-foreground">Adicionar Nova Disciplina</h3>
+                        <button class="text-muted-foreground hover:text-foreground transition-colors" onclick="closeModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <form class="space-y-4" data-implementation="Should validate and submit subject data">
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-2">Nome da Disciplina</label>
+                            <input type="text" class="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="Ex: Matemática" data-mock="true">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-foreground mb-2">Horas</label>
+                                <input type="number" min="0" max="23" class="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="2" data-mock="true">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-foreground mb-2">Minutos</label>
+                                <select class="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent" data-mock="true">
+                                    <option value="0">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3 pt-4">
+                            <button type="button" onclick="closeModal()" class="flex-1 px-4 py-2 border border-border rounded-lg text-foreground hover:bg-accent transition-colors">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="flex-1 bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium" data-event="click:handleAddSubject">
+                                Adicionar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- @END_COMPONENT: AddSubjectModal -->
+        </main>
+    </div>
+    <!-- @END_COMPONENT: AppLayout -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        
+        (function() {
+            // Modal functionality
+            window.openModal = function() {
+                document.getElementById('addSubjectModal').classList.remove('hidden');
+                document.getElementById('addSubjectModal').classList.add('flex');
+            };
+
+            window.closeModal = function() {
+                document.getElementById('addSubjectModal').classList.add('hidden');
+                document.getElementById('addSubjectModal').classList.remove('flex');
+            };
+
+            // Close modal on backdrop click
+            document.getElementById('addSubjectModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Quick actions event handlers
+            document.addEventListener('DOMContentLoaded', function() {
+                const addSubjectBtn = document.querySelector('[data-implementation*="Adicionar Disciplina"]')?.closest('button');
+                if (addSubjectBtn) {
+                    addSubjectBtn.addEventListener('click', openModal);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

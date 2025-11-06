@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Manage your schedule and track progress",
-  
+
   "nav.dashboard": "Dashboard",
   "nav.subjects": "Subjects",
   "nav.settings": "Settings",
-  
+
   "dashboard.currentCycle": "Current Study Cycle",
   "dashboard.newCycle": "New Cycle",
   "dashboard.totalWeeks": "Total Weeks",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "Daily Hours",
   "dashboard.progress": "Progress",
   "dashboard.plannedTime": "planned",
-  
+
   "schedule.title": "Weekly Schedule",
   "schedule.week": "Week",
   "schedule.empty": "Add subjects to automatically generate the schedule",
   "schedule.noStudy": "No study planned",
-  
+
   "actions.title": "Quick Actions",
   "actions.addSubject": "Add Subject",
   "actions.configureSchedule": "Configure Schedule",
   "actions.exportSchedule": "Export Schedule",
-  
+
   "settings.title": "Current Settings",
   "settings.wakeTime": "Wake Time",
   "settings.sleepTime": "Sleep Time",
   "settings.dailyStudyTime": "Daily Study Time",
   "settings.totalCycleTime": "Total Cycle Time",
   "settings.edit": "Edit Settings",
-  
+
   "subjects.title": "Subjects",
   "subjects.count": "subject",
   "subjects.countPlural": "subjects",
@@ -40,11 +40,11 @@
   "subjects.hours": "Hours",
   "subjects.minutes": "Minutes",
   "subjects.nameExample": "Ex: Mathematics",
-  
+
   "modal.cancel": "Cancel",
   "modal.add": "Add",
   "modal.adding": "Adding...",
-  
+
   "toast.subjectAdded": "Subject added",
   "toast.subjectAddedDesc": "The subject was added successfully.",
   "toast.error": "Error",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "Schedule configuration will be implemented soon.",
   "toast.exportInDev": "Schedule export will be implemented soon.",
   "toast.editInDev": "Settings editing will be implemented soon.",
-  
+
   "days.monday": "Monday",
   "days.tuesday": "Tuesday",
   "days.wednesday": "Wednesday",
@@ -64,7 +64,79 @@
   "days.friday": "Friday",
   "days.saturday": "Saturday",
   "days.sunday": "Sunday",
-  
+
   "language.select": "Select language",
-  "language.current": "Current language"
+  "language.current": "Current language",
+
+  "landing": {
+    "nav": {
+      "courses": "Courses",
+      "pricing": "Pricing",
+      "testimonials": "Testimonials",
+      "dashboard": "Go to Dashboard"
+    },
+    "hero": {
+      "title": "Learn at Your Own Pace",
+      "description": "Study Cycle is a modern learning platform that adapts to your unique learning style and goals.",
+      "cta": "Start Learning Now"
+    },
+    "features": {
+      "title": "Why Choose Study Cycle?",
+      "courses": {
+        "title": "Interactive Courses",
+        "description": "Learn with our adaptive courses that adjust to your skill level"
+      },
+      "skills": {
+        "title": "Track Your Skills",
+        "description": "Monitor your progress with our detailed skill tracking system"
+      },
+      "community": {
+        "title": "Join the Community",
+        "description": "Connect with other learners and share your knowledge"
+      }
+    },
+    "pricing": {
+      "title": "Simple, Transparent Pricing",
+      "getStarted": "Get Started",
+      "popular": "Most Popular",
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "For serious learners",
+        "feature1": "All basic features",
+        "feature2": "Advanced courses",
+        "feature3": "Priority support",
+        "feature4": "Certificate of completion"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "role": {
+        "student": "Student",
+        "teacher": "Teacher",
+        "parent": "Parent"
+      },
+      "content1": "Study Cycle has transformed the way I learn. The adaptive courses and skill tracking keep me motivated.",
+      "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
+      "content3": "I can easily track my child's progress and see where they need help. Great platform!"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  }
 }
