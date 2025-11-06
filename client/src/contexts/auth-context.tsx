@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { SessionUser } from "@shared/schema";
+import type { SessionUser } from "@shared/types/user";
 
 interface AuthContextType {
   user: SessionUser | null;
@@ -7,6 +7,7 @@ interface AuthContextType {
   logout: () => void;
   register: (userData: any) => Promise<void>;
   switchToTeacher: () => Promise<void>;
+  updateUser: (userData: SessionUser) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -83,15 +84,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(updatedUser);
   };
 
+  const updateUser = async (userData: SessionUser) => {
+    try {
+      const response = await fetch("/api/auth/update", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update user");
+      }
+
+      const updatedUser = await response.json();
+      setUser(updatedUser);
+    } catch (error) {
+      console.error("Update user failed:", error);
+      throw error;
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{
-      user,
-      login,
-      logout,
-      register,
-      switchToTeacher,
-      isLoading
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        register,
+        switchToTeacher,
+        updateUser,
+        isLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
