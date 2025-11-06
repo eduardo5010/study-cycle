@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "スケジュールを管理し、進捗を追跡",
-  
+
   "nav.dashboard": "ダッシュボード",
   "nav.subjects": "科目",
   "nav.settings": "設定",
-  
+
   "dashboard.currentCycle": "現在の学習サイクル",
   "dashboard.newCycle": "新しいサイクル",
   "dashboard.totalWeeks": "総週数",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "一日の時間",
   "dashboard.progress": "進捗",
   "dashboard.plannedTime": "予定",
-  
+
   "schedule.title": "週間スケジュール",
   "schedule.week": "週",
   "schedule.empty": "科目を追加してスケジュールを自動生成",
   "schedule.noStudy": "学習予定なし",
-  
+
   "actions.title": "クイックアクション",
   "actions.addSubject": "科目を追加",
   "actions.configureSchedule": "スケジュール設定",
   "actions.exportSchedule": "スケジュール出力",
-  
+
   "settings.title": "現在の設定",
   "settings.wakeTime": "起床時間",
   "settings.sleepTime": "就寝時間",
   "settings.dailyStudyTime": "一日の学習時間",
   "settings.totalCycleTime": "総サイクル時間",
   "settings.edit": "設定を編集",
-  
+
   "subjects.title": "科目",
   "subjects.count": "科目",
   "subjects.countPlural": "科目",
@@ -40,11 +40,11 @@
   "subjects.hours": "時間",
   "subjects.minutes": "分",
   "subjects.nameExample": "例：数学",
-  
+
   "modal.cancel": "キャンセル",
   "modal.add": "追加",
   "modal.adding": "追加中...",
-  
+
   "toast.subjectAdded": "科目が追加されました",
   "toast.subjectAddedDesc": "科目が正常に追加されました。",
   "toast.error": "エラー",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "スケジュール設定は近日実装予定です。",
   "toast.exportInDev": "スケジュール出力は近日実装予定です。",
   "toast.editInDev": "設定編集は近日実装予定です。",
-  
+
   "days.monday": "月曜日",
   "days.tuesday": "火曜日",
   "days.wednesday": "水曜日",
@@ -64,7 +64,79 @@
   "days.friday": "金曜日",
   "days.saturday": "土曜日",
   "days.sunday": "日曜日",
-  
+
   "language.select": "言語を選択",
-  "language.current": "現在の言語"
+  "language.current": "現在の言語",
+
+  "landing": {
+    "nav": {
+      "courses": "コース",
+      "pricing": "料金",
+      "testimonials": "お客様の声",
+      "dashboard": "ダッシュボードへ"
+    },
+    "hero": {
+      "title": "自分のペースで学習",
+      "description": "Study Cycleは、あなたの独自の学習スタイルと目標に適応する最新の学習プラットフォームです。",
+      "cta": "今すぐ学習を始める"
+    },
+    "features": {
+      "title": "なぜStudy Cycleを選ぶのか？",
+      "courses": {
+        "title": "インタラクティブなコース",
+        "description": "あなたのスキルレベルに合わせて調整される適応型コースで学習"
+      },
+      "skills": {
+        "title": "スキルを追跡",
+        "description": "詳細なスキル追跡システムで進捗を監視"
+      },
+      "community": {
+        "title": "コミュニティに参加",
+        "description": "他の学習者とつながり、知識を共有"
+      }
+    },
+    "pricing": {
+      "title": "シンプルで透明な料金",
+      "getStarted": "始める",
+      "popular": "人気",
+      "free": {
+        "title": "ベーシック",
+        "description": "始めるのに最適",
+        "feature1": "基本コースへのアクセス",
+        "feature2": "基本的な進捗追跡",
+        "feature3": "コミュニティへのアクセス"
+      },
+      "pro": {
+        "title": "プロ",
+        "description": "真剣な学習者向け",
+        "feature1": "すべての基本機能",
+        "feature2": "上級コース",
+        "feature3": "優先サポート",
+        "feature4": "修了証明書"
+      },
+      "team": {
+        "title": "チーム",
+        "description": "組織に最適",
+        "feature1": "すべてのプロ機能",
+        "feature2": "チーム管理",
+        "feature3": "カスタム学習パス",
+        "feature4": "分析ダッシュボード",
+        "feature5": "優先サポート"
+      }
+    },
+    "testimonials": {
+      "title": "ユーザーの声",
+      "role": {
+        "student": "学生",
+        "teacher": "教師",
+        "parent": "保護者"
+      },
+      "content1": "Study Cycleは私の学習方法を変えました。適応型コースとスキル追跡が私のモチベーションを保ってくれます。",
+      "content2": "教師として、Study Cycleがカスタム学習パスの作成と共有を容易にしてくれることが気に入っています。",
+      "content3": "子供の進捗を簡単に追跡し、どこでヘルプが必要かを確認できます。素晴らしいプラットフォームです！"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  }
 }

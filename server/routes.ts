@@ -1,16 +1,27 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { 
-  insertSubjectSchema, 
-  insertStudySettingsSchema, 
+import {
+  insertSubjectSchema,
+  insertStudySettingsSchema,
   insertStudyCycleSchema,
   insertGlobalSubjectSchema,
   insertCycleSubjectSchema,
   insertUserSchema,
   loginSchema,
-  insertContentSchema
 } from "@shared/schema";
+import { insertContentSchema } from "@shared/schema/content";
+import type { UserType } from "@shared/types/user";
+
+function getUserType(user: {
+  isStudent: boolean;
+  isTeacher: boolean;
+  isAdmin: boolean;
+}): UserType {
+  if (user.isAdmin) return "admin";
+  if (user.isTeacher) return "teacher";
+  return "student";
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Global Subjects routes
@@ -74,7 +85,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { cycleId } = req.params;
       const validatedData = insertCycleSubjectSchema.parse({
         ...req.body,
-        cycleId
+        cycleId,
       });
       const cycleSubject = await storage.addSubjectToCycle(validatedData);
       res.status(201).json(cycleSubject);
@@ -220,81 +231,188 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to delete study cycle" });
     }
   });
-  
+
   // Authentication endpoints
   app.post("/api/auth/register", async (req, res) => {
     try {
       const validatedData = insertUserSchema.parse(req.body);
       const existingUser = await storage.getUserByEmail(validatedData.email);
-      
+
       if (existingUser) {
         return res.status(400).json({ message: "Email already registered" });
       }
-      
+
       const user = await storage.createUser(validatedData);
       const sessionUser = {
         id: user.id,
-        email: user.email,
         name: user.name,
-        userType: user.userType,
-        avatar: user.avatar
+        userType: getUserType(user),
+        avatar: user.avatar,
       };
-      
       res.status(201).json(sessionUser);
     } catch (error) {
       res.status(400).json({ message: "Invalid registration data" });
     }
   });
-  
+
   app.post("/api/auth/login", async (req, res) => {
     try {
       const validatedData = loginSchema.parse(req.body);
       const user = await storage.getUserByEmail(validatedData.email);
-      
+
       if (!user || user.password !== validatedData.password) {
         return res.status(401).json({ message: "Invalid credentials" });
       }
-      
+
       const sessionUser = {
         id: user.id,
         email: user.email,
         name: user.name,
-        userType: user.userType,
-        avatar: user.avatar
+        userType: getUserType(user),
+        avatar: user.avatar,
       };
-      
+
       res.json(sessionUser);
     } catch (error) {
       res.status(400).json({ message: "Invalid login data" });
     }
   });
-  
+
   app.get("/api/auth/me", async (req, res) => {
-    // Mock response since we don't have real sessions
-    res.json(null);
+    const userId = req.headers["user-id"]; // Em produção, isso viria do token JWT
+    if (!userId) {
+      return res.json(null);
+    }
+
+    try {
+      const user = await storage.getUserById(userId as string);
+      if (!user) {
+        return res.json(null);
+      }
+
+      const sessionUser = {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        userType: getUserType(user),
+        avatar: user.avatar,
+      };
+
+      res.json(sessionUser);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(500).json({ message: "Failed to fetch user data" });
+    }
   });
-  
+
   app.post("/api/auth/logout", (req, res) => {
+    // Em produção, isso invalidaria o token JWT
     res.status(204).send();
   });
-  
+
   app.post("/api/auth/switch-to-teacher", async (req, res) => {
+    const userId = req.headers["user-id"]; // Em produção, isso viria do token JWT
+    if (!userId) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
     try {
-      // Mock user for now
-      const mockUser = {
-        id: "mock-id",
-        email: "user@example.com",
-        name: "User",
-        userType: "teacher",
-        avatar: null
+      const user = await storage.getUserById(userId as string);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      const updatedUser = await storage.updateUser(user.id, {
+        isTeacher: true,
+      });
+
+      if (!updatedUser) {
+        throw new Error("Failed to update user");
+      }
+
+      const sessionUser = {
+        id: updatedUser.id,
+        email: updatedUser.email,
+        name: updatedUser.name,
+        userType: getUserType(updatedUser),
+        avatar: updatedUser.avatar,
       };
-      
-      res.json(mockUser);
+
+      res.json(sessionUser);
     } catch (error) {
+      console.error("Error switching to teacher:", error);
       res.status(500).json({ message: "Failed to switch to teacher" });
     }
   });
-  
+
+  // Rotas de cursos
+  app.get("/api/courses", async (req, res) => {
+    try {
+      const courses = await storage.getAllCourses();
+      res.json(courses);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch courses" });
+    }
+  });
+
+  app.get("/api/courses/published", async (req, res) => {
+    try {
+      const courses = await storage.getPublishedCourses();
+      res.json(courses);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch published courses" });
+    }
+  });
+
+  app.get("/api/courses/teacher/:teacherId", async (req, res) => {
+    try {
+      const courses = await storage.getTeacherCourses(req.params.teacherId);
+      res.json(courses);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch teacher courses" });
+    }
+  });
+
+  app.post("/api/courses", async (req, res) => {
+    try {
+      const userId = req.headers["user-id"];
+      if (!userId) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+
+      const user = await storage.getUserById(userId as string);
+      if (!user || !user.isTeacher) {
+        return res
+          .status(403)
+          .json({ message: "Only teachers can create courses" });
+      }
+
+      const course = await storage.createCourse({
+        ...req.body,
+        creatorId: userId as string,
+      });
+      res.status(201).json(course);
+    } catch (error) {
+      res.status(400).json({ message: "Failed to create course" });
+    }
+  });
+
+  // Rotas de gamificação
+  app.get("/api/gamification/:userId", async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const user = await storage.getUserById(userId);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      const gamificationData = await storage.getGamificationData(userId);
+      res.json(gamificationData);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch gamification data" });
+    }
+  });
+
   // Clear all cycle data endpoint
   app.delete("/api/cycles/clear", async (req, res) => {
     try {
@@ -308,7 +426,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to clear cycle data" });
     }
   });
-  
+
   // Content management endpoints
   app.get("/api/content", async (req, res) => {
     try {
@@ -318,11 +436,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to fetch content" });
     }
   });
-  
+
   app.post("/api/content", async (req, res) => {
     try {
       const validatedData = insertContentSchema.parse(req.body);
-      const content = await storage.createContent(validatedData, "mock-teacher-id");
+      const content = await storage.createContent(
+        validatedData,
+        "mock-teacher-id"
+      );
       res.status(201).json(content);
     } catch (error) {
       res.status(400).json({ message: "Invalid content data" });

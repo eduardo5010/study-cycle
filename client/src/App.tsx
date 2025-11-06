@@ -6,29 +6,52 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { AuthProvider } from "@/contexts/auth-context";
-import MainLayout from "@/components/main-layout";
+import { WithMainLayout } from "@/components/with-main-layout";
 import HomePage from "@/pages/home";
+import LandingPage from "@/pages/landing";
 import CoursesPage from "@/pages/courses";
 import SubjectsPage from "@/pages/subjects";
+import AdminPage from "@/pages/admin";
+import { TeacherDashboard } from "@/pages/teacher-dashboard";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <MainLayout>
+    <WithMainLayout>
       <Switch>
-        <Route path="/" component={HomePage} />
+        <Route path="/" component={LandingPage} />
         <Route path="/home" component={HomePage} />
         <Route path="/courses" component={CoursesPage} />
         <Route path="/subjects" component={SubjectsPage} />
-        <Route path="/calendar" component={() => <PlaceholderPage title="Calendário" />} />
-        <Route path="/chats" component={() => <PlaceholderPage title="Chats" />} />
-        <Route path="/events" component={() => <PlaceholderPage title="Eventos" />} />
-        <Route path="/english" component={() => <PlaceholderPage title="Inglês" />} />
-        <Route path="/mandarin" component={() => <PlaceholderPage title="Mandarim" />} />
-        <Route path="/settings" component={() => <PlaceholderPage title="Configurações" />} />
+        <Route path="/teacher" component={TeacherDashboard} />
+        <Route
+          path="/calendar"
+          component={() => <PlaceholderPage title="Calendário" />}
+        />
+        <Route
+          path="/chats"
+          component={() => <PlaceholderPage title="Chats" />}
+        />
+        <Route
+          path="/events"
+          component={() => <PlaceholderPage title="Eventos" />}
+        />
+        <Route
+          path="/english"
+          component={() => <PlaceholderPage title="Inglês" />}
+        />
+        <Route
+          path="/mandarin"
+          component={() => <PlaceholderPage title="Mandarim" />}
+        />
+        <Route
+          path="/settings"
+          component={() => <PlaceholderPage title="Configurações" />}
+        />
+        <Route path="/admin" component={AdminPage} />
         <Route component={NotFound} />
       </Switch>
-    </MainLayout>
+    </WithMainLayout>
   );
 }
 
@@ -37,7 +60,9 @@ function PlaceholderPage({ title }: { title: string }) {
     <div className="flex-1 flex items-center justify-center p-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-foreground mb-4">{title}</h1>
-        <p className="text-muted-foreground">Esta página está em desenvolvimento.</p>
+        <p className="text-muted-foreground">
+          Esta página está em desenvolvimento.
+        </p>
       </div>
     </div>
   );
