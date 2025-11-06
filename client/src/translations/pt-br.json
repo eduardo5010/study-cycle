@@ -1,0 +1,142 @@
+{
+  "app.title": "StudyCycle",
+  "app.subtitle": "Gerencie seu cronograma e acompanhe seu progresso",
+
+  "nav.dashboard": "Painel",
+  "nav.subjects": "Disciplinas",
+  "nav.settings": "Configurações",
+
+  "dashboard.currentCycle": "Ciclo de Estudos Atual",
+  "dashboard.newCycle": "Novo Ciclo",
+  "dashboard.totalWeeks": "Total de Semanas",
+  "dashboard.subjects": "Disciplinas",
+  "dashboard.dailyHours": "Horas Diárias",
+  "dashboard.progress": "Progresso",
+  "dashboard.plannedTime": "planejado",
+
+  "schedule.title": "Cronograma Semanal",
+  "schedule.week": "Semana",
+  "schedule.empty": "Adicione disciplinas para gerar o cronograma automaticamente",
+  "schedule.noStudy": "Nenhum estudo planejado",
+
+  "actions.title": "Ações Rápidas",
+  "actions.addSubject": "Adicionar Disciplina",
+  "actions.configureSchedule": "Configurar Cronograma",
+  "actions.exportSchedule": "Exportar Cronograma",
+
+  "settings.title": "Configurações Atuais",
+  "settings.wakeTime": "Horário de Acordar",
+  "settings.sleepTime": "Horário de Dormir",
+  "settings.dailyStudyTime": "Tempo Diário de Estudo",
+  "settings.totalCycleTime": "Tempo Total do Ciclo",
+  "settings.edit": "Editar Configurações",
+
+  "subjects.title": "Disciplinas",
+  "subjects.count": "disciplina",
+  "subjects.countPlural": "disciplinas",
+  "subjects.empty": "Nenhuma disciplina adicionada ainda",
+  "subjects.add": "Adicionar Nova Disciplina",
+  "subjects.name": "Nome da Disciplina",
+  "subjects.hours": "Horas",
+  "subjects.minutes": "Minutos",
+  "subjects.nameExample": "Ex: Matemática",
+
+  "modal.cancel": "Cancelar",
+  "modal.add": "Adicionar",
+  "modal.adding": "Adicionando...",
+
+  "toast.subjectAdded": "Disciplina adicionada",
+  "toast.subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
+  "toast.error": "Erro",
+  "toast.subjectError": "Não foi possível adicionar a disciplina.",
+  "toast.noScheduleExport": "Nenhum cronograma para exportar",
+  "toast.noScheduleExportDesc": "Adicione disciplinas para gerar um cronograma.",
+  "toast.featureInDev": "Funcionalidade em desenvolvimento",
+  "toast.newCycleInDev": "A criação de novos ciclos será implementada em breve.",
+  "toast.configureInDev": "A configuração do cronograma será implementada em breve.",
+  "toast.exportInDev": "A exportação do cronograma será implementada em breve.",
+  "toast.editInDev": "A edição das configurações será implementada em breve.",
+
+  "days.monday": "Segunda-feira",
+  "days.tuesday": "Terça-feira",
+  "days.wednesday": "Quarta-feira",
+  "days.thursday": "Quinta-feira",
+  "days.friday": "Sexta-feira",
+  "days.saturday": "Sábado",
+  "days.sunday": "Domingo",
+
+  "language.select": "Selecionar idioma",
+  "language.current": "Idioma atual",
+
+  "landing": {
+    "nav": {
+      "courses": "Cursos",
+      "pricing": "Preços",
+      "testimonials": "Depoimentos",
+      "dashboard": "Ir para o Painel"
+    },
+    "hero": {
+      "title": "Aprenda no Seu Próprio Ritmo",
+      "description": "O Study Cycle é uma plataforma moderna de aprendizado que se adapta ao seu estilo único de aprendizado e objetivos.",
+      "cta": "Comece a Aprender Agora"
+    },
+    "features": {
+      "title": "Por que Escolher o Study Cycle?",
+      "courses": {
+        "title": "Cursos Interativos",
+        "description": "Aprenda com nossos cursos adaptativos que se ajustam ao seu nível de habilidade"
+      },
+      "skills": {
+        "title": "Acompanhe Suas Habilidades",
+        "description": "Monitore seu progresso com nosso sistema detalhado de acompanhamento de habilidades"
+      },
+      "community": {
+        "title": "Junte-se à Comunidade",
+        "description": "Conecte-se com outros estudantes e compartilhe seu conhecimento"
+      }
+    },
+    "pricing": {
+      "title": "Preços Simples e Transparentes",
+      "getStarted": "Começar",
+      "popular": "Mais Popular",
+      "free": {
+        "title": "Básico",
+        "description": "Perfeito para começar",
+        "feature1": "Acesso aos cursos básicos",
+        "feature2": "Acompanhamento básico de progresso",
+        "feature3": "Acesso à comunidade"
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Para estudantes sérios",
+        "feature1": "Todas as funcionalidades básicas",
+        "feature2": "Cursos avançados",
+        "feature3": "Suporte prioritário",
+        "feature4": "Certificado de conclusão"
+      },
+      "team": {
+        "title": "Equipe",
+        "description": "Melhor para organizações",
+        "feature1": "Todas as funcionalidades pro",
+        "feature2": "Gerenciamento de equipe",
+        "feature3": "Trilhas de aprendizado personalizadas",
+        "feature4": "Painel de análise",
+        "feature5": "Suporte prioritário"
+      }
+    },
+    "testimonials": {
+      "title": "O que Nossos Usuários Dizem",
+      "role": {
+        "student": "Estudante",
+        "teacher": "Professor",
+        "parent": "Pai/Mãe"
+      },
+      "content1": "O Study Cycle transformou a maneira como eu aprendo. Os cursos adaptativos e o acompanhamento de habilidades me mantêm motivado.",
+      "content2": "Como professor, adoro como o Study Cycle facilita a criação e compartilhamento de trilhas de aprendizado personalizadas.",
+      "content3": "Posso acompanhar facilmente o progresso do meu filho e ver onde ele precisa de ajuda. Ótima plataforma!"
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados."
+    }
+  }
+}

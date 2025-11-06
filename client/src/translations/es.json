@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Gestiona tu horario y sigue el progreso",
-  
+
   "nav.dashboard": "Panel",
   "nav.subjects": "Materias",
   "nav.settings": "Configuración",
-  
+
   "dashboard.currentCycle": "Ciclo de Estudio Actual",
   "dashboard.newCycle": "Nuevo Ciclo",
   "dashboard.totalWeeks": "Total de Semanas",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "Horas Diarias",
   "dashboard.progress": "Progreso",
   "dashboard.plannedTime": "planificado",
-  
+
   "schedule.title": "Horario Semanal",
   "schedule.week": "Semana",
   "schedule.empty": "Añade materias para generar automáticamente el horario",
   "schedule.noStudy": "Ningún estudio planificado",
-  
+
   "actions.title": "Acciones Rápidas",
   "actions.addSubject": "Añadir Materia",
   "actions.configureSchedule": "Configurar Horario",
   "actions.exportSchedule": "Exportar Horario",
-  
+
   "settings.title": "Configuración Actual",
   "settings.wakeTime": "Hora de Despertar",
   "settings.sleepTime": "Hora de Dormir",
   "settings.dailyStudyTime": "Tiempo Diario de Estudio",
   "settings.totalCycleTime": "Tiempo Total del Ciclo",
   "settings.edit": "Editar Configuración",
-  
+
   "subjects.title": "Materias",
   "subjects.count": "materia",
   "subjects.countPlural": "materias",
@@ -40,11 +40,11 @@
   "subjects.hours": "Horas",
   "subjects.minutes": "Minutos",
   "subjects.nameExample": "Ej: Matemáticas",
-  
+
   "modal.cancel": "Cancelar",
   "modal.add": "Añadir",
   "modal.adding": "Añadiendo...",
-  
+
   "toast.subjectAdded": "Materia añadida",
   "toast.subjectAddedDesc": "La materia se añadió con éxito.",
   "toast.error": "Error",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "La configuración de horarios se implementará pronto.",
   "toast.exportInDev": "La exportación de horarios se implementará pronto.",
   "toast.editInDev": "La edición de configuración se implementará pronto.",
-  
+
   "days.monday": "Lunes",
   "days.tuesday": "Martes",
   "days.wednesday": "Miércoles",
@@ -64,7 +64,79 @@
   "days.friday": "Viernes",
   "days.saturday": "Sábado",
   "days.sunday": "Domingo",
-  
+
   "language.select": "Seleccionar idioma",
-  "language.current": "Idioma actual"
+  "language.current": "Idioma actual",
+
+  "landing": {
+    "nav": {
+      "courses": "Cursos",
+      "pricing": "Precios",
+      "testimonials": "Testimonios",
+      "dashboard": "Ir al Panel"
+    },
+    "hero": {
+      "title": "Aprende a Tu Propio Ritmo",
+      "description": "Study Cycle es una plataforma moderna de aprendizaje que se adapta a tu estilo único de aprendizaje y objetivos.",
+      "cta": "Empieza a Aprender Ahora"
+    },
+    "features": {
+      "title": "¿Por qué elegir Study Cycle?",
+      "courses": {
+        "title": "Cursos Interactivos",
+        "description": "Aprende con nuestros cursos adaptativos que se ajustan a tu nivel de habilidad"
+      },
+      "skills": {
+        "title": "Rastrea tus Habilidades",
+        "description": "Monitorea tu progreso con nuestro sistema detallado de seguimiento de habilidades"
+      },
+      "community": {
+        "title": "Únete a la Comunidad",
+        "description": "Conéctate con otros estudiantes y comparte tu conocimiento"
+      }
+    },
+    "pricing": {
+      "title": "Precios Simples y Transparentes",
+      "getStarted": "Comenzar",
+      "popular": "Más Popular",
+      "free": {
+        "title": "Básico",
+        "description": "Perfecto para empezar",
+        "feature1": "Acceso a cursos básicos",
+        "feature2": "Seguimiento básico de progreso",
+        "feature3": "Acceso a la comunidad"
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Para estudiantes serios",
+        "feature1": "Todas las funciones básicas",
+        "feature2": "Cursos avanzados",
+        "feature3": "Soporte prioritario",
+        "feature4": "Certificado de finalización"
+      },
+      "team": {
+        "title": "Equipo",
+        "description": "Lo mejor para organizaciones",
+        "feature1": "Todas las funciones pro",
+        "feature2": "Gestión de equipo",
+        "feature3": "Rutas de aprendizaje personalizadas",
+        "feature4": "Panel de análisis",
+        "feature5": "Soporte prioritario"
+      }
+    },
+    "testimonials": {
+      "title": "Lo que Dicen Nuestros Usuarios",
+      "role": {
+        "student": "Estudiante",
+        "teacher": "Profesor",
+        "parent": "Padre/Madre"
+      },
+      "content1": "Study Cycle ha transformado mi forma de aprender. Los cursos adaptativos y el seguimiento de habilidades me mantienen motivado.",
+      "content2": "Como profesor, me encanta cómo Study Cycle facilita la creación y compartición de rutas de aprendizaje personalizadas.",
+      "content3": "Puedo seguir fácilmente el progreso de mi hijo y ver dónde necesita ayuda. ¡Excelente plataforma!"
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados."
+    }
+  }
 }
