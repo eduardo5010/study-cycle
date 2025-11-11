@@ -67,6 +67,9 @@
 
   "language.select": "Sprache auswählen",
   "language.current": "Aktuelle Sprache",
+  "app.description": "Study Cycle hilft Lernenden, ihre Lernzeit zu organisieren, Fortschritte zu verfolgen und adaptiven Kursen zu folgen, um ihre Ziele zu erreichen.",
+  "auth.login": "Anmelden",
+  "auth.register": "Registrieren",
 
   "landing": {
     "nav": {
@@ -109,6 +112,7 @@
       "pro": {
         "title": "Pro",
         "description": "Für ernsthafte Lernende",
+        "price": "R$50 / US$50",
         "feature1": "Alle Basic-Funktionen",
         "feature2": "Fortgeschrittene Kurse",
         "feature3": "Prioritäts-Support",

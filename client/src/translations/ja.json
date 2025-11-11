@@ -67,6 +67,9 @@
 
   "language.select": "言語を選択",
   "language.current": "現在の言語",
+  "app.description": "Study Cycle は学習者が学習時間を整理し、進捗を追跡し、目標達成のために適応型コースを受講するのを支援します。",
+  "auth.login": "ログイン",
+  "auth.register": "登録",
 
   "landing": {
     "nav": {
@@ -109,6 +112,7 @@
       "pro": {
         "title": "プロ",
         "description": "真剣な学習者向け",
+        "price": "R$50 / US$50",
         "feature1": "すべての基本機能",
         "feature2": "上級コース",
         "feature3": "優先サポート",

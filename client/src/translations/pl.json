@@ -1,11 +1,12 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Zarządzaj harmonogramem i śledź postępy",
-  
+  "app.description": "Study Cycle pomaga uczącym się organizować czas nauki, śledzić postępy i realizować cele dzięki adaptacyjnym kursom.",
+
   "nav.dashboard": "Panel główny",
   "nav.subjects": "Przedmioty",
   "nav.settings": "Ustawienia",
-  
+
   "dashboard.currentCycle": "Aktualny cykl nauki",
   "dashboard.newCycle": "Nowy cykl",
   "dashboard.totalWeeks": "Łączna liczba tygodni",
@@ -13,24 +14,24 @@
   "dashboard.dailyHours": "Godziny dzienne",
   "dashboard.progress": "Postęp",
   "dashboard.plannedTime": "zaplanowane",
-  
+
   "schedule.title": "Harmonogram tygodniowy",
   "schedule.week": "Tydzień",
   "schedule.empty": "Dodaj przedmioty, aby automatycznie wygenerować harmonogram",
   "schedule.noStudy": "Brak zaplanowanej nauki",
-  
+
   "actions.title": "Szybkie działania",
   "actions.addSubject": "Dodaj przedmiot",
   "actions.configureSchedule": "Konfiguruj harmonogram",
   "actions.exportSchedule": "Eksportuj harmonogram",
-  
+
   "settings.title": "Aktualne ustawienia",
   "settings.wakeTime": "Czas budzenia",
   "settings.sleepTime": "Czas snu",
   "settings.dailyStudyTime": "Dzienny czas nauki",
   "settings.totalCycleTime": "Łączny czas cyklu",
   "settings.edit": "Edytuj ustawienia",
-  
+
   "subjects.title": "Przedmioty",
   "subjects.count": "przedmiot",
   "subjects.countPlural": "przedmiotów",
@@ -40,11 +41,11 @@
   "subjects.hours": "Godziny",
   "subjects.minutes": "Minuty",
   "subjects.nameExample": "Np.: Matematyka",
-  
+
   "modal.cancel": "Anuluj",
   "modal.add": "Dodaj",
   "modal.adding": "Dodawanie...",
-  
+
   "toast.subjectAdded": "Przedmiot dodany",
   "toast.subjectAddedDesc": "Przedmiot został pomyślnie dodany.",
   "toast.error": "Błąd",
@@ -56,7 +57,7 @@
   "toast.configureInDev": "Konfiguracja harmonogramu zostanie wkrótce zaimplementowana.",
   "toast.exportInDev": "Eksport harmonogramu zostanie wkrótce zaimplementowany.",
   "toast.editInDev": "Edycja ustawień zostanie wkrótce zaimplementowana.",
-  
+
   "days.monday": "Poniedziałek",
   "days.tuesday": "Wtorek",
   "days.wednesday": "Środa",
@@ -64,7 +65,61 @@
   "days.friday": "Piątek",
   "days.saturday": "Sobota",
   "days.sunday": "Niedziela",
-  
+
   "language.select": "Wybierz język",
-  "language.current": "Aktualny język"
+  "language.current": "Aktualny język",
+  "landing": {
+    "nav": {
+      "courses": "Kursy",
+      "pricing": "Cennik",
+      "testimonials": "Opinie",
+      "dashboard": "Przejdź do pulpitu"
+    },
+    "hero": {
+      "title": "Ucz się we własnym tempie",
+      "description": "Study Cycle to nowoczesna platforma edukacyjna, która dostosowuje się do Twojego stylu nauki i celów.",
+      "cta": "Rozpocznij naukę"
+    },
+    "features": {
+      "title": "Dlaczego warto wybrać Study Cycle?",
+      "courses": {
+        "title": "Interaktywne kursy",
+        "description": "Ucz się dzięki naszym adaptacyjnym kursom, które dostosowują się do Twojego poziomu"
+      },
+      "skills": {
+        "title": "Śledź swoje umiejętności",
+        "description": "Monitoruj postępy dzięki naszemu systemowi śledzenia umiejętności"
+      },
+      "community": {
+        "title": "Dołącz do społeczności",
+        "description": "Połącz się z innymi uczącymi się i dziel się wiedzą"
+      }
+    },
+    "pricing": {
+      "title": "Prosty i przejrzysty cennik",
+      "getStarted": "Rozpocznij",
+      "popular": "Najpopularniejsze",
+      "pro": {
+        "title": "Pro",
+        "description": "Dla ambitnych uczniów",
+        "price": "R$50 / US$50",
+        "feature1": "Wszystkie funkcje podstawowe",
+        "feature2": "Kursy zaawansowane",
+        "feature3": "Priorytetowe wsparcie",
+        "feature4": "Certyfikat ukończenia"
+      }
+    },
+    "testimonials": {
+      "title": "Co mówią nasi użytkownicy",
+      "role": {
+        "student": "Uczeń",
+        "teacher": "Nauczyciel",
+        "parent": "Rodzic"
+      },
+      "content1": "Study Cycle zmienił sposób, w jaki się uczę. Kursy adaptacyjne i śledzenie umiejętności motywują mnie.",
+      "content2": "Jako nauczyciel cenię, jak Study Cycle ułatwia tworzenie i udostępnianie spersonalizowanych ścieżek nauki.",
+      "content3": "Mogę łatwo śledzić postępy mojego dziecka i zobaczyć, gdzie potrzebuje pomocy. Świetna platforma!"
+    },
+    "footer": { "rights": "Wszelkie prawa zastrzeżone." }
+  }
 }
