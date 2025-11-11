@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Administrer timeplanen din og spor fremgang",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
-
-  "nav.dashboard": "Dashbord",
-  "nav.subjects": "Fag",
-  "nav.settings": "Innstillinger",
-
-  "dashboard.currentCycle": "Gjeldende studiesyklus",
-  "dashboard.newCycle": "Ny syklus",
-  "dashboard.totalWeeks": "Totalt antall uker",
-  "dashboard.subjects": "Fag",
-  "dashboard.dailyHours": "Daglige timer",
-  "dashboard.progress": "Fremgang",
-  "dashboard.plannedTime": "planlagt",
-
-  "schedule.title": "Ukentlig timeplan",
-  "schedule.week": "Uke",
-  "schedule.empty": "Legg til fag for å automatisk generere timeplanen",
-  "schedule.noStudy": "Ingen studier planlagt",
-
-  "actions.title": "Raske handlinger",
-  "actions.addSubject": "Legg til fag",
-  "actions.configureSchedule": "Konfigurer timeplan",
-  "actions.exportSchedule": "Eksporter timeplan",
-
-  "settings.title": "Gjeldende innstillinger",
-  "settings.wakeTime": "Oppvåkningstid",
-  "settings.sleepTime": "Sengetid",
-  "settings.dailyStudyTime": "Daglig studietid",
-  "settings.totalCycleTime": "Total syklustid",
-  "settings.edit": "Rediger innstillinger",
-
-  "subjects.title": "Fag",
-  "subjects.count": "fag",
-  "subjects.countPlural": "fag",
-  "subjects.empty": "Ingen fag lagt til ennå",
-  "subjects.add": "Legg til nytt fag",
-  "subjects.name": "Fagnavn",
-  "subjects.hours": "Timer",
-  "subjects.minutes": "Minutter",
-  "subjects.nameExample": "F.eks.: Matematikk",
-
-  "modal.cancel": "Avbryt",
-  "modal.add": "Legg til",
-  "modal.adding": "Legger til...",
-
-  "toast.subjectAdded": "Fag lagt til",
-  "toast.subjectAddedDesc": "Faget ble lagt til med suksess.",
-  "toast.error": "Feil",
-  "toast.subjectError": "Kunne ikke legge til faget.",
-  "toast.noScheduleExport": "Ingen timeplan å eksportere",
-  "toast.noScheduleExportDesc": "Legg til fag for å generere en timeplan.",
-  "toast.featureInDev": "Funksjon under utvikling",
-  "toast.newCycleInDev": "Oppretting av nye sykluser vil snart bli implementert.",
-  "toast.configureInDev": "Timeplankonfigurasjon vil snart bli implementert.",
-  "toast.exportInDev": "Timeplaneksport vil snart bli implementert.",
-  "toast.editInDev": "Redigering av innstillinger vil snart bli implementert.",
-
-  "days.monday": "Mandag",
-  "days.tuesday": "Tirsdag",
-  "days.wednesday": "Onsdag",
-  "days.thursday": "Torsdag",
-  "days.friday": "Fredag",
-  "days.saturday": "Lørdag",
-  "days.sunday": "Søndag",
-
-  "language.select": "Velg språk",
-  "language.current": "Gjeldende språk",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Administrer timeplanen din og spor fremgang",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "Dashbord",
+    "subjects": "Fag",
+    "settings": "Innstillinger"
+  },
+  "dashboard": {
+    "currentCycle": "Gjeldende studiesyklus",
+    "newCycle": "Ny syklus",
+    "totalWeeks": "Totalt antall uker",
+    "subjects": "Fag",
+    "dailyHours": "Daglige timer",
+    "progress": "Fremgang",
+    "plannedTime": "planlagt"
+  },
+  "schedule": {
+    "title": "Ukentlig timeplan",
+    "week": "Uke",
+    "empty": "Legg til fag for å automatisk generere timeplanen",
+    "noStudy": "Ingen studier planlagt"
+  },
+  "actions": {
+    "title": "Raske handlinger",
+    "addSubject": "Legg til fag",
+    "configureSchedule": "Konfigurer timeplan",
+    "exportSchedule": "Eksporter timeplan"
+  },
+  "settings": {
+    "title": "Gjeldende innstillinger",
+    "wakeTime": "Oppvåkningstid",
+    "sleepTime": "Sengetid",
+    "dailyStudyTime": "Daglig studietid",
+    "totalCycleTime": "Total syklustid",
+    "edit": "Rediger innstillinger"
+  },
+  "subjects": {
+    "title": "Fag",
+    "count": "fag",
+    "countPlural": "fag",
+    "empty": "Ingen fag lagt til ennå",
+    "add": "Legg til nytt fag",
+    "name": "Fagnavn",
+    "hours": "Timer",
+    "minutes": "Minutter",
+    "nameExample": "F.eks.: Matematikk"
+  },
+  "modal": {
+    "cancel": "Avbryt",
+    "add": "Legg til",
+    "adding": "Legger til..."
+  },
+  "toast": {
+    "subjectAdded": "Fag lagt til",
+    "subjectAddedDesc": "Faget ble lagt til med suksess.",
+    "error": "Feil",
+    "subjectError": "Kunne ikke legge til faget.",
+    "noScheduleExport": "Ingen timeplan å eksportere",
+    "noScheduleExportDesc": "Legg til fag for å generere en timeplan.",
+    "featureInDev": "Funksjon under utvikling",
+    "newCycleInDev": "Oppretting av nye sykluser vil snart bli implementert.",
+    "configureInDev": "Timeplankonfigurasjon vil snart bli implementert.",
+    "exportInDev": "Timeplaneksport vil snart bli implementert.",
+    "editInDev": "Redigering av innstillinger vil snart bli implementert."
+  },
+  "days": {
+    "monday": "Mandag",
+    "tuesday": "Tirsdag",
+    "wednesday": "Onsdag",
+    "thursday": "Torsdag",
+    "friday": "Fredag",
+    "saturday": "Lørdag",
+    "sunday": "Søndag"
+  },
+  "language": {
+    "select": "Velg språk",
+    "current": "Gjeldende språk"
+  },
   "landing": {
     "nav": {
       "courses": "Kurs",
@@ -107,6 +119,22 @@
         "feature2": "Avanserte kurs",
         "feature3": "Prioritert støtte",
         "feature4": "Fullføringssertifikat"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "Som lærer elsker jeg hvordan Study Cycle gjør det enkelt å lage og dele tilpassede læringsstier.",
       "content3": "Jeg kan enkelt spore fremgangen til barnet mitt og se hvor det trenger hjelp. Flott plattform!"
     },
-    "footer": { "rights": "Alle rettigheter reservert." }
+    "footer": {
+      "rights": "Alle rettigheter reservert."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

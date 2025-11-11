@@ -8,7 +8,11 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { AuthProvider } from "@/contexts/auth-context";
 import { WithMainLayout } from "@/components/with-main-layout";
 import HomePage from "@/pages/home";
+import ProtectedRoute from "@/components/protected-route";
 import LandingPage from "@/pages/landing";
+import AuthLoginPage from "@/pages/auth/login";
+import AuthRegisterPage from "@/pages/auth/register";
+import AuthCallbackPage from "@/pages/auth/callback";
 import CoursesPage from "@/pages/courses";
 import SubjectsPage from "@/pages/subjects";
 import AdminPage from "@/pages/admin";
@@ -20,10 +24,27 @@ function Router() {
     <WithMainLayout>
       <Switch>
         <Route path="/" component={LandingPage} />
-        <Route path="/home" component={HomePage} />
+        <Route
+          path="/home"
+          component={() => (
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          )}
+        />
+        <Route path="/auth/login" component={AuthLoginPage} />
+        <Route path="/auth/register" component={AuthRegisterPage} />
+        <Route path="/auth/callback" component={AuthCallbackPage} />
         <Route path="/courses" component={CoursesPage} />
         <Route path="/subjects" component={SubjectsPage} />
-        <Route path="/teacher" component={TeacherDashboard} />
+        <Route
+          path="/teacher"
+          component={() => (
+            <ProtectedRoute>
+              <TeacherDashboard />
+            </ProtectedRoute>
+          )}
+        />
         <Route
           path="/calendar"
           component={() => <PlaceholderPage title="Calendário" />}

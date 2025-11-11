@@ -1,76 +1,89 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Gestiona tu horario y sigue el progreso",
-
-  "nav.dashboard": "Panel",
-  "nav.subjects": "Materias",
-  "nav.settings": "Configuración",
-
-  "dashboard.currentCycle": "Ciclo de Estudio Actual",
-  "dashboard.newCycle": "Nuevo Ciclo",
-  "dashboard.totalWeeks": "Total de Semanas",
-  "dashboard.subjects": "Materias",
-  "dashboard.dailyHours": "Horas Diarias",
-  "dashboard.progress": "Progreso",
-  "dashboard.plannedTime": "planificado",
-
-  "schedule.title": "Horario Semanal",
-  "schedule.week": "Semana",
-  "schedule.empty": "Añade materias para generar automáticamente el horario",
-  "schedule.noStudy": "Ningún estudio planificado",
-
-  "actions.title": "Acciones Rápidas",
-  "actions.addSubject": "Añadir Materia",
-  "actions.configureSchedule": "Configurar Horario",
-  "actions.exportSchedule": "Exportar Horario",
-
-  "settings.title": "Configuración Actual",
-  "settings.wakeTime": "Hora de Despertar",
-  "settings.sleepTime": "Hora de Dormir",
-  "settings.dailyStudyTime": "Tiempo Diario de Estudio",
-  "settings.totalCycleTime": "Tiempo Total del Ciclo",
-  "settings.edit": "Editar Configuración",
-
-  "subjects.title": "Materias",
-  "subjects.count": "materia",
-  "subjects.countPlural": "materias",
-  "subjects.empty": "Ninguna materia añadida aún",
-  "subjects.add": "Añadir Nueva Materia",
-  "subjects.name": "Nombre de la Materia",
-  "subjects.hours": "Horas",
-  "subjects.minutes": "Minutos",
-  "subjects.nameExample": "Ej: Matemáticas",
-
-  "modal.cancel": "Cancelar",
-  "modal.add": "Añadir",
-  "modal.adding": "Añadiendo...",
-
-  "toast.subjectAdded": "Materia añadida",
-  "toast.subjectAddedDesc": "La materia se añadió con éxito.",
-  "toast.error": "Error",
-  "toast.subjectError": "No se pudo añadir la materia.",
-  "toast.noScheduleExport": "No hay horario para exportar",
-  "toast.noScheduleExportDesc": "Añade materias para generar un horario.",
-  "toast.featureInDev": "Funcionalidad en desarrollo",
-  "toast.newCycleInDev": "La creación de nuevos ciclos se implementará pronto.",
-  "toast.configureInDev": "La configuración de horarios se implementará pronto.",
-  "toast.exportInDev": "La exportación de horarios se implementará pronto.",
-  "toast.editInDev": "La edición de configuración se implementará pronto.",
-
-  "days.monday": "Lunes",
-  "days.tuesday": "Martes",
-  "days.wednesday": "Miércoles",
-  "days.thursday": "Jueves",
-  "days.friday": "Viernes",
-  "days.saturday": "Sábado",
-  "days.sunday": "Domingo",
-
-  "language.select": "Seleccionar idioma",
-  "language.current": "Idioma actual",
-  "app.description": "Study Cycle ayuda a los estudiantes a organizar el tiempo de estudio, seguir el progreso y tomar cursos adaptativos para alcanzar sus objetivos.",
-  "auth.login": "Iniciar sesión",
-  "auth.register": "Registrarse",
-
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Gestiona tu horario y sigue el progreso",
+    "description": "Study Cycle ayuda a los estudiantes a organizar el tiempo de estudio, seguir el progreso y tomar cursos adaptativos para alcanzar sus objetivos."
+  },
+  "nav": {
+    "dashboard": "Panel",
+    "subjects": "Materias",
+    "settings": "Configuración"
+  },
+  "dashboard": {
+    "currentCycle": "Ciclo de Estudio Actual",
+    "newCycle": "Nuevo Ciclo",
+    "totalWeeks": "Total de Semanas",
+    "subjects": "Materias",
+    "dailyHours": "Horas Diarias",
+    "progress": "Progreso",
+    "plannedTime": "planificado"
+  },
+  "schedule": {
+    "title": "Horario Semanal",
+    "week": "Semana",
+    "empty": "Añade materias para generar automáticamente el horario",
+    "noStudy": "Ningún estudio planificado"
+  },
+  "actions": {
+    "title": "Acciones Rápidas",
+    "addSubject": "Añadir Materia",
+    "configureSchedule": "Configurar Horario",
+    "exportSchedule": "Exportar Horario"
+  },
+  "settings": {
+    "title": "Configuración Actual",
+    "wakeTime": "Hora de Despertar",
+    "sleepTime": "Hora de Dormir",
+    "dailyStudyTime": "Tiempo Diario de Estudio",
+    "totalCycleTime": "Tiempo Total del Ciclo",
+    "edit": "Editar Configuración"
+  },
+  "subjects": {
+    "title": "Materias",
+    "count": "materia",
+    "countPlural": "materias",
+    "empty": "Ninguna materia añadida aún",
+    "add": "Añadir Nueva Materia",
+    "name": "Nombre de la Materia",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "nameExample": "Ej: Matemáticas"
+  },
+  "modal": {
+    "cancel": "Cancelar",
+    "add": "Añadir",
+    "adding": "Añadiendo..."
+  },
+  "toast": {
+    "subjectAdded": "Materia añadida",
+    "subjectAddedDesc": "La materia se añadió con éxito.",
+    "error": "Error",
+    "subjectError": "No se pudo añadir la materia.",
+    "noScheduleExport": "No hay horario para exportar",
+    "noScheduleExportDesc": "Añade materias para generar un horario.",
+    "featureInDev": "Funcionalidad en desarrollo",
+    "newCycleInDev": "La creación de nuevos ciclos se implementará pronto.",
+    "configureInDev": "La configuración de horarios se implementará pronto.",
+    "exportInDev": "La exportación de horarios se implementará pronto.",
+    "editInDev": "La edición de configuración se implementará pronto."
+  },
+  "days": {
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
+  },
+  "language": {
+    "select": "Seleccionar idioma",
+    "current": "Idioma actual"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "register": "Registrarse"
+  },
   "landing": {
     "nav": {
       "courses": "Cursos",
@@ -110,6 +123,22 @@
         "feature2": "Cursos avanzados",
         "feature3": "Soporte prioritario",
         "feature4": "Certificado de finalización"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {

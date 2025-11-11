@@ -32,3 +32,22 @@ export const userLambdas = pgTable("user_lambdas", {
   updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow(),
   source: text("source").$type<string | null>(),
 });
+
+// Users table for persistent authentication records
+export const users = pgTable("users", {
+  id: text("id").primaryKey(),
+  email: text("email").notNull(),
+  password: text("password").notNull(),
+  name: text("name").notNull(),
+  isStudent: integer("is_student").$type<number | null>().default(1),
+  isTeacher: integer("is_teacher").$type<number | null>().default(0),
+  isAdmin: integer("is_admin").$type<number | null>().default(0),
+  bio: text("bio").$type<string | null>(),
+  avatar: text("avatar").$type<string | null>(),
+  isVerified: integer("is_verified").$type<number | null>().default(0),
+  githubId: text("github_id").$type<string | null>(),
+  googleId: text("google_id").$type<string | null>(),
+  facebookId: text("facebook_id").$type<string | null>(),
+  createdAt: timestamp("created_at", { mode: "string" }).defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow(),
+});

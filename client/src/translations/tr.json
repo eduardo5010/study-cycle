@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Programınızı yönetin ve ilerlemeyi takip edin",
-
-  "nav.dashboard": "Kontrol Paneli",
-  "nav.subjects": "Dersler",
-  "nav.settings": "Ayarlar",
-
-  "dashboard.currentCycle": "Mevcut Çalışma Döngüsü",
-  "dashboard.newCycle": "Yeni Döngü",
-  "dashboard.totalWeeks": "Toplam Hafta",
-  "dashboard.subjects": "Dersler",
-  "dashboard.dailyHours": "Günlük Saatler",
-  "dashboard.progress": "İlerleme",
-  "dashboard.plannedTime": "planlandı",
-
-  "schedule.title": "Haftalık Program",
-  "schedule.week": "Hafta",
-  "schedule.empty": "Programı otomatik olarak oluşturmak için dersler ekleyin",
-  "schedule.noStudy": "Planlanmış çalışma yok",
-
-  "actions.title": "Hızlı İşlemler",
-  "actions.addSubject": "Ders Ekle",
-  "actions.configureSchedule": "Program Yapılandır",
-  "actions.exportSchedule": "Program Dışa Aktar",
-
-  "settings.title": "Mevcut Ayarlar",
-  "settings.wakeTime": "Uyanma Saati",
-  "settings.sleepTime": "Uyku Saati",
-  "settings.dailyStudyTime": "Günlük Çalışma Süresi",
-  "settings.totalCycleTime": "Toplam Döngü Süresi",
-  "settings.edit": "Ayarları Düzenle",
-
-  "subjects.title": "Dersler",
-  "subjects.count": "ders",
-  "subjects.countPlural": "ders",
-  "subjects.empty": "Henüz ders eklenmedi",
-  "subjects.add": "Yeni Ders Ekle",
-  "subjects.name": "Ders Adı",
-  "subjects.hours": "Saatler",
-  "subjects.minutes": "Dakikalar",
-  "subjects.nameExample": "Örnek: Matematik",
-
-  "modal.cancel": "İptal",
-  "modal.add": "Ekle",
-  "modal.adding": "Ekleniyor...",
-
-  "toast.subjectAdded": "Ders eklendi",
-  "toast.subjectAddedDesc": "Ders başarıyla eklendi.",
-  "toast.error": "Hata",
-  "toast.subjectError": "Ders eklenemedi.",
-  "toast.noScheduleExport": "Dışa aktarılacak program yok",
-  "toast.noScheduleExportDesc": "Program oluşturmak için dersler ekleyin.",
-  "toast.featureInDev": "Özellik geliştiriliyor",
-  "toast.newCycleInDev": "Yeni döngü oluşturma yakında uygulanacak.",
-  "toast.configureInDev": "Program yapılandırması yakında uygulanacak.",
-  "toast.exportInDev": "Program dışa aktarımı yakında uygulanacak.",
-  "toast.editInDev": "Ayar düzenleme yakında uygulanacak.",
-
-  "days.monday": "Pazartesi",
-  "days.tuesday": "Salı",
-  "days.wednesday": "Çarşamba",
-  "days.thursday": "Perşembe",
-  "days.friday": "Cuma",
-  "days.saturday": "Cumartesi",
-  "days.sunday": "Pazar",
-
-  "language.select": "Dil seçin",
-  "language.current": "Mevcut dil",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Programınızı yönetin ve ilerlemeyi takip edin",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "Kontrol Paneli",
+    "subjects": "Dersler",
+    "settings": "Ayarlar"
+  },
+  "dashboard": {
+    "currentCycle": "Mevcut Çalışma Döngüsü",
+    "newCycle": "Yeni Döngü",
+    "totalWeeks": "Toplam Hafta",
+    "subjects": "Dersler",
+    "dailyHours": "Günlük Saatler",
+    "progress": "İlerleme",
+    "plannedTime": "planlandı"
+  },
+  "schedule": {
+    "title": "Haftalık Program",
+    "week": "Hafta",
+    "empty": "Programı otomatik olarak oluşturmak için dersler ekleyin",
+    "noStudy": "Planlanmış çalışma yok"
+  },
+  "actions": {
+    "title": "Hızlı İşlemler",
+    "addSubject": "Ders Ekle",
+    "configureSchedule": "Program Yapılandır",
+    "exportSchedule": "Program Dışa Aktar"
+  },
+  "settings": {
+    "title": "Mevcut Ayarlar",
+    "wakeTime": "Uyanma Saati",
+    "sleepTime": "Uyku Saati",
+    "dailyStudyTime": "Günlük Çalışma Süresi",
+    "totalCycleTime": "Toplam Döngü Süresi",
+    "edit": "Ayarları Düzenle"
+  },
+  "subjects": {
+    "title": "Dersler",
+    "count": "ders",
+    "countPlural": "ders",
+    "empty": "Henüz ders eklenmedi",
+    "add": "Yeni Ders Ekle",
+    "name": "Ders Adı",
+    "hours": "Saatler",
+    "minutes": "Dakikalar",
+    "nameExample": "Örnek: Matematik"
+  },
+  "modal": {
+    "cancel": "İptal",
+    "add": "Ekle",
+    "adding": "Ekleniyor..."
+  },
+  "toast": {
+    "subjectAdded": "Ders eklendi",
+    "subjectAddedDesc": "Ders başarıyla eklendi.",
+    "error": "Hata",
+    "subjectError": "Ders eklenemedi.",
+    "noScheduleExport": "Dışa aktarılacak program yok",
+    "noScheduleExportDesc": "Program oluşturmak için dersler ekleyin.",
+    "featureInDev": "Özellik geliştiriliyor",
+    "newCycleInDev": "Yeni döngü oluşturma yakında uygulanacak.",
+    "configureInDev": "Program yapılandırması yakında uygulanacak.",
+    "exportInDev": "Program dışa aktarımı yakında uygulanacak.",
+    "editInDev": "Ayar düzenleme yakında uygulanacak."
+  },
+  "days": {
+    "monday": "Pazartesi",
+    "tuesday": "Salı",
+    "wednesday": "Çarşamba",
+    "thursday": "Perşembe",
+    "friday": "Cuma",
+    "saturday": "Cumartesi",
+    "sunday": "Pazar"
+  },
+  "language": {
+    "select": "Dil seçin",
+    "current": "Mevcut dil"
+  },
   "landing": {
     "nav": {
       "courses": "Courses",
@@ -107,6 +119,22 @@
         "feature2": "Advanced courses",
         "feature3": "Priority support",
         "feature4": "Certificate of completion"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
       "content3": "I can easily track my child's progress and see where they need help. Great platform!"
     },
-    "footer": { "rights": "All rights reserved." }
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

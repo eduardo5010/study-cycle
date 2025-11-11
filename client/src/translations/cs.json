@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Spravujte svůj rozvrh a sledujte pokrok",
-
-  "nav.dashboard": "Nástěnka",
-  "nav.subjects": "Předměty",
-  "nav.settings": "Nastavení",
-
-  "dashboard.currentCycle": "Aktuální studijní cyklus",
-  "dashboard.newCycle": "Nový cyklus",
-  "dashboard.totalWeeks": "Celkový počet týdnů",
-  "dashboard.subjects": "Předměty",
-  "dashboard.dailyHours": "Denní hodiny",
-  "dashboard.progress": "Pokrok",
-  "dashboard.plannedTime": "naplánováno",
-
-  "schedule.title": "Týdenní rozvrh",
-  "schedule.week": "Týden",
-  "schedule.empty": "Přidejte předměty pro automatické vygenerování rozvrhu",
-  "schedule.noStudy": "Žádné studium naplánováno",
-
-  "actions.title": "Rychlé akce",
-  "actions.addSubject": "Přidat předmět",
-  "actions.configureSchedule": "Konfigurovat rozvrh",
-  "actions.exportSchedule": "Exportovat rozvrh",
-
-  "settings.title": "Aktuální nastavení",
-  "settings.wakeTime": "Čas buzení",
-  "settings.sleepTime": "Čas spánku",
-  "settings.dailyStudyTime": "Denní doba studia",
-  "settings.totalCycleTime": "Celkový čas cyklu",
-  "settings.edit": "Upravit nastavení",
-
-  "subjects.title": "Předměty",
-  "subjects.count": "předmět",
-  "subjects.countPlural": "předmětů",
-  "subjects.empty": "Zatím nebyly přidány žádné předměty",
-  "subjects.add": "Přidat nový předmět",
-  "subjects.name": "Název předmětu",
-  "subjects.hours": "Hodiny",
-  "subjects.minutes": "Minuty",
-  "subjects.nameExample": "Např.: Matematika",
-
-  "modal.cancel": "Zrušit",
-  "modal.add": "Přidat",
-  "modal.adding": "Přidávání...",
-
-  "toast.subjectAdded": "Předmět přidán",
-  "toast.subjectAddedDesc": "Předmět byl úspěšně přidán.",
-  "toast.error": "Chyba",
-  "toast.subjectError": "Nepodařilo se přidat předmět.",
-  "toast.noScheduleExport": "Žádný rozvrh k exportu",
-  "toast.noScheduleExportDesc": "Přidejte předměty pro vygenerování rozvrhu.",
-  "toast.featureInDev": "Funkce ve vývoji",
-  "toast.newCycleInDev": "Vytváření nových cyklů bude brzy implementováno.",
-  "toast.configureInDev": "Konfigurace rozvrhu bude brzy implementována.",
-  "toast.exportInDev": "Export rozvrhu bude brzy implementován.",
-  "toast.editInDev": "Úprava nastavení bude brzy implementována.",
-
-  "days.monday": "Pondělí",
-  "days.tuesday": "Úterý",
-  "days.wednesday": "Středa",
-  "days.thursday": "Čtvrtek",
-  "days.friday": "Pátek",
-  "days.saturday": "Sobota",
-  "days.sunday": "Neděle",
-
-  "language.select": "Vybrat jazyk",
-  "language.current": "Aktuální jazyk",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Spravujte svůj rozvrh a sledujte pokrok",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "Nástěnka",
+    "subjects": "Předměty",
+    "settings": "Nastavení"
+  },
+  "dashboard": {
+    "currentCycle": "Aktuální studijní cyklus",
+    "newCycle": "Nový cyklus",
+    "totalWeeks": "Celkový počet týdnů",
+    "subjects": "Předměty",
+    "dailyHours": "Denní hodiny",
+    "progress": "Pokrok",
+    "plannedTime": "naplánováno"
+  },
+  "schedule": {
+    "title": "Týdenní rozvrh",
+    "week": "Týden",
+    "empty": "Přidejte předměty pro automatické vygenerování rozvrhu",
+    "noStudy": "Žádné studium naplánováno"
+  },
+  "actions": {
+    "title": "Rychlé akce",
+    "addSubject": "Přidat předmět",
+    "configureSchedule": "Konfigurovat rozvrh",
+    "exportSchedule": "Exportovat rozvrh"
+  },
+  "settings": {
+    "title": "Aktuální nastavení",
+    "wakeTime": "Čas buzení",
+    "sleepTime": "Čas spánku",
+    "dailyStudyTime": "Denní doba studia",
+    "totalCycleTime": "Celkový čas cyklu",
+    "edit": "Upravit nastavení"
+  },
+  "subjects": {
+    "title": "Předměty",
+    "count": "předmět",
+    "countPlural": "předmětů",
+    "empty": "Zatím nebyly přidány žádné předměty",
+    "add": "Přidat nový předmět",
+    "name": "Název předmětu",
+    "hours": "Hodiny",
+    "minutes": "Minuty",
+    "nameExample": "Např.: Matematika"
+  },
+  "modal": {
+    "cancel": "Zrušit",
+    "add": "Přidat",
+    "adding": "Přidávání..."
+  },
+  "toast": {
+    "subjectAdded": "Předmět přidán",
+    "subjectAddedDesc": "Předmět byl úspěšně přidán.",
+    "error": "Chyba",
+    "subjectError": "Nepodařilo se přidat předmět.",
+    "noScheduleExport": "Žádný rozvrh k exportu",
+    "noScheduleExportDesc": "Přidejte předměty pro vygenerování rozvrhu.",
+    "featureInDev": "Funkce ve vývoji",
+    "newCycleInDev": "Vytváření nových cyklů bude brzy implementováno.",
+    "configureInDev": "Konfigurace rozvrhu bude brzy implementována.",
+    "exportInDev": "Export rozvrhu bude brzy implementován.",
+    "editInDev": "Úprava nastavení bude brzy implementována."
+  },
+  "days": {
+    "monday": "Pondělí",
+    "tuesday": "Úterý",
+    "wednesday": "Středa",
+    "thursday": "Čtvrtek",
+    "friday": "Pátek",
+    "saturday": "Sobota",
+    "sunday": "Neděle"
+  },
+  "language": {
+    "select": "Vybrat jazyk",
+    "current": "Aktuální jazyk"
+  },
   "landing": {
     "nav": {
       "courses": "Courses",
@@ -107,6 +119,22 @@
         "feature2": "Advanced courses",
         "feature3": "Priority support",
         "feature4": "Certificate of completion"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
       "content3": "I can easily track my child's progress and see where they need help. Great platform!"
     },
-    "footer": { "rights": "All rights reserved." }
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

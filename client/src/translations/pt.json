@@ -1,220 +1,250 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Gerencie seu cronograma e acompanhe o progresso",
-  "app.description": "O Study Cycle ajuda estudantes a organizar o tempo de estudo, acompanhar o progresso e seguir cursos adaptativos para alcançar seus objetivos.",
-
-  "nav.dashboard": "Dashboard",
-  "nav.subjects": "Disciplinas",
-  "nav.settings": "Configurações",
-
-  "dashboard.currentCycle": "Ciclo de Estudo Atual",
-  "dashboard.newCycle": "Novo Ciclo",
-  "dashboard.completeCycle": "Concluir Ciclo",
-  "dashboard.totalWeeks": "Total de Semanas",
-  "dashboard.subjects": "Disciplinas",
-  "dashboard.dailyHours": "Horas Diárias",
-  "dashboard.progress": "Progresso",
-  "dashboard.plannedTime": "planejados",
-
-  "schedule.title": "Cronograma Semanal",
-  "schedule.week": "Semana",
-  "schedule.empty": "Adicione disciplinas para gerar o cronograma automaticamente",
-  "schedule.noStudy": "Nenhum estudo planejado",
-
-  "actions.title": "Ações Rápidas",
-  "actions.addSubject": "Adicionar Disciplina",
-  "actions.configureSchedule": "Configurar Horários",
-  "actions.exportSchedule": "Exportar Cronograma",
-
-  "settings.title": "Configurações Atuais",
-  "settings.wakeTime": "Horário de Acordar",
-  "settings.sleepTime": "Horário de Dormir",
-  "settings.dailyStudyTime": "Tempo Diário de Estudo",
-  "settings.totalCycleTime": "Tempo Total do Ciclo",
-  "settings.edit": "Editar Configurações",
-
-  "subjects.title": "Disciplinas",
-  "subjects.count": "disciplina",
-  "subjects.countPlural": "disciplinas",
-  "subjects.empty": "Nenhuma disciplina adicionada ainda",
-  "subjects.add": "Adicionar Nova Disciplina",
-  "subjects.addGlobal": "Adicionar Disciplina Global",
-  "subjects.globalTitle": "Disciplinas Globais",
-  "subjects.emptyGlobal": "Nenhuma disciplina global cadastrada",
-  "subjects.pageTitle": "Gerenciar Disciplinas",
-  "subjects.pageDescription": "Adicione e gerencie disciplinas que podem ser usadas em qualquer ciclo de estudos",
-  "subjects.name": "Nome da Disciplina",
-  "subjects.hours": "Horas",
-  "subjects.minutes": "Minutos",
-  "subjects.nameExample": "Ex: Matemática",
-  "subjects.createdAt": "Criada em",
-  "subjects.confirmDelete": "Tem certeza que deseja excluir esta disciplina? Esta ação não pode ser desfeita.",
-
-  "modal.cancel": "Cancelar",
-  "modal.add": "Adicionar",
-  "modal.adding": "Adicionando...",
-
-  "toast.subjectAdded": "Disciplina adicionada",
-  "toast.subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
-  "toast.globalSubjectAdded": "Disciplina global adicionada",
-  "toast.globalSubjectAddedDesc": "A disciplina global foi adicionada com sucesso.",
-  "toast.globalSubjectError": "Não foi possível adicionar a disciplina global.",
-  "toast.globalSubjectDeleted": "Disciplina global excluída",
-  "toast.globalSubjectDeletedDesc": "A disciplina global foi excluída com sucesso.",
-  "toast.globalSubjectDeleteError": "Não foi possível excluir a disciplina global.",
-  "toast.error": "Erro",
-  "toast.subjectError": "Não foi possível adicionar a disciplina.",
-  "toast.noScheduleExport": "Nenhum cronograma para exportar",
-  "toast.noScheduleExportDesc": "Adicione disciplinas para gerar um cronograma.",
-  "toast.featureInDev": "Funcionalidade em desenvolvimento",
-  "toast.newCycleInDev": "A criação de novos ciclos será implementada em breve.",
-  "toast.configureInDev": "A configuração de horários será implementada em breve.",
-  "toast.exportInDev": "A exportação de cronograma será implementada em breve.",
-  "toast.editInDev": "A edição de configurações será implementada em breve.",
-  "toast.editSubjectInDev": "A edição de disciplinas será implementada em breve.",
-  "toast.cycleCompleted": "Ciclo concluído",
-  "toast.cycleCompletedDesc": "O ciclo foi concluído e todas as informações foram removidas.",
-  "toast.cycleCompletedConfirm": "Tem certeza que deseja concluir este ciclo? Todas as informações serão removidas.",
-
-  "days.monday": "Segunda-feira",
-  "days.tuesday": "Terça-feira",
-  "days.wednesday": "Quarta-feira",
-  "days.thursday": "Quinta-feira",
-  "days.friday": "Sexta-feira",
-  "days.saturday": "Sábado",
-  "days.sunday": "Domingo",
-
-  "language.select": "Selecionar idioma",
-  "language.current": "Idioma atual",
-
-  "common.loading": "Carregando...",
-
-  "auth.login": "Entrar",
-  "auth.register": "Cadastrar",
-  "auth.logout": "Sair",
-  "auth.email": "E-mail",
-  "auth.password": "Senha",
-  "auth.confirmPassword": "Confirmar Senha",
-  "auth.name": "Nome",
-  "auth.userType": "Tipo de Usuário",
-  "auth.bio": "Biografia",
-  "auth.optional": "opcional",
-  "auth.student": "Estudante",
-  "auth.teacher": "Professor",
-  "auth.emailPlaceholder": "seu@email.com",
-  "auth.passwordPlaceholder": "Digite sua senha",
-  "auth.confirmPasswordPlaceholder": "Confirme sua senha",
-  "auth.namePlaceholder": "Seu nome completo",
-  "auth.bioPlaceholder": "Conte um pouco sobre você",
-  "auth.selectUserType": "Selecione o tipo de usuário",
-  "auth.switchToRegister": "Criar conta",
-  "auth.switchToLogin": "Já tenho conta",
-  "auth.switchToTeacher": "Tornar-se Professor",
-  "auth.loginSuccess": "Login realizado com sucesso",
-  "auth.registerSuccess": "Cadastro realizado com sucesso",
-  "auth.welcomeBack": "Bem-vindo de volta!",
-  "auth.welcomeMessage": "Bem-vindo ao StudyCycle!",
-  "auth.loginError": "Erro ao fazer login. Verifique suas credenciais.",
-  "auth.registerError": "Erro ao cadastrar. Tente novamente.",
-
-  "content.create": "Criar Conteúdo",
-  "content.title": "Título",
-  "content.description": "Descrição",
-  "content.type": "Tipo de Conteúdo",
-  "content.video": "Vídeo",
-  "content.article": "Artigo",
-  "content.quiz": "Quiz",
-  "content.publish": "Publicar",
-  "content.draft": "Salvar como Rascunho",
-
-  "currentSubject.title": "Disciplina Atual",
-  "currentSubject.noActive": "Nenhuma disciplina ativa no momento",
-  "currentSubject.timeRemaining": "Tempo restante",
-  "currentSubject.startStudying": "Começar a Estudar",
-
-  "cycle.editTitle": "Editar Ciclo",
-  "cycle.currentInfo": "Informações do Ciclo Atual",
-  "cycle.subjectsCount": "Número de disciplinas",
-  "cycle.dangerZone": "Zona de Perigo",
-  "cycle.deleteWarningTitle": "Excluir Ciclo Completo",
-  "cycle.deleteWarningDesc": "Esta ação irá remover permanentemente todas as disciplinas, horários e dados do ciclo atual. Esta ação não pode ser desfeita.",
-  "cycle.deleteCycle": "Excluir Ciclo",
-  "cycle.confirmDelete": "Tem certeza absoluta?",
-  "cycle.confirmDeleteDesc": "Digite CONFIRMAR para excluir permanentemente o ciclo.",
-  "cycle.confirmDeleteButton": "Sim, Excluir Definitivamente",
-  "cycle.deleteSuccess": "Ciclo excluído com sucesso",
-  "cycle.deleteSuccessDesc": "Todos os dados do ciclo foram removidos.",
-  "cycle.deleteError": "Erro ao excluir o ciclo. Tente novamente.",
-
-  "modal.loading": "Carregando...",
-  "modal.close": "Fechar",
-
-  "nav.explore": "Explorar",
-  "nav.knowledgeAreas": "Áreas de Conhecimento",
-
-  "search.placeholder": "Pesquisar por tópico ou pergunta",
-
-  "notifications.title": "Notificações",
-  "notifications.empty": "Nenhuma notificação",
-
-  "profile.studentHome": "Página inicial do aluno",
-  "profile.personalInfo": "Informações pessoais",
-  "profile.subscriptions": "Minhas assinaturas",
-  "profile.paymentMethods": "Métodos de pagamento",
-  "profile.requestFeature": "Solicitar uma funcionalidade",
-  "profile.help": "Ajuda",
-
-  "sidebar.home": "Início",
-  "sidebar.courses": "Cursos",
-  "sidebar.calendar": "Calendário",
-  "sidebar.chats": "Chats",
-  "sidebar.events": "Eventos",
-  "sidebar.english": "Inglês",
-  "sidebar.mandarin": "Mandarim",
-
-  "home.welcome": "Olá",
-  "home.studyCycle": "Ciclo de Estudo Atual",
-
-  "course.progress": "Progresso",
-  "course.continue": "Continuar",
-
-  "stats.overview": "Visão Geral",
-  "stats.tasksCompleted": "Tarefas concluídas",
-  "stats.projectsCompleted": "Projetos concluídos",
-  "stats.certificatesEarned": "Certificados conquistados",
-
-  "league.title": "Liga",
-  "league.yourRank": "Sua posição",
-  "league.daysLeft": "dias restantes",
-
-  "streak.title": "Sequência",
-  "streak.days": "dias",
-
-  "xp.monthly": "XP Mensal",
-  "xp.today": "hoje",
-
-  "certificates.title": "Certificados",
-
-  "achievements.title": "Conquistas",
-
-  "courses.programming": "Programação",
-  "courses.math": "Matemática",
-  "courses.science": "Ciências",
-  "courses.languages": "Idiomas",
-  "courses.enrolled": "Meus Cursos",
-  "courses.available": "Todos os Cursos",
-  "courses.searchPlaceholder": "Buscar cursos...",
-  "courses.students": "alunos",
-  "courses.enroll": "Matricular",
-
-  "categories.programming": "Programação",
-  "categories.math": "Matemática",
-  "categories.science": "Ciências",
-  "categories.languages": "Idiomas",
-
-  "levels.beginner": "Iniciante",
-  "levels.intermediate": "Intermediário",
-  "levels.advanced": "Avançado",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Gerencie seu cronograma e acompanhe o progresso",
+    "description": "O Study Cycle ajuda estudantes a organizar o tempo de estudo, acompanhar o progresso e seguir cursos adaptativos para alcançar seus objetivos."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "subjects": "Disciplinas",
+    "settings": "Configurações",
+    "explore": "Explorar",
+    "knowledgeAreas": "Áreas de Conhecimento"
+  },
+  "dashboard": {
+    "currentCycle": "Ciclo de Estudo Atual",
+    "newCycle": "Novo Ciclo",
+    "completeCycle": "Concluir Ciclo",
+    "totalWeeks": "Total de Semanas",
+    "subjects": "Disciplinas",
+    "dailyHours": "Horas Diárias",
+    "progress": "Progresso",
+    "plannedTime": "planejados"
+  },
+  "schedule": {
+    "title": "Cronograma Semanal",
+    "week": "Semana",
+    "empty": "Adicione disciplinas para gerar o cronograma automaticamente",
+    "noStudy": "Nenhum estudo planejado"
+  },
+  "actions": {
+    "title": "Ações Rápidas",
+    "addSubject": "Adicionar Disciplina",
+    "configureSchedule": "Configurar Horários",
+    "exportSchedule": "Exportar Cronograma"
+  },
+  "settings": {
+    "title": "Configurações Atuais",
+    "wakeTime": "Horário de Acordar",
+    "sleepTime": "Horário de Dormir",
+    "dailyStudyTime": "Tempo Diário de Estudo",
+    "totalCycleTime": "Tempo Total do Ciclo",
+    "edit": "Editar Configurações"
+  },
+  "subjects": {
+    "title": "Disciplinas",
+    "count": "disciplina",
+    "countPlural": "disciplinas",
+    "empty": "Nenhuma disciplina adicionada ainda",
+    "add": "Adicionar Nova Disciplina",
+    "addGlobal": "Adicionar Disciplina Global",
+    "globalTitle": "Disciplinas Globais",
+    "emptyGlobal": "Nenhuma disciplina global cadastrada",
+    "pageTitle": "Gerenciar Disciplinas",
+    "pageDescription": "Adicione e gerencie disciplinas que podem ser usadas em qualquer ciclo de estudos",
+    "name": "Nome da Disciplina",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "nameExample": "Ex: Matemática",
+    "createdAt": "Criada em",
+    "confirmDelete": "Tem certeza que deseja excluir esta disciplina? Esta ação não pode ser desfeita."
+  },
+  "modal": {
+    "cancel": "Cancelar",
+    "add": "Adicionar",
+    "adding": "Adicionando...",
+    "loading": "Carregando...",
+    "close": "Fechar"
+  },
+  "toast": {
+    "subjectAdded": "Disciplina adicionada",
+    "subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
+    "globalSubjectAdded": "Disciplina global adicionada",
+    "globalSubjectAddedDesc": "A disciplina global foi adicionada com sucesso.",
+    "globalSubjectError": "Não foi possível adicionar a disciplina global.",
+    "globalSubjectDeleted": "Disciplina global excluída",
+    "globalSubjectDeletedDesc": "A disciplina global foi excluída com sucesso.",
+    "globalSubjectDeleteError": "Não foi possível excluir a disciplina global.",
+    "error": "Erro",
+    "subjectError": "Não foi possível adicionar a disciplina.",
+    "noScheduleExport": "Nenhum cronograma para exportar",
+    "noScheduleExportDesc": "Adicione disciplinas para gerar um cronograma.",
+    "featureInDev": "Funcionalidade em desenvolvimento",
+    "newCycleInDev": "A criação de novos ciclos será implementada em breve.",
+    "configureInDev": "A configuração de horários será implementada em breve.",
+    "exportInDev": "A exportação de cronograma será implementada em breve.",
+    "editInDev": "A edição de configurações será implementada em breve.",
+    "editSubjectInDev": "A edição de disciplinas será implementada em breve.",
+    "cycleCompleted": "Ciclo concluído",
+    "cycleCompletedDesc": "O ciclo foi concluído e todas as informações foram removidas.",
+    "cycleCompletedConfirm": "Tem certeza que deseja concluir este ciclo? Todas as informações serão removidas."
+  },
+  "days": {
+    "monday": "Segunda-feira",
+    "tuesday": "Terça-feira",
+    "wednesday": "Quarta-feira",
+    "thursday": "Quinta-feira",
+    "friday": "Sexta-feira",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
+  },
+  "language": {
+    "select": "Selecionar idioma",
+    "current": "Idioma atual"
+  },
+  "common": {
+    "loading": "Carregando..."
+  },
+  "auth": {
+    "login": "Entrar",
+    "register": "Cadastrar",
+    "logout": "Sair",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar Senha",
+    "name": "Nome",
+    "userType": "Tipo de Usuário",
+    "bio": "Biografia",
+    "optional": "opcional",
+    "student": "Estudante",
+    "teacher": "Professor",
+    "emailPlaceholder": "seu@email.com",
+    "passwordPlaceholder": "Digite sua senha",
+    "confirmPasswordPlaceholder": "Confirme sua senha",
+    "namePlaceholder": "Seu nome completo",
+    "bioPlaceholder": "Conte um pouco sobre você",
+    "selectUserType": "Selecione o tipo de usuário",
+    "switchToRegister": "Criar conta",
+    "switchToLogin": "Já tenho conta",
+    "switchToTeacher": "Tornar-se Professor",
+    "loginSuccess": "Login realizado com sucesso",
+    "registerSuccess": "Cadastro realizado com sucesso",
+    "welcomeBack": "Bem-vindo de volta!",
+    "welcomeMessage": "Bem-vindo ao StudyCycle!",
+    "loginError": "Erro ao fazer login. Verifique suas credenciais.",
+    "registerError": "Erro ao cadastrar. Tente novamente."
+  },
+  "content": {
+    "create": "Criar Conteúdo",
+    "title": "Título",
+    "description": "Descrição",
+    "type": "Tipo de Conteúdo",
+    "video": "Vídeo",
+    "article": "Artigo",
+    "quiz": "Quiz",
+    "publish": "Publicar",
+    "draft": "Salvar como Rascunho"
+  },
+  "currentSubject": {
+    "title": "Disciplina Atual",
+    "noActive": "Nenhuma disciplina ativa no momento",
+    "timeRemaining": "Tempo restante",
+    "startStudying": "Começar a Estudar"
+  },
+  "cycle": {
+    "editTitle": "Editar Ciclo",
+    "currentInfo": "Informações do Ciclo Atual",
+    "subjectsCount": "Número de disciplinas",
+    "dangerZone": "Zona de Perigo",
+    "deleteWarningTitle": "Excluir Ciclo Completo",
+    "deleteWarningDesc": "Esta ação irá remover permanentemente todas as disciplinas, horários e dados do ciclo atual. Esta ação não pode ser desfeita.",
+    "deleteCycle": "Excluir Ciclo",
+    "confirmDelete": "Tem certeza absoluta?",
+    "confirmDeleteDesc": "Digite CONFIRMAR para excluir permanentemente o ciclo.",
+    "confirmDeleteButton": "Sim, Excluir Definitivamente",
+    "deleteSuccess": "Ciclo excluído com sucesso",
+    "deleteSuccessDesc": "Todos os dados do ciclo foram removidos.",
+    "deleteError": "Erro ao excluir o ciclo. Tente novamente."
+  },
+  "search": {
+    "placeholder": "Pesquisar por tópico ou pergunta"
+  },
+  "notifications": {
+    "title": "Notificações",
+    "empty": "Nenhuma notificação"
+  },
+  "profile": {
+    "studentHome": "Página inicial do aluno",
+    "personalInfo": "Informações pessoais",
+    "subscriptions": "Minhas assinaturas",
+    "paymentMethods": "Métodos de pagamento",
+    "requestFeature": "Solicitar uma funcionalidade",
+    "help": "Ajuda"
+  },
+  "sidebar": {
+    "home": "Início",
+    "courses": "Cursos",
+    "calendar": "Calendário",
+    "chats": "Chats",
+    "events": "Eventos",
+    "english": "Inglês",
+    "mandarin": "Mandarim"
+  },
+  "home": {
+    "welcome": "Olá",
+    "studyCycle": "Ciclo de Estudo Atual"
+  },
+  "course": {
+    "progress": "Progresso",
+    "continue": "Continuar"
+  },
+  "stats": {
+    "overview": "Visão Geral",
+    "tasksCompleted": "Tarefas concluídas",
+    "projectsCompleted": "Projetos concluídos",
+    "certificatesEarned": "Certificados conquistados"
+  },
+  "league": {
+    "title": "Liga",
+    "yourRank": "Sua posição",
+    "daysLeft": "dias restantes"
+  },
+  "streak": {
+    "title": "Sequência",
+    "days": "dias"
+  },
+  "xp": {
+    "monthly": "XP Mensal",
+    "today": "hoje"
+  },
+  "certificates": {
+    "title": "Certificados"
+  },
+  "achievements": {
+    "title": "Conquistas"
+  },
+  "courses": {
+    "programming": "Programação",
+    "math": "Matemática",
+    "science": "Ciências",
+    "languages": "Idiomas",
+    "enrolled": "Meus Cursos",
+    "available": "Todos os Cursos",
+    "searchPlaceholder": "Buscar cursos...",
+    "students": "alunos",
+    "enroll": "Matricular"
+  },
+  "categories": {
+    "programming": "Programação",
+    "math": "Matemática",
+    "science": "Ciências",
+    "languages": "Idiomas"
+  },
+  "levels": {
+    "beginner": "Iniciante",
+    "intermediate": "Intermediário",
+    "advanced": "Avançado"
+  },
   "landing": {
     "nav": {
       "courses": "Cursos",
@@ -254,6 +284,22 @@
         "feature2": "Cursos avançados",
         "feature3": "Suporte prioritário",
         "feature4": "Certificado de conclusão"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -267,6 +313,8 @@
       "content2": "Como professor, adoro como o Study Cycle facilita a criação e compartilhamento de trilhas de aprendizado personalizadas.",
       "content3": "Posso acompanhar facilmente o progresso do meu filho e ver onde ele precisa de ajuda. Ótima plataforma!"
     },
-    "footer": { "rights": "Todos os direitos reservados." }
+    "footer": {
+      "rights": "Todos os direitos reservados."
+    }
   }
 }
