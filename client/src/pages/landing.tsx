@@ -61,10 +61,10 @@ function LandingPageHeader() {
           ) : (
             <div className="flex items-center space-x-2">
               <Button variant="outline" asChild>
-                <Link href="/home">{t("auth.login")}</Link>
+                <Link href="/auth/login">{t("auth.login")}</Link>
               </Button>
               <Button asChild>
-                <Link href="/home">{t("auth.register")}</Link>
+                <Link href="/auth/register">{t("auth.register")}</Link>
               </Button>
             </div>
           )}
@@ -240,7 +240,7 @@ export default function LandingPage() {
               {t("landing.hero.description")}
             </p>
             <Button size="lg" asChild>
-              <Link href="/home">
+              <Link href={user ? "/home" : "/auth/login"}>
                 {t("landing.hero.cta")}
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>

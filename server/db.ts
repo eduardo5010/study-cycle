@@ -40,3 +40,36 @@ const pool = new Pool({ connectionString });
 export const db = drizzle(pool);
 
 export default db;
+
+// Ensure users table exists when running in development to simplify local setup.
+// This is a best-effort convenience: in production prefer proper migrations.
+(async function ensureUsersTable() {
+  try {
+    const createSql = `
+      CREATE TABLE IF NOT EXISTS users (
+        id TEXT PRIMARY KEY,
+        email TEXT NOT NULL,
+        password TEXT NOT NULL,
+        name TEXT NOT NULL,
+        is_student INTEGER DEFAULT 1,
+        is_teacher INTEGER DEFAULT 0,
+        is_admin INTEGER DEFAULT 0,
+        bio TEXT,
+        avatar TEXT,
+        is_verified INTEGER DEFAULT 0,
+        github_id TEXT,
+        google_id TEXT,
+        facebook_id TEXT,
+        created_at TIMESTAMP DEFAULT now(),
+        updated_at TIMESTAMP DEFAULT now()
+      );
+    `;
+    await pool.query(createSql);
+  } catch (err) {
+    // ignore - pool may be unavailable in some environments
+    console.warn(
+      "Could not ensure users table exists:",
+      (err as any)?.message || err
+    );
+  }
+})();
