@@ -189,18 +189,9 @@ export default function LandingPage() {
 
   const pricingPlans = [
     {
-      title: t("landing.pricing.free.title"),
-      price: t("landing.pricing.free"),
-      description: t("landing.pricing.free.description"),
-      features: [
-        t("landing.pricing.free.feature1"),
-        t("landing.pricing.free.feature2"),
-        t("landing.pricing.free.feature3"),
-      ],
-    },
-    {
       title: t("landing.pricing.pro.title"),
-      price: "$9.99",
+      // Base price: R$50/month and US$50/month as requested.
+      price: t("landing.pricing.pro.price"),
       description: t("landing.pricing.pro.description"),
       features: [
         t("landing.pricing.pro.feature1"),
@@ -209,18 +200,6 @@ export default function LandingPage() {
         t("landing.pricing.pro.feature4"),
       ],
       isPopular: true,
-    },
-    {
-      title: t("landing.pricing.team.title"),
-      price: "$29.99",
-      description: t("landing.pricing.team.description"),
-      features: [
-        t("landing.pricing.team.feature1"),
-        t("landing.pricing.team.feature2"),
-        t("landing.pricing.team.feature3"),
-        t("landing.pricing.team.feature4"),
-        t("landing.pricing.team.feature5"),
-      ],
     },
   ];
 

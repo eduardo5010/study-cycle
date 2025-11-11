@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Administrer dit skema og spor fremskridt",
-  
+
   "nav.dashboard": "Dashboard",
   "nav.subjects": "Fag",
   "nav.settings": "Indstillinger",
-  
+
   "dashboard.currentCycle": "Nuværende studiecyklus",
   "dashboard.newCycle": "Ny cyklus",
   "dashboard.totalWeeks": "Samlet antal uger",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "Daglige timer",
   "dashboard.progress": "Fremgang",
   "dashboard.plannedTime": "planlagt",
-  
+
   "schedule.title": "Ugeskema",
   "schedule.week": "Uge",
   "schedule.empty": "Tilføj fag for automatisk at generere skemaet",
   "schedule.noStudy": "Ingen studier planlagt",
-  
+
   "actions.title": "Hurtige handlinger",
   "actions.addSubject": "Tilføj fag",
   "actions.configureSchedule": "Konfigurer skema",
   "actions.exportSchedule": "Eksporter skema",
-  
+
   "settings.title": "Nuværende indstillinger",
   "settings.wakeTime": "Opvågningstid",
   "settings.sleepTime": "Sengetid",
   "settings.dailyStudyTime": "Daglig studietid",
   "settings.totalCycleTime": "Samlet cyklustid",
   "settings.edit": "Rediger indstillinger",
-  
+
   "subjects.title": "Fag",
   "subjects.count": "fag",
   "subjects.countPlural": "fag",
@@ -40,11 +40,11 @@
   "subjects.hours": "Timer",
   "subjects.minutes": "Minutter",
   "subjects.nameExample": "F.eks.: Matematik",
-  
+
   "modal.cancel": "Annuller",
   "modal.add": "Tilføj",
   "modal.adding": "Tilføjer...",
-  
+
   "toast.subjectAdded": "Fag tilføjet",
   "toast.subjectAddedDesc": "Faget blev tilføjet med succes.",
   "toast.error": "Fejl",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "Skemakonfiguration vil snart blive implementeret.",
   "toast.exportInDev": "Skemaeksport vil snart blive implementeret.",
   "toast.editInDev": "Redigering af indstillinger vil snart blive implementeret.",
-  
+
   "days.monday": "Mandag",
   "days.tuesday": "Tirsdag",
   "days.wednesday": "Onsdag",
@@ -64,7 +64,62 @@
   "days.friday": "Fredag",
   "days.saturday": "Lørdag",
   "days.sunday": "Søndag",
-  
+
   "language.select": "Vælg sprog",
-  "language.current": "Nuværende sprog"
+  "language.current": "Nuværende sprog",
+  "app.description": "Study Cycle hjælper elever med at organisere studietid, følge fremskridt og følge adaptive kurser for at nå deres mål.",
+  "landing": {
+    "nav": {
+      "courses": "Kurser",
+      "pricing": "Priser",
+      "testimonials": "Anmeldelser",
+      "dashboard": "Gå til dashboard"
+    },
+    "hero": {
+      "title": "Lær i dit eget tempo",
+      "description": "Study Cycle er en moderne læringsplatform, der tilpasser sig din unikke læringsstil og dine mål.",
+      "cta": "Begynd at lære nu"
+    },
+    "features": {
+      "title": "Hvorfor vælge Study Cycle?",
+      "courses": {
+        "title": "Interaktive kurser",
+        "description": "Lær med vores adaptive kurser, der justerer sig efter dit færdighedsniveau"
+      },
+      "skills": {
+        "title": "Følg dine færdigheder",
+        "description": "Overvåg dine fremskridt med vores detaljerede færdighedssporingssystem"
+      },
+      "community": {
+        "title": "Bliv en del af fællesskabet",
+        "description": "Forbind med andre elever og del din viden"
+      }
+    },
+    "pricing": {
+      "title": "Enkel, gennemsigtig pris",
+      "getStarted": "Kom i gang",
+      "popular": "Mest populær",
+      "pro": {
+        "title": "Pro",
+        "description": "For seriøse elever",
+        "price": "R$50 / US$50",
+        "feature1": "Alle grundlæggende funktioner",
+        "feature2": "Avancerede kurser",
+        "feature3": "Prioriteret support",
+        "feature4": "Certifikat ved gennemførelse"
+      }
+    },
+    "testimonials": {
+      "title": "Hvad vores brugere siger",
+      "role": {
+        "student": "Studerende",
+        "teacher": "Underviser",
+        "parent": "Forælder"
+      },
+      "content1": "Study Cycle har ændret den måde, jeg lærer på. De adaptive kurser og færdighedssporing holder mig motiveret.",
+      "content2": "Som underviser elsker jeg, hvordan Study Cycle gør det nemt at oprette og dele brugerdefinerede læringsforløb.",
+      "content3": "Jeg kan nemt spore mit barns fremskridt og se, hvor der er behov for hjælp. Fantastisk platform!"
+    },
+    "footer": { "rights": "Alle rettigheder forbeholdes." }
+  }
 }

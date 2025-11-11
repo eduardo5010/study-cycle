@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Beheer je schema en volg voortgang",
-  
+
   "nav.dashboard": "Dashboard",
   "nav.subjects": "Vakken",
   "nav.settings": "Instellingen",
-  
+
   "dashboard.currentCycle": "Huidige studiecyclus",
   "dashboard.newCycle": "Nieuwe cyclus",
   "dashboard.totalWeeks": "Totaal weken",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "Dagelijkse uren",
   "dashboard.progress": "Voortgang",
   "dashboard.plannedTime": "gepland",
-  
+
   "schedule.title": "Weekschema",
   "schedule.week": "Week",
   "schedule.empty": "Voeg vakken toe om automatisch het schema te genereren",
   "schedule.noStudy": "Geen studie gepland",
-  
+
   "actions.title": "Snelle acties",
   "actions.addSubject": "Vak toevoegen",
   "actions.configureSchedule": "Schema configureren",
   "actions.exportSchedule": "Schema exporteren",
-  
+
   "settings.title": "Huidige instellingen",
   "settings.wakeTime": "Opstaan tijd",
   "settings.sleepTime": "Slaap tijd",
   "settings.dailyStudyTime": "Dagelijkse studietijd",
   "settings.totalCycleTime": "Totale cyclustijd",
   "settings.edit": "Instellingen bewerken",
-  
+
   "subjects.title": "Vakken",
   "subjects.count": "vak",
   "subjects.countPlural": "vakken",
@@ -40,11 +40,11 @@
   "subjects.hours": "Uren",
   "subjects.minutes": "Minuten",
   "subjects.nameExample": "Bijv.: Wiskunde",
-  
+
   "modal.cancel": "Annuleren",
   "modal.add": "Toevoegen",
   "modal.adding": "Toevoegen...",
-  
+
   "toast.subjectAdded": "Vak toegevoegd",
   "toast.subjectAddedDesc": "Het vak is succesvol toegevoegd.",
   "toast.error": "Fout",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "Schema configuratie zal binnenkort worden geïmplementeerd.",
   "toast.exportInDev": "Schema export zal binnenkort worden geïmplementeerd.",
   "toast.editInDev": "Instellingen bewerken zal binnenkort worden geïmplementeerd.",
-  
+
   "days.monday": "Maandag",
   "days.tuesday": "Dinsdag",
   "days.wednesday": "Woensdag",
@@ -64,7 +64,62 @@
   "days.friday": "Vrijdag",
   "days.saturday": "Zaterdag",
   "days.sunday": "Zondag",
-  
+
   "language.select": "Taal selecteren",
-  "language.current": "Huidige taal"
+  "language.current": "Huidige taal",
+  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "landing": {
+    "nav": {
+      "courses": "Courses",
+      "pricing": "Pricing",
+      "testimonials": "Testimonials",
+      "dashboard": "Go to Dashboard"
+    },
+    "hero": {
+      "title": "Learn at Your Own Pace",
+      "description": "Study Cycle is a modern learning platform that adapts to your unique learning style and goals.",
+      "cta": "Start Learning Now"
+    },
+    "features": {
+      "title": "Why Choose Study Cycle?",
+      "courses": {
+        "title": "Interactive Courses",
+        "description": "Learn with our adaptive courses that adjust to your skill level"
+      },
+      "skills": {
+        "title": "Track Your Skills",
+        "description": "Monitor your progress with our detailed skill tracking system"
+      },
+      "community": {
+        "title": "Join the Community",
+        "description": "Connect with other learners and share your knowledge"
+      }
+    },
+    "pricing": {
+      "title": "Simple, Transparent Pricing",
+      "getStarted": "Get Started",
+      "popular": "Most Popular",
+      "pro": {
+        "title": "Pro",
+        "description": "For serious learners",
+        "price": "R$50 / US$50",
+        "feature1": "All basic features",
+        "feature2": "Advanced courses",
+        "feature3": "Priority support",
+        "feature4": "Certificate of completion"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "role": {
+        "student": "Student",
+        "teacher": "Teacher",
+        "parent": "Parent"
+      },
+      "content1": "Study Cycle has transformed the way I learn. The adaptive courses and skill tracking keep me motivated.",
+      "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
+      "content3": "I can easily track my child's progress and see where they need help. Great platform!"
+    },
+    "footer": { "rights": "All rights reserved." }
+  }
 }

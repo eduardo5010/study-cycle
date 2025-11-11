@@ -22,6 +22,9 @@ import {
 } from "@shared/schema";
 import type { Content, InsertContent } from "@shared/schema/content";
 import { randomUUID } from "crypto";
+import { db } from "./db";
+import { reviewEvents, reviewVariants, userLambdas } from "./db/schema";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   // Legacy Subjects (for compatibility)
@@ -118,7 +121,43 @@ export interface IStorage {
 
   // Complete cycle management - clears all cycle data
   clearAllCycleData(): Promise<boolean>;
+
+  // ML / Review events
+  logReviewEvent(event: ReviewEventInput): Promise<ReviewEvent>;
+  getReviewEventsForUser(userId: string): Promise<ReviewEvent[]>;
+  getReviewEventsForItem(itemId: string): Promise<ReviewEvent[]>;
+  getAllReviewEvents(): Promise<ReviewEvent[]>;
+  // Review variants (AI or human created)
+  createReviewVariant(variant: ReviewVariantInput): Promise<ReviewVariant>;
+  getReviewVariantsForItem(itemId: string): Promise<ReviewVariant[]>;
+  markVariantUsed(variantId: string, userId: string): Promise<void>;
 }
+
+export type ReviewEventInput = {
+  userId: string;
+  itemId: string;
+  timestamp: string | Date;
+  correctness: 0 | 1;
+  responseTimeMs?: number;
+  nReps?: number;
+  timeSinceLastReviewSec?: number;
+};
+
+export type ReviewEvent = ReviewEventInput & { id: string; createdAt: Date };
+
+export type ReviewVariantInput = {
+  itemId: string;
+  authorId?: string | null; // null for AI-generated
+  type: "ai" | "human";
+  content: any; // arbitrary payload: question, prompt, media refs
+  metadata?: Record<string, any>;
+};
+
+export type ReviewVariant = ReviewVariantInput & {
+  id: string;
+  createdAt: Date;
+  lastUsedBy?: Record<string, string>; // userId -> ISO timestamp
+};
 
 export class MemStorage implements IStorage {
   private subjects: Map<string, Subject>;
@@ -132,6 +171,14 @@ export class MemStorage implements IStorage {
   private userStats: Map<string, UserStats>;
   private userLeagues: Map<string, League>;
   private studyStreaks: Map<string, StudyStreak>;
+  // review events for ML instrumentation
+  private reviewEvents: Map<string, ReviewEvent>;
+  private reviewVariants: Map<string, ReviewVariant>;
+  // per-user lambda storage (optional sync with backend)
+  private userLambdas: Map<
+    string,
+    { lambda: number; updatedAt: Date; source?: string }
+  >;
 
   constructor() {
     this.subjects = new Map();
@@ -144,6 +191,9 @@ export class MemStorage implements IStorage {
     this.userStats = new Map();
     this.userLeagues = new Map();
     this.studyStreaks = new Map();
+    this.reviewEvents = new Map();
+    this.reviewVariants = new Map();
+    this.userLambdas = new Map();
 
     // Initialize with default settings
     this.studySettings = {
@@ -419,6 +469,83 @@ export class MemStorage implements IStorage {
     };
     this.users.set(id, updated);
     return updated;
+  }
+
+  // ML / Review events
+  async logReviewEvent(event: ReviewEventInput): Promise<ReviewEvent> {
+    const id = randomUUID();
+    const ev: ReviewEvent = {
+      id,
+      ...event,
+      timestamp:
+        typeof event.timestamp === "string"
+          ? new Date(event.timestamp)
+          : event.timestamp,
+      createdAt: new Date(),
+    };
+    this.reviewEvents.set(id, ev);
+    return ev;
+  }
+
+  async getReviewEventsForUser(userId: string): Promise<ReviewEvent[]> {
+    return Array.from(this.reviewEvents.values()).filter(
+      (e) => e.userId === userId
+    );
+  }
+
+  async getReviewEventsForItem(itemId: string): Promise<ReviewEvent[]> {
+    return Array.from(this.reviewEvents.values()).filter(
+      (e) => e.itemId === itemId
+    );
+  }
+
+  async getAllReviewEvents(): Promise<ReviewEvent[]> {
+    return Array.from(this.reviewEvents.values());
+  }
+
+  // User lambda management
+  async getUserLambda(
+    userId: string
+  ): Promise<{ lambda: number; updatedAt: Date; source?: string } | null> {
+    const v = this.userLambdas.get(userId) || null;
+    return v;
+  }
+
+  async setUserLambda(
+    userId: string,
+    lambda: number,
+    source?: string
+  ): Promise<void> {
+    this.userLambdas.set(userId, { lambda, updatedAt: new Date(), source });
+  }
+
+  // Review variants
+  async createReviewVariant(
+    variant: ReviewVariantInput
+  ): Promise<ReviewVariant> {
+    const id = randomUUID();
+    const v: ReviewVariant = {
+      id,
+      ...variant,
+      createdAt: new Date(),
+      lastUsedBy: {},
+    };
+    this.reviewVariants.set(id, v);
+    return v;
+  }
+
+  async getReviewVariantsForItem(itemId: string): Promise<ReviewVariant[]> {
+    return Array.from(this.reviewVariants.values()).filter(
+      (v) => v.itemId === itemId
+    );
+  }
+
+  async markVariantUsed(variantId: string, userId: string): Promise<void> {
+    const v = this.reviewVariants.get(variantId);
+    if (!v) return;
+    v.lastUsedBy = v.lastUsedBy || {};
+    v.lastUsedBy[userId] = new Date().toISOString();
+    this.reviewVariants.set(variantId, v);
   }
 
   // Content management
@@ -792,4 +919,322 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Hybrid storage: uses Postgres (Drizzle) for ML-review data and per-user lambdas,
+// while keeping the existing MemStorage behavior for legacy app data until
+// a full migration is implemented.
+class HybridStorage implements IStorage {
+  private mem: MemStorage;
+
+  constructor() {
+    this.mem = new MemStorage();
+  }
+
+  // Delegate legacy methods to in-memory implementation
+  async getSubjects() {
+    return this.mem.getSubjects();
+  }
+  async getSubject(id: string) {
+    return this.mem.getSubject(id);
+  }
+  async createSubject(s: any) {
+    return this.mem.createSubject(s);
+  }
+  async updateSubject(id: string, s: any) {
+    return this.mem.updateSubject(id, s);
+  }
+  async deleteSubject(id: string) {
+    return this.mem.deleteSubject(id);
+  }
+
+  async getGlobalSubjects() {
+    return this.mem.getGlobalSubjects();
+  }
+  async getGlobalSubject(id: string) {
+    return this.mem.getGlobalSubject(id);
+  }
+  async createGlobalSubject(s: any) {
+    return this.mem.createGlobalSubject(s);
+  }
+  async updateGlobalSubject(id: string, s: any) {
+    return this.mem.updateGlobalSubject(id, s);
+  }
+  async deleteGlobalSubject(id: string) {
+    return this.mem.deleteGlobalSubject(id);
+  }
+
+  async getCycleSubjects(cycleId: string) {
+    return this.mem.getCycleSubjects(cycleId);
+  }
+  async addSubjectToCycle(s: any) {
+    return this.mem.addSubjectToCycle(s);
+  }
+  async updateCycleSubject(id: string, s: any) {
+    return this.mem.updateCycleSubject(id, s);
+  }
+  async removeSubjectFromCycle(id: string) {
+    return this.mem.removeSubjectFromCycle(id);
+  }
+
+  async getStudySettings() {
+    return this.mem.getStudySettings();
+  }
+  async createOrUpdateStudySettings(s: any) {
+    return this.mem.createOrUpdateStudySettings(s);
+  }
+
+  async getStudyCycles() {
+    return this.mem.getStudyCycles();
+  }
+  async getStudyCycle(id: string) {
+    return this.mem.getStudyCycle(id);
+  }
+  async createStudyCycle(c: any) {
+    return this.mem.createStudyCycle(c);
+  }
+  async deleteStudyCycle(id: string) {
+    return this.mem.deleteStudyCycle(id);
+  }
+
+  async getStudyCycleData(cycleId: string) {
+    return this.mem.getStudyCycleData(cycleId);
+  }
+
+  async createUser(u: any) {
+    return this.mem.createUser(u);
+  }
+  async getUserByEmail(email: string) {
+    return this.mem.getUserByEmail(email);
+  }
+  async getUserById(id: string) {
+    return this.mem.getUserById(id);
+  }
+  async updateUser(id: string, u: any) {
+    return this.mem.updateUser(id, u);
+  }
+
+  // Content and courses delegate
+  async createContent(c: any, teacherId: string) {
+    return this.mem.createContent(c, teacherId);
+  }
+  async getContentByTeacher(teacherId: string) {
+    return this.mem.getContentByTeacher(teacherId);
+  }
+  async getAllContent() {
+    return this.mem.getAllContent();
+  }
+  async updateContent(id: string, contentData: any) {
+    return this.mem.updateContent(id, contentData);
+  }
+  async deleteContent(id: string) {
+    return this.mem.deleteContent(id);
+  }
+
+  async getAllCourses() {
+    return this.mem.getAllCourses();
+  }
+  async getPublishedCourses() {
+    return this.mem.getPublishedCourses();
+  }
+  async getTeacherCourses(teacherId: string) {
+    return this.mem.getTeacherCourses(teacherId);
+  }
+  async createCourse(c: any) {
+    return this.mem.createCourse(c);
+  }
+  async updateCourse(id: string, data: any) {
+    return this.mem.updateCourse(id, data);
+  }
+  async deleteCourse(id: string) {
+    return this.mem.deleteCourse(id);
+  }
+
+  async getGamificationData(userId: string) {
+    return this.mem.getGamificationData(userId);
+  }
+  async clearAllCycleData() {
+    return this.mem.clearAllCycleData();
+  }
+
+  // ML / Review events - Postgres backed via Drizzle
+  async logReviewEvent(event: ReviewEventInput): Promise<ReviewEvent> {
+    const id = randomUUID();
+    await db.insert(reviewEvents).values({
+      id,
+      userId: event.userId,
+      itemId: event.itemId,
+      timestamp:
+        typeof event.timestamp === "string"
+          ? new Date(event.timestamp).toISOString()
+          : (event.timestamp as Date).toISOString(),
+      correctness: event.correctness,
+      responseTimeMs: event.responseTimeMs ?? null,
+      nReps: event.nReps ?? null,
+      timeSinceLastReviewSec: event.timeSinceLastReviewSec ?? null,
+      metadata: {},
+    } as any);
+
+    return {
+      id,
+      ...event,
+      timestamp:
+        typeof event.timestamp === "string"
+          ? new Date(event.timestamp)
+          : event.timestamp,
+      createdAt: new Date(),
+    };
+  }
+
+  async getReviewEventsForUser(userId: string): Promise<ReviewEvent[]> {
+    const rows = await db
+      .select()
+      .from(reviewEvents)
+      .where(eq(reviewEvents.userId, userId));
+    return rows.map((r: any) => ({
+      id: r.id,
+      userId: r.userId,
+      itemId: r.itemId,
+      timestamp: new Date(r.timestamp),
+      correctness: r.correctness,
+      responseTimeMs: r.responseTimeMs,
+      nReps: r.nReps,
+      timeSinceLastReviewSec: r.timeSinceLastReviewSec,
+      createdAt: new Date(r.createdAt),
+    }));
+  }
+
+  async getReviewEventsForItem(itemId: string): Promise<ReviewEvent[]> {
+    const rows = await db
+      .select()
+      .from(reviewEvents)
+      .where(eq(reviewEvents.itemId, itemId));
+    return rows.map((r: any) => ({
+      id: r.id,
+      userId: r.userId,
+      itemId: r.itemId,
+      timestamp: new Date(r.timestamp),
+      correctness: r.correctness,
+      responseTimeMs: r.responseTimeMs,
+      nReps: r.nReps,
+      timeSinceLastReviewSec: r.timeSinceLastReviewSec,
+      createdAt: new Date(r.createdAt),
+    }));
+  }
+
+  async getAllReviewEvents(): Promise<ReviewEvent[]> {
+    const rows = await db.select().from(reviewEvents);
+    return rows.map((r: any) => ({
+      id: r.id,
+      userId: r.userId,
+      itemId: r.itemId,
+      timestamp: new Date(r.timestamp),
+      correctness: r.correctness,
+      responseTimeMs: r.responseTimeMs,
+      nReps: r.nReps,
+      timeSinceLastReviewSec: r.timeSinceLastReviewSec,
+      createdAt: new Date(r.createdAt),
+    }));
+  }
+
+  // Review variants
+  async createReviewVariant(
+    variant: ReviewVariantInput
+  ): Promise<ReviewVariant> {
+    const id = randomUUID();
+    await db.insert(reviewVariants).values({
+      id,
+      itemId: variant.itemId,
+      authorId: variant.authorId ?? null,
+      type: variant.type,
+      content: variant.content,
+      metadata: variant.metadata ?? {},
+    } as any);
+
+    return {
+      id,
+      ...variant,
+      createdAt: new Date(),
+      lastUsedBy: {},
+    };
+  }
+
+  async getReviewVariantsForItem(itemId: string): Promise<ReviewVariant[]> {
+    const rows = await db
+      .select()
+      .from(reviewVariants)
+      .where(eq(reviewVariants.itemId, itemId));
+    return rows.map((r: any) => ({
+      id: r.id,
+      itemId: r.itemId,
+      authorId: r.authorId,
+      type: r.type,
+      content: r.content,
+      metadata: r.metadata,
+      createdAt: new Date(r.createdAt),
+      lastUsedBy: r.lastUsedBy || {},
+    }));
+  }
+
+  async markVariantUsed(variantId: string, userId: string): Promise<void> {
+    // read variant, update lastUsedBy JSON
+    const rows = await db
+      .select()
+      .from(reviewVariants)
+      .where(eq(reviewVariants.id, variantId));
+    if (rows.length === 0) return;
+    const row = rows[0] as any;
+    const lastUsed = row.lastUsedBy || {};
+    lastUsed[userId] = new Date().toISOString();
+    await db
+      .update(reviewVariants)
+      .set({ lastUsedBy: lastUsed } as any)
+      .where(eq(reviewVariants.id, variantId));
+  }
+
+  // User lambda management
+  async getUserLambda(
+    userId: string
+  ): Promise<{ lambda: number; updatedAt: Date; source?: string } | null> {
+    const rows = await db
+      .select()
+      .from(userLambdas)
+      .where(eq(userLambdas.userId, userId));
+    if (rows.length === 0) return null;
+    const r: any = rows[0];
+    return {
+      lambda: Number(r.lambda),
+      updatedAt: new Date(r.updatedAt),
+      source: r.source,
+    };
+  }
+
+  async setUserLambda(
+    userId: string,
+    lambda: number,
+    source?: string
+  ): Promise<void> {
+    const rows = await db
+      .select()
+      .from(userLambdas)
+      .where(eq(userLambdas.userId, userId));
+    if (rows.length === 0) {
+      await db
+        .insert(userLambdas)
+        .values({
+          userId,
+          lambda: String(lambda),
+          source: source ?? null,
+        } as any);
+    } else {
+      await db
+        .update(userLambdas)
+        .set({
+          lambda: String(lambda),
+          source: source ?? null,
+          updatedAt: new Date().toISOString(),
+        } as any)
+        .where(eq(userLambdas.userId, userId));
+    }
+  }
+}
+
+export const storage = new HybridStorage();

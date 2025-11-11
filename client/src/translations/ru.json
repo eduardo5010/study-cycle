@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Управляйте расписанием и отслеживайте прогресс",
-  
+
   "nav.dashboard": "Панель управления",
   "nav.subjects": "Предметы",
   "nav.settings": "Настройки",
-  
+
   "dashboard.currentCycle": "Текущий учебный цикл",
   "dashboard.newCycle": "Новый цикл",
   "dashboard.totalWeeks": "Всего недель",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "Часов в день",
   "dashboard.progress": "Прогресс",
   "dashboard.plannedTime": "запланировано",
-  
+
   "schedule.title": "Недельное расписание",
   "schedule.week": "Неделя",
   "schedule.empty": "Добавьте предметы для автоматического создания расписания",
   "schedule.noStudy": "Учеба не запланирована",
-  
+
   "actions.title": "Быстрые действия",
   "actions.addSubject": "Добавить предмет",
   "actions.configureSchedule": "Настроить расписание",
   "actions.exportSchedule": "Экспорт расписания",
-  
+
   "settings.title": "Текущие настройки",
   "settings.wakeTime": "Время подъема",
   "settings.sleepTime": "Время сна",
   "settings.dailyStudyTime": "Ежедневное время учебы",
   "settings.totalCycleTime": "Общее время цикла",
   "settings.edit": "Изменить настройки",
-  
+
   "subjects.title": "Предметы",
   "subjects.count": "предмет",
   "subjects.countPlural": "предметов",
@@ -40,11 +40,11 @@
   "subjects.hours": "Часы",
   "subjects.minutes": "Минуты",
   "subjects.nameExample": "Например: Математика",
-  
+
   "modal.cancel": "Отмена",
   "modal.add": "Добавить",
   "modal.adding": "Добавление...",
-  
+
   "toast.subjectAdded": "Предмет добавлен",
   "toast.subjectAddedDesc": "Предмет был успешно добавлен.",
   "toast.error": "Ошибка",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "Настройка расписания будет реализована в ближайшее время.",
   "toast.exportInDev": "Экспорт расписания будет реализован в ближайшее время.",
   "toast.editInDev": "Редактирование настроек будет реализовано в ближайшее время.",
-  
+
   "days.monday": "Понедельник",
   "days.tuesday": "Вторник",
   "days.wednesday": "Среда",
@@ -64,7 +64,62 @@
   "days.friday": "Пятница",
   "days.saturday": "Суббота",
   "days.sunday": "Воскресенье",
-  
+
   "language.select": "Выбрать язык",
-  "language.current": "Текущий язык"
+  "language.current": "Текущий язык",
+  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "landing": {
+    "nav": {
+      "courses": "Courses",
+      "pricing": "Pricing",
+      "testimonials": "Testimonials",
+      "dashboard": "Go to Dashboard"
+    },
+    "hero": {
+      "title": "Learn at Your Own Pace",
+      "description": "Study Cycle is a modern learning platform that adapts to your unique learning style and goals.",
+      "cta": "Start Learning Now"
+    },
+    "features": {
+      "title": "Why Choose Study Cycle?",
+      "courses": {
+        "title": "Interactive Courses",
+        "description": "Learn with our adaptive courses that adjust to your skill level"
+      },
+      "skills": {
+        "title": "Track Your Skills",
+        "description": "Monitor your progress with our detailed skill tracking system"
+      },
+      "community": {
+        "title": "Join the Community",
+        "description": "Connect with other learners and share your knowledge"
+      }
+    },
+    "pricing": {
+      "title": "Simple, Transparent Pricing",
+      "getStarted": "Get Started",
+      "popular": "Most Popular",
+      "pro": {
+        "title": "Pro",
+        "description": "For serious learners",
+        "price": "R$50 / US$50",
+        "feature1": "All basic features",
+        "feature2": "Advanced courses",
+        "feature3": "Priority support",
+        "feature4": "Certificate of completion"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "role": {
+        "student": "Student",
+        "teacher": "Teacher",
+        "parent": "Parent"
+      },
+      "content1": "Study Cycle has transformed the way I learn. The adaptive courses and skill tracking keep me motivated.",
+      "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
+      "content3": "I can easily track my child's progress and see where they need help. Great platform!"
+    },
+    "footer": { "rights": "All rights reserved." }
+  }
 }
