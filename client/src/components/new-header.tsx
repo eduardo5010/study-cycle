@@ -17,8 +17,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { RoleSwitch } from "./role-switch";
 import LanguageSelector from "@/components/language-selector";
 import ThemeToggle from "@/components/theme-toggle";
-import LoginModal from "@/components/auth/login-modal";
-import RegisterModal from "@/components/auth/register-modal";
+// Using dedicated auth pages instead of modal dialogs
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -33,8 +32,7 @@ import { Input } from "@/components/ui/input";
 export default function NewHeader() {
   const { t } = useLanguage();
   const { user, logout, switchToTeacher } = useAuth();
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  // modals removed in favor of full pages
   const [searchQuery, setSearchQuery] = useState("");
 
   // Mock data for streak
@@ -287,22 +285,21 @@ export default function NewHeader() {
 
               {!user && (
                 <div className="flex items-center space-x-2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIsLoginModalOpen(true)}
-                    data-testid="button-login"
-                  >
-                    <LogIn className="h-4 w-4 mr-1" />
-                    {t("auth.login")}
-                  </Button>
-                  <Button
-                    size="sm"
-                    onClick={() => setIsRegisterModalOpen(true)}
-                    data-testid="button-register"
-                  >
-                    {t("auth.register")}
-                  </Button>
+                  <Link href="/auth/login">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      data-testid="button-login"
+                    >
+                      <LogIn className="h-4 w-4 mr-1" />
+                      {t("auth.login")}
+                    </Button>
+                  </Link>
+                  <Link href="/auth/register">
+                    <Button size="sm" data-testid="button-register">
+                      {t("auth.register")}
+                    </Button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -310,23 +307,7 @@ export default function NewHeader() {
         </div>
       </header>
 
-      <LoginModal
-        isOpen={isLoginModalOpen}
-        onClose={() => setIsLoginModalOpen(false)}
-        onSwitchToRegister={() => {
-          setIsLoginModalOpen(false);
-          setIsRegisterModalOpen(true);
-        }}
-      />
-
-      <RegisterModal
-        isOpen={isRegisterModalOpen}
-        onClose={() => setIsRegisterModalOpen(false)}
-        onSwitchToLogin={() => {
-          setIsRegisterModalOpen(false);
-          setIsLoginModalOpen(true);
-        }}
-      />
+      {/* auth handled by dedicated pages */}
     </>
   );
 }

@@ -13,6 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { PlusCircle } from "lucide-react";
 
 import { TeacherLayout } from "@/components/teacher-layout";
+import FileUploader from "@/components/file-uploader";
 
 export function TeacherDashboard() {
   const [isCreatingCourse, setIsCreatingCourse] = React.useState(false);
@@ -50,6 +51,11 @@ export function TeacherDashboard() {
         </Card>
 
         {/* Aqui virão outros cards com estatísticas e ações rápidas */}
+      </div>
+
+      <div className="mt-8">
+        <h2 className="text-xl font-bold mb-4">Uploads</h2>
+        <FileUploader userId={"mock-teacher-id"} />
       </div>
 
       {/* Lista de cursos existentes */}

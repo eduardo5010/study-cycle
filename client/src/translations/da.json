@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Administrer dit skema og spor fremskridt",
-
-  "nav.dashboard": "Dashboard",
-  "nav.subjects": "Fag",
-  "nav.settings": "Indstillinger",
-
-  "dashboard.currentCycle": "Nuværende studiecyklus",
-  "dashboard.newCycle": "Ny cyklus",
-  "dashboard.totalWeeks": "Samlet antal uger",
-  "dashboard.subjects": "Fag",
-  "dashboard.dailyHours": "Daglige timer",
-  "dashboard.progress": "Fremgang",
-  "dashboard.plannedTime": "planlagt",
-
-  "schedule.title": "Ugeskema",
-  "schedule.week": "Uge",
-  "schedule.empty": "Tilføj fag for automatisk at generere skemaet",
-  "schedule.noStudy": "Ingen studier planlagt",
-
-  "actions.title": "Hurtige handlinger",
-  "actions.addSubject": "Tilføj fag",
-  "actions.configureSchedule": "Konfigurer skema",
-  "actions.exportSchedule": "Eksporter skema",
-
-  "settings.title": "Nuværende indstillinger",
-  "settings.wakeTime": "Opvågningstid",
-  "settings.sleepTime": "Sengetid",
-  "settings.dailyStudyTime": "Daglig studietid",
-  "settings.totalCycleTime": "Samlet cyklustid",
-  "settings.edit": "Rediger indstillinger",
-
-  "subjects.title": "Fag",
-  "subjects.count": "fag",
-  "subjects.countPlural": "fag",
-  "subjects.empty": "Ingen fag tilføjet endnu",
-  "subjects.add": "Tilføj nyt fag",
-  "subjects.name": "Fagnavn",
-  "subjects.hours": "Timer",
-  "subjects.minutes": "Minutter",
-  "subjects.nameExample": "F.eks.: Matematik",
-
-  "modal.cancel": "Annuller",
-  "modal.add": "Tilføj",
-  "modal.adding": "Tilføjer...",
-
-  "toast.subjectAdded": "Fag tilføjet",
-  "toast.subjectAddedDesc": "Faget blev tilføjet med succes.",
-  "toast.error": "Fejl",
-  "toast.subjectError": "Kunne ikke tilføje faget.",
-  "toast.noScheduleExport": "Intet skema at eksportere",
-  "toast.noScheduleExportDesc": "Tilføj fag for at generere et skema.",
-  "toast.featureInDev": "Funktion under udvikling",
-  "toast.newCycleInDev": "Oprettelse af nye cyklusser vil snart blive implementeret.",
-  "toast.configureInDev": "Skemakonfiguration vil snart blive implementeret.",
-  "toast.exportInDev": "Skemaeksport vil snart blive implementeret.",
-  "toast.editInDev": "Redigering af indstillinger vil snart blive implementeret.",
-
-  "days.monday": "Mandag",
-  "days.tuesday": "Tirsdag",
-  "days.wednesday": "Onsdag",
-  "days.thursday": "Torsdag",
-  "days.friday": "Fredag",
-  "days.saturday": "Lørdag",
-  "days.sunday": "Søndag",
-
-  "language.select": "Vælg sprog",
-  "language.current": "Nuværende sprog",
-  "app.description": "Study Cycle hjælper elever med at organisere studietid, følge fremskridt og følge adaptive kurser for at nå deres mål.",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Administrer dit skema og spor fremskridt",
+    "description": "Study Cycle hjælper elever med at organisere studietid, følge fremskridt og følge adaptive kurser for at nå deres mål."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "subjects": "Fag",
+    "settings": "Indstillinger"
+  },
+  "dashboard": {
+    "currentCycle": "Nuværende studiecyklus",
+    "newCycle": "Ny cyklus",
+    "totalWeeks": "Samlet antal uger",
+    "subjects": "Fag",
+    "dailyHours": "Daglige timer",
+    "progress": "Fremgang",
+    "plannedTime": "planlagt"
+  },
+  "schedule": {
+    "title": "Ugeskema",
+    "week": "Uge",
+    "empty": "Tilføj fag for automatisk at generere skemaet",
+    "noStudy": "Ingen studier planlagt"
+  },
+  "actions": {
+    "title": "Hurtige handlinger",
+    "addSubject": "Tilføj fag",
+    "configureSchedule": "Konfigurer skema",
+    "exportSchedule": "Eksporter skema"
+  },
+  "settings": {
+    "title": "Nuværende indstillinger",
+    "wakeTime": "Opvågningstid",
+    "sleepTime": "Sengetid",
+    "dailyStudyTime": "Daglig studietid",
+    "totalCycleTime": "Samlet cyklustid",
+    "edit": "Rediger indstillinger"
+  },
+  "subjects": {
+    "title": "Fag",
+    "count": "fag",
+    "countPlural": "fag",
+    "empty": "Ingen fag tilføjet endnu",
+    "add": "Tilføj nyt fag",
+    "name": "Fagnavn",
+    "hours": "Timer",
+    "minutes": "Minutter",
+    "nameExample": "F.eks.: Matematik"
+  },
+  "modal": {
+    "cancel": "Annuller",
+    "add": "Tilføj",
+    "adding": "Tilføjer..."
+  },
+  "toast": {
+    "subjectAdded": "Fag tilføjet",
+    "subjectAddedDesc": "Faget blev tilføjet med succes.",
+    "error": "Fejl",
+    "subjectError": "Kunne ikke tilføje faget.",
+    "noScheduleExport": "Intet skema at eksportere",
+    "noScheduleExportDesc": "Tilføj fag for at generere et skema.",
+    "featureInDev": "Funktion under udvikling",
+    "newCycleInDev": "Oprettelse af nye cyklusser vil snart blive implementeret.",
+    "configureInDev": "Skemakonfiguration vil snart blive implementeret.",
+    "exportInDev": "Skemaeksport vil snart blive implementeret.",
+    "editInDev": "Redigering af indstillinger vil snart blive implementeret."
+  },
+  "days": {
+    "monday": "Mandag",
+    "tuesday": "Tirsdag",
+    "wednesday": "Onsdag",
+    "thursday": "Torsdag",
+    "friday": "Fredag",
+    "saturday": "Lørdag",
+    "sunday": "Søndag"
+  },
+  "language": {
+    "select": "Vælg sprog",
+    "current": "Nuværende sprog"
+  },
   "landing": {
     "nav": {
       "courses": "Kurser",
@@ -107,6 +119,22 @@
         "feature2": "Avancerede kurser",
         "feature3": "Prioriteret support",
         "feature4": "Certifikat ved gennemførelse"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "Som underviser elsker jeg, hvordan Study Cycle gør det nemt at oprette og dele brugerdefinerede læringsforløb.",
       "content3": "Jeg kan nemt spore mit barns fremskridt og se, hvor der er behov for hjælp. Fantastisk platform!"
     },
-    "footer": { "rights": "Alle rettigheder forbeholdes." }
+    "footer": {
+      "rights": "Alle rettigheder forbeholdes."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

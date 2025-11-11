@@ -8,6 +8,7 @@ import {
 
 export type SupportedLanguage =
   | "pt"
+  | "pt-br"
   | "en"
   | "es"
   | "fr"
@@ -48,12 +49,16 @@ interface LanguageProviderProps {
 // English translations for fallback when a key is missing.
 type Translations = any;
 
+// Load English statically as the baseline to avoid showing raw keys on first render
+import enStatic from "../translations/en.json";
+
 // Import all translation files
 const translations: Record<
   SupportedLanguage,
   () => Promise<{ default: Translations }>
 > = {
   pt: () => import("../translations/pt.json"),
+  "pt-br": () => import("../translations/pt-br.json"),
   en: () => import("../translations/en.json"),
   es: () => import("../translations/es.json"),
   fr: () => import("../translations/fr.json"),
@@ -77,6 +82,7 @@ const translations: Record<
 
 export const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
   pt: "Português",
+  "pt-br": "Português (Brasil)",
   en: "English",
   es: "Español",
   fr: "Français",
@@ -100,12 +106,10 @@ export const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const [language, setLanguageState] = useState<SupportedLanguage>("pt");
-  const [currentTranslations, setCurrentTranslations] = useState<Translations>(
-    {}
-  );
-  const [englishTranslations, setEnglishTranslations] = useState<Translations>(
-    {}
-  );
+  const [currentTranslations, setCurrentTranslations] =
+    useState<Translations>(enStatic);
+  const [englishTranslations, setEnglishTranslations] =
+    useState<Translations>(enStatic);
 
   // Helper to resolve nested keys like 'landing.nav.courses'
   const getNested = (key: string, obj: Translations): string | undefined => {
@@ -155,9 +159,49 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   useEffect(() => {
     const savedLanguage = localStorage.getItem(
       "studycycle-language"
-    ) as SupportedLanguage;
+    ) as SupportedLanguage | null;
     if (savedLanguage && translations[savedLanguage]) {
       setLanguageState(savedLanguage);
+      return;
+    }
+
+    // No saved language: try browser locale detection and map to supported languages
+    const detectFromBrowser = (): SupportedLanguage | undefined => {
+      if (typeof navigator === "undefined") return undefined;
+      const raw = (
+        navigator.language ||
+        (navigator.languages && navigator.languages[0]) ||
+        ""
+      ).toLowerCase();
+      if (!raw) return undefined;
+      // Map common locales to supported languages
+      if (raw.startsWith("pt-br") || raw === "pt-br") return "pt-br";
+      if (raw.startsWith("pt")) return "pt";
+      if (raw.startsWith("en")) return "en";
+      if (raw.startsWith("es")) return "es";
+      if (raw.startsWith("fr")) return "fr";
+      if (raw.startsWith("de")) return "de";
+      if (raw.startsWith("it")) return "it";
+      if (raw.startsWith("ru")) return "ru";
+      if (raw.startsWith("zh")) return "zh";
+      if (raw.startsWith("ja")) return "ja";
+      if (raw.startsWith("ko")) return "ko";
+      if (raw.startsWith("ar")) return "ar";
+      if (raw.startsWith("hi")) return "hi";
+      if (raw.startsWith("tr")) return "tr";
+      if (raw.startsWith("pl")) return "pl";
+      if (raw.startsWith("nl")) return "nl";
+      if (raw.startsWith("sv")) return "sv";
+      if (raw.startsWith("da")) return "da";
+      if (raw.startsWith("no")) return "no";
+      if (raw.startsWith("fi")) return "fi";
+      if (raw.startsWith("cs")) return "cs";
+      return undefined;
+    };
+
+    const browserLang = detectFromBrowser();
+    if (browserLang && translations[browserLang]) {
+      setLanguageState(browserLang);
     }
   }, []);
 

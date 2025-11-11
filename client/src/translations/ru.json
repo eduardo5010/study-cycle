@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Управляйте расписанием и отслеживайте прогресс",
-
-  "nav.dashboard": "Панель управления",
-  "nav.subjects": "Предметы",
-  "nav.settings": "Настройки",
-
-  "dashboard.currentCycle": "Текущий учебный цикл",
-  "dashboard.newCycle": "Новый цикл",
-  "dashboard.totalWeeks": "Всего недель",
-  "dashboard.subjects": "Предметы",
-  "dashboard.dailyHours": "Часов в день",
-  "dashboard.progress": "Прогресс",
-  "dashboard.plannedTime": "запланировано",
-
-  "schedule.title": "Недельное расписание",
-  "schedule.week": "Неделя",
-  "schedule.empty": "Добавьте предметы для автоматического создания расписания",
-  "schedule.noStudy": "Учеба не запланирована",
-
-  "actions.title": "Быстрые действия",
-  "actions.addSubject": "Добавить предмет",
-  "actions.configureSchedule": "Настроить расписание",
-  "actions.exportSchedule": "Экспорт расписания",
-
-  "settings.title": "Текущие настройки",
-  "settings.wakeTime": "Время подъема",
-  "settings.sleepTime": "Время сна",
-  "settings.dailyStudyTime": "Ежедневное время учебы",
-  "settings.totalCycleTime": "Общее время цикла",
-  "settings.edit": "Изменить настройки",
-
-  "subjects.title": "Предметы",
-  "subjects.count": "предмет",
-  "subjects.countPlural": "предметов",
-  "subjects.empty": "Предметы еще не добавлены",
-  "subjects.add": "Добавить новый предмет",
-  "subjects.name": "Название предмета",
-  "subjects.hours": "Часы",
-  "subjects.minutes": "Минуты",
-  "subjects.nameExample": "Например: Математика",
-
-  "modal.cancel": "Отмена",
-  "modal.add": "Добавить",
-  "modal.adding": "Добавление...",
-
-  "toast.subjectAdded": "Предмет добавлен",
-  "toast.subjectAddedDesc": "Предмет был успешно добавлен.",
-  "toast.error": "Ошибка",
-  "toast.subjectError": "Не удалось добавить предмет.",
-  "toast.noScheduleExport": "Нет расписания для экспорта",
-  "toast.noScheduleExportDesc": "Добавьте предметы для создания расписания.",
-  "toast.featureInDev": "Функция в разработке",
-  "toast.newCycleInDev": "Создание новых циклов будет реализовано в ближайшее время.",
-  "toast.configureInDev": "Настройка расписания будет реализована в ближайшее время.",
-  "toast.exportInDev": "Экспорт расписания будет реализован в ближайшее время.",
-  "toast.editInDev": "Редактирование настроек будет реализовано в ближайшее время.",
-
-  "days.monday": "Понедельник",
-  "days.tuesday": "Вторник",
-  "days.wednesday": "Среда",
-  "days.thursday": "Четверг",
-  "days.friday": "Пятница",
-  "days.saturday": "Суббота",
-  "days.sunday": "Воскресенье",
-
-  "language.select": "Выбрать язык",
-  "language.current": "Текущий язык",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Управляйте расписанием и отслеживайте прогресс",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "Панель управления",
+    "subjects": "Предметы",
+    "settings": "Настройки"
+  },
+  "dashboard": {
+    "currentCycle": "Текущий учебный цикл",
+    "newCycle": "Новый цикл",
+    "totalWeeks": "Всего недель",
+    "subjects": "Предметы",
+    "dailyHours": "Часов в день",
+    "progress": "Прогресс",
+    "plannedTime": "запланировано"
+  },
+  "schedule": {
+    "title": "Недельное расписание",
+    "week": "Неделя",
+    "empty": "Добавьте предметы для автоматического создания расписания",
+    "noStudy": "Учеба не запланирована"
+  },
+  "actions": {
+    "title": "Быстрые действия",
+    "addSubject": "Добавить предмет",
+    "configureSchedule": "Настроить расписание",
+    "exportSchedule": "Экспорт расписания"
+  },
+  "settings": {
+    "title": "Текущие настройки",
+    "wakeTime": "Время подъема",
+    "sleepTime": "Время сна",
+    "dailyStudyTime": "Ежедневное время учебы",
+    "totalCycleTime": "Общее время цикла",
+    "edit": "Изменить настройки"
+  },
+  "subjects": {
+    "title": "Предметы",
+    "count": "предмет",
+    "countPlural": "предметов",
+    "empty": "Предметы еще не добавлены",
+    "add": "Добавить новый предмет",
+    "name": "Название предмета",
+    "hours": "Часы",
+    "minutes": "Минуты",
+    "nameExample": "Например: Математика"
+  },
+  "modal": {
+    "cancel": "Отмена",
+    "add": "Добавить",
+    "adding": "Добавление..."
+  },
+  "toast": {
+    "subjectAdded": "Предмет добавлен",
+    "subjectAddedDesc": "Предмет был успешно добавлен.",
+    "error": "Ошибка",
+    "subjectError": "Не удалось добавить предмет.",
+    "noScheduleExport": "Нет расписания для экспорта",
+    "noScheduleExportDesc": "Добавьте предметы для создания расписания.",
+    "featureInDev": "Функция в разработке",
+    "newCycleInDev": "Создание новых циклов будет реализовано в ближайшее время.",
+    "configureInDev": "Настройка расписания будет реализована в ближайшее время.",
+    "exportInDev": "Экспорт расписания будет реализован в ближайшее время.",
+    "editInDev": "Редактирование настроек будет реализовано в ближайшее время."
+  },
+  "days": {
+    "monday": "Понедельник",
+    "tuesday": "Вторник",
+    "wednesday": "Среда",
+    "thursday": "Четверг",
+    "friday": "Пятница",
+    "saturday": "Суббота",
+    "sunday": "Воскресенье"
+  },
+  "language": {
+    "select": "Выбрать язык",
+    "current": "Текущий язык"
+  },
   "landing": {
     "nav": {
       "courses": "Courses",
@@ -107,6 +119,22 @@
         "feature2": "Advanced courses",
         "feature3": "Priority support",
         "feature4": "Certificate of completion"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
       "content3": "I can easily track my child's progress and see where they need help. Great platform!"
     },
-    "footer": { "rights": "All rights reserved." }
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

@@ -1,74 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "管理您的时间表并跟踪进度",
-  "app.description": "Study Cycle 帮助学习者组织学习时间、跟踪进度，并通过自适应课程实现学习目标。",
-
-  "nav.dashboard": "仪表板",
-  "nav.subjects": "科目",
-  "nav.settings": "设置",
-
-  "dashboard.currentCycle": "当前学习周期",
-  "dashboard.newCycle": "新周期",
-  "dashboard.totalWeeks": "总周数",
-  "dashboard.subjects": "科目",
-  "dashboard.dailyHours": "每日小时",
-  "dashboard.progress": "进度",
-  "dashboard.plannedTime": "计划",
-
-  "schedule.title": "每周时间表",
-  "schedule.week": "周",
-  "schedule.empty": "添加科目以自动生成时间表",
-  "schedule.noStudy": "没有计划学习",
-
-  "actions.title": "快速操作",
-  "actions.addSubject": "添加科目",
-  "actions.configureSchedule": "配置时间表",
-  "actions.exportSchedule": "导出时间表",
-
-  "settings.title": "当前设置",
-  "settings.wakeTime": "起床时间",
-  "settings.sleepTime": "就寝时间",
-  "settings.dailyStudyTime": "每日学习时间",
-  "settings.totalCycleTime": "总周期时间",
-  "settings.edit": "编辑设置",
-
-  "subjects.title": "科目",
-  "subjects.count": "个科目",
-  "subjects.countPlural": "个科目",
-  "subjects.empty": "尚未添加科目",
-  "subjects.add": "添加新科目",
-  "subjects.name": "科目名称",
-  "subjects.hours": "小时",
-  "subjects.minutes": "分钟",
-  "subjects.nameExample": "例如：数学",
-
-  "modal.cancel": "取消",
-  "modal.add": "添加",
-  "modal.adding": "添加中...",
-
-  "toast.subjectAdded": "科目已添加",
-  "toast.subjectAddedDesc": "科目已成功添加。",
-  "toast.error": "错误",
-  "toast.subjectError": "无法添加科目。",
-  "toast.noScheduleExport": "没有时间表可导出",
-  "toast.noScheduleExportDesc": "添加科目以生成时间表。",
-  "toast.featureInDev": "功能开发中",
-  "toast.newCycleInDev": "创建新周期的功能即将推出。",
-  "toast.configureInDev": "时间表配置功能即将推出。",
-  "toast.exportInDev": "时间表导出功能即将推出。",
-  "toast.editInDev": "设置编辑功能即将推出。",
-
-  "days.monday": "星期一",
-  "days.tuesday": "星期二",
-  "days.wednesday": "星期三",
-  "days.thursday": "星期四",
-  "days.friday": "星期五",
-  "days.saturday": "星期六",
-  "days.sunday": "星期日",
-
-  "language.select": "选择语言",
-  "language.current": "当前语言",
-
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "管理您的时间表并跟踪进度",
+    "description": "Study Cycle 帮助学习者组织学习时间、跟踪进度，并通过自适应课程实现学习目标。"
+  },
+  "nav": {
+    "dashboard": "仪表板",
+    "subjects": "科目",
+    "settings": "设置"
+  },
+  "dashboard": {
+    "currentCycle": "当前学习周期",
+    "newCycle": "新周期",
+    "totalWeeks": "总周数",
+    "subjects": "科目",
+    "dailyHours": "每日小时",
+    "progress": "进度",
+    "plannedTime": "计划"
+  },
+  "schedule": {
+    "title": "每周时间表",
+    "week": "周",
+    "empty": "添加科目以自动生成时间表",
+    "noStudy": "没有计划学习"
+  },
+  "actions": {
+    "title": "快速操作",
+    "addSubject": "添加科目",
+    "configureSchedule": "配置时间表",
+    "exportSchedule": "导出时间表"
+  },
+  "settings": {
+    "title": "当前设置",
+    "wakeTime": "起床时间",
+    "sleepTime": "就寝时间",
+    "dailyStudyTime": "每日学习时间",
+    "totalCycleTime": "总周期时间",
+    "edit": "编辑设置"
+  },
+  "subjects": {
+    "title": "科目",
+    "count": "个科目",
+    "countPlural": "个科目",
+    "empty": "尚未添加科目",
+    "add": "添加新科目",
+    "name": "科目名称",
+    "hours": "小时",
+    "minutes": "分钟",
+    "nameExample": "例如：数学"
+  },
+  "modal": {
+    "cancel": "取消",
+    "add": "添加",
+    "adding": "添加中..."
+  },
+  "toast": {
+    "subjectAdded": "科目已添加",
+    "subjectAddedDesc": "科目已成功添加。",
+    "error": "错误",
+    "subjectError": "无法添加科目。",
+    "noScheduleExport": "没有时间表可导出",
+    "noScheduleExportDesc": "添加科目以生成时间表。",
+    "featureInDev": "功能开发中",
+    "newCycleInDev": "创建新周期的功能即将推出。",
+    "configureInDev": "时间表配置功能即将推出。",
+    "exportInDev": "时间表导出功能即将推出。",
+    "editInDev": "设置编辑功能即将推出。"
+  },
+  "days": {
+    "monday": "星期一",
+    "tuesday": "星期二",
+    "wednesday": "星期三",
+    "thursday": "星期四",
+    "friday": "星期五",
+    "saturday": "星期六",
+    "sunday": "星期日"
+  },
+  "language": {
+    "select": "选择语言",
+    "current": "当前语言"
+  },
   "landing": {
     "nav": {
       "courses": "课程",
@@ -108,15 +119,41 @@
         "feature2": "高级课程",
         "feature3": "优先支持",
         "feature4": "结业证书"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
       "title": "用户评价",
-      "role": { "student": "学生", "teacher": "教师", "parent": "家长" },
+      "role": {
+        "student": "学生",
+        "teacher": "教师",
+        "parent": "家长"
+      },
       "content1": "Study Cycle 改变了我的学习方式。自适应课程和技能跟踪让我保持动力。",
       "content2": "作为教师，我喜欢 Study Cycle 如何简化创建和共享自定义学习路径。",
       "content3": "我可以轻松跟踪孩子的进度，并看到他们需要帮助的地方。很棒的平台！"
     },
-    "footer": { "rights": "版权所有。" }
+    "footer": {
+      "rights": "版权所有。"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

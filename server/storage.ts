@@ -130,6 +130,7 @@ export interface IStorage {
   // Review variants (AI or human created)
   createReviewVariant(variant: ReviewVariantInput): Promise<ReviewVariant>;
   getReviewVariantsForItem(itemId: string): Promise<ReviewVariant[]>;
+  getAllReviewVariants(): Promise<ReviewVariant[]>;
   markVariantUsed(variantId: string, userId: string): Promise<void>;
 }
 
@@ -538,6 +539,10 @@ export class MemStorage implements IStorage {
     return Array.from(this.reviewVariants.values()).filter(
       (v) => v.itemId === itemId
     );
+  }
+
+  async getAllReviewVariants(): Promise<ReviewVariant[]> {
+    return Array.from(this.reviewVariants.values());
   }
 
   async markVariantUsed(variantId: string, userId: string): Promise<void> {
@@ -1174,6 +1179,20 @@ class HybridStorage implements IStorage {
     }));
   }
 
+  async getAllReviewVariants(): Promise<ReviewVariant[]> {
+    const rows = await db.select().from(reviewVariants);
+    return rows.map((r: any) => ({
+      id: r.id,
+      itemId: r.itemId,
+      authorId: r.authorId,
+      type: r.type,
+      content: r.content,
+      metadata: r.metadata,
+      createdAt: new Date(r.createdAt),
+      lastUsedBy: r.lastUsedBy || {},
+    }));
+  }
+
   async markVariantUsed(variantId: string, userId: string): Promise<void> {
     // read variant, update lastUsedBy JSON
     const rows = await db
@@ -1217,13 +1236,11 @@ class HybridStorage implements IStorage {
       .from(userLambdas)
       .where(eq(userLambdas.userId, userId));
     if (rows.length === 0) {
-      await db
-        .insert(userLambdas)
-        .values({
-          userId,
-          lambda: String(lambda),
-          source: source ?? null,
-        } as any);
+      await db.insert(userLambdas).values({
+        userId,
+        lambda: String(lambda),
+        source: source ?? null,
+      } as any);
     } else {
       await db
         .update(userLambdas)
