@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "अपने शेड्यूल का प्रबंधन करें और प्रगति ट्रैक करें",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
-
-  "nav.dashboard": "डैशबोर्ड",
-  "nav.subjects": "विषय",
-  "nav.settings": "सेटिंग्स",
-
-  "dashboard.currentCycle": "वर्तमान अध्ययन चक्र",
-  "dashboard.newCycle": "नया चक्र",
-  "dashboard.totalWeeks": "कुल सप्ताह",
-  "dashboard.subjects": "विषय",
-  "dashboard.dailyHours": "दैनिक घंटे",
-  "dashboard.progress": "प्रगति",
-  "dashboard.plannedTime": "नियोजित",
-
-  "schedule.title": "साप्ताहिक कार्यक्रम",
-  "schedule.week": "सप्ताह",
-  "schedule.empty": "शेड्यूल स्वचालित रूप से बनाने के लिए विषय जोड़ें",
-  "schedule.noStudy": "कोई अध्ययन नियोजित नहीं",
-
-  "actions.title": "त्वरित कार्य",
-  "actions.addSubject": "विषय जोड़ें",
-  "actions.configureSchedule": "शेड्यूल कॉन्फ़िगर करें",
-  "actions.exportSchedule": "शेड्यूल निर्यात करें",
-
-  "settings.title": "वर्तमान सेटिंग्स",
-  "settings.wakeTime": "जागने का समय",
-  "settings.sleepTime": "सोने का समय",
-  "settings.dailyStudyTime": "दैनिक अध्ययन समय",
-  "settings.totalCycleTime": "कुल चक्र समय",
-  "settings.edit": "सेटिंग्स संपादित करें",
-
-  "subjects.title": "विषय",
-  "subjects.count": "विषय",
-  "subjects.countPlural": "विषय",
-  "subjects.empty": "अभी तक कोई विषय नहीं जोड़ा गया",
-  "subjects.add": "नया विषय जोड़ें",
-  "subjects.name": "विषय का नाम",
-  "subjects.hours": "घंटे",
-  "subjects.minutes": "मिनट",
-  "subjects.nameExample": "उदाहरण: गणित",
-
-  "modal.cancel": "रद्द करें",
-  "modal.add": "जोड़ें",
-  "modal.adding": "जोड़ा जा रहा है...",
-
-  "toast.subjectAdded": "विषय जोड़ा गया",
-  "toast.subjectAddedDesc": "विषय सफलतापूर्वक जोड़ा गया।",
-  "toast.error": "त्रुटि",
-  "toast.subjectError": "विषय जोड़ने में असमर्थ।",
-  "toast.noScheduleExport": "निर्यात करने के लिए कोई शेड्यूल नहीं",
-  "toast.noScheduleExportDesc": "शेड्यूल बनाने के लिए विषय जोड़ें।",
-  "toast.featureInDev": "सुविधा विकास में",
-  "toast.newCycleInDev": "नए चक्र बनाना जल्द ही लागू किया जाएगा।",
-  "toast.configureInDev": "शेड्यूल कॉन्फ़िगरेशन जल्द ही लागू किया जाएगा।",
-  "toast.exportInDev": "शेड्यूल निर्यात जल्द ही लागू किया जाएगा।",
-  "toast.editInDev": "सेटिंग्स संपादन जल्द ही लागू किया जाएगा।",
-
-  "days.monday": "सोमवार",
-  "days.tuesday": "मंगलवार",
-  "days.wednesday": "बुधवार",
-  "days.thursday": "गुरुवार",
-  "days.friday": "शुक्रवार",
-  "days.saturday": "शनिवार",
-  "days.sunday": "रविवार",
-
-  "language.select": "भाषा चुनें",
-  "language.current": "वर्तमान भाषा",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "अपने शेड्यूल का प्रबंधन करें और प्रगति ट्रैक करें",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "subjects": "विषय",
+    "settings": "सेटिंग्स"
+  },
+  "dashboard": {
+    "currentCycle": "वर्तमान अध्ययन चक्र",
+    "newCycle": "नया चक्र",
+    "totalWeeks": "कुल सप्ताह",
+    "subjects": "विषय",
+    "dailyHours": "दैनिक घंटे",
+    "progress": "प्रगति",
+    "plannedTime": "नियोजित"
+  },
+  "schedule": {
+    "title": "साप्ताहिक कार्यक्रम",
+    "week": "सप्ताह",
+    "empty": "शेड्यूल स्वचालित रूप से बनाने के लिए विषय जोड़ें",
+    "noStudy": "कोई अध्ययन नियोजित नहीं"
+  },
+  "actions": {
+    "title": "त्वरित कार्य",
+    "addSubject": "विषय जोड़ें",
+    "configureSchedule": "शेड्यूल कॉन्फ़िगर करें",
+    "exportSchedule": "शेड्यूल निर्यात करें"
+  },
+  "settings": {
+    "title": "वर्तमान सेटिंग्स",
+    "wakeTime": "जागने का समय",
+    "sleepTime": "सोने का समय",
+    "dailyStudyTime": "दैनिक अध्ययन समय",
+    "totalCycleTime": "कुल चक्र समय",
+    "edit": "सेटिंग्स संपादित करें"
+  },
+  "subjects": {
+    "title": "विषय",
+    "count": "विषय",
+    "countPlural": "विषय",
+    "empty": "अभी तक कोई विषय नहीं जोड़ा गया",
+    "add": "नया विषय जोड़ें",
+    "name": "विषय का नाम",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "nameExample": "उदाहरण: गणित"
+  },
+  "modal": {
+    "cancel": "रद्द करें",
+    "add": "जोड़ें",
+    "adding": "जोड़ा जा रहा है..."
+  },
+  "toast": {
+    "subjectAdded": "विषय जोड़ा गया",
+    "subjectAddedDesc": "विषय सफलतापूर्वक जोड़ा गया।",
+    "error": "त्रुटि",
+    "subjectError": "विषय जोड़ने में असमर्थ।",
+    "noScheduleExport": "निर्यात करने के लिए कोई शेड्यूल नहीं",
+    "noScheduleExportDesc": "शेड्यूल बनाने के लिए विषय जोड़ें।",
+    "featureInDev": "सुविधा विकास में",
+    "newCycleInDev": "नए चक्र बनाना जल्द ही लागू किया जाएगा।",
+    "configureInDev": "शेड्यूल कॉन्फ़िगरेशन जल्द ही लागू किया जाएगा।",
+    "exportInDev": "शेड्यूल निर्यात जल्द ही लागू किया जाएगा।",
+    "editInDev": "सेटिंग्स संपादन जल्द ही लागू किया जाएगा।"
+  },
+  "days": {
+    "monday": "सोमवार",
+    "tuesday": "मंगलवार",
+    "wednesday": "बुधवार",
+    "thursday": "गुरुवार",
+    "friday": "शुक्रवार",
+    "saturday": "शनिवार",
+    "sunday": "रविवार"
+  },
+  "language": {
+    "select": "भाषा चुनें",
+    "current": "वर्तमान भाषा"
+  },
   "landing": {
     "nav": {
       "courses": "पाठ्यक्रम",
@@ -107,15 +119,41 @@
         "feature2": "उन्नत पाठ्यक्रम",
         "feature3": "प्राथमिकता समर्थन",
         "feature4": "समाप्ति प्रमाणपत्र"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
       "title": "हमारे उपयोगकर्ता क्या कहते हैं",
-      "role": { "student": "छात्र", "teacher": "अध्यापक", "parent": "अभिभावक" },
+      "role": {
+        "student": "छात्र",
+        "teacher": "अध्यापक",
+        "parent": "अभिभावक"
+      },
       "content1": "Study Cycle ने मेरी पढ़ने की विधि बदल दी है। अनुकूलनशील पाठ्यक्रम और कौशल ट्रैकिंग मुझे प्रेरित रखते हैं।",
       "content2": "एक अध्यापक के रूप में मुझे पसंद है कि Study Cycle कैसे कस्टम लर्निंग पाथ बनाना और साझा करना आसान बनाता है।",
       "content3": "मैं अपने बच्चे की प्रगति आसानी से ट्रैक कर सकता/सकती हूँ और देख सकता/सकती हूँ कि उसे कहाँ मदद की ज़रूरत है। बढ़िया प्लेटफ़ॉर्म!"
     },
-    "footer": { "rights": "सर्व अधिकार सुरक्षित।" }
+    "footer": {
+      "rights": "सर्व अधिकार सुरक्षित।"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

@@ -1,74 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Gerencie seu cronograma e acompanhe seu progresso",
-  "app.description": "O Study Cycle ajuda estudantes a organizar o tempo de estudo, acompanhar o progresso e seguir cursos adaptativos para alcançar seus objetivos.",
-
-  "nav.dashboard": "Painel",
-  "nav.subjects": "Disciplinas",
-  "nav.settings": "Configurações",
-
-  "dashboard.currentCycle": "Ciclo de Estudos Atual",
-  "dashboard.newCycle": "Novo Ciclo",
-  "dashboard.totalWeeks": "Total de Semanas",
-  "dashboard.subjects": "Disciplinas",
-  "dashboard.dailyHours": "Horas Diárias",
-  "dashboard.progress": "Progresso",
-  "dashboard.plannedTime": "planejado",
-
-  "schedule.title": "Cronograma Semanal",
-  "schedule.week": "Semana",
-  "schedule.empty": "Adicione disciplinas para gerar o cronograma automaticamente",
-  "schedule.noStudy": "Nenhum estudo planejado",
-
-  "actions.title": "Ações Rápidas",
-  "actions.addSubject": "Adicionar Disciplina",
-  "actions.configureSchedule": "Configurar Cronograma",
-  "actions.exportSchedule": "Exportar Cronograma",
-
-  "settings.title": "Configurações Atuais",
-  "settings.wakeTime": "Horário de Acordar",
-  "settings.sleepTime": "Horário de Dormir",
-  "settings.dailyStudyTime": "Tempo Diário de Estudo",
-  "settings.totalCycleTime": "Tempo Total do Ciclo",
-  "settings.edit": "Editar Configurações",
-
-  "subjects.title": "Disciplinas",
-  "subjects.count": "disciplina",
-  "subjects.countPlural": "disciplinas",
-  "subjects.empty": "Nenhuma disciplina adicionada ainda",
-  "subjects.add": "Adicionar Nova Disciplina",
-  "subjects.name": "Nome da Disciplina",
-  "subjects.hours": "Horas",
-  "subjects.minutes": "Minutos",
-  "subjects.nameExample": "Ex: Matemática",
-
-  "modal.cancel": "Cancelar",
-  "modal.add": "Adicionar",
-  "modal.adding": "Adicionando...",
-
-  "toast.subjectAdded": "Disciplina adicionada",
-  "toast.subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
-  "toast.error": "Erro",
-  "toast.subjectError": "Não foi possível adicionar a disciplina.",
-  "toast.noScheduleExport": "Nenhum cronograma para exportar",
-  "toast.noScheduleExportDesc": "Adicione disciplinas para gerar um cronograma.",
-  "toast.featureInDev": "Funcionalidade em desenvolvimento",
-  "toast.newCycleInDev": "A criação de novos ciclos será implementada em breve.",
-  "toast.configureInDev": "A configuração do cronograma será implementada em breve.",
-  "toast.exportInDev": "A exportação do cronograma será implementada em breve.",
-  "toast.editInDev": "A edição das configurações será implementada em breve.",
-
-  "days.monday": "Segunda-feira",
-  "days.tuesday": "Terça-feira",
-  "days.wednesday": "Quarta-feira",
-  "days.thursday": "Quinta-feira",
-  "days.friday": "Sexta-feira",
-  "days.saturday": "Sábado",
-  "days.sunday": "Domingo",
-
-  "language.select": "Selecionar idioma",
-  "language.current": "Idioma atual",
-
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Gerencie seu cronograma e acompanhe seu progresso",
+    "description": "O Study Cycle ajuda estudantes a organizar o tempo de estudo, acompanhar o progresso e seguir cursos adaptativos para alcançar seus objetivos."
+  },
+  "nav": {
+    "dashboard": "Painel",
+    "subjects": "Disciplinas",
+    "settings": "Configurações"
+  },
+  "dashboard": {
+    "currentCycle": "Ciclo de Estudos Atual",
+    "newCycle": "Novo Ciclo",
+    "totalWeeks": "Total de Semanas",
+    "subjects": "Disciplinas",
+    "dailyHours": "Horas Diárias",
+    "progress": "Progresso",
+    "plannedTime": "planejado"
+  },
+  "schedule": {
+    "title": "Cronograma Semanal",
+    "week": "Semana",
+    "empty": "Adicione disciplinas para gerar o cronograma automaticamente",
+    "noStudy": "Nenhum estudo planejado"
+  },
+  "actions": {
+    "title": "Ações Rápidas",
+    "addSubject": "Adicionar Disciplina",
+    "configureSchedule": "Configurar Cronograma",
+    "exportSchedule": "Exportar Cronograma"
+  },
+  "settings": {
+    "title": "Configurações Atuais",
+    "wakeTime": "Horário de Acordar",
+    "sleepTime": "Horário de Dormir",
+    "dailyStudyTime": "Tempo Diário de Estudo",
+    "totalCycleTime": "Tempo Total do Ciclo",
+    "edit": "Editar Configurações"
+  },
+  "subjects": {
+    "title": "Disciplinas",
+    "count": "disciplina",
+    "countPlural": "disciplinas",
+    "empty": "Nenhuma disciplina adicionada ainda",
+    "add": "Adicionar Nova Disciplina",
+    "name": "Nome da Disciplina",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "nameExample": "Ex: Matemática"
+  },
+  "modal": {
+    "cancel": "Cancelar",
+    "add": "Adicionar",
+    "adding": "Adicionando..."
+  },
+  "toast": {
+    "subjectAdded": "Disciplina adicionada",
+    "subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
+    "error": "Erro",
+    "subjectError": "Não foi possível adicionar a disciplina.",
+    "noScheduleExport": "Nenhum cronograma para exportar",
+    "noScheduleExportDesc": "Adicione disciplinas para gerar um cronograma.",
+    "featureInDev": "Funcionalidade em desenvolvimento",
+    "newCycleInDev": "A criação de novos ciclos será implementada em breve.",
+    "configureInDev": "A configuração do cronograma será implementada em breve.",
+    "exportInDev": "A exportação do cronograma será implementada em breve.",
+    "editInDev": "A edição das configurações será implementada em breve."
+  },
+  "days": {
+    "monday": "Segunda-feira",
+    "tuesday": "Terça-feira",
+    "wednesday": "Quarta-feira",
+    "thursday": "Quinta-feira",
+    "friday": "Sexta-feira",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
+  },
+  "language": {
+    "select": "Selecionar idioma",
+    "current": "Idioma atual"
+  },
   "landing": {
     "nav": {
       "courses": "Cursos",
@@ -140,5 +151,20 @@
     "footer": {
       "rights": "Todos os direitos reservados."
     }
+  },
+  "uploads": {
+    "uploadTitle": "Enviar arquivo",
+    "uploadDescription": "Envie PDFs, imagens, slides, vídeos ou textos para gerar lições automaticamente.",
+    "uploadButton": "Enviar arquivo",
+    "generateButton": "Gerar conteúdos",
+    "downloadButton": "Baixar arquivo",
+    "statusUploading": "Enviando...",
+    "statusUploaded": "Enviado",
+    "statusGenerating": "Gerando...",
+    "statusGenerated": "Gerado"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

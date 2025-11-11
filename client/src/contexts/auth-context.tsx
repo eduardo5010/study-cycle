@@ -22,9 +22,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     checkAuth();
   }, []);
 
+  const getToken = () => {
+    try {
+      return localStorage.getItem("sc_token");
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const setToken = (token: string | null) => {
+    try {
+      if (token) localStorage.setItem("sc_token", token);
+      else localStorage.removeItem("sc_token");
+    } catch (e) {
+      console.warn("Failed to set token", e);
+    }
+  };
+
+  const fetchWithAuth = (input: RequestInfo, init?: RequestInit) => {
+    const token = getToken();
+    const headers = new Headers((init?.headers as any) || {});
+    headers.set("Content-Type", "application/json");
+    if (token) headers.set("Authorization", `Bearer ${token}`);
+    return fetch(input, { ...init, headers });
+  };
+
   const checkAuth = async () => {
     try {
-      const response = await fetch("/api/auth/me");
+      const response = await fetchWithAuth("/api/auth/me");
       if (response.ok) {
         const userData = await response.json();
         setUser(userData);
@@ -47,8 +72,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       throw new Error("Login failed");
     }
 
-    const userData = await response.json();
-    setUser(userData);
+    const data = await response.json();
+    // server returns token and session user
+    if (data.token) setToken(data.token);
+    setUser({
+      id: data.id,
+      email: data.email,
+      name: data.name,
+      userType: data.userType,
+      avatar: data.avatar,
+    } as SessionUser);
   };
 
   const register = async (userData: any) => {
@@ -62,17 +95,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       throw new Error("Registration failed");
     }
 
-    const newUser = await response.json();
-    setUser(newUser);
+    const data = await response.json();
+    if (data.token) setToken(data.token);
+    setUser({
+      id: data.id,
+      email: data.email,
+      name: data.name,
+      userType: data.userType,
+      avatar: data.avatar,
+    } as SessionUser);
   };
 
   const logout = async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
+    try {
+      await fetchWithAuth("/api/auth/logout", { method: "POST" });
+    } catch (e) {
+      console.warn("logout request failed", e);
+    }
+    setToken(null);
     setUser(null);
   };
 
   const switchToTeacher = async () => {
-    const response = await fetch("/api/auth/switch-to-teacher", {
+    const response = await fetchWithAuth("/api/auth/switch-to-teacher", {
       method: "POST",
     });
 
@@ -86,9 +131,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const updateUser = async (userData: SessionUser) => {
     try {
-      const response = await fetch("/api/auth/update", {
+      const response = await fetchWithAuth("/api/auth/update", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
       });
 

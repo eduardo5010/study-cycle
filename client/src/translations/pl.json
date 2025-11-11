@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Zarządzaj harmonogramem i śledź postępy",
-  "app.description": "Study Cycle pomaga uczącym się organizować czas nauki, śledzić postępy i realizować cele dzięki adaptacyjnym kursom.",
-
-  "nav.dashboard": "Panel główny",
-  "nav.subjects": "Przedmioty",
-  "nav.settings": "Ustawienia",
-
-  "dashboard.currentCycle": "Aktualny cykl nauki",
-  "dashboard.newCycle": "Nowy cykl",
-  "dashboard.totalWeeks": "Łączna liczba tygodni",
-  "dashboard.subjects": "Przedmioty",
-  "dashboard.dailyHours": "Godziny dzienne",
-  "dashboard.progress": "Postęp",
-  "dashboard.plannedTime": "zaplanowane",
-
-  "schedule.title": "Harmonogram tygodniowy",
-  "schedule.week": "Tydzień",
-  "schedule.empty": "Dodaj przedmioty, aby automatycznie wygenerować harmonogram",
-  "schedule.noStudy": "Brak zaplanowanej nauki",
-
-  "actions.title": "Szybkie działania",
-  "actions.addSubject": "Dodaj przedmiot",
-  "actions.configureSchedule": "Konfiguruj harmonogram",
-  "actions.exportSchedule": "Eksportuj harmonogram",
-
-  "settings.title": "Aktualne ustawienia",
-  "settings.wakeTime": "Czas budzenia",
-  "settings.sleepTime": "Czas snu",
-  "settings.dailyStudyTime": "Dzienny czas nauki",
-  "settings.totalCycleTime": "Łączny czas cyklu",
-  "settings.edit": "Edytuj ustawienia",
-
-  "subjects.title": "Przedmioty",
-  "subjects.count": "przedmiot",
-  "subjects.countPlural": "przedmiotów",
-  "subjects.empty": "Nie dodano jeszcze żadnych przedmiotów",
-  "subjects.add": "Dodaj nowy przedmiot",
-  "subjects.name": "Nazwa przedmiotu",
-  "subjects.hours": "Godziny",
-  "subjects.minutes": "Minuty",
-  "subjects.nameExample": "Np.: Matematyka",
-
-  "modal.cancel": "Anuluj",
-  "modal.add": "Dodaj",
-  "modal.adding": "Dodawanie...",
-
-  "toast.subjectAdded": "Przedmiot dodany",
-  "toast.subjectAddedDesc": "Przedmiot został pomyślnie dodany.",
-  "toast.error": "Błąd",
-  "toast.subjectError": "Nie można dodać przedmiotu.",
-  "toast.noScheduleExport": "Brak harmonogramu do eksportu",
-  "toast.noScheduleExportDesc": "Dodaj przedmioty, aby wygenerować harmonogram.",
-  "toast.featureInDev": "Funkcja w opracowaniu",
-  "toast.newCycleInDev": "Tworzenie nowych cykli zostanie wkrótce zaimplementowane.",
-  "toast.configureInDev": "Konfiguracja harmonogramu zostanie wkrótce zaimplementowana.",
-  "toast.exportInDev": "Eksport harmonogramu zostanie wkrótce zaimplementowany.",
-  "toast.editInDev": "Edycja ustawień zostanie wkrótce zaimplementowana.",
-
-  "days.monday": "Poniedziałek",
-  "days.tuesday": "Wtorek",
-  "days.wednesday": "Środa",
-  "days.thursday": "Czwartek",
-  "days.friday": "Piątek",
-  "days.saturday": "Sobota",
-  "days.sunday": "Niedziela",
-
-  "language.select": "Wybierz język",
-  "language.current": "Aktualny język",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Zarządzaj harmonogramem i śledź postępy",
+    "description": "Study Cycle pomaga uczącym się organizować czas nauki, śledzić postępy i realizować cele dzięki adaptacyjnym kursom."
+  },
+  "nav": {
+    "dashboard": "Panel główny",
+    "subjects": "Przedmioty",
+    "settings": "Ustawienia"
+  },
+  "dashboard": {
+    "currentCycle": "Aktualny cykl nauki",
+    "newCycle": "Nowy cykl",
+    "totalWeeks": "Łączna liczba tygodni",
+    "subjects": "Przedmioty",
+    "dailyHours": "Godziny dzienne",
+    "progress": "Postęp",
+    "plannedTime": "zaplanowane"
+  },
+  "schedule": {
+    "title": "Harmonogram tygodniowy",
+    "week": "Tydzień",
+    "empty": "Dodaj przedmioty, aby automatycznie wygenerować harmonogram",
+    "noStudy": "Brak zaplanowanej nauki"
+  },
+  "actions": {
+    "title": "Szybkie działania",
+    "addSubject": "Dodaj przedmiot",
+    "configureSchedule": "Konfiguruj harmonogram",
+    "exportSchedule": "Eksportuj harmonogram"
+  },
+  "settings": {
+    "title": "Aktualne ustawienia",
+    "wakeTime": "Czas budzenia",
+    "sleepTime": "Czas snu",
+    "dailyStudyTime": "Dzienny czas nauki",
+    "totalCycleTime": "Łączny czas cyklu",
+    "edit": "Edytuj ustawienia"
+  },
+  "subjects": {
+    "title": "Przedmioty",
+    "count": "przedmiot",
+    "countPlural": "przedmiotów",
+    "empty": "Nie dodano jeszcze żadnych przedmiotów",
+    "add": "Dodaj nowy przedmiot",
+    "name": "Nazwa przedmiotu",
+    "hours": "Godziny",
+    "minutes": "Minuty",
+    "nameExample": "Np.: Matematyka"
+  },
+  "modal": {
+    "cancel": "Anuluj",
+    "add": "Dodaj",
+    "adding": "Dodawanie..."
+  },
+  "toast": {
+    "subjectAdded": "Przedmiot dodany",
+    "subjectAddedDesc": "Przedmiot został pomyślnie dodany.",
+    "error": "Błąd",
+    "subjectError": "Nie można dodać przedmiotu.",
+    "noScheduleExport": "Brak harmonogramu do eksportu",
+    "noScheduleExportDesc": "Dodaj przedmioty, aby wygenerować harmonogram.",
+    "featureInDev": "Funkcja w opracowaniu",
+    "newCycleInDev": "Tworzenie nowych cykli zostanie wkrótce zaimplementowane.",
+    "configureInDev": "Konfiguracja harmonogramu zostanie wkrótce zaimplementowana.",
+    "exportInDev": "Eksport harmonogramu zostanie wkrótce zaimplementowany.",
+    "editInDev": "Edycja ustawień zostanie wkrótce zaimplementowana."
+  },
+  "days": {
+    "monday": "Poniedziałek",
+    "tuesday": "Wtorek",
+    "wednesday": "Środa",
+    "thursday": "Czwartek",
+    "friday": "Piątek",
+    "saturday": "Sobota",
+    "sunday": "Niedziela"
+  },
+  "language": {
+    "select": "Wybierz język",
+    "current": "Aktualny język"
+  },
   "landing": {
     "nav": {
       "courses": "Kursy",
@@ -107,6 +119,22 @@
         "feature2": "Kursy zaawansowane",
         "feature3": "Priorytetowe wsparcie",
         "feature4": "Certyfikat ukończenia"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "Jako nauczyciel cenię, jak Study Cycle ułatwia tworzenie i udostępnianie spersonalizowanych ścieżek nauki.",
       "content3": "Mogę łatwo śledzić postępy mojego dziecka i zobaczyć, gdzie potrzebuje pomocy. Świetna platforma!"
     },
-    "footer": { "rights": "Wszelkie prawa zastrzeżone." }
+    "footer": {
+      "rights": "Wszelkie prawa zastrzeżone."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Hantera ditt schema och spåra framsteg",
-
-  "nav.dashboard": "Instrumentpanel",
-  "nav.subjects": "Ämnen",
-  "nav.settings": "Inställningar",
-
-  "dashboard.currentCycle": "Aktuell studiecykel",
-  "dashboard.newCycle": "Ny cykel",
-  "dashboard.totalWeeks": "Totalt antal veckor",
-  "dashboard.subjects": "Ämnen",
-  "dashboard.dailyHours": "Dagliga timmar",
-  "dashboard.progress": "Framsteg",
-  "dashboard.plannedTime": "planerat",
-
-  "schedule.title": "Veckoschema",
-  "schedule.week": "Vecka",
-  "schedule.empty": "Lägg till ämnen för att automatiskt generera schemat",
-  "schedule.noStudy": "Ingen studie planerad",
-
-  "actions.title": "Snabbåtgärder",
-  "actions.addSubject": "Lägg till ämne",
-  "actions.configureSchedule": "Konfigurera schema",
-  "actions.exportSchedule": "Exportera schema",
-
-  "settings.title": "Nuvarande inställningar",
-  "settings.wakeTime": "Uppvakningstid",
-  "settings.sleepTime": "Sovtid",
-  "settings.dailyStudyTime": "Daglig studietid",
-  "settings.totalCycleTime": "Total cykeltid",
-  "settings.edit": "Redigera inställningar",
-
-  "subjects.title": "Ämnen",
-  "subjects.count": "ämne",
-  "subjects.countPlural": "ämnen",
-  "subjects.empty": "Inga ämnen tillagda ännu",
-  "subjects.add": "Lägg till nytt ämne",
-  "subjects.name": "Ämnesnamn",
-  "subjects.hours": "Timmar",
-  "subjects.minutes": "Minuter",
-  "subjects.nameExample": "T.ex.: Matematik",
-
-  "modal.cancel": "Avbryt",
-  "modal.add": "Lägg till",
-  "modal.adding": "Lägger till...",
-
-  "toast.subjectAdded": "Ämne tillagt",
-  "toast.subjectAddedDesc": "Ämnet lades till framgångsrikt.",
-  "toast.error": "Fel",
-  "toast.subjectError": "Kunde inte lägga till ämnet.",
-  "toast.noScheduleExport": "Inget schema att exportera",
-  "toast.noScheduleExportDesc": "Lägg till ämnen för att generera ett schema.",
-  "toast.featureInDev": "Funktion under utveckling",
-  "toast.newCycleInDev": "Skapande av nya cykler kommer snart att implementeras.",
-  "toast.configureInDev": "Schemakonfiguration kommer snart att implementeras.",
-  "toast.exportInDev": "Schemaexport kommer snart att implementeras.",
-  "toast.editInDev": "Redigering av inställningar kommer snart att implementeras.",
-
-  "days.monday": "Måndag",
-  "days.tuesday": "Tisdag",
-  "days.wednesday": "Onsdag",
-  "days.thursday": "Torsdag",
-  "days.friday": "Fredag",
-  "days.saturday": "Lördag",
-  "days.sunday": "Söndag",
-
-  "language.select": "Välj språk",
-  "language.current": "Nuvarande språk",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Hantera ditt schema och spåra framsteg",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "Instrumentpanel",
+    "subjects": "Ämnen",
+    "settings": "Inställningar"
+  },
+  "dashboard": {
+    "currentCycle": "Aktuell studiecykel",
+    "newCycle": "Ny cykel",
+    "totalWeeks": "Totalt antal veckor",
+    "subjects": "Ämnen",
+    "dailyHours": "Dagliga timmar",
+    "progress": "Framsteg",
+    "plannedTime": "planerat"
+  },
+  "schedule": {
+    "title": "Veckoschema",
+    "week": "Vecka",
+    "empty": "Lägg till ämnen för att automatiskt generera schemat",
+    "noStudy": "Ingen studie planerad"
+  },
+  "actions": {
+    "title": "Snabbåtgärder",
+    "addSubject": "Lägg till ämne",
+    "configureSchedule": "Konfigurera schema",
+    "exportSchedule": "Exportera schema"
+  },
+  "settings": {
+    "title": "Nuvarande inställningar",
+    "wakeTime": "Uppvakningstid",
+    "sleepTime": "Sovtid",
+    "dailyStudyTime": "Daglig studietid",
+    "totalCycleTime": "Total cykeltid",
+    "edit": "Redigera inställningar"
+  },
+  "subjects": {
+    "title": "Ämnen",
+    "count": "ämne",
+    "countPlural": "ämnen",
+    "empty": "Inga ämnen tillagda ännu",
+    "add": "Lägg till nytt ämne",
+    "name": "Ämnesnamn",
+    "hours": "Timmar",
+    "minutes": "Minuter",
+    "nameExample": "T.ex.: Matematik"
+  },
+  "modal": {
+    "cancel": "Avbryt",
+    "add": "Lägg till",
+    "adding": "Lägger till..."
+  },
+  "toast": {
+    "subjectAdded": "Ämne tillagt",
+    "subjectAddedDesc": "Ämnet lades till framgångsrikt.",
+    "error": "Fel",
+    "subjectError": "Kunde inte lägga till ämnet.",
+    "noScheduleExport": "Inget schema att exportera",
+    "noScheduleExportDesc": "Lägg till ämnen för att generera ett schema.",
+    "featureInDev": "Funktion under utveckling",
+    "newCycleInDev": "Skapande av nya cykler kommer snart att implementeras.",
+    "configureInDev": "Schemakonfiguration kommer snart att implementeras.",
+    "exportInDev": "Schemaexport kommer snart att implementeras.",
+    "editInDev": "Redigering av inställningar kommer snart att implementeras."
+  },
+  "days": {
+    "monday": "Måndag",
+    "tuesday": "Tisdag",
+    "wednesday": "Onsdag",
+    "thursday": "Torsdag",
+    "friday": "Fredag",
+    "saturday": "Lördag",
+    "sunday": "Söndag"
+  },
+  "language": {
+    "select": "Välj språk",
+    "current": "Nuvarande språk"
+  },
   "landing": {
     "nav": {
       "courses": "Courses",
@@ -107,6 +119,22 @@
         "feature2": "Advanced courses",
         "feature3": "Priority support",
         "feature4": "Certificate of completion"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
       "content3": "I can easily track my child's progress and see where they need help. Great platform!"
     },
-    "footer": { "rights": "All rights reserved." }
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }

@@ -1,73 +1,85 @@
 {
-  "app.title": "StudyCycle",
-  "app.subtitle": "Hallitse aikatauluasi ja seuraa edistymistä",
-
-  "nav.dashboard": "Kojelauta",
-  "nav.subjects": "Aineet",
-  "nav.settings": "Asetukset",
-
-  "dashboard.currentCycle": "Nykyinen opiskelusykli",
-  "dashboard.newCycle": "Uusi sykli",
-  "dashboard.totalWeeks": "Viikkojen kokonaismäärä",
-  "dashboard.subjects": "Aineet",
-  "dashboard.dailyHours": "Päivittäiset tunnit",
-  "dashboard.progress": "Edistyminen",
-  "dashboard.plannedTime": "suunniteltu",
-
-  "schedule.title": "Viikkoaikataulu",
-  "schedule.week": "Viikko",
-  "schedule.empty": "Lisää aineita luodaksesi aikataulun automaattisesti",
-  "schedule.noStudy": "Ei suunniteltuja opintoja",
-
-  "actions.title": "Pikatoiminnot",
-  "actions.addSubject": "Lisää aine",
-  "actions.configureSchedule": "Määritä aikataulu",
-  "actions.exportSchedule": "Vie aikataulu",
-
-  "settings.title": "Nykyiset asetukset",
-  "settings.wakeTime": "Heräämisaika",
-  "settings.sleepTime": "Nukkumaanmenoaika",
-  "settings.dailyStudyTime": "Päivittäinen opiskeluaika",
-  "settings.totalCycleTime": "Syklin kokonaisaika",
-  "settings.edit": "Muokkaa asetuksia",
-
-  "subjects.title": "Aineet",
-  "subjects.count": "aine",
-  "subjects.countPlural": "ainetta",
-  "subjects.empty": "Aineita ei ole vielä lisätty",
-  "subjects.add": "Lisää uusi aine",
-  "subjects.name": "Aineen nimi",
-  "subjects.hours": "Tunnit",
-  "subjects.minutes": "Minuutit",
-  "subjects.nameExample": "Esim.: Matematiikka",
-
-  "modal.cancel": "Peruuta",
-  "modal.add": "Lisää",
-  "modal.adding": "Lisätään...",
-
-  "toast.subjectAdded": "Aine lisätty",
-  "toast.subjectAddedDesc": "Aine lisättiin onnistuneesti.",
-  "toast.error": "Virhe",
-  "toast.subjectError": "Aineen lisääminen epäonnistui.",
-  "toast.noScheduleExport": "Ei aikataulua vietäväksi",
-  "toast.noScheduleExportDesc": "Lisää aineita luodaksesi aikataulun.",
-  "toast.featureInDev": "Toiminto kehitteillä",
-  "toast.newCycleInDev": "Uusien syklien luominen toteutetaan pian.",
-  "toast.configureInDev": "Aikataulun määritys toteutetaan pian.",
-  "toast.exportInDev": "Aikataulun vienti toteutetaan pian.",
-  "toast.editInDev": "Asetusten muokkaus toteutetaan pian.",
-
-  "days.monday": "Maanantai",
-  "days.tuesday": "Tiistai",
-  "days.wednesday": "Keskiviikko",
-  "days.thursday": "Torstai",
-  "days.friday": "Perjantai",
-  "days.saturday": "Lauantai",
-  "days.sunday": "Sunnuntai",
-
-  "language.select": "Valitse kieli",
-  "language.current": "Nykyinen kieli",
-  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Hallitse aikatauluasi ja seuraa edistymistä",
+    "description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals."
+  },
+  "nav": {
+    "dashboard": "Kojelauta",
+    "subjects": "Aineet",
+    "settings": "Asetukset"
+  },
+  "dashboard": {
+    "currentCycle": "Nykyinen opiskelusykli",
+    "newCycle": "Uusi sykli",
+    "totalWeeks": "Viikkojen kokonaismäärä",
+    "subjects": "Aineet",
+    "dailyHours": "Päivittäiset tunnit",
+    "progress": "Edistyminen",
+    "plannedTime": "suunniteltu"
+  },
+  "schedule": {
+    "title": "Viikkoaikataulu",
+    "week": "Viikko",
+    "empty": "Lisää aineita luodaksesi aikataulun automaattisesti",
+    "noStudy": "Ei suunniteltuja opintoja"
+  },
+  "actions": {
+    "title": "Pikatoiminnot",
+    "addSubject": "Lisää aine",
+    "configureSchedule": "Määritä aikataulu",
+    "exportSchedule": "Vie aikataulu"
+  },
+  "settings": {
+    "title": "Nykyiset asetukset",
+    "wakeTime": "Heräämisaika",
+    "sleepTime": "Nukkumaanmenoaika",
+    "dailyStudyTime": "Päivittäinen opiskeluaika",
+    "totalCycleTime": "Syklin kokonaisaika",
+    "edit": "Muokkaa asetuksia"
+  },
+  "subjects": {
+    "title": "Aineet",
+    "count": "aine",
+    "countPlural": "ainetta",
+    "empty": "Aineita ei ole vielä lisätty",
+    "add": "Lisää uusi aine",
+    "name": "Aineen nimi",
+    "hours": "Tunnit",
+    "minutes": "Minuutit",
+    "nameExample": "Esim.: Matematiikka"
+  },
+  "modal": {
+    "cancel": "Peruuta",
+    "add": "Lisää",
+    "adding": "Lisätään..."
+  },
+  "toast": {
+    "subjectAdded": "Aine lisätty",
+    "subjectAddedDesc": "Aine lisättiin onnistuneesti.",
+    "error": "Virhe",
+    "subjectError": "Aineen lisääminen epäonnistui.",
+    "noScheduleExport": "Ei aikataulua vietäväksi",
+    "noScheduleExportDesc": "Lisää aineita luodaksesi aikataulun.",
+    "featureInDev": "Toiminto kehitteillä",
+    "newCycleInDev": "Uusien syklien luominen toteutetaan pian.",
+    "configureInDev": "Aikataulun määritys toteutetaan pian.",
+    "exportInDev": "Aikataulun vienti toteutetaan pian.",
+    "editInDev": "Asetusten muokkaus toteutetaan pian."
+  },
+  "days": {
+    "monday": "Maanantai",
+    "tuesday": "Tiistai",
+    "wednesday": "Keskiviikko",
+    "thursday": "Torstai",
+    "friday": "Perjantai",
+    "saturday": "Lauantai",
+    "sunday": "Sunnuntai"
+  },
+  "language": {
+    "select": "Valitse kieli",
+    "current": "Nykyinen kieli"
+  },
   "landing": {
     "nav": {
       "courses": "Courses",
@@ -107,6 +119,22 @@
         "feature2": "Advanced courses",
         "feature3": "Priority support",
         "feature4": "Certificate of completion"
+      },
+      "free": {
+        "title": "Basic",
+        "description": "Perfect for getting started",
+        "feature1": "Access to basic courses",
+        "feature2": "Basic progress tracking",
+        "feature3": "Community access"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Best for organizations",
+        "feature1": "All pro features",
+        "feature2": "Team management",
+        "feature3": "Custom learning paths",
+        "feature4": "Analytics dashboard",
+        "feature5": "Priority support"
       }
     },
     "testimonials": {
@@ -120,6 +148,12 @@
       "content2": "As a teacher, I love how Study Cycle makes it easy to create and share custom learning paths.",
       "content3": "I can easily track my child's progress and see where they need help. Great platform!"
     },
-    "footer": { "rights": "All rights reserved." }
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
   }
 }
