@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,10 +36,13 @@
   --sidebar-accent-foreground: hsl(213, 86%, 40%);
   --sidebar-border: hsl(220, 13%, 87%);
   --sidebar-ring: hsl(213, 86%, 40%);
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
   --radius: 8px;
+  /* Motion tokens */
+  --motion-duration: 200ms;
+  --motion-easing: cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
 .dark {
@@ -80,32 +83,153 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+
+  /* Smooth transitions for common interactive elements.
+     We scope to typical interactive selectors to avoid forcing
+     transitions on all elements which can cause layout jank. */
+  button,
+  a[href],
+  input,
+  select,
+  textarea,
+  summary,
+  .card,
+  .chip,
+  .modal,
+  .dropdown,
+  .tooltip {
+    transition-property: background-color, color, border-color, box-shadow,
+      transform, opacity;
+    transition-duration: var(--motion-duration);
+    transition-timing-function: var(--motion-easing);
+    will-change: transform, opacity;
+  }
+
+  /* Utility classes for components that need explicit animations */
+  .transition-smooth {
+    transition: background-color var(--motion-duration) var(--motion-easing),
+      color var(--motion-duration) var(--motion-easing),
+      box-shadow var(--motion-duration) var(--motion-easing),
+      transform var(--motion-duration) var(--motion-easing),
+      opacity var(--motion-duration) var(--motion-easing);
+  }
+
+  .anim-fade-up {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeUp var(--motion-duration) var(--motion-easing) both;
+  }
+
+  .hover-scale:hover {
+    transform: translateZ(0) scale(1.03);
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    button,
+    a[href],
+    input,
+    select,
+    textarea,
+    summary,
+    .card,
+    .chip,
+    .modal,
+    .dropdown,
+    .tooltip,
+    .transition-smooth,
+    .anim-fade-up,
+    .hover-scale {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+  }
 }
 
 /* Custom subject colors */
-.subject-color-0 { @apply bg-primary text-primary-foreground; }
-.subject-color-1 { @apply bg-secondary text-secondary-foreground; }
-.subject-color-2 { @apply bg-green-500 text-white; }
-.subject-color-3 { @apply bg-purple-500 text-white; }
-.subject-color-4 { @apply bg-orange-500 text-white; }
-.subject-color-5 { @apply bg-pink-500 text-white; }
-.subject-color-6 { @apply bg-indigo-500 text-white; }
-.subject-color-7 { @apply bg-yellow-500 text-white; }
+.subject-color-0 {
+  @apply bg-primary text-primary-foreground;
+}
+.subject-color-1 {
+  @apply bg-secondary text-secondary-foreground;
+}
+.subject-color-2 {
+  @apply bg-green-500 text-white;
+}
+.subject-color-3 {
+  @apply bg-purple-500 text-white;
+}
+.subject-color-4 {
+  @apply bg-orange-500 text-white;
+}
+.subject-color-5 {
+  @apply bg-pink-500 text-white;
+}
+.subject-color-6 {
+  @apply bg-indigo-500 text-white;
+}
+.subject-color-7 {
+  @apply bg-yellow-500 text-white;
+}
 
-.subject-dot-0 { @apply bg-primary; }
-.subject-dot-1 { @apply bg-secondary; }
-.subject-dot-2 { @apply bg-green-500; }
-.subject-dot-3 { @apply bg-purple-500; }
-.subject-dot-4 { @apply bg-orange-500; }
-.subject-dot-5 { @apply bg-pink-500; }
-.subject-dot-6 { @apply bg-indigo-500; }
-.subject-dot-7 { @apply bg-yellow-500; }
+.subject-dot-0 {
+  @apply bg-primary;
+}
+.subject-dot-1 {
+  @apply bg-secondary;
+}
+.subject-dot-2 {
+  @apply bg-green-500;
+}
+.subject-dot-3 {
+  @apply bg-purple-500;
+}
+.subject-dot-4 {
+  @apply bg-orange-500;
+}
+.subject-dot-5 {
+  @apply bg-pink-500;
+}
+.subject-dot-6 {
+  @apply bg-indigo-500;
+}
+.subject-dot-7 {
+  @apply bg-yellow-500;
+}
 
-.subject-bg-0 { @apply bg-primary bg-opacity-10 text-primary; }
-.subject-bg-1 { @apply bg-secondary bg-opacity-10 text-secondary; }
-.subject-bg-2 { @apply bg-green-50 text-green-800; }
-.subject-bg-3 { @apply bg-purple-50 text-purple-800; }
-.subject-bg-4 { @apply bg-orange-50 text-orange-800; }
-.subject-bg-5 { @apply bg-pink-50 text-pink-800; }
-.subject-bg-6 { @apply bg-indigo-50 text-indigo-800; }
-.subject-bg-7 { @apply bg-yellow-50 text-yellow-800; }
+.subject-bg-0 {
+  @apply bg-primary bg-opacity-10 text-primary;
+}
+.subject-bg-1 {
+  @apply bg-secondary bg-opacity-10 text-secondary;
+}
+.subject-bg-2 {
+  @apply bg-green-50 text-green-800;
+}
+.subject-bg-3 {
+  @apply bg-purple-50 text-purple-800;
+}
+.subject-bg-4 {
+  @apply bg-orange-50 text-orange-800;
+}
+.subject-bg-5 {
+  @apply bg-pink-50 text-pink-800;
+}
+.subject-bg-6 {
+  @apply bg-indigo-50 text-indigo-800;
+}
+.subject-bg-7 {
+  @apply bg-yellow-50 text-yellow-800;
+}

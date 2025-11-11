@@ -23,7 +23,12 @@ import {
 import type { Content, InsertContent } from "@shared/schema/content";
 import { randomUUID } from "crypto";
 import { db } from "./db";
-import { reviewEvents, reviewVariants, userLambdas } from "./db/schema";
+import {
+  reviewEvents,
+  reviewVariants,
+  userLambdas,
+  users as usersTable,
+} from "./db/schema";
 import { eq } from "drizzle-orm";
 
 export interface IStorage {
@@ -1005,16 +1010,170 @@ class HybridStorage implements IStorage {
   }
 
   async createUser(u: any) {
-    return this.mem.createUser(u);
+    // Try to persist to Postgres first; fall back to in-memory storage if DB is unavailable
+    try {
+      const id = randomUUID();
+      const row = {
+        id,
+        email: u.email,
+        password: u.password,
+        name: u.name,
+        isStudent: u.isStudent ? 1 : 0,
+        isTeacher: u.isTeacher ? 1 : 0,
+        isAdmin: u.isAdmin ? 1 : 0,
+        bio: u.bio ?? null,
+        avatar: u.avatar ?? null,
+        isVerified: u.isVerified ? 1 : 0,
+        githubId: (u as any).githubId ?? null,
+        googleId: (u as any).googleId ?? null,
+        facebookId: (u as any).facebookId ?? null,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      } as any;
+
+      // attempt insert
+      await db.insert(usersTable).values(row as any);
+
+      // return shape compatible with User type expected by rest of app
+      return {
+        id: row.id,
+        email: row.email,
+        password: row.password,
+        name: row.name,
+        isStudent: Boolean(row.isStudent),
+        isTeacher: Boolean(row.isTeacher),
+        isAdmin: Boolean(row.isAdmin),
+        bio: row.bio,
+        avatar: row.avatar,
+        isVerified: Boolean(row.isVerified),
+        githubId: row.githubId,
+        googleId: row.googleId,
+        facebookId: row.facebookId,
+        createdAt: new Date(row.createdAt),
+        updatedAt: new Date(row.updatedAt),
+      } as any;
+    } catch (err) {
+      // DB not available or insert failed; fall back to in-memory storage
+      return this.mem.createUser(u);
+    }
   }
   async getUserByEmail(email: string) {
-    return this.mem.getUserByEmail(email);
+    try {
+      const rows = await db
+        .select()
+        .from(usersTable)
+        .where(eq(usersTable.email, email));
+      if (rows.length > 0) {
+        const r: any = rows[0];
+        return {
+          id: r.id,
+          email: r.email,
+          password: r.password,
+          name: r.name,
+          isStudent: Boolean(r.isStudent),
+          isTeacher: Boolean(r.isTeacher),
+          isAdmin: Boolean(r.isAdmin),
+          bio: r.bio,
+          avatar: r.avatar,
+          isVerified: Boolean(r.isVerified),
+          githubId: r.githubId,
+          googleId: r.googleId,
+          facebookId: r.facebookId,
+          createdAt: new Date(r.createdAt),
+          updatedAt: new Date(r.updatedAt),
+        } as any;
+      }
+      return this.mem.getUserByEmail(email);
+    } catch (err) {
+      return this.mem.getUserByEmail(email);
+    }
   }
   async getUserById(id: string) {
-    return this.mem.getUserById(id);
+    try {
+      const rows = await db
+        .select()
+        .from(usersTable)
+        .where(eq(usersTable.id, id));
+      if (rows.length > 0) {
+        const r: any = rows[0];
+        return {
+          id: r.id,
+          email: r.email,
+          password: r.password,
+          name: r.name,
+          isStudent: Boolean(r.isStudent),
+          isTeacher: Boolean(r.isTeacher),
+          isAdmin: Boolean(r.isAdmin),
+          bio: r.bio,
+          avatar: r.avatar,
+          isVerified: Boolean(r.isVerified),
+          githubId: r.githubId,
+          googleId: r.googleId,
+          facebookId: r.facebookId,
+          createdAt: new Date(r.createdAt),
+          updatedAt: new Date(r.updatedAt),
+        } as any;
+      }
+      return this.mem.getUserById(id);
+    } catch (err) {
+      return this.mem.getUserById(id);
+    }
   }
   async updateUser(id: string, u: any) {
-    return this.mem.updateUser(id, u);
+    try {
+      const updates: any = {};
+      if (typeof u.email !== "undefined") updates.email = u.email;
+      if (typeof u.password !== "undefined") updates.password = u.password;
+      if (typeof u.name !== "undefined") updates.name = u.name;
+      if (typeof u.isStudent !== "undefined")
+        updates.isStudent = u.isStudent ? 1 : 0;
+      if (typeof u.isTeacher !== "undefined")
+        updates.isTeacher = u.isTeacher ? 1 : 0;
+      if (typeof u.isAdmin !== "undefined") updates.isAdmin = u.isAdmin ? 1 : 0;
+      if (typeof u.bio !== "undefined") updates.bio = u.bio;
+      if (typeof u.avatar !== "undefined") updates.avatar = u.avatar;
+      if (typeof u.isVerified !== "undefined")
+        updates.isVerified = u.isVerified ? 1 : 0;
+      if (typeof (u as any).githubId !== "undefined")
+        updates.githubId = (u as any).githubId;
+      if (typeof (u as any).googleId !== "undefined")
+        updates.googleId = (u as any).googleId;
+      if (typeof (u as any).facebookId !== "undefined")
+        updates.facebookId = (u as any).facebookId;
+      updates.updatedAt = new Date().toISOString();
+
+      await db
+        .update(usersTable)
+        .set(updates as any)
+        .where(eq(usersTable.id, id));
+      const rows = await db
+        .select()
+        .from(usersTable)
+        .where(eq(usersTable.id, id));
+      if (rows.length > 0) {
+        const r: any = rows[0];
+        return {
+          id: r.id,
+          email: r.email,
+          password: r.password,
+          name: r.name,
+          isStudent: Boolean(r.isStudent),
+          isTeacher: Boolean(r.isTeacher),
+          isAdmin: Boolean(r.isAdmin),
+          bio: r.bio,
+          avatar: r.avatar,
+          isVerified: Boolean(r.isVerified),
+          githubId: r.githubId,
+          googleId: r.googleId,
+          facebookId: r.facebookId,
+          createdAt: new Date(r.createdAt),
+          updatedAt: new Date(r.updatedAt),
+        } as any;
+      }
+      return this.mem.updateUser(id, u);
+    } catch (err) {
+      return this.mem.updateUser(id, u);
+    }
   }
 
   // Content and courses delegate

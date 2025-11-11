@@ -80,7 +80,7 @@ export default function NewHeader() {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="hidden lg:flex items-center gap-2"
+                  className="hidden lg:flex items-center gap-2 transition-smooth hover-scale"
                   data-testid="button-explore"
                 >
                   <Menu className="h-4 w-4" />
@@ -125,14 +125,14 @@ export default function NewHeader() {
             <nav className="hidden lg:flex items-center space-x-2">
               <Link
                 href="/home"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors transition-smooth hover-scale focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
                 data-testid="nav-dashboard"
               >
                 {t("nav.dashboard")}
               </Link>
               <Link
                 href="/subjects"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors transition-smooth hover-scale focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
                 data-testid="nav-subjects"
               >
                 {t("nav.subjects")}
@@ -140,7 +140,7 @@ export default function NewHeader() {
               {user?.isTeacher && (
                 <Link
                   href="/teacher"
-                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors transition-smooth hover-scale focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
                   data-testid="nav-teacher"
                 >
                   <BookOpen className="mr-2 h-4 w-4" />
@@ -149,7 +149,7 @@ export default function NewHeader() {
               )}
               <Link
                 href="/settings"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors transition-smooth hover-scale focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
                 data-testid="nav-settings"
               >
                 {t("nav.settings")}
@@ -179,7 +179,7 @@ export default function NewHeader() {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
-                        className="relative p-2 text-muted-foreground hover:text-foreground transition-colors"
+                        className="relative p-2 text-muted-foreground hover:text-foreground transition-colors transition-smooth hover-scale"
                         data-testid="button-notifications"
                       >
                         <Bell className="h-5 w-5" />
@@ -218,7 +218,7 @@ export default function NewHeader() {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
-                        className="w-9 h-9 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors"
+                        className="w-9 h-9 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors transition-smooth hover-scale"
                         data-testid="avatar-user"
                       >
                         <User className="text-muted-foreground h-5 w-5" />
@@ -289,6 +289,7 @@ export default function NewHeader() {
                     <Button
                       variant="ghost"
                       size="sm"
+                      className="transition-smooth hover-scale"
                       data-testid="button-login"
                     >
                       <LogIn className="h-4 w-4 mr-1" />
@@ -296,7 +297,11 @@ export default function NewHeader() {
                     </Button>
                   </Link>
                   <Link href="/auth/register">
-                    <Button size="sm" data-testid="button-register">
+                    <Button
+                      size="sm"
+                      className="transition-smooth hover-scale"
+                      data-testid="button-register"
+                    >
                       {t("auth.register")}
                     </Button>
                   </Link>
