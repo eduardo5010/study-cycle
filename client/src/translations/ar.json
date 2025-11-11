@@ -1,11 +1,11 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "إدارة جدولك الزمني وتتبع التقدم",
-  
+
   "nav.dashboard": "لوحة القيادة",
   "nav.subjects": "المواد",
   "nav.settings": "الإعدادات",
-  
+
   "dashboard.currentCycle": "دورة الدراسة الحالية",
   "dashboard.newCycle": "دورة جديدة",
   "dashboard.totalWeeks": "إجمالي الأسابيع",
@@ -13,24 +13,24 @@
   "dashboard.dailyHours": "الساعات اليومية",
   "dashboard.progress": "التقدم",
   "dashboard.plannedTime": "مخطط",
-  
+
   "schedule.title": "الجدول الأسبوعي",
   "schedule.week": "أسبوع",
   "schedule.empty": "أضف مواد لإنشاء الجدول تلقائياً",
   "schedule.noStudy": "لا توجد دراسة مخططة",
-  
+
   "actions.title": "الإجراءات السريعة",
   "actions.addSubject": "إضافة مادة",
   "actions.configureSchedule": "تكوين الجدول",
   "actions.exportSchedule": "تصدير الجدول",
-  
+
   "settings.title": "الإعدادات الحالية",
   "settings.wakeTime": "وقت الاستيقاظ",
   "settings.sleepTime": "وقت النوم",
   "settings.dailyStudyTime": "وقت الدراسة اليومي",
   "settings.totalCycleTime": "إجمالي وقت الدورة",
   "settings.edit": "تحرير الإعدادات",
-  
+
   "subjects.title": "المواد",
   "subjects.count": "مادة",
   "subjects.countPlural": "مواد",
@@ -40,11 +40,11 @@
   "subjects.hours": "ساعات",
   "subjects.minutes": "دقائق",
   "subjects.nameExample": "مثال: الرياضيات",
-  
+
   "modal.cancel": "إلغاء",
   "modal.add": "إضافة",
   "modal.adding": "جاري الإضافة...",
-  
+
   "toast.subjectAdded": "تم إضافة المادة",
   "toast.subjectAddedDesc": "تم إضافة المادة بنجاح.",
   "toast.error": "خطأ",
@@ -56,7 +56,7 @@
   "toast.configureInDev": "سيتم تنفيذ تكوين الجدول قريباً.",
   "toast.exportInDev": "سيتم تنفيذ تصدير الجدول قريباً.",
   "toast.editInDev": "سيتم تنفيذ تحرير الإعدادات قريباً.",
-  
+
   "days.monday": "الاثنين",
   "days.tuesday": "الثلاثاء",
   "days.wednesday": "الأربعاء",
@@ -64,7 +64,58 @@
   "days.friday": "الجمعة",
   "days.saturday": "السبت",
   "days.sunday": "الأحد",
-  
+
   "language.select": "اختيار اللغة",
-  "language.current": "اللغة الحالية"
+  "language.current": "اللغة الحالية",
+  "app.description": "يساعد Study Cycle المتعلمين على تنظيم وقت الدراسة، تتبع التقدم، واتباع دورات تكيفية لتحقيق أهدافهم.",
+  "landing": {
+    "nav": {
+      "courses": "الدورات",
+      "pricing": "الأسعار",
+      "testimonials": "آراء المستخدمين",
+      "dashboard": "الذهاب إلى لوحة التحكم"
+    },
+    "hero": {
+      "title": "تعلّم بالوتيرة التي تناسبك",
+      "description": "Study Cycle منصة تعليمية حديثة تتكيف مع أسلوبك الفريد في التعلم وأهدافك.",
+      "cta": "ابدأ التعلم الآن"
+    },
+    "features": {
+      "title": "لماذا تختار Study Cycle؟",
+      "courses": {
+        "title": "دورات تفاعلية",
+        "description": "تعلّم من خلال دوراتنا التكيفية التي تتناسب مع مستوى مهاراتك"
+      },
+      "skills": {
+        "title": "تتبع مهاراتك",
+        "description": "راقب تقدمك عبر نظام تتبع المهارات التفصيلي"
+      },
+      "community": {
+        "title": "انضم إلى المجتمع",
+        "description": "تواصل مع متعلمين آخرين وشارك معرفتك"
+      }
+    },
+    "pricing": {
+      "title": "أسعار بسيطة وشفافة",
+      "getStarted": "ابدأ الآن",
+      "popular": "الأكثر شيوعًا",
+      "pro": {
+        "title": "Pro",
+        "description": "للمتعلمين الجادين",
+        "price": "R$50 / US$50",
+        "feature1": "جميع الميزات الأساسية",
+        "feature2": "دورات متقدمة",
+        "feature3": "دعم ذو أولوية",
+        "feature4": "شهادة إنهاء"
+      }
+    },
+    "testimonials": {
+      "title": "ماذا يقول مستخدمونا",
+      "role": { "student": "طالب", "teacher": "مدرس", "parent": "ولي أمر" },
+      "content1": "غيّر Study Cycle طريقتي في التعلم. الدورات التكيفية وتتبع المهارات تحفزني.",
+      "content2": "كمدرس، أحب كيف يجعل Study Cycle من السهل إنشاء ومشاركة مسارات تعليمية مخصصة.",
+      "content3": "يمكنني بسهولة تتبع تقدم طفلي ورؤية أين يحتاج إلى مساعدة. منصة رائعة!"
+    },
+    "footer": { "rights": "جميع الحقوق محفوظة." }
+  }
 }

@@ -1,11 +1,12 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Administrer timeplanen din og spor fremgang",
-  
+  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+
   "nav.dashboard": "Dashbord",
   "nav.subjects": "Fag",
   "nav.settings": "Innstillinger",
-  
+
   "dashboard.currentCycle": "Gjeldende studiesyklus",
   "dashboard.newCycle": "Ny syklus",
   "dashboard.totalWeeks": "Totalt antall uker",
@@ -13,24 +14,24 @@
   "dashboard.dailyHours": "Daglige timer",
   "dashboard.progress": "Fremgang",
   "dashboard.plannedTime": "planlagt",
-  
+
   "schedule.title": "Ukentlig timeplan",
   "schedule.week": "Uke",
   "schedule.empty": "Legg til fag for å automatisk generere timeplanen",
   "schedule.noStudy": "Ingen studier planlagt",
-  
+
   "actions.title": "Raske handlinger",
   "actions.addSubject": "Legg til fag",
   "actions.configureSchedule": "Konfigurer timeplan",
   "actions.exportSchedule": "Eksporter timeplan",
-  
+
   "settings.title": "Gjeldende innstillinger",
   "settings.wakeTime": "Oppvåkningstid",
   "settings.sleepTime": "Sengetid",
   "settings.dailyStudyTime": "Daglig studietid",
   "settings.totalCycleTime": "Total syklustid",
   "settings.edit": "Rediger innstillinger",
-  
+
   "subjects.title": "Fag",
   "subjects.count": "fag",
   "subjects.countPlural": "fag",
@@ -40,11 +41,11 @@
   "subjects.hours": "Timer",
   "subjects.minutes": "Minutter",
   "subjects.nameExample": "F.eks.: Matematikk",
-  
+
   "modal.cancel": "Avbryt",
   "modal.add": "Legg til",
   "modal.adding": "Legger til...",
-  
+
   "toast.subjectAdded": "Fag lagt til",
   "toast.subjectAddedDesc": "Faget ble lagt til med suksess.",
   "toast.error": "Feil",
@@ -56,7 +57,7 @@
   "toast.configureInDev": "Timeplankonfigurasjon vil snart bli implementert.",
   "toast.exportInDev": "Timeplaneksport vil snart bli implementert.",
   "toast.editInDev": "Redigering av innstillinger vil snart bli implementert.",
-  
+
   "days.monday": "Mandag",
   "days.tuesday": "Tirsdag",
   "days.wednesday": "Onsdag",
@@ -64,7 +65,61 @@
   "days.friday": "Fredag",
   "days.saturday": "Lørdag",
   "days.sunday": "Søndag",
-  
+
   "language.select": "Velg språk",
-  "language.current": "Gjeldende språk"
+  "language.current": "Gjeldende språk",
+  "landing": {
+    "nav": {
+      "courses": "Kurs",
+      "pricing": "Priser",
+      "testimonials": "Anmeldelser",
+      "dashboard": "Gå til dashbordet"
+    },
+    "hero": {
+      "title": "Lær i ditt eget tempo",
+      "description": "Study Cycle er en moderne læringsplattform som tilpasser seg din unike læringsstil og dine mål.",
+      "cta": "Begynn å lære nå"
+    },
+    "features": {
+      "title": "Hvorfor velge Study Cycle?",
+      "courses": {
+        "title": "Interaktive kurs",
+        "description": "Lær med våre adaptive kurs som justerer seg etter ditt ferdighetsnivå"
+      },
+      "skills": {
+        "title": "Følg ferdighetene dine",
+        "description": "Overvåk fremgangen din med vårt detaljerte ferdighetssporingssystem"
+      },
+      "community": {
+        "title": "Bli med i fellesskapet",
+        "description": "Knytt kontakt med andre lærende og del kunnskap"
+      }
+    },
+    "pricing": {
+      "title": "Enkel og gjennomsiktig pris",
+      "getStarted": "Kom i gang",
+      "popular": "Mest populær",
+      "pro": {
+        "title": "Pro",
+        "description": "For seriøse elever",
+        "price": "R$50 / US$50",
+        "feature1": "Alle grunnleggende funksjoner",
+        "feature2": "Avanserte kurs",
+        "feature3": "Prioritert støtte",
+        "feature4": "Fullføringssertifikat"
+      }
+    },
+    "testimonials": {
+      "title": "Hva brukerne våre sier",
+      "role": {
+        "student": "Student",
+        "teacher": "Lærer",
+        "parent": "Forelder"
+      },
+      "content1": "Study Cycle har forandret måten jeg lærer på. De adaptive kursene og ferdighetssporing holder meg motivert.",
+      "content2": "Som lærer elsker jeg hvordan Study Cycle gjør det enkelt å lage og dele tilpassede læringsstier.",
+      "content3": "Jeg kan enkelt spore fremgangen til barnet mitt og se hvor det trenger hjelp. Flott plattform!"
+    },
+    "footer": { "rights": "Alle rettigheter reservert." }
+  }
 }

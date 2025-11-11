@@ -1,11 +1,12 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "管理您的时间表并跟踪进度",
-  
+  "app.description": "Study Cycle 帮助学习者组织学习时间、跟踪进度，并通过自适应课程实现学习目标。",
+
   "nav.dashboard": "仪表板",
   "nav.subjects": "科目",
   "nav.settings": "设置",
-  
+
   "dashboard.currentCycle": "当前学习周期",
   "dashboard.newCycle": "新周期",
   "dashboard.totalWeeks": "总周数",
@@ -13,24 +14,24 @@
   "dashboard.dailyHours": "每日小时",
   "dashboard.progress": "进度",
   "dashboard.plannedTime": "计划",
-  
+
   "schedule.title": "每周时间表",
   "schedule.week": "周",
   "schedule.empty": "添加科目以自动生成时间表",
   "schedule.noStudy": "没有计划学习",
-  
+
   "actions.title": "快速操作",
   "actions.addSubject": "添加科目",
   "actions.configureSchedule": "配置时间表",
   "actions.exportSchedule": "导出时间表",
-  
+
   "settings.title": "当前设置",
   "settings.wakeTime": "起床时间",
-  "settings.sleepTime": "睡觉时间",
+  "settings.sleepTime": "就寝时间",
   "settings.dailyStudyTime": "每日学习时间",
   "settings.totalCycleTime": "总周期时间",
   "settings.edit": "编辑设置",
-  
+
   "subjects.title": "科目",
   "subjects.count": "个科目",
   "subjects.countPlural": "个科目",
@@ -40,11 +41,11 @@
   "subjects.hours": "小时",
   "subjects.minutes": "分钟",
   "subjects.nameExample": "例如：数学",
-  
+
   "modal.cancel": "取消",
   "modal.add": "添加",
   "modal.adding": "添加中...",
-  
+
   "toast.subjectAdded": "科目已添加",
   "toast.subjectAddedDesc": "科目已成功添加。",
   "toast.error": "错误",
@@ -52,11 +53,11 @@
   "toast.noScheduleExport": "没有时间表可导出",
   "toast.noScheduleExportDesc": "添加科目以生成时间表。",
   "toast.featureInDev": "功能开发中",
-  "toast.newCycleInDev": "创建新周期功能即将实现。",
-  "toast.configureInDev": "时间表配置功能即将实现。",
-  "toast.exportInDev": "时间表导出功能即将实现。",
-  "toast.editInDev": "设置编辑功能即将实现。",
-  
+  "toast.newCycleInDev": "创建新周期的功能即将推出。",
+  "toast.configureInDev": "时间表配置功能即将推出。",
+  "toast.exportInDev": "时间表导出功能即将推出。",
+  "toast.editInDev": "设置编辑功能即将推出。",
+
   "days.monday": "星期一",
   "days.tuesday": "星期二",
   "days.wednesday": "星期三",
@@ -64,7 +65,58 @@
   "days.friday": "星期五",
   "days.saturday": "星期六",
   "days.sunday": "星期日",
-  
+
   "language.select": "选择语言",
-  "language.current": "当前语言"
+  "language.current": "当前语言",
+
+  "landing": {
+    "nav": {
+      "courses": "课程",
+      "pricing": "定价",
+      "testimonials": "用户评价",
+      "dashboard": "前往仪表盘"
+    },
+    "hero": {
+      "title": "按自己的节奏学习",
+      "description": "Study Cycle 是一个现代化的学习平台，会根据您独特的学习方式和目标进行调整。",
+      "cta": "立即开始学习"
+    },
+    "features": {
+      "title": "为什么选择 Study Cycle？",
+      "courses": {
+        "title": "互动课程",
+        "description": "通过我们的自适应课程学习，课程会根据您的技能水平进行调整"
+      },
+      "skills": {
+        "title": "跟踪技能",
+        "description": "使用我们详细的技能跟踪系统监控您的进度"
+      },
+      "community": {
+        "title": "加入社区",
+        "description": "与其他学习者联系并分享您的知识"
+      }
+    },
+    "pricing": {
+      "title": "简单透明的定价",
+      "getStarted": "开始使用",
+      "popular": "最受欢迎",
+      "pro": {
+        "title": "Pro",
+        "description": "适合认真学习者",
+        "price": "R$50 / US$50",
+        "feature1": "所有基本功能",
+        "feature2": "高级课程",
+        "feature3": "优先支持",
+        "feature4": "结业证书"
+      }
+    },
+    "testimonials": {
+      "title": "用户评价",
+      "role": { "student": "学生", "teacher": "教师", "parent": "家长" },
+      "content1": "Study Cycle 改变了我的学习方式。自适应课程和技能跟踪让我保持动力。",
+      "content2": "作为教师，我喜欢 Study Cycle 如何简化创建和共享自定义学习路径。",
+      "content3": "我可以轻松跟踪孩子的进度，并看到他们需要帮助的地方。很棒的平台！"
+    },
+    "footer": { "rights": "版权所有。" }
+  }
 }

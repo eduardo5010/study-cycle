@@ -1,11 +1,12 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "अपने शेड्यूल का प्रबंधन करें और प्रगति ट्रैक करें",
-  
+  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
+
   "nav.dashboard": "डैशबोर्ड",
   "nav.subjects": "विषय",
   "nav.settings": "सेटिंग्स",
-  
+
   "dashboard.currentCycle": "वर्तमान अध्ययन चक्र",
   "dashboard.newCycle": "नया चक्र",
   "dashboard.totalWeeks": "कुल सप्ताह",
@@ -13,24 +14,24 @@
   "dashboard.dailyHours": "दैनिक घंटे",
   "dashboard.progress": "प्रगति",
   "dashboard.plannedTime": "नियोजित",
-  
+
   "schedule.title": "साप्ताहिक कार्यक्रम",
   "schedule.week": "सप्ताह",
   "schedule.empty": "शेड्यूल स्वचालित रूप से बनाने के लिए विषय जोड़ें",
   "schedule.noStudy": "कोई अध्ययन नियोजित नहीं",
-  
+
   "actions.title": "त्वरित कार्य",
   "actions.addSubject": "विषय जोड़ें",
   "actions.configureSchedule": "शेड्यूल कॉन्फ़िगर करें",
   "actions.exportSchedule": "शेड्यूल निर्यात करें",
-  
+
   "settings.title": "वर्तमान सेटिंग्स",
   "settings.wakeTime": "जागने का समय",
   "settings.sleepTime": "सोने का समय",
   "settings.dailyStudyTime": "दैनिक अध्ययन समय",
   "settings.totalCycleTime": "कुल चक्र समय",
   "settings.edit": "सेटिंग्स संपादित करें",
-  
+
   "subjects.title": "विषय",
   "subjects.count": "विषय",
   "subjects.countPlural": "विषय",
@@ -40,11 +41,11 @@
   "subjects.hours": "घंटे",
   "subjects.minutes": "मिनट",
   "subjects.nameExample": "उदाहरण: गणित",
-  
+
   "modal.cancel": "रद्द करें",
   "modal.add": "जोड़ें",
   "modal.adding": "जोड़ा जा रहा है...",
-  
+
   "toast.subjectAdded": "विषय जोड़ा गया",
   "toast.subjectAddedDesc": "विषय सफलतापूर्वक जोड़ा गया।",
   "toast.error": "त्रुटि",
@@ -56,7 +57,7 @@
   "toast.configureInDev": "शेड्यूल कॉन्फ़िगरेशन जल्द ही लागू किया जाएगा।",
   "toast.exportInDev": "शेड्यूल निर्यात जल्द ही लागू किया जाएगा।",
   "toast.editInDev": "सेटिंग्स संपादन जल्द ही लागू किया जाएगा।",
-  
+
   "days.monday": "सोमवार",
   "days.tuesday": "मंगलवार",
   "days.wednesday": "बुधवार",
@@ -64,7 +65,57 @@
   "days.friday": "शुक्रवार",
   "days.saturday": "शनिवार",
   "days.sunday": "रविवार",
-  
+
   "language.select": "भाषा चुनें",
-  "language.current": "वर्तमान भाषा"
+  "language.current": "वर्तमान भाषा",
+  "landing": {
+    "nav": {
+      "courses": "पाठ्यक्रम",
+      "pricing": "मूल्य",
+      "testimonials": "प्रशंसापत्र",
+      "dashboard": "डैशबोर्ड पर जाएँ"
+    },
+    "hero": {
+      "title": "अपनी गति से सीखें",
+      "description": "Study Cycle एक आधुनिक शिक्षण प्लेटफ़ॉर्म है जो आपके अनोखे सीखने के अंदाज़ और लक्ष्यों के अनुरूप ढलता है।",
+      "cta": "अभी सीखना शुरू करें"
+    },
+    "features": {
+      "title": "क्यों Study Cycle चुनें?",
+      "courses": {
+        "title": "इंटरेक्टिव पाठ्यक्रम",
+        "description": "हमारे अनुकूलनशील पाठ्यक्रमों के साथ सीखें जो आपके कौशल स्तर के अनुसार समायोजित होते हैं"
+      },
+      "skills": {
+        "title": "अपनी क्षमताओं को ट्रैक करें",
+        "description": "हमारे विस्तृत कौशल ट्रैकिंग सिस्टम के साथ अपनी प्रगति को मॉनिटर करें"
+      },
+      "community": {
+        "title": "समुदाय में शामिल हों",
+        "description": "अन्य शिक्षार्थियों से जुड़ें और अपना ज्ञान साझा करें"
+      }
+    },
+    "pricing": {
+      "title": "सरल, पारदर्शी मूल्य निर्धारण",
+      "getStarted": "शुरू करें",
+      "popular": "सबसे लोकप्रिय",
+      "pro": {
+        "title": "Pro",
+        "description": "गंभीर शिक्षार्थियों के लिए",
+        "price": "R$50 / US$50",
+        "feature1": "सभी मूलभूत सुविधाएँ",
+        "feature2": "उन्नत पाठ्यक्रम",
+        "feature3": "प्राथमिकता समर्थन",
+        "feature4": "समाप्ति प्रमाणपत्र"
+      }
+    },
+    "testimonials": {
+      "title": "हमारे उपयोगकर्ता क्या कहते हैं",
+      "role": { "student": "छात्र", "teacher": "अध्यापक", "parent": "अभिभावक" },
+      "content1": "Study Cycle ने मेरी पढ़ने की विधि बदल दी है। अनुकूलनशील पाठ्यक्रम और कौशल ट्रैकिंग मुझे प्रेरित रखते हैं।",
+      "content2": "एक अध्यापक के रूप में मुझे पसंद है कि Study Cycle कैसे कस्टम लर्निंग पाथ बनाना और साझा करना आसान बनाता है।",
+      "content3": "मैं अपने बच्चे की प्रगति आसानी से ट्रैक कर सकता/सकती हूँ और देख सकता/सकती हूँ कि उसे कहाँ मदद की ज़रूरत है। बढ़िया प्लेटफ़ॉर्म!"
+    },
+    "footer": { "rights": "सर्व अधिकार सुरक्षित।" }
+  }
 }

@@ -1,11 +1,12 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Gerencie seu cronograma e acompanhe o progresso",
-  
+  "app.description": "O Study Cycle ajuda estudantes a organizar o tempo de estudo, acompanhar o progresso e seguir cursos adaptativos para alcançar seus objetivos.",
+
   "nav.dashboard": "Dashboard",
   "nav.subjects": "Disciplinas",
   "nav.settings": "Configurações",
-  
+
   "dashboard.currentCycle": "Ciclo de Estudo Atual",
   "dashboard.newCycle": "Novo Ciclo",
   "dashboard.completeCycle": "Concluir Ciclo",
@@ -14,24 +15,24 @@
   "dashboard.dailyHours": "Horas Diárias",
   "dashboard.progress": "Progresso",
   "dashboard.plannedTime": "planejados",
-  
+
   "schedule.title": "Cronograma Semanal",
   "schedule.week": "Semana",
   "schedule.empty": "Adicione disciplinas para gerar o cronograma automaticamente",
   "schedule.noStudy": "Nenhum estudo planejado",
-  
+
   "actions.title": "Ações Rápidas",
   "actions.addSubject": "Adicionar Disciplina",
   "actions.configureSchedule": "Configurar Horários",
   "actions.exportSchedule": "Exportar Cronograma",
-  
+
   "settings.title": "Configurações Atuais",
   "settings.wakeTime": "Horário de Acordar",
   "settings.sleepTime": "Horário de Dormir",
   "settings.dailyStudyTime": "Tempo Diário de Estudo",
   "settings.totalCycleTime": "Tempo Total do Ciclo",
   "settings.edit": "Editar Configurações",
-  
+
   "subjects.title": "Disciplinas",
   "subjects.count": "disciplina",
   "subjects.countPlural": "disciplinas",
@@ -48,11 +49,11 @@
   "subjects.nameExample": "Ex: Matemática",
   "subjects.createdAt": "Criada em",
   "subjects.confirmDelete": "Tem certeza que deseja excluir esta disciplina? Esta ação não pode ser desfeita.",
-  
+
   "modal.cancel": "Cancelar",
   "modal.add": "Adicionar",
   "modal.adding": "Adicionando...",
-  
+
   "toast.subjectAdded": "Disciplina adicionada",
   "toast.subjectAddedDesc": "A disciplina foi adicionada com sucesso.",
   "toast.globalSubjectAdded": "Disciplina global adicionada",
@@ -74,7 +75,7 @@
   "toast.cycleCompleted": "Ciclo concluído",
   "toast.cycleCompletedDesc": "O ciclo foi concluído e todas as informações foram removidas.",
   "toast.cycleCompletedConfirm": "Tem certeza que deseja concluir este ciclo? Todas as informações serão removidas.",
-  
+
   "days.monday": "Segunda-feira",
   "days.tuesday": "Terça-feira",
   "days.wednesday": "Quarta-feira",
@@ -82,12 +83,12 @@
   "days.friday": "Sexta-feira",
   "days.saturday": "Sábado",
   "days.sunday": "Domingo",
-  
+
   "language.select": "Selecionar idioma",
   "language.current": "Idioma atual",
-  
+
   "common.loading": "Carregando...",
-  
+
   "auth.login": "Entrar",
   "auth.register": "Cadastrar",
   "auth.logout": "Sair",
@@ -115,7 +116,7 @@
   "auth.welcomeMessage": "Bem-vindo ao StudyCycle!",
   "auth.loginError": "Erro ao fazer login. Verifique suas credenciais.",
   "auth.registerError": "Erro ao cadastrar. Tente novamente.",
-  
+
   "content.create": "Criar Conteúdo",
   "content.title": "Título",
   "content.description": "Descrição",
@@ -125,12 +126,12 @@
   "content.quiz": "Quiz",
   "content.publish": "Publicar",
   "content.draft": "Salvar como Rascunho",
-  
+
   "currentSubject.title": "Disciplina Atual",
   "currentSubject.noActive": "Nenhuma disciplina ativa no momento",
   "currentSubject.timeRemaining": "Tempo restante",
   "currentSubject.startStudying": "Começar a Estudar",
-  
+
   "cycle.editTitle": "Editar Ciclo",
   "cycle.currentInfo": "Informações do Ciclo Atual",
   "cycle.subjectsCount": "Número de disciplinas",
@@ -144,25 +145,25 @@
   "cycle.deleteSuccess": "Ciclo excluído com sucesso",
   "cycle.deleteSuccessDesc": "Todos os dados do ciclo foram removidos.",
   "cycle.deleteError": "Erro ao excluir o ciclo. Tente novamente.",
-  
+
   "modal.loading": "Carregando...",
   "modal.close": "Fechar",
-  
+
   "nav.explore": "Explorar",
   "nav.knowledgeAreas": "Áreas de Conhecimento",
-  
+
   "search.placeholder": "Pesquisar por tópico ou pergunta",
-  
+
   "notifications.title": "Notificações",
   "notifications.empty": "Nenhuma notificação",
-  
+
   "profile.studentHome": "Página inicial do aluno",
   "profile.personalInfo": "Informações pessoais",
   "profile.subscriptions": "Minhas assinaturas",
   "profile.paymentMethods": "Métodos de pagamento",
   "profile.requestFeature": "Solicitar uma funcionalidade",
   "profile.help": "Ajuda",
-  
+
   "sidebar.home": "Início",
   "sidebar.courses": "Cursos",
   "sidebar.calendar": "Calendário",
@@ -170,32 +171,32 @@
   "sidebar.events": "Eventos",
   "sidebar.english": "Inglês",
   "sidebar.mandarin": "Mandarim",
-  
+
   "home.welcome": "Olá",
   "home.studyCycle": "Ciclo de Estudo Atual",
-  
+
   "course.progress": "Progresso",
   "course.continue": "Continuar",
-  
+
   "stats.overview": "Visão Geral",
   "stats.tasksCompleted": "Tarefas concluídas",
   "stats.projectsCompleted": "Projetos concluídos",
   "stats.certificatesEarned": "Certificados conquistados",
-  
+
   "league.title": "Liga",
   "league.yourRank": "Sua posição",
   "league.daysLeft": "dias restantes",
-  
+
   "streak.title": "Sequência",
   "streak.days": "dias",
-  
+
   "xp.monthly": "XP Mensal",
   "xp.today": "hoje",
-  
+
   "certificates.title": "Certificados",
-  
+
   "achievements.title": "Conquistas",
-  
+
   "courses.programming": "Programação",
   "courses.math": "Matemática",
   "courses.science": "Ciências",
@@ -205,13 +206,67 @@
   "courses.searchPlaceholder": "Buscar cursos...",
   "courses.students": "alunos",
   "courses.enroll": "Matricular",
-  
+
   "categories.programming": "Programação",
   "categories.math": "Matemática",
   "categories.science": "Ciências",
   "categories.languages": "Idiomas",
-  
+
   "levels.beginner": "Iniciante",
   "levels.intermediate": "Intermediário",
-  "levels.advanced": "Avançado"
+  "levels.advanced": "Avançado",
+  "landing": {
+    "nav": {
+      "courses": "Cursos",
+      "pricing": "Preços",
+      "testimonials": "Depoimentos",
+      "dashboard": "Ir para o Painel"
+    },
+    "hero": {
+      "title": "Aprenda no Seu Próprio Ritmo",
+      "description": "O Study Cycle é uma plataforma moderna de aprendizado que se adapta ao seu estilo único de aprendizado e objetivos.",
+      "cta": "Comece a Aprender Agora"
+    },
+    "features": {
+      "title": "Por que Escolher o Study Cycle?",
+      "courses": {
+        "title": "Cursos Interativos",
+        "description": "Aprenda com nossos cursos adaptativos que se ajustam ao seu nível de habilidade"
+      },
+      "skills": {
+        "title": "Acompanhe Suas Habilidades",
+        "description": "Monitore seu progresso com nosso sistema detalhado de acompanhamento de habilidades"
+      },
+      "community": {
+        "title": "Junte-se à Comunidade",
+        "description": "Conecte-se com outros estudantes e compartilhe seu conhecimento"
+      }
+    },
+    "pricing": {
+      "title": "Preços Simples e Transparentes",
+      "getStarted": "Começar",
+      "popular": "Mais Popular",
+      "pro": {
+        "title": "Pro",
+        "description": "Para estudantes sérios",
+        "price": "R$50 / US$50",
+        "feature1": "Todas as funcionalidades básicas",
+        "feature2": "Cursos avançados",
+        "feature3": "Suporte prioritário",
+        "feature4": "Certificado de conclusão"
+      }
+    },
+    "testimonials": {
+      "title": "O que Nossos Usuários Dizem",
+      "role": {
+        "student": "Estudante",
+        "teacher": "Professor",
+        "parent": "Pai/Mãe"
+      },
+      "content1": "O Study Cycle transformou a maneira como eu aprendo. Os cursos adaptativos e o acompanhamento de habilidades me mantêm motivado.",
+      "content2": "Como professor, adoro como o Study Cycle facilita a criação e compartilhamento de trilhas de aprendizado personalizadas.",
+      "content3": "Posso acompanhar facilmente o progresso do meu filho e ver onde ele precisa de ajuda. Ótima plataforma!"
+    },
+    "footer": { "rights": "Todos os direitos reservados." }
+  }
 }

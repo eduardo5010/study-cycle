@@ -67,6 +67,9 @@
 
   "language.select": "Seleziona lingua",
   "language.current": "Lingua attuale",
+  "app.description": "Study Cycle aiuta gli studenti a organizzare il tempo di studio, monitorare i progressi e seguire corsi adattivi per raggiungere i propri obiettivi.",
+  "auth.login": "Accedi",
+  "auth.register": "Registrati",
 
   "landing": {
     "nav": {
@@ -77,17 +80,17 @@
     },
     "hero": {
       "title": "Impara al Tuo Ritmo",
-      "description": "Study Cycle è una piattaforma di apprendimento moderna che si adatta al tuo stile di apprendimento unico e ai tuoi obiettivi.",
-      "cta": "Inizia a Imparare Ora"
+      "description": "Study Cycle è una piattaforma moderna che si adatta al tuo stile di apprendimento e ai tuoi obiettivi.",
+      "cta": "Inizia a Studiare Ora"
     },
     "features": {
-      "title": "Perché Scegliere Study Cycle?",
+      "title": "Perché scegliere Study Cycle?",
       "courses": {
         "title": "Corsi Interattivi",
         "description": "Impara con i nostri corsi adattivi che si adeguano al tuo livello di abilità"
       },
       "skills": {
-        "title": "Monitora le Tue Competenze",
+        "title": "Monitora le tue competenze",
         "description": "Monitora i tuoi progressi con il nostro sistema dettagliato di tracciamento delle competenze"
       },
       "community": {
@@ -96,7 +99,7 @@
       }
     },
     "pricing": {
-      "title": "Prezzi Semplici e Trasparenti",
+      "title": "Prezzi semplici e trasparenti",
       "getStarted": "Inizia",
       "popular": "Più Popolare",
       "free": {
@@ -109,6 +112,7 @@
       "pro": {
         "title": "Pro",
         "description": "Per studenti seri",
+        "price": "R$50 / US$50",
         "feature1": "Tutte le funzionalità base",
         "feature2": "Corsi avanzati",
         "feature3": "Supporto prioritario",
@@ -125,7 +129,7 @@
       }
     },
     "testimonials": {
-      "title": "Cosa Dicono i Nostri Utenti",
+      "title": "Cosa dicono i nostri utenti",
       "role": {
         "student": "Studente",
         "teacher": "Insegnante",

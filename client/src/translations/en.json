@@ -1,6 +1,7 @@
 {
   "app.title": "StudyCycle",
   "app.subtitle": "Manage your schedule and track progress",
+  "app.description": "Study Cycle helps learners organize study time, track progress, and follow adaptive courses to reach their goals.",
 
   "nav.dashboard": "Dashboard",
   "nav.subjects": "Subjects",
@@ -67,6 +68,8 @@
 
   "language.select": "Select language",
   "language.current": "Current language",
+  "auth.login": "Login",
+  "auth.register": "Register",
 
   "landing": {
     "nav": {
@@ -109,6 +112,7 @@
       "pro": {
         "title": "Pro",
         "description": "For serious learners",
+        "price": "R$50 / US$50",
         "feature1": "All basic features",
         "feature2": "Advanced courses",
         "feature3": "Priority support",
