@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/auth-context";
 import {
@@ -20,159 +21,42 @@ export default function CoursesPage() {
   const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Mock courses data with complete structure
-  const enrolledCourses = [
-    {
-      id: "1",
-      title: "Desenvolvimento Web Full Stack",
-      description: "Aprenda a criar aplicações web completas",
-      subjects: [
-        {
-          id: "s1",
-          title: "Frontend Development",
-          description: "Desenvolvimento de interfaces web",
-          modules: [
-            {
-              id: "m1",
-              title: "HTML & CSS Foundations",
-              description: "Fundamentos de HTML e CSS",
-              units: [
-                {
-                  id: "u1",
-                  title: "HTML Basics",
-                  description: "Conceitos básicos de HTML",
-                  chapters: [
-                    {
-                      id: "c1",
-                      title: "Estrutura HTML",
-                      description: "Entendendo a estrutura básica do HTML",
-                      lessons: [
-                        {
-                          id: "l1",
-                          title: "Tags HTML",
-                          description: "Aprendendo as principais tags HTML",
-                          videoUrl:
-                            "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                          theory:
-                            "HTML (HyperText Markup Language) é a linguagem padrão para criar páginas web...",
-                          skills: [
-                            {
-                              id: "sk1",
-                              title: "Estruturação HTML",
-                              description:
-                                "Capacidade de estruturar documentos HTML",
-                              level: "NOT_STARTED",
-                              exercises: [],
-                              createdAt: new Date(),
-                              updatedAt: new Date(),
-                            },
-                          ],
-                          createdAt: new Date(),
-                          updatedAt: new Date(),
-                        },
-                      ],
-                      createdAt: new Date(),
-                      updatedAt: new Date(),
-                    },
-                  ],
-                  createdAt: new Date(),
-                  updatedAt: new Date(),
-                },
-              ],
-              createdAt: new Date(),
-              updatedAt: new Date(),
-            },
-          ],
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-      ],
-      isPublished: true,
-      createdBy: {
-        id: "t1",
-        name: "Professor Silva",
-        type: "TEACHER",
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
+  // Fetch courses from API
+  const { data: enrolledCourses = [], isLoading: coursesLoading } = useQuery({
+    queryKey: ["/api/courses"],
+  });
 
-  const availableCourses = [
-    {
-      id: "3",
-      title: "Machine Learning Fundamentals",
-      description: "Introdução ao aprendizado de máquina",
-      estimatedHours: 40,
-      rating: 4.8,
-      enrollmentCount: 1250,
-      category: "Programming",
-      level: "advanced",
-      thumbnail: "",
-    },
-    {
-      id: "4",
-      title: "React Avançado",
-      description: "Técnicas avançadas em React",
-      estimatedHours: 30,
-      rating: 4.9,
-      enrollmentCount: 3200,
-      category: "Programming",
-      level: "advanced",
-      thumbnail: "",
-    },
-    {
-      id: "5",
-      title: "Cálculo I",
-      description: "Fundamentos de cálculo diferencial e integral",
-      estimatedHours: 60,
-      rating: 4.5,
-      enrollmentCount: 850,
-      category: "Math",
-      level: "beginner",
-      thumbnail: "",
-    },
-    {
-      id: "6",
-      title: "Física Quântica",
-      description: "Introdução à mecânica quântica",
-      estimatedHours: 50,
-      rating: 4.7,
-      enrollmentCount: 420,
-      category: "Science",
-      level: "advanced",
-      thumbnail: "",
-    },
-  ];
+  const { data: availableCourses = [] } = useQuery({
+    queryKey: ["/api/courses/published"],
+  });
 
-  // Define o tipo do curso
+  // Course type from API
   type CourseType = {
     id: string;
     title: string;
-    description: string;
-    subjects: {
-      id: string;
-      title: string;
-      description: string;
-      modules: any[];
-      createdAt: Date;
-      updatedAt: Date;
-    }[];
-    isPublished: boolean;
-    createdBy: {
+    description?: string;
+    subjects?: any[];
+    isPublished?: boolean;
+    createdBy?: {
       id: string;
       name: string;
       type: string;
     };
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
     progress?: number;
+    estimatedHours?: number;
+    rating?: number;
+    enrollmentCount?: number;
+    category?: string;
+    level?: string;
+    thumbnail?: string;
   };
 
-  const filteredCourses = availableCourses.filter(
-    (course) =>
-      course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.description.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredCourses = (availableCourses || []).filter(
+    (course: any) =>
+      course.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.description?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const { user } = useAuth();
@@ -206,9 +90,9 @@ export default function CoursesPage() {
   };
 
   // Atualiza o progresso nos cursos matriculados
-  const coursesWithProgress = enrolledCourses.map((course) => ({
+  const coursesWithProgress = (enrolledCourses || []).map((course: any) => ({
     ...course,
-    progress: calculateProgress(course.subjects),
+    progress: calculateProgress(course.subjects || []),
   }));
 
   return (
@@ -246,8 +130,23 @@ export default function CoursesPage() {
           >
             {t("courses.enrolled")}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coursesWithProgress.map((course: CourseType) => (
+          {coursesWithProgress.length === 0 ? (
+            <Card className="border-primary/20 bg-primary/5">
+              <CardHeader>
+                <CardTitle>{t("courses.earlyStage.title")}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  {t("courses.earlyStage.description")}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {t("courses.earlyStage.pricing")}
+                </p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {coursesWithProgress.map((course: CourseType) => (
               <Card
                 key={course.id}
                 data-testid={`enrolled-course-${course.id}`}
@@ -260,13 +159,17 @@ export default function CoursesPage() {
                   <CardDescription>{course.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">
-                      {t("course.progress")}
-                    </span>
-                    <span className="font-bold">{course.progress}%</span>
-                  </div>
-                  <Progress value={course.progress} />
+                  {course.progress !== undefined && (
+                    <>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-muted-foreground">
+                          {t("course.progress")}
+                        </span>
+                        <span className="font-bold">{course.progress}%</span>
+                      </div>
+                      <Progress value={course.progress || 0} />
+                    </>
+                  )}
                 </CardContent>
                 <CardFooter>
                   <div className="w-full space-y-2">
@@ -288,8 +191,9 @@ export default function CoursesPage() {
                   </div>
                 </CardFooter>
               </Card>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Todos os Cursos Disponíveis */}
@@ -316,8 +220,23 @@ export default function CoursesPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCourses.map((course) => (
+          {filteredCourses.length === 0 ? (
+            <Card className="border-primary/20 bg-primary/5">
+              <CardHeader>
+                <CardTitle>{t("courses.earlyStage.title")}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  {t("courses.earlyStage.description")}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {t("courses.earlyStage.pricing")}
+                </p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredCourses.map((course) => (
               <Card
                 key={course.id}
                 data-testid={`available-course-${course.id}`}
@@ -330,28 +249,42 @@ export default function CoursesPage() {
                   <CardDescription>{course.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Clock className="h-3 w-3" />
-                      <span>{course.estimatedHours}h</span>
+                  {(course.estimatedHours || course.rating) && (
+                    <div className="flex items-center justify-between text-sm">
+                      {course.estimatedHours && (
+                        <div className="flex items-center gap-1 text-muted-foreground">
+                          <Clock className="h-3 w-3" />
+                          <span>{course.estimatedHours}h</span>
+                        </div>
+                      )}
+                      {course.rating && (
+                        <div className="flex items-center gap-1 text-yellow-600 dark:text-yellow-400">
+                          <Star className="h-3 w-3 fill-current" />
+                          <span className="font-medium">{course.rating}</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="flex items-center gap-1 text-yellow-600 dark:text-yellow-400">
-                      <Star className="h-3 w-3 fill-current" />
-                      <span className="font-medium">{course.rating}</span>
+                  )}
+                  {(course.category || course.level) && (
+                    <div className="flex items-center gap-2">
+                      {course.category && (
+                        <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">
+                          {t(`categories.${course.category.toLowerCase()}`)}
+                        </span>
+                      )}
+                      {course.level && (
+                        <span className="text-xs px-2 py-1 bg-secondary/10 text-secondary rounded">
+                          {t(`levels.${course.level}`)}
+                        </span>
+                      )}
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">
-                      {t(`categories.${course.category.toLowerCase()}`)}
-                    </span>
-                    <span className="text-xs px-2 py-1 bg-secondary/10 text-secondary rounded">
-                      {t(`levels.${course.level}`)}
-                    </span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {course.enrollmentCount.toLocaleString()}{" "}
-                    {t("courses.students")}
-                  </p>
+                  )}
+                  {course.enrollmentCount !== undefined && (
+                    <p className="text-xs text-muted-foreground">
+                      {course.enrollmentCount.toLocaleString()}{" "}
+                      {t("courses.students")}
+                    </p>
+                  )}
                 </CardContent>
                 <CardFooter>
                   <Button
@@ -363,8 +296,9 @@ export default function CoursesPage() {
                   </Button>
                 </CardFooter>
               </Card>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
       </div>
     </div>

@@ -1,36 +1,33 @@
 import { sql } from "drizzle-orm";
 import {
-  pgTable,
+  sqliteTable,
   text,
-  varchar,
-  timestamp,
-  jsonb,
-  boolean,
-} from "drizzle-orm/pg-core";
+  integer,
+} from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import type { Course } from "../types/course";
 import { users } from "../schema";
 
-export const content = pgTable("content", {
-  id: varchar("id")
+export const content = sqliteTable("content", {
+  id: text("id")
     .primaryKey()
-    .default(sql`gen_random_uuid()`),
+    .default(sql`(lower(hex(randomblob(16))))`),
   title: text("title").notNull(),
   description: text("description"),
   type: text("type").notNull(), // "COURSE", "SUBJECT", "MODULE", etc.
   contentType: text("content_type"), // video, pdf, etc
   contentUrl: text("content_url"),
   thumbnailUrl: text("thumbnail_url"),
-  tags: jsonb("tags").$type<string[]>(),
-  isPublished: boolean("is_published").notNull().default(false),
-  metadata: jsonb("metadata").$type<Course>(),
-  creatorId: varchar("creator_id")
+  tags: text("tags", { mode: "json" }).$type<string[]>(),
+  isPublished: integer("is_published", { mode: "boolean" }).notNull().default(false),
+  metadata: text("metadata", { mode: "json" }).$type<Course>(),
+  creatorId: text("creator_id")
     .references(() => users.id)
     .notNull(),
-  teacherId: varchar("teacher_id").references(() => users.id),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  teacherId: text("teacher_id").references(() => users.id),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
 });
 
 export type Content = typeof content.$inferSelect;

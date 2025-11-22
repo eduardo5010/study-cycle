@@ -14,8 +14,10 @@ import { PlusCircle } from "lucide-react";
 
 import { TeacherLayout } from "@/components/teacher-layout";
 import FileUploader from "@/components/file-uploader";
+import { useAuth } from "@/contexts/auth-context";
 
 export function TeacherDashboard() {
+  const { user } = useAuth();
   const [isCreatingCourse, setIsCreatingCourse] = React.useState(false);
 
   return (
@@ -55,7 +57,7 @@ export function TeacherDashboard() {
 
       <div className="mt-8">
         <h2 className="text-xl font-bold mb-4">Uploads</h2>
-        <FileUploader userId={"mock-teacher-id"} />
+        <FileUploader userId={user?.id || ""} />
       </div>
 
       {/* Lista de cursos existentes */}

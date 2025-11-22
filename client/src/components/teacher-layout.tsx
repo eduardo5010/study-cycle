@@ -1,5 +1,5 @@
 import React from "react";
-import NewHeader from "@/components/new-header";
+import Header from "@/components/header";
 import { useAuth } from "@/contexts/auth-context";
 
 interface TeacherLayoutProps {
@@ -11,7 +11,7 @@ export function TeacherLayout({ children }: TeacherLayoutProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      {!isLoading && user && <NewHeader />}
+      {!isLoading && user && <Header />}
       <main className="container mx-auto p-4">{children}</main>
     </div>
   );

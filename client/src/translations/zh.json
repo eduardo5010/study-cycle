@@ -114,7 +114,8 @@
       "pro": {
         "title": "Pro",
         "description": "适合认真学习者",
-        "price": "R$50 / US$50",
+        "price": "R$9.90 / US$2.99",
+        "priceNote": "象征性价格仅用于支付基础设施成本",
         "feature1": "所有基本功能",
         "feature2": "高级课程",
         "feature3": "优先支持",

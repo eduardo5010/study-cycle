@@ -1,4 +1,4 @@
-import NewHeader from "@/components/new-header";
+import Header from "@/components/header";
 import LeftSidebar from "@/components/left-sidebar";
 import ReviewScheduler from "@/hooks/use-review-scheduler";
 import { useAuth } from "@/contexts/auth-context";
@@ -13,7 +13,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header visible only for authenticated users */}
-      {!isLoading && user && <NewHeader />}
+      {!isLoading && user && <Header />}
 
       {/* If user is authenticated show sidebar + main, otherwise render children full width */}
       {user ? (

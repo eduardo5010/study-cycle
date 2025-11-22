@@ -52,7 +52,8 @@
   "modal": {
     "cancel": "Cancelar",
     "add": "Adicionar",
-    "adding": "Adicionando..."
+    "adding": "Adicionando...",
+    "loading": "Carregando..."
   },
   "toast": {
     "subjectAdded": "Disciplina adicionada",
@@ -85,6 +86,7 @@
       "courses": "Cursos",
       "pricing": "Preços",
       "testimonials": "Depoimentos",
+      "earlyStage": "Sobre Nós",
       "dashboard": "Ir para o Painel"
     },
     "hero": {
@@ -121,7 +123,8 @@
       "pro": {
         "title": "Pro",
         "description": "Para estudantes sérios",
-        "price": "R$50 / US$50",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Preço simbólico apenas para custear infraestrutura",
         "feature1": "Todas as funcionalidades básicas",
         "feature2": "Cursos avançados",
         "feature3": "Suporte prioritário",
@@ -136,6 +139,12 @@
         "feature4": "Painel de análise",
         "feature5": "Suporte prioritário"
       }
+    },
+    "earlyStage": {
+      "title": "Estamos no Início",
+      "description": "O Study Cycle está em fase inicial de desenvolvimento. Estamos construindo uma plataforma completa de aprendizado adaptativo, mas ainda não temos prova social do nosso valor.",
+      "pricing": "Por enquanto, o preço é simbólico (R$9,90 / US$2,99 por mês) apenas para custear a infraestrutura necessária para manter a plataforma funcionando.",
+      "noProof": "Ainda não temos depoimentos ou métricas de sucesso para compartilhar, mas estamos trabalhando duro para construir algo valioso para você."
     },
     "testimonials": {
       "title": "O que Nossos Usuários Dizem",
@@ -164,7 +173,46 @@
     "statusGenerated": "Gerado"
   },
   "auth": {
-    "login": "Login",
-    "register": "Register"
+    "login": "Entrar",
+    "register": "Cadastrar",
+    "logout": "Sair",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar Senha",
+    "name": "Nome",
+    "loginDescription": "Entre com sua conta para continuar",
+    "registerDescription": "Crie sua conta para começar a aprender",
+    "or": "ou",
+    "orSignInWith": "Ou entre com",
+    "backToHome": "Voltar para a página inicial",
+    "emailPlaceholder": "seu@email.com",
+    "passwordPlaceholder": "••••••••",
+    "namePlaceholder": "Seu nome completo",
+    "confirmPasswordPlaceholder": "••••••••",
+    "loginError": "Erro ao fazer login. Verifique suas credenciais.",
+    "registerError": "Erro ao criar conta. Tente novamente.",
+    "teacher": "Professor",
+    "student": "Estudante",
+    "switchToTeacher": "Alternar para Modo Professor"
+  },
+  "home": {
+    "welcome": "Bem-vindo",
+    "earlyStage": {
+      "title": "Estamos no Início",
+      "description": "O Study Cycle está em fase inicial de desenvolvimento. Estamos construindo uma plataforma completa de aprendizado adaptativo, mas ainda não temos prova social do nosso valor.",
+      "pricing": "Por enquanto, o preço é simbólico (R$9,90 / US$2,99 por mês) apenas para custear a infraestrutura necessária para manter a plataforma funcionando."
+    }
+  },
+  "courses": {
+    "enrolled": "Cursos Matriculados",
+    "available": "Cursos Disponíveis",
+    "searchPlaceholder": "Buscar cursos...",
+    "students": "estudantes",
+    "enroll": "Matricular-se",
+    "earlyStage": {
+      "title": "Estamos no Início",
+      "description": "O Study Cycle está em fase inicial de desenvolvimento. Ainda não temos cursos disponíveis, mas estamos trabalhando para criar conteúdo de qualidade.",
+      "pricing": "Por enquanto, o preço é simbólico (R$9,90 / US$2,99 por mês) apenas para custear a infraestrutura."
+    }
   }
 }
