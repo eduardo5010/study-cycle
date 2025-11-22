@@ -112,7 +112,8 @@
       "pro": {
         "title": "プロ",
         "description": "真剣な学習者向け",
-        "price": "R$50 / US$50",
+        "price": "R$9.90 / US$2.99",
+        "priceNote": "インフラコストを賄うための象徴的な価格のみ",
         "feature1": "すべての基本機能",
         "feature2": "上級コース",
         "feature3": "優先サポート",

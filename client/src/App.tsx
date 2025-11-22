@@ -23,7 +23,13 @@ function Router() {
   return (
     <WithMainLayout>
       <Switch>
+        {/* Public routes */}
         <Route path="/" component={LandingPage} />
+        <Route path="/auth/login" component={AuthLoginPage} />
+        <Route path="/auth/register" component={AuthRegisterPage} />
+        <Route path="/auth/callback" component={AuthCallbackPage} />
+        
+        {/* Protected routes - require authentication */}
         <Route
           path="/home"
           component={() => (
@@ -32,11 +38,22 @@ function Router() {
             </ProtectedRoute>
           )}
         />
-        <Route path="/auth/login" component={AuthLoginPage} />
-        <Route path="/auth/register" component={AuthRegisterPage} />
-        <Route path="/auth/callback" component={AuthCallbackPage} />
-        <Route path="/courses" component={CoursesPage} />
-        <Route path="/subjects" component={SubjectsPage} />
+        <Route
+          path="/courses"
+          component={() => (
+            <ProtectedRoute>
+              <CoursesPage />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/subjects"
+          component={() => (
+            <ProtectedRoute>
+              <SubjectsPage />
+            </ProtectedRoute>
+          )}
+        />
         <Route
           path="/teacher"
           component={() => (
@@ -47,29 +64,60 @@ function Router() {
         />
         <Route
           path="/calendar"
-          component={() => <PlaceholderPage title="Calendário" />}
+          component={() => (
+            <ProtectedRoute>
+              <PlaceholderPage title="Calendário" />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="/chats"
-          component={() => <PlaceholderPage title="Chats" />}
+          component={() => (
+            <ProtectedRoute>
+              <PlaceholderPage title="Chats" />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="/events"
-          component={() => <PlaceholderPage title="Eventos" />}
+          component={() => (
+            <ProtectedRoute>
+              <PlaceholderPage title="Eventos" />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="/english"
-          component={() => <PlaceholderPage title="Inglês" />}
+          component={() => (
+            <ProtectedRoute>
+              <PlaceholderPage title="Inglês" />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="/mandarin"
-          component={() => <PlaceholderPage title="Mandarim" />}
+          component={() => (
+            <ProtectedRoute>
+              <PlaceholderPage title="Mandarim" />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="/settings"
-          component={() => <PlaceholderPage title="Configurações" />}
+          component={() => (
+            <ProtectedRoute>
+              <PlaceholderPage title="Configurações" />
+            </ProtectedRoute>
+          )}
         />
-        <Route path="/admin" component={AdminPage} />
+        <Route
+          path="/admin"
+          component={() => (
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+          )}
+        />
         <Route component={NotFound} />
       </Switch>
     </WithMainLayout>

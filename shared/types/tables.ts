@@ -1,23 +1,23 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { sqliteTable, text, timestamp, integer } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import type { Course } from "@shared/types/course";
 import { users } from "../schema";
 
-export const content = pgTable("content", {
-  id: varchar("id")
+export const content = sqliteTable("content", {
+  id: text("id")
     .primaryKey()
-    .default(sql`gen_random_uuid()`),
+    .default(sql`(lower(hex(randomblob(16))))`),
   title: text("title").notNull(),
   description: text("description"),
   type: text("type").notNull(), // "COURSE", "SUBJECT", "MODULE", etc.
-  data: jsonb("data").notNull(), // Course, Subject, Module, etc.
-  createdBy: varchar("created_by")
+  data: text("data", { mode: "json" }).notNull().$type<Course>(), // Course, Subject, Module, etc.
+  createdBy: text("created_by")
     .notNull()
     .references(() => users.id),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
 });
 
 export const insertContentSchema = createInsertSchema(content).extend({

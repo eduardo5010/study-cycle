@@ -112,7 +112,8 @@
       "pro": {
         "title": "Pro",
         "description": "Für ernsthafte Lernende",
-        "price": "R$50 / US$50",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Symbolischer Preis nur zur Deckung der Infrastrukturkosten",
         "feature1": "Alle Basic-Funktionen",
         "feature2": "Fortgeschrittene Kurse",
         "feature3": "Prioritäts-Support",
