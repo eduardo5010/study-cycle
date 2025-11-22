@@ -8,8 +8,9 @@ interface WithMainLayoutProps {
 export function WithMainLayout({ children }: WithMainLayoutProps) {
   const [location] = useLocation();
 
-  // Não mostrar o layout principal na landing page
-  if (location === "/") {
+  // Não mostrar o layout principal na landing page e nas páginas de auth
+  // (elas já têm o Header incluído)
+  if (location === "/" || location.startsWith("/auth/")) {
     return <>{children}</>;
   }
 

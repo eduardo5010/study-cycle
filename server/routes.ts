@@ -1,6 +1,5 @@
 import type { Express } from "express";
 import multer from "multer";
-import jwt from "jsonwebtoken";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import {
@@ -14,6 +13,11 @@ import {
 } from "@shared/schema";
 import { insertContentSchema } from "@shared/schema/content";
 import type { UserType } from "@shared/types/user";
+import { hashPassword, comparePassword, signToken, getUserIdFromReq } from "./utils/auth";
+import { requireAuth, requireTeacher } from "./middleware/auth";
+import { asyncHandler, ValidationError, AuthenticationError, NotFoundError, ConflictError } from "./utils/errors";
+import { logger } from "./utils/logger";
+import { env } from "./utils/env";
 
 function getUserType(user: {
   isStudent: boolean;
@@ -51,28 +55,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   const upload = multer({ storage: diskStorage });
 
-  const JWT_SECRET = process.env.JWT_SECRET || "dev-secret";
-
-  function signToken(userId: string) {
-    return jwt.sign({ userId }, JWT_SECRET, { expiresIn: "30d" });
-  }
-
-  function getUserIdFromReq(req: any): string | undefined {
-    const auth = (req.headers["authorization"] ||
-      req.headers["Authorization"]) as string | undefined;
-    if (auth && auth.startsWith("Bearer ")) {
-      const token = auth.slice(7);
-      try {
-        const payload = jwt.verify(token, JWT_SECRET) as any;
-        if (payload && payload.userId) return payload.userId as string;
-      } catch (e) {
-        // invalid token
-      }
-    }
-    const uid = req.headers["user-id"];
-    return typeof uid === "string" ? uid : undefined;
-  }
-
   // Simple in-memory map to correlate OAuth state -> intent (login or link) and userId (for linking)
   const oauthStateMap: Map<
     string,
@@ -101,12 +83,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         oauthStateMap.set(state, { action: "login" });
       }
 
-      const frontend = process.env.FRONTEND_URL || "http://localhost:5173";
+      const frontend = env.FRONTEND_URL;
 
       if (provider === "github") {
-        const clientId = process.env.GITHUB_CLIENT_ID;
+        const clientId = env.GITHUB_CLIENT_ID;
         const redirectUri = `${
-          process.env.SERVER_URL || "http://localhost:3000"
+          env.SERVER_URL
         }/api/auth/oauth/github/callback`;
         const scope = "user:email";
         const url = `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
@@ -120,9 +102,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       if (provider === "google") {
-        const clientId = process.env.GOOGLE_CLIENT_ID;
+        const clientId = env.GOOGLE_CLIENT_ID;
         const redirectUri = `${
-          process.env.SERVER_URL || "http://localhost:3000"
+          env.SERVER_URL
         }/api/auth/oauth/google/callback`;
         const scope = "openid email profile";
         const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(
@@ -136,9 +118,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       if (provider === "facebook") {
-        const clientId = process.env.FACEBOOK_CLIENT_ID;
+        const clientId = env.FACEBOOK_CLIENT_ID;
         const redirectUri = `${
-          process.env.SERVER_URL || "http://localhost:3000"
+          env.SERVER_URL
         }/api/auth/oauth/facebook/callback`;
         const scope = "email";
         const url = `https://www.facebook.com/v15.0/dialog/oauth?client_id=${encodeURIComponent(
@@ -153,7 +135,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(400).json({ message: "Unsupported provider" });
     } catch (err) {
-      console.error("Failed to start OAuth flow", err);
+      logger.error("Failed to start OAuth flow", err);
       res.status(500).json({ message: "Failed to start OAuth flow" });
     }
   });
@@ -179,8 +161,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            client_id: process.env.GITHUB_CLIENT_ID,
-            client_secret: process.env.GITHUB_CLIENT_SECRET,
+            client_id: env.GITHUB_CLIENT_ID || "",
+            client_secret: env.GITHUB_CLIENT_SECRET || "",
             code,
           }),
         }
@@ -189,7 +171,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const tokenJson = await tokenResp.json();
       const accessToken = tokenJson.access_token;
       if (!accessToken) {
-        console.error("GitHub token error", tokenJson);
+        logger.error("GitHub token error", undefined, { tokenJson });
         return res.status(400).send("Failed to obtain GitHub access token");
       }
 
@@ -244,7 +226,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             }/profile?linked=github`
           );
         } catch (e) {
-          console.error("Failed to link GitHub account", e);
+          logger.error("Failed to link GitHub account", e);
           return res.status(500).send("Failed to link account");
         }
       }
@@ -279,7 +261,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }/auth/callback?token=${encodeURIComponent(token)}`;
       return res.redirect(redirectTo);
     } catch (err) {
-      console.error("GitHub callback failed", err);
+      logger.error("GitHub callback failed", err);
       res.status(500).send("OAuth callback failed");
     }
   });
@@ -299,10 +281,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
           code: String(code),
-          client_id: String(process.env.GOOGLE_CLIENT_ID || ""),
-          client_secret: String(process.env.GOOGLE_CLIENT_SECRET || ""),
+          client_id: String(env.GOOGLE_CLIENT_ID || ""),
+          client_secret: String(env.GOOGLE_CLIENT_SECRET || ""),
           redirect_uri: `${
-            process.env.SERVER_URL || "http://localhost:3000"
+            env.SERVER_URL
           }/api/auth/oauth/google/callback`,
           grant_type: "authorization_code",
         }),
@@ -312,7 +294,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const accessToken = tokenJson.access_token;
       const idToken = tokenJson.id_token;
       if (!accessToken && !idToken) {
-        console.error("Google token error", tokenJson);
+        logger.error("Google token error", undefined, { tokenJson });
         return res.status(400).send("Failed to obtain Google access token");
       }
 
@@ -384,7 +366,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }/auth/callback?token=${encodeURIComponent(token)}`
       );
     } catch (err) {
-      console.error("Google callback failed", err);
+      logger.error("Google callback failed", err);
       res.status(500).send("OAuth callback failed");
     }
   });
@@ -399,21 +381,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!mapping) return res.status(400).send("Invalid or expired state");
 
       const redirectUri = `${
-        process.env.SERVER_URL || "http://localhost:3000"
+        env.SERVER_URL
       }/api/auth/oauth/facebook/callback`;
       // exchange code for token (facebook uses GET)
       const tokenUrl = `https://graph.facebook.com/v15.0/oauth/access_token?client_id=${encodeURIComponent(
-        String(process.env.FACEBOOK_CLIENT_ID || "")
+        String(env.FACEBOOK_CLIENT_ID || "")
       )}&redirect_uri=${encodeURIComponent(
         redirectUri
       )}&client_secret=${encodeURIComponent(
-        String(process.env.FACEBOOK_CLIENT_SECRET || "")
+        String(env.FACEBOOK_CLIENT_SECRET || "")
       )}&code=${encodeURIComponent(String(code))}`;
       const tokenResp = await fetch(tokenUrl);
       const tokenJson = await tokenResp.json();
       const accessToken = tokenJson.access_token;
       if (!accessToken) {
-        console.error("Facebook token error", tokenJson);
+        logger.error("Facebook token error", undefined, { tokenJson });
         return res.status(400).send("Failed to obtain Facebook access token");
       }
 
@@ -468,7 +450,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }/auth/callback?token=${encodeURIComponent(token)}`
       );
     } catch (err) {
-      console.error("Facebook callback failed", err);
+      logger.error("Facebook callback failed", err);
       res.status(500).send("OAuth callback failed");
     }
   });
@@ -682,16 +664,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Authentication endpoints
-  app.post("/api/auth/register", async (req, res) => {
-    try {
+  app.post(
+    "/api/auth/register",
+    asyncHandler(async (req, res) => {
       const validatedData = insertUserSchema.parse(req.body);
       const existingUser = await storage.getUserByEmail(validatedData.email);
 
       if (existingUser) {
-        return res.status(400).json({ message: "Email already registered" });
+        throw new ConflictError("Email already registered");
       }
 
-      const user = await storage.createUser(validatedData);
+      // Hash password before storing
+      const hashedPassword = await hashPassword(validatedData.password);
+      const user = await storage.createUser({
+        ...validatedData,
+        password: hashedPassword,
+      });
+
       const sessionUser = {
         id: user.id,
         name: user.name,
@@ -700,18 +689,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
       };
       const token = signToken(user.id);
       res.status(201).json({ ...sessionUser, token });
-    } catch (error) {
-      res.status(400).json({ message: "Invalid registration data" });
-    }
-  });
+    })
+  );
 
-  app.post("/api/auth/login", async (req, res) => {
-    try {
+  app.post(
+    "/api/auth/login",
+    asyncHandler(async (req, res) => {
       const validatedData = loginSchema.parse(req.body);
       const user = await storage.getUserByEmail(validatedData.email);
 
-      if (!user || user.password !== validatedData.password) {
-        return res.status(401).json({ message: "Invalid credentials" });
+      if (!user) {
+        throw new AuthenticationError("Invalid credentials");
+      }
+
+      // Compare password with hash
+      const isPasswordValid = await comparePassword(
+        validatedData.password,
+        user.password
+      );
+
+      if (!isPasswordValid) {
+        throw new AuthenticationError("Invalid credentials");
       }
 
       const sessionUser = {
@@ -723,19 +721,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       };
       const token = signToken(user.id);
       res.json({ ...sessionUser, token });
-    } catch (error) {
-      res.status(400).json({ message: "Invalid login data" });
-    }
-  });
+    })
+  );
 
-  app.get("/api/auth/me", async (req, res) => {
-    const userId = getUserIdFromReq(req);
-    if (!userId) {
-      return res.json(null);
-    }
+  app.get(
+    "/api/auth/me",
+    asyncHandler(async (req, res) => {
+      const userId = getUserIdFromReq(req);
+      if (!userId) {
+        return res.json(null);
+      }
 
-    try {
-      const user = await storage.getUserById(userId as string);
+      const user = await storage.getUserById(userId);
       if (!user) {
         return res.json(null);
       }
@@ -749,11 +746,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       };
 
       res.json(sessionUser);
-    } catch (error) {
-      console.error("Error fetching user:", error);
-      res.status(500).json({ message: "Failed to fetch user data" });
-    }
-  });
+    })
+  );
 
   app.post("/api/auth/logout", (req, res) => {
     // Em produção, isso invalidaria o token JWT
@@ -790,7 +784,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json(sessionUser);
     } catch (error) {
-      console.error("Error switching to teacher:", error);
+      logger.error("Error switching to teacher", error);
       res.status(500).json({ message: "Failed to switch to teacher" });
     }
   });
@@ -825,7 +819,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(204).send();
     } catch (err) {
-      console.error("Failed to unlink provider", err);
+      logger.error("Failed to unlink provider", err);
       res.status(500).json({ message: "Failed to unlink provider" });
     }
   });
@@ -858,29 +852,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/courses", async (req, res) => {
-    try {
-      const userId = getUserIdFromReq(req);
-      if (!userId) {
-        return res.status(401).json({ message: "Unauthorized" });
-      }
-
-      const user = await storage.getUserById(userId as string);
-      if (!user || !user.isTeacher) {
-        return res
-          .status(403)
-          .json({ message: "Only teachers can create courses" });
-      }
-
+  app.post(
+    "/api/courses",
+    requireAuth,
+    requireTeacher,
+    asyncHandler(async (req: any, res) => {
       const course = await storage.createCourse({
         ...req.body,
-        creatorId: userId as string,
+        creatorId: req.userId!,
       });
       res.status(201).json(course);
-    } catch (error) {
-      res.status(400).json({ message: "Failed to create course" });
-    }
-  });
+    })
+  );
 
   // Rotas de gamificação
   app.get("/api/gamification/:userId", async (req, res) => {
@@ -924,7 +907,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(201).json(ev);
     } catch (error) {
-      console.error("Failed to log review event", error);
+      logger.error("Failed to log review event", error);
       res.status(500).json({ message: "Failed to log review event" });
     }
   });
@@ -941,7 +924,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }));
       res.json(serialized);
     } catch (error) {
-      console.error("Failed to fetch review events", error);
+      logger.error("Failed to fetch review events", error);
       res.status(500).json({ message: "Failed to fetch review events" });
     }
   });
@@ -958,7 +941,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         source: rec.source || null,
       });
     } catch (error) {
-      console.error("Failed to get user lambda", error);
+      logger.error("Failed to get user lambda", error);
       res.status(500).json({ message: "Failed to get user lambda" });
     }
   });
@@ -972,7 +955,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       await storage.setUserLambda(userId, lambda, source || "online");
       res.status(204).send();
     } catch (error) {
-      console.error("Failed to set user lambda", error);
+      logger.error("Failed to set user lambda", error);
       res.status(500).json({ message: "Failed to set user lambda" });
     }
   });
@@ -1036,7 +1019,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         candidates: results,
       });
     } catch (error) {
-      console.error("Prediction failed", error);
+      logger.error("Prediction failed", error);
       res.status(500).json({ message: "Prediction failed" });
     }
   });
@@ -1048,7 +1031,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const variants = await storage.getReviewVariantsForItem(itemId);
       res.json(variants);
     } catch (error) {
-      console.error("Failed to list variants", error);
+      logger.error("Failed to list variants", error);
       res.status(500).json({ message: "Failed to list variants" });
     }
   });
@@ -1071,7 +1054,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(201).json(variant);
     } catch (error) {
-      console.error("Failed to create variant", error);
+      logger.error("Failed to create variant", error);
       res.status(500).json({ message: "Failed to create variant" });
     }
   });
@@ -1122,11 +1105,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
               typeof msg === "string" ? msg : JSON.stringify(msg || "");
           } else {
             const txt = await resp.text();
-            console.warn("OpenAI error", resp.status, txt);
+            logger.warn("OpenAI error", undefined, { status: resp.status, text: txt });
             generatedText = basePrompt; // fallback
           }
         } catch (err) {
-          console.error("OpenAI request failed", err);
+          logger.error("OpenAI request failed", err);
           generatedText = basePrompt;
         }
       } else {
@@ -1156,7 +1139,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(201).json(variant);
     } catch (error) {
-      console.error("AI generation failed", error);
+      logger.error("AI generation failed", error);
       res.status(500).json({ message: "AI generation failed" });
     }
   });
@@ -1170,7 +1153,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       await storage.markVariantUsed(variantId, userId);
       res.status(204).send();
     } catch (error) {
-      console.error("Failed to mark variant used", error);
+      logger.error("Failed to mark variant used", error);
       res.status(500).json({ message: "Failed to mark variant used" });
     }
   });
@@ -1248,11 +1231,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // enqueue OCR job (best-effort, non-blocking)
       import("./ocr/queue")
         .then((mod) => mod.enqueue(file.path, content.id, userId))
-        .catch((err) => console.warn("OCR queue failed to enqueue:", err));
+        .catch((err) => logger.warn("OCR queue failed to enqueue", err));
 
       res.status(201).json(content);
     } catch (error) {
-      console.error("Upload failed", error);
+      logger.error("Upload failed", error);
       res.status(500).json({ message: "Upload failed" });
     }
   });
@@ -1291,7 +1274,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const stream = fs.createReadStream(path);
       stream.pipe(res);
     } catch (err) {
-      console.error("Download failed", err);
+      logger.error("Download failed", err);
       res.status(500).json({ message: "Download failed" });
     }
   });
@@ -1316,7 +1299,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }))
       );
     } catch (err) {
-      console.error("Failed to list uploads", err);
+      logger.error("Failed to list uploads", err);
       res.status(500).json({ message: "Failed to list uploads" });
     }
   });
@@ -1420,7 +1403,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           timeSinceLastReviewSec: 0,
         });
       } catch (e) {
-        console.warn("Failed to log initial review event:", e);
+        logger.warn("Failed to log initial review event", e);
       }
 
       res.status(201).json({
@@ -1428,7 +1411,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         schedule: { nextReviewAt, forgettingProb, lambda, sum },
       });
     } catch (err) {
-      console.error("Generation from content failed", err);
+      logger.error("Generation from content failed", err);
       res.status(500).json({ message: "Generation failed" });
     }
   });
@@ -1463,7 +1446,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }));
       res.json({ count: summary.length, items: summary });
     } catch (error) {
-      console.error("Failed to list scheduled variants", error);
+      logger.error("Failed to list scheduled variants", error);
       res.status(500).json({ message: "Failed to list scheduled variants" });
     }
   });
@@ -1503,7 +1486,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         updatedAt: new Date().toISOString(),
       });
     } catch (error) {
-      console.error("Failed to adjust lambda", error);
+      logger.error("Failed to adjust lambda", error);
       res.status(500).json({ message: "Failed to adjust lambda" });
     }
   });

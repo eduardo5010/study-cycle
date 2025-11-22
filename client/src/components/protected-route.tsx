@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/contexts/auth-context";
 
@@ -9,6 +9,13 @@ export default function ProtectedRoute({
 }) {
   const { user, isLoading } = useAuth();
   const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      // Redirect unauthenticated users to login
+      setLocation("/auth/login");
+    }
+  }, [user, isLoading, setLocation]);
 
   if (isLoading) {
     return (
@@ -22,8 +29,6 @@ export default function ProtectedRoute({
   }
 
   if (!user) {
-    // redirect unauthenticated users to login
-    setLocation("/auth/login");
     return null;
   }
 

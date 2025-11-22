@@ -3,76 +3,15 @@ import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
-import LanguageSelector from "@/components/language-selector";
-import ThemeToggle from "@/components/theme-toggle";
+import Header from "@/components/header";
 import LandingLayout from "@/components/landing-layout";
 import {
   BookOpen,
   Braces,
-  GraduationCap,
   MessageCircle,
   Star,
   ChevronRight,
 } from "lucide-react";
-
-function LandingPageHeader() {
-  const { t } = useLanguage();
-  const { user } = useAuth();
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <GraduationCap className="h-8 w-8" />
-          <span className="text-xl font-bold">Study Cycle</span>
-        </div>
-
-        <div className="hidden md:flex items-center space-x-6">
-          <Link
-            href="#courses"
-            className="text-sm font-medium hover:text-primary"
-          >
-            {t("landing.nav.courses")}
-          </Link>
-          <Link
-            href="#pricing"
-            className="text-sm font-medium hover:text-primary"
-          >
-            {t("landing.nav.pricing")}
-          </Link>
-          <Link
-            href="#testimonials"
-            className="text-sm font-medium hover:text-primary"
-          >
-            {t("landing.nav.testimonials")}
-          </Link>
-        </div>
-
-        <div className="flex items-center space-x-4">
-          <LanguageSelector />
-          <ThemeToggle />
-          {user ? (
-            <Button asChild>
-              <Link href="/home">
-                {t("landing.nav.dashboard")}
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          ) : (
-            <div className="flex items-center space-x-2">
-              <Button variant="outline" asChild>
-                <Link href="/auth/login">{t("auth.login")}</Link>
-              </Button>
-              <Button asChild>
-                <Link href="/auth/register">{t("auth.register")}</Link>
-              </Button>
-            </div>
-          )}
-        </div>
-      </nav>
-    </header>
-  );
-}
 
 function FeatureCard({
   icon: Icon,
@@ -126,6 +65,11 @@ function PricingCard({
         )}
       </div>
       <p className="text-muted-foreground mb-4">{description}</p>
+      {price !== t("landing.pricing.free") && t("landing.pricing.pro.priceNote") && (
+        <p className="text-xs text-muted-foreground mb-4 italic">
+          {t("landing.pricing.pro.priceNote")}
+        </p>
+      )}
       <ul className="space-y-2 mb-6">
         {features.map((feature, index) => (
           <li key={index} className="flex items-center">
@@ -168,6 +112,7 @@ function TestimonialCard({
 
 export default function LandingPage() {
   const { t } = useLanguage();
+  const { user } = useAuth();
 
   const features = [
     {
@@ -190,7 +135,6 @@ export default function LandingPage() {
   const pricingPlans = [
     {
       title: t("landing.pricing.pro.title"),
-      // Base price: R$50/month and US$50/month as requested.
       price: t("landing.pricing.pro.price"),
       description: t("landing.pricing.pro.description"),
       features: [
@@ -203,30 +147,12 @@ export default function LandingPage() {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "João Silva",
-      role: t("landing.testimonials.role.student"),
-      content: t("landing.testimonials.content1"),
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=João",
-    },
-    {
-      name: "Maria Santos",
-      role: t("landing.testimonials.role.teacher"),
-      content: t("landing.testimonials.content2"),
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
-    },
-    {
-      name: "Carlos Oliveira",
-      role: t("landing.testimonials.role.parent"),
-      content: t("landing.testimonials.content3"),
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos",
-    },
-  ];
+  // Testimonials removed - project is in early stage
+  const testimonials: any[] = [];
 
   return (
     <div className="min-h-screen">
-      <LandingPageHeader />
+      <Header />
 
       {/* Wrap the main content in LandingLayout */}
       <LandingLayout>
@@ -276,16 +202,22 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section id="testimonials" className="py-16 bg-muted/50">
+        {/* Early Stage Notice Section */}
+        <section id="early-stage" className="py-16 bg-muted/50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              {t("landing.testimonials.title")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial) => (
-                <TestimonialCard key={testimonial.name} {...testimonial} />
-              ))}
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-6">
+                {t("landing.earlyStage.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground mb-4">
+                {t("landing.earlyStage.description")}
+              </p>
+              <p className="text-muted-foreground mb-6">
+                {t("landing.earlyStage.pricing")}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {t("landing.earlyStage.noProof")}
+              </p>
             </div>
           </div>
         </section>

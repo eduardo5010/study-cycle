@@ -114,7 +114,8 @@
       "pro": {
         "title": "Pro",
         "description": "للمتعلمين الجادين",
-        "price": "R$50 / US$50",
+        "price": "R$9.90 / US$2.99",
+        "priceNote": "Symbolic price only to cover infrastructure costs",
         "feature1": "جميع الميزات الأساسية",
         "feature2": "دورات متقدمة",
         "feature3": "دعم ذو أولوية",

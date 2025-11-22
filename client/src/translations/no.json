@@ -114,7 +114,8 @@
       "pro": {
         "title": "Pro",
         "description": "For seriøse elever",
-        "price": "R$50 / US$50",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Symbolsk pris kun for å dekke infrastrukturkostnader",
         "feature1": "Alle grunnleggende funksjoner",
         "feature2": "Avanserte kurs",
         "feature3": "Prioritert støtte",

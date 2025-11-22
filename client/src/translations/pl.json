@@ -114,7 +114,8 @@
       "pro": {
         "title": "Pro",
         "description": "Dla ambitnych uczniów",
-        "price": "R$50 / US$50",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Cena symboliczna tylko na pokrycie kosztów infrastruktury",
         "feature1": "Wszystkie funkcje podstawowe",
         "feature2": "Kursy zaawansowane",
         "feature3": "Priorytetowe wsparcie",

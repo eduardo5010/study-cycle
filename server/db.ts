@@ -1,54 +1,30 @@
-import { Pool } from "pg";
-import { drizzle } from "drizzle-orm/node-postgres";
+import Database from "better-sqlite3";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import * as schema from "./db/schema";
 
-// Initialize a Postgres pool and drizzle client using DATABASE_URL
-const connectionStringRaw =
-  process.env.DATABASE_URL || process.env.PG_CONNECTION || null;
+// Initialize SQLite database
+const dbPath = process.env.DATABASE_URL || "./database.sqlite";
 
-if (!connectionStringRaw) {
-  // No connection string provided; fall back to localhost and warn
-  // Keep behavior backward-compatible but log an explicit hint
-  console.warn(
-    "No DATABASE_URL or PG_CONNECTION detected. Falling back to postgres://localhost:5432/study_cycle. Set DATABASE_URL to use Postgres in production."
-  );
-}
+// Create database connection
+const sqlite = new Database(dbPath);
 
-if (connectionStringRaw && typeof connectionStringRaw !== "string") {
-  throw new Error(
-    `DATABASE_URL (or PG_CONNECTION) must be a string, got ${typeof connectionStringRaw}`
-  );
-}
+// Enable foreign keys
+sqlite.pragma("foreign_keys = ON");
 
-const connectionString =
-  (connectionStringRaw as string) || "postgresql://localhost:5432/study_cycle";
-
-// quick sanity check: try to parse URL and warn if password is missing
-try {
-  const parsed = new URL(connectionString);
-  // parsed.password will be '' if not present
-  if (!parsed.password) {
-    console.warn(
-      "DATABASE_URL parsed but contains no password. If your server requires auth, set a password in the URL or use PGUSER/PGPASSWORD env vars."
-    );
-  }
-} catch (e) {
-  // Not a URL-like string; pg will still try to parse it. We only warn in debug.
-}
-
-const pool = new Pool({ connectionString });
-
-export const db = drizzle(pool);
+// Create drizzle instance
+export const db = drizzle(sqlite, { schema });
 
 export default db;
 
-// Ensure users table exists when running in development to simplify local setup.
-// This is a best-effort convenience: in production prefer proper migrations.
-(async function ensureUsersTable() {
+// Ensure tables exist when running in development
+// This is a best-effort convenience: in production prefer proper migrations
+(async function ensureTables() {
   try {
-    const createSql = `
+    // Users table
+    sqlite.exec(`
       CREATE TABLE IF NOT EXISTS users (
         id TEXT PRIMARY KEY,
-        email TEXT NOT NULL,
+        email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
         name TEXT NOT NULL,
         is_student INTEGER DEFAULT 1,
@@ -60,15 +36,54 @@ export default db;
         github_id TEXT,
         google_id TEXT,
         facebook_id TEXT,
-        created_at TIMESTAMP DEFAULT now(),
-        updated_at TIMESTAMP DEFAULT now()
+        created_at TEXT DEFAULT (datetime('now')),
+        updated_at TEXT DEFAULT (datetime('now'))
       );
-    `;
-    await pool.query(createSql);
+    `);
+
+    // Review events table
+    sqlite.exec(`
+      CREATE TABLE IF NOT EXISTS review_events (
+        id TEXT PRIMARY KEY,
+        user_id TEXT,
+        item_id TEXT,
+        timestamp TEXT DEFAULT (datetime('now')),
+        correctness INTEGER,
+        response_time_ms INTEGER,
+        n_reps INTEGER,
+        time_since_last_review_sec INTEGER,
+        metadata TEXT DEFAULT '{}',
+        created_at TEXT DEFAULT (datetime('now'))
+      );
+    `);
+
+    // Review variants table
+    sqlite.exec(`
+      CREATE TABLE IF NOT EXISTS review_variants (
+        id TEXT PRIMARY KEY,
+        item_id TEXT,
+        author_id TEXT,
+        type TEXT,
+        content TEXT DEFAULT '{}',
+        metadata TEXT DEFAULT '{}',
+        created_at TEXT DEFAULT (datetime('now')),
+        last_used_by TEXT DEFAULT '{}'
+      );
+    `);
+
+    // User lambdas table
+    sqlite.exec(`
+      CREATE TABLE IF NOT EXISTS user_lambdas (
+        user_id TEXT PRIMARY KEY,
+        lambda TEXT,
+        updated_at TEXT DEFAULT (datetime('now')),
+        source TEXT
+      );
+    `);
   } catch (err) {
-    // ignore - pool may be unavailable in some environments
+    // ignore - database may be unavailable in some environments
     console.warn(
-      "Could not ensure users table exists:",
+      "Could not ensure tables exist:",
       (err as any)?.message || err
     );
   }

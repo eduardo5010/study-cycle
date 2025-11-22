@@ -112,7 +112,8 @@
       "pro": {
         "title": "Pro",
         "description": "Per studenti seri",
-        "price": "R$50 / US$50",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Prezzo simbolico solo per coprire i costi dell'infrastruttura",
         "feature1": "Tutte le funzionalità base",
         "feature2": "Corsi avanzati",
         "feature3": "Supporto prioritario",

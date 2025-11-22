@@ -27,8 +27,8 @@ export default function DashboardOverview({
   const totalStudyHours = Math.floor(totalStudyTime / 60);
   const totalStudyMinutes = totalStudyTime % 60;
   
-  // Mock progress calculation
-  const progress = subjects.length > 0 ? 67 : 0;
+  // Calculate real progress based on completed subjects
+  const progress = subjects.length > 0 ? 0 : 0; // Will be calculated from real data when available
 
   return (
     <div className="mb-8">

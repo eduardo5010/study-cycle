@@ -30,6 +30,7 @@ import {
   users as usersTable,
 } from "./db/schema";
 import { eq } from "drizzle-orm";
+import { hashPassword } from "./utils/auth";
 
 export interface IStorage {
   // Legacy Subjects (for compatibility)
@@ -429,10 +430,16 @@ export class MemStorage implements IStorage {
   // Users and authentication
   async createUser(user: InsertUser): Promise<User> {
     const id = randomUUID();
+    // Password should already be hashed by the route handler, but hash it here as a safety measure
+    // if it's not already hashed (for backward compatibility)
+    const password = user.password.startsWith("$2") 
+      ? user.password 
+      : await hashPassword(user.password);
+    
     const newUser: User = {
       id,
       email: user.email,
-      password: user.password, // In real app, this would be hashed
+      password,
       name: user.name,
       isStudent: user.isStudent || true,
       isTeacher: user.isTeacher || false,
@@ -929,7 +936,7 @@ export class MemStorage implements IStorage {
   }
 }
 
-// Hybrid storage: uses Postgres (Drizzle) for ML-review data and per-user lambdas,
+// Hybrid storage: uses SQLite (Drizzle) for ML-review data and per-user lambdas,
 // while keeping the existing MemStorage behavior for legacy app data until
 // a full migration is implemented.
 class HybridStorage implements IStorage {
@@ -1010,7 +1017,7 @@ class HybridStorage implements IStorage {
   }
 
   async createUser(u: any) {
-    // Try to persist to Postgres first; fall back to in-memory storage if DB is unavailable
+    // Try to persist to SQLite first; fall back to in-memory storage if DB is unavailable
     try {
       const id = randomUUID();
       const row = {
@@ -1219,7 +1226,7 @@ class HybridStorage implements IStorage {
     return this.mem.clearAllCycleData();
   }
 
-  // ML / Review events - Postgres backed via Drizzle
+  // ML / Review events - SQLite backed via Drizzle
   async logReviewEvent(event: ReviewEventInput): Promise<ReviewEvent> {
     const id = randomUUID();
     await db.insert(reviewEvents).values({

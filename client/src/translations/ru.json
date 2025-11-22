@@ -114,7 +114,8 @@
       "pro": {
         "title": "Pro",
         "description": "For serious learners",
-        "price": "R$50 / US$50",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Символическая цена только для покрытия затрат на инфраструктуру",
         "feature1": "All basic features",
         "feature2": "Advanced courses",
         "feature3": "Priority support",
