@@ -6,9 +6,6 @@ vite.config.ts.*
 *.tar.gz
 .aider*
 .env
-.env
-.env
-.env
 # SQLite database files
 *.sqlite
 *.sqlite3
