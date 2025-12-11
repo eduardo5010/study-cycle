@@ -1,5 +1,7 @@
-import { Plus, Settings, Download, Edit3 } from "lucide-react";
+import { Plus, Settings, Download, Edit3, Share, MessageCircle, Users, Trophy } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 interface QuickActionsProps {
   onAddSubject: () => void;
@@ -65,6 +67,37 @@ export default function QuickActions({
             <span className="font-medium text-foreground truncate">{t('actions.editCycle')}</span>
           </button>
         )}
+      </div>
+
+      {/* Social Actions Section */}
+      <div className="mt-6 pt-6 border-t">
+        <h4 className="text-sm font-semibold text-muted-foreground mb-3">Community</h4>
+        <div className="space-y-2">
+          <Button variant="outline" size="sm" className="w-full justify-start" asChild>
+            <Link href="/feed">
+              <Share className="h-4 w-4 mr-2" />
+              Share Achievement
+            </Link>
+          </Button>
+          <Button variant="outline" size="sm" className="w-full justify-start" asChild>
+            <Link href="/chats">
+              <MessageCircle className="h-4 w-4 mr-2" />
+              Join Study Group
+            </Link>
+          </Button>
+          <Button variant="outline" size="sm" className="w-full justify-start" asChild>
+            <Link href="/calendar">
+              <Users className="h-4 w-4 mr-2" />
+              Plan Study Session
+            </Link>
+          </Button>
+          <Button variant="outline" size="sm" className="w-full justify-start" asChild>
+            <Link href="/feed">
+              <Trophy className="h-4 w-4 mr-2" />
+              View Leaderboard
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

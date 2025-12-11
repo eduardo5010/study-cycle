@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { Clock, Play, Book } from "lucide-react";
+import { Clock, Play, Book, Share } from "lucide-react";
 import { Subject, WeekSchedule } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
 
 interface CurrentSubjectProps {
   weeks: WeekSchedule[];
@@ -114,22 +116,49 @@ export default function CurrentSubject({ weeks, subjects }: CurrentSubjectProps)
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-foreground">
-                {t('currentSubject.timeRemaining')}
-              </p>
-              <p className="text-lg font-bold text-primary" data-testid="time-remaining">
-                {formatTimeRemaining(currentSubject.timeRemaining)}
-              </p>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-foreground">
+                  {t('currentSubject.timeRemaining')}
+                </p>
+                <p className="text-lg font-bold text-primary" data-testid="time-remaining">
+                  {formatTimeRemaining(currentSubject.timeRemaining)}
+                </p>
+              </div>
+              <Button
+                className="flex items-center gap-2"
+                data-testid="button-start-studying"
+              >
+                <Play className="h-4 w-4" />
+                {t('currentSubject.startStudying')}
+              </Button>
             </div>
-            <Button 
-              className="flex items-center gap-2"
-              data-testid="button-start-studying"
-            >
-              <Play className="h-4 w-4" />
-              {t('currentSubject.startStudying')}
-            </Button>
+
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1"
+                asChild
+              >
+                <Link href="/feed">
+                  <Share className="h-4 w-4 mr-2" />
+                  Share Progress
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1"
+                asChild
+              >
+                <Link href="/calendar">
+                  <Clock className="h-4 w-4 mr-2" />
+                  View Schedule
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       ) : (
