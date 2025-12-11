@@ -6,6 +6,9 @@
   "nav.dashboard": "Dashboard",
   "nav.subjects": "Subjects",
   "nav.settings": "Settings",
+  "nav.explore": "Explore",
+  "nav.knowledgeAreas": "Knowledge Areas",
+  "nav.adminDashboard": "Admin Dashboard",
 
   "dashboard.currentCycle": "Current Study Cycle",
   "dashboard.newCycle": "New Cycle",
@@ -185,10 +188,29 @@
     "searchPlaceholder": "Search courses...",
     "students": "students",
     "enroll": "Enroll",
+    "programming": "Programming",
+    "math": "Mathematics",
+    "science": "Science",
+    "languages": "Languages",
     "earlyStage": {
       "title": "We're Just Getting Started",
       "description": "Study Cycle is in early development. We don't have courses available yet, but we're working to create quality content.",
       "pricing": "For now, the price is symbolic (R$9.90 / US$2.99 per month) only to cover infrastructure costs."
     }
+  },
+  "search": {
+    "placeholder": "Search courses, subjects, or content..."
+  },
+  "profile": {
+    "studentHome": "Student Home",
+    "personalInfo": "Personal Information",
+    "subscriptions": "Subscriptions",
+    "paymentMethods": "Payment Methods",
+    "requestFeature": "Request Feature",
+    "help": "Help & Support"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications yet"
   }
 }

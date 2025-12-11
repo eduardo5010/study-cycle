@@ -1,8 +1,10 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share } from "lucide-react";
 import { useState } from "react";
 import { WeekSchedule } from "@shared/schema";
 import { getSubjectBgColor, getSubjectDotColor } from "@/lib/schedule-generator";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 interface WeeklyScheduleProps {
   weeks: WeekSchedule[];
@@ -44,7 +46,13 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
             {t('schedule.title')}
           </h3>
           <div className="flex items-center space-x-2">
-            <button 
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/feed">
+                <Share className="h-4 w-4 mr-2" />
+                Share
+              </Link>
+            </Button>
+            <button
               onClick={() => setCurrentWeek(Math.max(0, currentWeek - 1))}
               disabled={currentWeek === 0}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50"
@@ -55,7 +63,7 @@ export default function WeeklySchedule({ weeks, subjects }: WeeklyScheduleProps)
             <span className="text-sm font-medium text-foreground px-3 py-1 bg-muted rounded-lg" data-testid="text-current-week">
               {t('schedule.week')} {currentWeekData?.weekNumber || 1}
             </span>
-            <button 
+            <button
               onClick={() => setCurrentWeek(Math.min(weeks.length - 1, currentWeek + 1))}
               disabled={currentWeek === weeks.length - 1}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50"

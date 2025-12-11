@@ -49,18 +49,19 @@ export default function Header() {
   const notifications: any[] = []; // Will be fetched from API when available
   const unreadNotifications = 0;
 
-  // Check if we're on the landing page
+  // Check if we're on the landing page or auth pages
   const isLandingPage = location === "/";
+  const isAuthPage = location.startsWith("/auth/");
 
-  // Landing Page Header (simplified version)
-  if (isLandingPage) {
+  // Landing Page Header (simplified version) - used for landing and auth pages
+  if (isLandingPage || isAuthPage) {
     return (
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+          <Link href={user ? "/home" : "/"} className="flex items-center space-x-4">
             <GraduationCap className="h-8 w-8" />
             <span className="text-xl font-bold">{t("app.title")}</span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center space-x-6">
             <Link
@@ -186,6 +187,13 @@ export default function Header() {
                   {t("nav.dashboard")}
                 </Link>
                 <Link
+                  href="/feed"
+                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors transition-smooth hover-scale focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                  data-testid="nav-feed"
+                >
+                  Feed
+                </Link>
+                <Link
                   href="/subjects"
                   className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors transition-smooth hover-scale focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
                   data-testid="nav-subjects"
@@ -309,10 +317,12 @@ export default function Header() {
 
                     {user.userType === "student" && (
                       <DropdownMenuItem
-                        onClick={switchToTeacher}
+                        asChild
                         data-testid="menu-switch-teacher"
                       >
-                        {t("auth.switchToTeacher")}
+                        <Link href="/teacher">
+                          {t("auth.switchToTeacher")}
+                        </Link>
                       </DropdownMenuItem>
                     )}
 
@@ -347,12 +357,12 @@ export default function Header() {
       <header className="bg-card border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
+            <Link href="/" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <GraduationCap className="text-primary-foreground h-5 w-5" />
               </div>
               <h1 className="text-xl font-bold text-foreground">{t('app.title')}</h1>
-            </div>
+            </Link>
             <nav className="hidden md:flex space-x-8">
               <a href="/dashboard" className="text-primary font-medium border-b-2 border-primary pb-1" data-testid="nav-dashboard">
                 {t('nav.dashboard')}

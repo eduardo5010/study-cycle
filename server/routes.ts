@@ -1,6 +1,8 @@
 import type { Express } from "express";
 import multer from "multer";
 import { createServer, type Server } from "http";
+import { randomUUID } from "crypto";
+import fs from "fs";
 import { storage } from "./storage";
 import {
   insertSubjectSchema,
@@ -32,21 +34,18 @@ function getUserType(user: {
 export async function registerRoutes(app: Express): Promise<Server> {
   // Multer setup for handling file uploads. We store files under server/uploads/<userId>/
   const diskStorage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function (req: any, file: any, cb: any) {
       const userId = (req.headers["user-id"] || "anonymous") as string;
       const path = `./server/uploads/${userId}`;
       // ensure directory exists
       try {
-        // lazy import fs to avoid overhead during startup
-        const fs = require("fs");
         fs.mkdirSync(path, { recursive: true });
       } catch (e) {
         // ignore
       }
       cb(null, path);
     },
-    filename: function (req, file, cb) {
-      const { randomUUID } = require("crypto");
+    filename: function (req: any, file: any, cb: any) {
       const uid = randomUUID();
       const safeName = file.originalname.replace(/[^a-zA-Z0-9._-]/g, "_");
       cb(null, `${uid}-${safeName}`);
@@ -67,16 +66,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/auth/oauth/:provider", async (req, res) => {
     try {
       const { provider } = req.params;
-      const supported = ["github", "google", "facebook"];
+      console.log("OAuth provider requested:", provider);
+      console.log("Supported providers:", ["github", "google"]);
+      const supported = ["github", "google"];
       if (!supported.includes(provider)) {
+        console.log("Provider not supported:", provider);
         return res.status(501).json({ message: "Provider not implemented" });
       }
 
-      const { randomUUID } = require("crypto");
       const state = randomUUID();
 
       // determine if this is a linking flow (has valid bearer token)
-      const userId = getUserIdFromReq(req);
+      const userId = getUserIdFromReq(req as any);
       if (userId) {
         oauthStateMap.set(state, { action: "link", userId });
       } else {
@@ -237,7 +238,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       if (!user) {
         // create a new user with a random password (user should set password later)
-        const { randomUUID } = require("crypto");
         const pwd = randomUUID();
         const newUser = await storage.createUser({
           email: email || `github+${githubId}@no-email.local`,
@@ -343,7 +343,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let user = null;
       if (email) user = await storage.getUserByEmail(String(email));
       if (!user) {
-        const { randomUUID } = require("crypto");
         const pwd = randomUUID();
         const newUser = await storage.createUser({
           email: email || `google+${googleId}@no-email.local`,
@@ -427,7 +426,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let user = null;
       if (email) user = await storage.getUserByEmail(String(email));
       if (!user) {
-        const { randomUUID } = require("crypto");
         const pwd = randomUUID();
         const newUser = await storage.createUser({
           email: email || `facebook+${facebookId}@no-email.local`,
@@ -718,6 +716,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         name: user.name,
         userType: getUserType(user),
         avatar: user.avatar,
+        memoryType: user.memoryType,
+        memoryLambda: user.memoryLambda,
       };
       const token = signToken(user.id);
       res.json({ ...sessionUser, token });
@@ -727,7 +727,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get(
     "/api/auth/me",
     asyncHandler(async (req, res) => {
-      const userId = getUserIdFromReq(req);
+      const userId = getUserIdFromReq(req as any);
       if (!userId) {
         return res.json(null);
       }
@@ -743,6 +743,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         name: user.name,
         userType: getUserType(user),
         avatar: user.avatar,
+        memoryType: user.memoryType,
+        memoryLambda: user.memoryLambda,
       };
 
       res.json(sessionUser);
@@ -755,7 +757,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   app.post("/api/auth/switch-to-teacher", async (req, res) => {
-    const userId = getUserIdFromReq(req);
+    const userId = getUserIdFromReq(req as any);
     if (!userId) {
       return res.status(401).json({ message: "Unauthorized" });
     }
@@ -789,10 +791,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.patch("/api/auth/update-memory", async (req, res) => {
+    const userId = getUserIdFromReq(req as any);
+    if (!userId) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+      const { memoryType, memoryLambda } = req.body;
+
+      if (!memoryType || typeof memoryLambda !== 'number') {
+        return res.status(400).json({ message: "Invalid memory data" });
+      }
+
+      const user = await storage.getUserById(userId as string);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      const updatedUser = await storage.updateUser(user.id, {
+        memoryType,
+        memoryLambda,
+      });
+
+      if (!updatedUser) {
+        throw new Error("Failed to update user memory settings");
+      }
+
+      const sessionUser = {
+        id: updatedUser.id,
+        email: updatedUser.email,
+        name: updatedUser.name,
+        userType: getUserType(updatedUser),
+        avatar: updatedUser.avatar,
+        memoryType: updatedUser.memoryType,
+        memoryLambda: updatedUser.memoryLambda,
+      };
+
+      res.json(sessionUser);
+    } catch (error) {
+      logger.error("Error updating memory settings", error);
+      res.status(500).json({ message: "Failed to update memory settings" });
+    }
+  });
+
   // Unlink an OAuth provider from the current user
   app.post("/api/auth/unlink/:provider", async (req, res) => {
     try {
-      const userId = getUserIdFromReq(req);
+      const userId = getUserIdFromReq(req as any);
       if (!userId) return res.status(401).json({ message: "Unauthorized" });
       const { provider } = req.params;
       const user = await storage.getUserById(userId as string);
@@ -1105,7 +1151,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
               typeof msg === "string" ? msg : JSON.stringify(msg || "");
           } else {
             const txt = await resp.text();
-            logger.warn("OpenAI error", undefined, { status: resp.status, text: txt });
+            logger.warn("OpenAI error", { status: resp.status, text: txt });
             generatedText = basePrompt; // fallback
           }
         } catch (err) {
@@ -1199,7 +1245,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Fields: file (binary). Requires header "user-id" to map uploads to a user.
   app.post("/api/uploads", upload.single("file"), async (req, res) => {
     try {
-      const userId = getUserIdFromReq(req) as string | undefined;
+      const userId = getUserIdFromReq(req as any) as string | undefined;
       if (!userId) return res.status(401).json({ message: "Unauthorized" });
       const file = (req as any).file as
         | { originalname: string; mimetype: string; size: number; path: string }
@@ -1243,7 +1289,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Secure download: only owner can download their uploaded file
   app.get("/api/uploads/:contentId/file", async (req, res) => {
     try {
-      const userId = getUserIdFromReq(req) as string | undefined;
+      const userId = getUserIdFromReq(req as any) as string | undefined;
       if (!userId) return res.status(401).json({ message: "Unauthorized" });
       const { contentId } = req.params;
       const contents = await storage.getAllContent();
@@ -1256,7 +1302,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!path) return res.status(404).json({ message: "File not available" });
 
       // stream the file
-      const fs = require("fs");
       if (!fs.existsSync(path))
         return res.status(404).json({ message: "File not found on disk" });
       res.setHeader(
@@ -1282,7 +1327,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // List uploads for the current user
   app.get("/api/uploads", async (req, res) => {
     try {
-      const userId = getUserIdFromReq(req) as string | undefined;
+      const userId = getUserIdFromReq(req as any) as string | undefined;
       const me = req.query.me === "1" || req.query.me === "true";
       if (me && !userId)
         return res.status(401).json({ message: "Unauthorized" });
@@ -1307,7 +1352,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Generate review variants from an uploaded content item (text/media)
   app.post("/api/content/:id/generate", async (req, res) => {
     try {
-      const userId = getUserIdFromReq(req) as string | undefined;
+      const userId = getUserIdFromReq(req as any) as string | undefined;
       if (!userId) return res.status(401).json({ message: "Unauthorized" });
       const { id } = req.params;
       const { difficulty, modes } = req.body || {};
@@ -1403,7 +1448,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           timeSinceLastReviewSec: 0,
         });
       } catch (e) {
-        logger.warn("Failed to log initial review event", e);
+        logger.warn("Failed to log initial review event", { error: e });
       }
 
       res.status(201).json({

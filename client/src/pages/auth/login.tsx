@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "wouter";
 import Header from "@/components/header";
-import { LogIn, UserPlus, ArrowLeft, Github, Chrome, Facebook } from "lucide-react";
+import { LogIn, UserPlus, ArrowLeft, Github, Chrome } from "lucide-react";
 
 export default function AuthLoginPage() {
   const { t } = useLanguage();
@@ -153,17 +153,6 @@ export default function AuthLoginPage() {
                     <a href="/api/auth/oauth/google">
                       <Chrome className="h-4 w-4 mr-2" />
                       Google
-                    </a>
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="flex-1"
-                    asChild
-                  >
-                    <a href="/api/auth/oauth/facebook">
-                      <Facebook className="h-4 w-4 mr-2" />
-                      Facebook
                     </a>
                   </Button>
                 </div>

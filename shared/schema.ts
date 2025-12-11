@@ -1,37 +1,48 @@
 import { sql } from "drizzle-orm";
 import {
-  sqliteTable,
-  text,
+  pgTable,
   integer,
+  varchar,
+  boolean,
   real,
-} from "drizzle-orm/sqlite-core";
+  jsonb,
+  timestamp,
+  uuid,
+  text,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import type { Course as CourseType } from "./types/course";
 
 // Base tables
-export const users = sqliteTable("users", {
-  id: text("id")
+export const users = pgTable("users", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   email: text("email").notNull().unique(),
   password: text("password").notNull(),
   name: text("name").notNull(),
-  isStudent: integer("is_student", { mode: "boolean" }).notNull().default(true),
-  isTeacher: integer("is_teacher", { mode: "boolean" }).notNull().default(false),
-  isAdmin: integer("is_admin", { mode: "boolean" }).notNull().default(false),
+  isStudent: boolean("is_student").notNull().default(true),
+  isTeacher: boolean("is_teacher").notNull().default(false),
+  isAdmin: boolean("is_admin").notNull().default(false),
   bio: text("bio"),
   avatar: text("avatar"),
-  isVerified: integer("is_verified", { mode: "boolean" }).notNull().default(false),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
-  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
+  isVerified: boolean("is_verified").notNull().default(false),
+  memoryType: text("memory_type"), // 'good', 'average', 'poor'
+  memoryLambda: real("memory_lambda"), // learning algorithm parameter
+  githubId: text("github_id"),
+  googleId: text("google_id"),
+  githubProfile: jsonb("github_profile"),
+  googleProfile: jsonb("google_profile"),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+  updatedAt: timestamp("updated_at").default(sql`now()`).notNull(),
 });
 
-export const studySettings = sqliteTable("study_settings", {
-  id: text("id")
+export const studySettings = pgTable("study_settings", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
   wakeTime: text("wake_time").notNull().default("07:00"),
   sleepTime: text("sleep_time").notNull().default("23:00"),
   dailyStudyHours: integer("daily_study_hours").notNull().default(6),
@@ -39,39 +50,39 @@ export const studySettings = sqliteTable("study_settings", {
 });
 
 // Subjects and Study Cycles
-export const subjects = sqliteTable("subjects", {
-  id: text("id")
+export const subjects = pgTable("subjects", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
   hours: integer("hours").notNull().default(0),
   minutes: integer("minutes").notNull().default(0),
 });
 
-export const globalSubjects = sqliteTable("global_subjects", {
-  id: text("id")
+export const globalSubjects = pgTable("global_subjects", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   name: text("name").notNull().unique(),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
-export const studyCycles = sqliteTable("study_cycles", {
-  id: text("id")
+export const studyCycles = pgTable("study_cycles", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
-  settingsId: text("settings_id").references(() => studySettings.id),
+  settingsId: uuid("settings_id").references(() => studySettings.id),
   totalWeeks: integer("total_weeks").notNull(),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
-export const cycleSubjects = sqliteTable("cycle_subjects", {
-  id: text("id")
+export const cycleSubjects = pgTable("cycle_subjects", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  cycleId: text("cycle_id").references(() => studyCycles.id),
-  globalSubjectId: text("global_subject_id").references(
+    .default(sql`gen_random_uuid()`),
+  cycleId: uuid("cycle_id").references(() => studyCycles.id),
+  globalSubjectId: uuid("global_subject_id").references(
     () => globalSubjects.id
   ),
   hours: integer("hours").notNull().default(0),
@@ -79,230 +90,381 @@ export const cycleSubjects = sqliteTable("cycle_subjects", {
 });
 
 // Courses and Learning Content
-export const courses = sqliteTable("courses", {
-  id: text("id")
+export const courses = pgTable("courses", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   title: text("title").notNull(),
   description: text("description"),
   category: text("category").notNull(),
   level: text("level").notNull().default("beginner"),
   thumbnailUrl: text("thumbnail_url"),
-  isCareer: integer("is_career", { mode: "boolean" }).notNull().default(false),
+  isCareer: boolean("is_career").notNull().default(false),
   estimatedHours: integer("estimated_hours").notNull().default(0),
   enrollmentCount: integer("enrollment_count").notNull().default(0),
   rating: integer("rating").notNull().default(0),
-  isPublished: integer("is_published", { mode: "boolean" }).notNull().default(false),
-  creatorId: text("creator_id").references(() => users.id),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
-  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
+  isPublished: boolean("is_published").notNull().default(false),
+  creatorId: uuid("creator_id").references(() => users.id),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+  updatedAt: timestamp("updated_at").default(sql`now()`).notNull(),
 });
 
 export type Course = typeof courses.$inferSelect;
 export type InsertCourse = typeof courses.$inferInsert;
 
-export const courseModules = sqliteTable("course_modules", {
-  id: text("id")
+export const courseModules = pgTable("course_modules", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  courseId: text("course_id").references(() => courses.id),
+    .default(sql`gen_random_uuid()`),
+  courseId: uuid("course_id").references(() => courses.id),
   title: text("title").notNull(),
   description: text("description"),
   orderIndex: integer("order_index").notNull().default(0),
   estimatedMinutes: integer("estimated_minutes").notNull().default(0),
 });
 
-export const courseContent = sqliteTable("course_content", {
-  id: text("id")
+export const courseContent = pgTable("course_content", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  moduleId: text("module_id").references(() => courseModules.id),
+    .default(sql`gen_random_uuid()`),
+  moduleId: uuid("module_id").references(() => courseModules.id),
   type: text("type").notNull(),
   title: text("title").notNull(),
   description: text("description"),
   content: text("content"),
   duration: integer("duration"),
   orderIndex: integer("order_index").notNull(),
-  isRequired: integer("is_required", { mode: "boolean" }).default(true),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  isRequired: boolean("is_required").default(true),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
-export const userCourses = sqliteTable("user_courses", {
-  id: text("id")
+export const userCourses = pgTable("user_courses", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
-  courseId: text("course_id").references(() => courses.id),
-  currentModuleId: text("current_module_id").references(
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  courseId: uuid("course_id").references(() => courses.id),
+  currentModuleId: uuid("current_module_id").references(
     () => courseModules.id
   ),
   progress: integer("progress").notNull().default(0),
-  isCompleted: integer("is_completed", { mode: "boolean" }).notNull().default(false),
-  enrolledAt: text("enrolled_at").default(sql`(datetime('now'))`),
-  completedAt: text("completed_at"),
+  isCompleted: boolean("is_completed").notNull().default(false),
+  enrolledAt: timestamp("enrolled_at").default(sql`now()`).notNull(),
+  completedAt: timestamp("completed_at"),
 });
 
 // Social Learning
-export const studyGroups = sqliteTable("study_groups", {
-  id: text("id")
+export const studyGroups = pgTable("study_groups", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
   description: text("description"),
-  ownerId: text("owner_id").references(() => users.id),
-  subjectId: text("subject_id").references(() => subjects.id),
+  ownerId: uuid("owner_id").references(() => users.id),
+  subjectId: uuid("subject_id").references(() => subjects.id),
   maxMembers: integer("max_members").default(10),
-  isPrivate: integer("is_private", { mode: "boolean" }).default(false),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  isPrivate: boolean("is_private").default(false),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
-export const groupMembers = sqliteTable("group_members", {
-  id: text("id")
+export const groupMembers = pgTable("group_members", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  groupId: text("group_id").references(() => studyGroups.id),
-  userId: text("user_id").references(() => users.id),
+    .default(sql`gen_random_uuid()`),
+  groupId: uuid("group_id").references(() => studyGroups.id),
+  userId: uuid("user_id").references(() => users.id),
   role: text("role").default("member"),
-  joinedAt: text("joined_at").default(sql`(datetime('now'))`),
+  joinedAt: timestamp("joined_at").default(sql`now()`).notNull(),
 });
 
-// Gamification
-// Tabelas de gamificação
-export const userStats = sqliteTable("user_stats", {
-  id: text("id")
+// Gamification - Sistema Avançado
+export const userStats = pgTable("user_stats", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id")
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id")
     .references(() => users.id)
     .unique(),
+  // Estatísticas básicas
   tasksCompleted: integer("tasks_completed").notNull().default(0),
   projectsCompleted: integer("projects_completed").notNull().default(0),
   certificatesEarned: integer("certificates_earned").notNull().default(0),
   currentStreak: integer("current_streak").notNull().default(0),
   longestStreak: integer("longest_streak").notNull().default(0),
   lastStudyDate: text("last_study_date"),
+
+  // XP e níveis
   currentXp: integer("current_xp").notNull().default(0),
   totalXp: integer("total_xp").notNull().default(0),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
-  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
+  currentLevel: integer("current_level").notNull().default(1),
+  levelProgress: integer("level_progress").notNull().default(0),
+
+  // Métricas competitivas
+  rankPosition: integer("rank_position"),
+  competitiveScore: integer("competitive_score").notNull().default(0),
+  wins: integer("wins").notNull().default(0),
+  losses: integer("losses").notNull().default(0),
+  draws: integer("draws").notNull().default(0),
+
+  // Métricas colaborativas
+  collaborativeScore: integer("collaborative_score").notNull().default(0),
+  studyGroupsJoined: integer("study_groups_joined").notNull().default(0),
+  studySessionsHosted: integer("study_sessions_hosted").notNull().default(0),
+  peersHelped: integer("peers_helped").notNull().default(0),
+  feedbackGiven: integer("feedback_given").notNull().default(0),
+
+  // Estatísticas de aprendizado
+  flashcardsReviewed: integer("flashcards_reviewed").notNull().default(0),
+  flashcardsCreated: integer("flashcards_created").notNull().default(0),
+  studyHoursTotal: integer("study_hours_total").notNull().default(0),
+  subjectsMastered: integer("subjects_mastered").notNull().default(0),
+
+  // Liga atual
+  currentLeagueId: uuid("current_league_id").references(() => leagues.id),
+
+  // Preferências de gamificação
+  gamificationEnabled: boolean("gamification_enabled").notNull().default(true),
+  competitivePreference: real("competitive_preference").notNull().default(0.5), // 0 = fully collaborative, 1 = fully competitive
+  notificationsEnabled: boolean("notifications_enabled").notNull().default(true),
+
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+  updatedAt: timestamp("updated_at").default(sql`now()`).notNull(),
 });
 
-export const leagues = sqliteTable("leagues", {
-  id: text("id")
+export const leagues = pgTable("leagues", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
+    .default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
+  description: text("description"),
   minXp: integer("min_xp").notNull().default(0),
-  maxXp: integer("max_xp").notNull().default(0),
+  maxXp: integer("max_xp"),
+  minUsers: integer("min_users").notNull().default(2),
+  maxUsers: integer("max_users"),
   orderIndex: integer("order_index").notNull().default(0),
   color: text("color").notNull(),
   icon: text("icon"),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
-  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
+  badgeUrl: text("badge_url"),
+  rewards: jsonb("rewards").default({}), // XP bonuses, badges, etc.
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+  updatedAt: timestamp("updated_at").default(sql`now()`).notNull(),
 });
 
-export const studyStreaks = sqliteTable("study_streaks", {
-  id: text("id")
+export const leagueSeasons = pgTable("league_seasons", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id")
+    .default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  startDate: timestamp("start_date").notNull(),
+  endDate: timestamp("end_date").notNull(),
+  isActive: boolean("is_active").notNull().default(false),
+  totalParticipants: integer("total_participants").notNull().default(0),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+});
+
+export const userLeagueHistory = pgTable("user_league_history", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  leagueId: uuid("league_id").references(() => leagues.id),
+  seasonId: uuid("season_id").references(() => leagueSeasons.id),
+  joinedAt: timestamp("joined_at").notNull(),
+  leftAt: timestamp("left_at"),
+  finalRank: integer("final_rank"),
+  seasonXp: integer("season_xp").notNull().default(0),
+  achievements: jsonb("achievements").default([]),
+});
+
+export const achievements = pgTable("achievements", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  description: text("description"),
+  longDescription: text("long_description"),
+  iconUrl: text("icon_url"),
+  badgeUrl: text("badge_url"),
+  category: text("category").notNull(), // competitive, collaborative, learning, social
+  requirementType: text("requirement_type").notNull(), // streak, xp, tasks, social, etc.
+  requirementValue: integer("requirement_value").notNull(),
+  requirementMetadata: jsonb("requirement_metadata").default({}),
+  xpReward: integer("xp_reward").notNull().default(0),
+  coinReward: integer("coin_reward").notNull().default(0),
+  isRare: boolean("is_rare").notNull().default(false),
+  isSeasonal: boolean("is_seasonal").notNull().default(false),
+  maxUnlocks: integer("max_unlocks"), // null = unlimited
+  isActive: boolean("is_active").notNull().default(true),
+  unlockRate: real("unlock_rate"), // percentage of users who unlock this
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+});
+
+export const userAchievements = pgTable("user_achievements", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  achievementId: uuid("achievement_id").references(() => achievements.id),
+  unlockedAt: timestamp("unlocked_at").default(sql`now()`).notNull(),
+  progressValue: integer("progress_value"), // for progressive achievements
+  isNew: boolean("is_new").notNull().default(true), // shown in notifications
+});
+
+export const gamificationEvents = pgTable("gamification_events", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  eventType: text("event_type").notNull(), // study_session, flashcard_review, group_join, achievement_unlock, etc.
+  eventData: jsonb("event_data").default({}),
+  xpGained: integer("xp_gained").notNull().default(0),
+  coinsGained: integer("coins_gained").notNull().default(0),
+  metadata: jsonb("metadata").default({}),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+});
+
+export const challenges = pgTable("challenges", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  description: text("description"),
+  type: text("type").notNull(), // daily, weekly, monthly, seasonal
+  category: text("category").notNull(), // competitive, collaborative, learning
+  targetValue: integer("target_value").notNull(),
+  targetUnit: text("target_unit").notNull(), // hours, tasks, xp, sessions, etc.
+  durationDays: integer("duration_days").notNull(),
+  startDate: timestamp("start_date").notNull(),
+  endDate: timestamp("end_date").notNull(),
+  maxParticipants: integer("max_participants"),
+  currentParticipants: integer("current_participants").notNull().default(0),
+  isActive: boolean("is_active").notNull().default(true),
+  rewards: jsonb("rewards").default({}),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
+});
+
+export const userChallenges = pgTable("user_challenges", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  challengeId: uuid("challenge_id").references(() => challenges.id),
+  joinedAt: timestamp("joined_at").default(sql`now()`).notNull(),
+  currentValue: integer("current_value").notNull().default(0),
+  isCompleted: boolean("is_completed").notNull().default(false),
+  completedAt: timestamp("completed_at"),
+  finalRank: integer("final_rank"),
+  rewardsClaimed: boolean("rewards_claimed").notNull().default(false),
+});
+
+export const studyStreaks = pgTable("study_streaks", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id")
     .references(() => users.id)
     .notNull(),
   date: text("date").notNull(),
   minutesStudied: integer("minutes_studied").notNull().default(0),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  tasksCompleted: integer("tasks_completed").notNull().default(0),
+  xpGained: integer("xp_gained").notNull().default(0),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
+export const leaderboardSnapshots = pgTable("leaderboard_snapshots", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  snapshotDate: timestamp("snapshot_date").default(sql`now()`).notNull(),
+  leaderboardType: text("leaderboard_type").notNull(), // overall, weekly, monthly, league
+  periodStart: timestamp("period_start"),
+  periodEnd: timestamp("period_end"),
+  rankings: jsonb("rankings").notNull(), // array of {userId, score, rank, metadata}
+  totalParticipants: integer("total_participants").notNull(),
+});
+
+// Type exports
 export type UserStats = typeof userStats.$inferSelect;
 export type InsertUserStats = typeof userStats.$inferInsert;
 export type League = typeof leagues.$inferSelect;
 export type InsertLeague = typeof leagues.$inferInsert;
+export type Achievement = typeof achievements.$inferSelect;
+export type InsertAchievement = typeof achievements.$inferInsert;
+export type UserAchievement = typeof userAchievements.$inferSelect;
+export type InsertUserAchievement = typeof userAchievements.$inferInsert;
+export type GamificationEvent = typeof gamificationEvents.$inferSelect;
+export type InsertGamificationEvent = typeof gamificationEvents.$inferInsert;
+export type Challenge = typeof challenges.$inferSelect;
+export type InsertChallenge = typeof challenges.$inferInsert;
+export type UserChallenge = typeof userChallenges.$inferSelect;
+export type InsertUserChallenge = typeof userChallenges.$inferInsert;
 export type StudyStreak = typeof studyStreaks.$inferSelect;
 export type InsertStudyStreak = typeof studyStreaks.$inferInsert;
 
-export const achievements = sqliteTable("achievements", {
-  id: text("id")
-    .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  title: text("title").notNull(),
-  description: text("description"),
-  iconUrl: text("icon_url"),
-  requirement: text("requirement").notNull(),
-  xpReward: integer("xp_reward").notNull().default(0),
-});
-
-export const userAchievements = sqliteTable("user_achievements", {
-  id: text("id")
-    .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
-  achievementId: text("achievement_id").references(() => achievements.id),
-  unlockedAt: text("unlocked_at").default(sql`(datetime('now'))`),
-});
-
 // Analytics and Progress
-export const studyAnalytics = sqliteTable("study_analytics", {
-  id: text("id")
+export const studyAnalytics = pgTable("study_analytics", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
   type: text("type").notNull(),
   value: integer("value").notNull(),
-  metadata: text("metadata", { mode: "json" }),
-  recordedAt: text("recorded_at").default(sql`(datetime('now'))`),
+  metadata: jsonb("metadata"),
+  recordedAt: timestamp("recorded_at").default(sql`now()`).notNull(),
 });
 
-export const studyProgress = sqliteTable("study_progress", {
-  id: text("id")
+export const studyProgress = pgTable("study_progress", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
-  subjectId: text("subject_id").references(() => subjects.id),
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  subjectId: uuid("subject_id").references(() => subjects.id),
   type: text("progress_type").notNull(),
   value: integer("progress_value").notNull(),
-  metadata: text("metadata", { mode: "json" }),
-  updatedAt: text("updated_at").default(sql`(datetime('now'))`),
+  metadata: jsonb("metadata"),
+  updatedAt: timestamp("updated_at").default(sql`now()`).notNull(),
 });
 
 // Projects and Tasks
-export const projects = sqliteTable("projects", {
-  id: text("id")
+export const projects = pgTable("projects", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
-  courseId: text("course_id").references(() => courses.id),
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
+  courseId: uuid("course_id").references(() => courses.id),
   title: text("title").notNull(),
   description: text("description"),
   repositoryUrl: text("repository_url"),
-  isCompleted: integer("is_completed", { mode: "boolean" }).notNull().default(false),
-  completedAt: text("completed_at"),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  isCompleted: boolean("is_completed").notNull().default(false),
+  completedAt: timestamp("completed_at"),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
-export const tasks = sqliteTable("tasks", {
-  id: text("id")
+export const tasks = pgTable("tasks", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
   title: text("title").notNull(),
   description: text("description"),
-  isCompleted: integer("is_completed", { mode: "boolean" }).notNull().default(false),
+  isCompleted: boolean("is_completed").notNull().default(false),
   xpReward: integer("xp_reward").notNull().default(10),
-  completedAt: text("completed_at"),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  completedAt: timestamp("completed_at"),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
 // Notifications
-export const notifications = sqliteTable("notifications", {
-  id: text("id")
+export const notifications = pgTable("notifications", {
+  id: uuid("id")
     .primaryKey()
-    .default(sql`(lower(hex(randomblob(16))))`),
-  userId: text("user_id").references(() => users.id),
+    .default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").references(() => users.id),
   title: text("title").notNull(),
   message: text("message").notNull(),
   type: text("type").notNull(),
-  isRead: integer("is_read", { mode: "boolean" }).notNull().default(false),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  isRead: boolean("is_read").notNull().default(false),
+  createdAt: timestamp("created_at").default(sql`now()`).notNull(),
 });
 
 // Schema validations
