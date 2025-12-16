@@ -1,0 +1,60 @@
+Header (distribuir horizontalmente)
+	Logo + Nome da Plataforma
+	Botão de menu expansível "Explorar" mostrando todas as áreas de conhecimento e todos os cursos
+	Barra de pesquisa universal (pesquisa toda a plataforma) com o placeholder "Pesquisar por tópico ou pergunta"
+	Botão Dashboard (igual ao atual)
+	Botão Disciplinas (igual ao atual)
+	Botão Configurações (Igual ao atual)
+	Botão de Modo Claro/Escuro (Igual ao atual)
+	Botão de Selecionar Idioma (Igual ao atual)
+	Número de dias de sequência
+	Botão de notificações (lista expansível com o ícone de um sino mostrando todas as notificações)
+	Botão de menu de perfil expansível mostrando a foto do usuário
+		Nome real do usuário
+		E-mail do usuário
+		Botão de "Página inicial do aluno"
+		Botão de "Informações pessoais"
+		Botão de "Minhas assinaturas"
+		Botão de "Métodos de pagamento"
+		Botão de "Solicitar uma funcionalidade"
+		Botão de "Ajuda"
+		Botão de "Sair"
+		
+	
+Sidebar à esquerda (distribuir verticalmente)
+	Botão "Início" (pré-selecionado para a página inicial)
+		Página (uma única página com duas seções):
+			Seção 1:
+				Card do módulo atual da carreira/curso atual com porcentagem de conclusão (mostrada com o número da porcentagem e uma barra de progresso) e botão de continuar)
+				Ao lado do card do módulo atual da carreira/curso atual mostrar um card dizendo "Oi, {Nome real inicial do usuário) com um subcard mostrando o número de tarefas concluídas, número de projetos concluídos e número de certificados conquistados
+				Abaixo dos dois cards anteriores mostrar a tabela de líderes do mês da liga do usuário, quanto tempo falta para acabar a contabilização de XP da liga e o nome da liga atual
+				Dois cards ao lado do card anterior um abaixo do outro:
+					Card de Streak atual mostrando dias da semana com dias de sequência ativa, dias congelados e dias restantes não estudados
+					Card com um gráfico do XP acumulado do mês atual, mostrando a variação de XP do dia
+				Dois cards um ao lado do outro abaixo dos outros cards:
+					Card de número de certificados
+					Card de número de conquistas atual/total de conquistas
+			Seção 2:
+				Página atual do StudyCycle (Reposicione toda a página atual para essa seção, não modifique nada)
+	Botão "Cursos"
+		Página (uma única página com duas seções):
+			Seção 1: 
+				Cursos selecionados
+			Seção 2: 
+				Todos os cursos/carreiras disponíveis (com barra de pesquisa)
+		Sidebar à direita
+			Aprender (pré-selecionado para a página cursos)
+			Praticar
+			Ligas
+			Missões
+			Loja
+			Perfil
+			Mais
+			Configurações
+			Ajuda
+			Sair
+	Calendário
+	Chats
+	Eventos
+	Inglês
+	Mandarim

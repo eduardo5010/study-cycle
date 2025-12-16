@@ -1,0 +1,761 @@
+{
+  "app": {
+    "title": "StudyCycle",
+    "subtitle": "Gestisci la tua pianificazione e monitora i progressi",
+    "description": "Study Cycle aiuta gli studenti a organizzare il tempo di studio, monitorare i progressi e seguire corsi adattivi per raggiungere i propri obiettivi."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "subjects": "Materie",
+    "settings": "Impostazioni",
+    "explore": "Explore",
+    "knowledgeAreas": "Knowledge Areas",
+    "adminDashboard": "Admin Dashboard"
+  },
+  "dashboard": {
+    "currentCycle": "Ciclo di Studio Attuale",
+    "newCycle": "Nuovo Ciclo",
+    "totalWeeks": "Settimane Totali",
+    "subjects": "Materie",
+    "dailyHours": "Ore Giornaliere",
+    "progress": "Progresso",
+    "plannedTime": "pianificato"
+  },
+  "schedule": {
+    "title": "Pianificazione Settimanale",
+    "week": "Settimana",
+    "empty": "Aggiungi materie per generare automaticamente la pianificazione",
+    "noStudy": "Nessuno studio pianificato"
+  },
+  "actions": {
+    "title": "Azioni Rapide",
+    "addSubject": "Aggiungi Materia",
+    "configureSchedule": "Configura Pianificazione",
+    "exportSchedule": "Esporta Pianificazione"
+  },
+  "settings": {
+    "title": "Impostazioni Attuali",
+    "wakeTime": "Ora di Risveglio",
+    "sleepTime": "Ora di Sonno",
+    "dailyStudyTime": "Tempo di Studio Giornaliero",
+    "totalCycleTime": "Tempo Totale del Ciclo",
+    "edit": "Modifica Impostazioni",
+    "pageTitle": "Settings",
+    "pageDescription": "Customize your learning experience and preferences",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "resetToDefault": "Reset to Default",
+    "resetConfirm": "Are you sure you want to reset all settings to default?",
+    "tabs": {
+      "general": "General",
+      "learning": "Learning",
+      "study": "Study",
+      "notifications": "Notifications",
+      "appearance": "Appearance"
+    },
+    "general": {
+      "profileTitle": "Profile Settings",
+      "profileDesc": "Manage your public profile and personal information",
+      "displayName": "Display Name",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell others about yourself...",
+      "privacyTitle": "Privacy & Security",
+      "privacyDesc": "Control who can see your information and activity",
+      "profileVisibility": "Profile Visibility",
+      "activityVisibility": "Activity Visibility",
+      "dataSharing": "Data Sharing",
+      "dataSharingDesc": "Allow anonymous usage data to help improve the platform"
+    },
+    "learning": {
+      "cognitiveTitle": "Cognitive Assessment",
+      "cognitiveDesc": "Take an assessment to personalize your learning",
+      "assessmentStatus": "Assessment Status",
+      "assessmentCompleted": "Assessment completed - Personalization active",
+      "assessmentNotCompleted": "Assessment not completed - Complete for advanced personalization",
+      "retakeAssessment": "Retake Assessment",
+      "takeAssessment": "Take Assessment",
+      "cognitiveProfile": "Cognitive Profile",
+      "learningStyle": "Learning Style",
+      "optimalDifficulty": "Optimal Difficulty",
+      "assessed": "Assessed",
+      "notAssessed": "Not assessed",
+      "personalized": "Personalized",
+      "adaptive": "Adaptive",
+      "optimized": "Optimized",
+      "standard": "Standard",
+      "techniquesTitle": "Smart Study Techniques",
+      "techniquesDesc": "Configure adaptive techniques based on neurolearning",
+      "spacedRepetition": "Spaced Repetition",
+      "adaptiveIntervals": "Adaptive Intervals",
+      "progressiveDifficulty": "Progressive Difficulty",
+      "selectiveReinforcement": "Selective Reinforcement",
+      "interactiveTechniques": "Interactive Techniques",
+      "gradualRevelation": "Gradual Revelation",
+      "contextualHints": "Contextual Hints",
+      "realTimeFeedback": "Real-time Feedback",
+      "specialModesTitle": "Special Study Modes",
+      "flowMode": "Flow Mode",
+      "flowModeDesc": "Immersive high-concentration sessions",
+      "gentleMode": "Gentle Mode",
+      "gentleModeDesc": "Gradual and comfortable learning",
+      "challengeMode": "Challenge Mode",
+      "challengeModeDesc": "Maximum learning through challenge"
+    },
+    "study": {
+      "preferencesTitle": "Study Preferences",
+      "preferencesDesc": "Configure your learning habits and techniques",
+      "dailyGoal": "Daily Study Goal",
+      "studyTechnique": "Study Technique",
+      "breakDuration": "Break Duration (minutes)",
+      "longBreakDuration": "Long Break Duration (minutes)",
+      "gamification": "Gamification",
+      "gamificationDesc": "Enable points, badges, and achievements",
+      "progressBars": "Progress Bars",
+      "progressBarsDesc": "Show progress indicators throughout the app"
+    },
+    "notifications": {
+      "preferencesTitle": "Notification Preferences",
+      "preferencesDesc": "Choose how and when you want to be notified",
+      "pushEnabled": "Push Notifications",
+      "pushDesc": "Receive notifications on your device",
+      "emailEnabled": "Email Notifications",
+      "emailDesc": "Receive notifications via email",
+      "studyReminders": "Study Reminders",
+      "studyRemindersDesc": "Get reminded to study regularly",
+      "achievementNotifications": "Achievement Notifications",
+      "achievementDesc": "Celebrate your learning milestones",
+      "reminderTime": "Reminder Time",
+      "quietHours": "Quiet Hours",
+      "quietHoursDesc": "No notifications will be sent during these hours",
+      "startTime": "Start Time",
+      "endTime": "End Time"
+    },
+    "appearance": {
+      "settingsTitle": "Appearance Settings",
+      "settingsDesc": "Customize how the app looks and feels",
+      "theme": "Theme",
+      "colorScheme": "Color Scheme",
+      "fontSize": "Font Size",
+      "compactMode": "Compact Mode",
+      "compactDesc": "Use less space for a denser layout",
+      "animations": "Animations",
+      "animationsDesc": "Enable smooth transitions and animations",
+      "highContrast": "High Contrast",
+      "highContrastDesc": "Increase contrast for better visibility"
+    },
+    "privacy": {
+      "public": "Public - Anyone can see",
+      "friends": "Friends Only",
+      "private": "Private"
+    },
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "colors": {
+      "blue": "Blue",
+      "green": "Green",
+      "purple": "Purple",
+      "orange": "Orange",
+      "red": "Red"
+    },
+    "fontSizes": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large",
+      "xl": "Extra Large"
+    },
+    "studyTechniques": {
+      "pomodoro": "Pomodoro (25 min work)",
+      "custom": "Custom Intervals",
+      "continuous": "Continuous Study"
+    }
+  },
+  "subjects": {
+    "title": "Materie",
+    "count": "materia",
+    "countPlural": "materie",
+    "empty": "Nessuna materia aggiunta ancora",
+    "add": "Aggiungi Nuova Materia",
+    "name": "Nome della Materia",
+    "hours": "Ore",
+    "minutes": "Minuti",
+    "nameExample": "Es: Matematica"
+  },
+  "modal": {
+    "cancel": "Annulla",
+    "add": "Aggiungi",
+    "adding": "Aggiungendo...",
+    "loading": "Loading..."
+  },
+  "toast": {
+    "subjectAdded": "Materia aggiunta",
+    "subjectAddedDesc": "La materia è stata aggiunta con successo.",
+    "error": "Errore",
+    "subjectError": "Impossibile aggiungere la materia.",
+    "noScheduleExport": "Nessuna pianificazione da esportare",
+    "noScheduleExportDesc": "Aggiungi materie per generare una pianificazione.",
+    "featureInDev": "Funzionalità in sviluppo",
+    "newCycleInDev": "La creazione di nuovi cicli sarà implementata presto.",
+    "configureInDev": "La configurazione della pianificazione sarà implementata presto.",
+    "exportInDev": "L'esportazione della pianificazione sarà implementata presto.",
+    "editInDev": "La modifica delle impostazioni sarà implementata presto."
+  },
+  "days": {
+    "monday": "Lunedì",
+    "tuesday": "Martedì",
+    "wednesday": "Mercoledì",
+    "thursday": "Giovedì",
+    "friday": "Venerdì",
+    "saturday": "Sabato",
+    "sunday": "Domenica"
+  },
+  "language": {
+    "select": "Seleziona lingua",
+    "current": "Lingua attuale"
+  },
+  "auth": {
+    "login": "Accedi",
+    "register": "Registrati",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Name",
+    "loginDescription": "Sign in to your account to continue",
+    "registerDescription": "Create your account to start learning",
+    "or": "or",
+    "orSignInWith": "Or sign in with",
+    "backToHome": "Back to home page",
+    "emailPlaceholder": "your@email.com",
+    "passwordPlaceholder": "••••••••",
+    "namePlaceholder": "Your full name",
+    "confirmPasswordPlaceholder": "••••••••",
+    "loginError": "Error logging in. Please check your credentials.",
+    "registerError": "Error creating account. Please try again.",
+    "teacher": "Teacher",
+    "student": "Student",
+    "switchToTeacher": "Switch to Teacher Mode"
+  },
+  "landing": {
+    "nav": {
+      "courses": "Corsi",
+      "pricing": "Prezzi",
+      "testimonials": "Testimonianze",
+      "dashboard": "Vai alla Dashboard",
+      "earlyStage": "About Us"
+    },
+    "hero": {
+      "title": "Impara al Tuo Ritmo",
+      "description": "Study Cycle è una piattaforma moderna che si adatta al tuo stile di apprendimento e ai tuoi obiettivi.",
+      "cta": "Inizia a Studiare Ora"
+    },
+    "features": {
+      "title": "Perché scegliere Study Cycle?",
+      "courses": {
+        "title": "Corsi Interattivi",
+        "description": "Impara con i nostri corsi adattivi che si adeguano al tuo livello di abilità"
+      },
+      "skills": {
+        "title": "Monitora le tue competenze",
+        "description": "Monitora i tuoi progressi con il nostro sistema dettagliato di tracciamento delle competenze"
+      },
+      "community": {
+        "title": "Unisciti alla Community",
+        "description": "Connettiti con altri studenti e condividi le tue conoscenze"
+      }
+    },
+    "pricing": {
+      "title": "Prezzi semplici e trasparenti",
+      "getStarted": "Inizia",
+      "popular": "Più Popolare",
+      "free": {
+        "title": "Base",
+        "description": "Perfetto per iniziare",
+        "feature1": "Accesso ai corsi base",
+        "feature2": "Monitoraggio base dei progressi",
+        "feature3": "Accesso alla community"
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Per studenti seri",
+        "price": "R$9,90 / US$2,99",
+        "priceNote": "Prezzo simbolico solo per coprire i costi dell'infrastruttura",
+        "feature1": "Tutte le funzionalità base",
+        "feature2": "Corsi avanzati",
+        "feature3": "Supporto prioritario",
+        "feature4": "Certificato di completamento"
+      },
+      "team": {
+        "title": "Team",
+        "description": "Ideale per le organizzazioni",
+        "feature1": "Tutte le funzionalità Pro",
+        "feature2": "Gestione del team",
+        "feature3": "Percorsi di apprendimento personalizzati",
+        "feature4": "Dashboard analitica",
+        "feature5": "Supporto prioritario"
+      }
+    },
+    "testimonials": {
+      "title": "Cosa dicono i nostri utenti",
+      "role": {
+        "student": "Studente",
+        "teacher": "Insegnante",
+        "parent": "Genitore"
+      },
+      "content1": "Study Cycle ha trasformato il mio modo di imparare. I corsi adattivi e il monitoraggio delle competenze mi mantengono motivato.",
+      "content2": "Come insegnante, adoro come Study Cycle renda facile creare e condividere percorsi di apprendimento personalizzati.",
+      "content3": "Posso facilmente monitorare i progressi di mio figlio e vedere dove ha bisogno di aiuto. Ottima piattaforma!"
+    },
+    "footer": {
+      "rights": "Tutti i diritti riservati."
+    },
+    "earlyStage": {
+      "title": "We're Just Getting Started",
+      "description": "Study Cycle is in early development. We're building a complete adaptive learning platform, but we don't have social proof of our value yet.",
+      "pricing": "For now, the price is symbolic (R$9.90 / US$2.99 per month) only to cover the infrastructure needed to keep the platform running.",
+      "noProof": "We don't have testimonials or success metrics to share yet, but we're working hard to build something valuable for you."
+    }
+  },
+  "home": {
+    "welcome": "Welcome back",
+    "defaultName": "Scholar",
+    "description": "Your personalized learning hub. Access all your study tools, connect with peers, and track your progress.",
+    "quickStart": "Quick Start",
+    "studyNow": "Study Now",
+    "community": "Community",
+    "recentActivity": "Recent Activity",
+    "recentActivityDesc": "Your latest study sessions and achievements",
+    "noAchievementsYet": "No achievements unlocked yet",
+    "startStudyingForAchievements": "Start studying to earn your first achievement!",
+    "todaysGoals": "Today's Goals",
+    "trackProgress": "Track your daily progress",
+    "studyTime": "Study Time",
+    "flashcards": "Flashcards",
+    "subjects": "Subjects",
+    "streak": "Streak",
+    "accuracy": "Accuracy",
+    "xp": "XP",
+    "studyHub": "Study Hub",
+    "coreLearning": "Core Learning",
+    "connectShare": "Connect & Share",
+    "toolsAnalytics": "Tools & Analytics",
+    "contentCreation": "Content Creation",
+    "createShare": "Create & Share",
+    "createCycle": "Create Cycle",
+    "buildPersonalizedPlan": "Build your personalized study plan",
+    "getStarted": "Get Started",
+    "generate": "Generate",
+    "viewSchedule": "View Schedule",
+    "editPlan": "Edit Plan",
+    "studyFeed": "Study Feed",
+    "shareAchievementsInspired": "Share achievements and get inspired",
+    "exploreFeed": "Explore Feed",
+    "studyGroups": "Study Groups",
+    "collaborateLearners": "Collaborate with fellow learners",
+    "joinGroups": "Join Groups",
+    "messages": "Messages",
+    "chatPartners": "Chat with study partners",
+    "openChats": "Open Chats",
+    "leaderboard": "Leaderboard",
+    "competeRankings": "Compete and see rankings",
+    "viewRankings": "View Rankings",
+    "notifications": "Notifications",
+    "stayUpdatedActivities": "Stay updated with activities",
+    "viewAll": "View All",
+    "settings": "Settings",
+    "customizeExperience": "Customize your experience",
+    "configure": "Configure",
+    "profile": "Profile",
+    "manageAccount": "Manage your account",
+    "viewProfile": "View Profile",
+    "courseBuilder": "Course Builder",
+    "createPublishCourses": "Create and publish courses",
+    "createCourse": "Create Course",
+    "teacherHub": "Teacher Hub",
+    "manageTeachingContent": "Manage your teaching content",
+    "teacherDashboard": "Teacher Dashboard",
+    "uploadFiles": "Upload Files",
+    "shareDocumentsResources": "Share documents and resources",
+    "uploadNow": "Upload Now",
+    "yourProgress": "Your Progress",
+    "dayStreak": "Day Streak",
+    "studyHours": "Study Hours",
+    "readyStartLearning": "Ready to Start Learning?",
+    "createFirstCycleUnlockFeatures": "Create your first study cycle and unlock all features",
+    "createStudyCycle": "Create Study Cycle",
+    "aiGenerator": "AI Generator",
+    "createWithAI": "Create content with AI assistance",
+    "calendar": "Calendar",
+    "scheduleTrackSessions": "Schedule and track study sessions",
+    "editCycle": "Edit Cycle",
+    "modifyStudyPlan": "Modify your current study plan",
+    "earlyStage": {
+      "title": "We're Just Getting Started",
+      "description": "Study Cycle is in early development. We're building a complete adaptive learning platform, but we don't have social proof of our value yet.",
+      "pricing": "For now, the price is symbolic (R$9.90 / US$2.99 per month) only to cover the infrastructure needed to keep the platform running."
+    }
+  },
+  "courses": {
+    "enrolled": "Enrolled Courses",
+    "available": "Available Courses",
+    "searchPlaceholder": "Search courses...",
+    "students": "students",
+    "enroll": "Enroll",
+    "programming": "Programming",
+    "math": "Mathematics",
+    "science": "Science",
+    "languages": "Languages",
+    "earlyStage": {
+      "title": "We're Just Getting Started",
+      "description": "Study Cycle is in early development. We don't have courses available yet, but we're working to create quality content.",
+      "pricing": "For now, the price is symbolic (R$9.90 / US$2.99 per month) only to cover infrastructure costs."
+    }
+  },
+  "search": {
+    "placeholder": "Search courses, subjects, or content..."
+  },
+  "profileMenu": {
+    "studentHome": "Student Home",
+    "personalInfo": "Personal Information",
+    "subscriptions": "Subscriptions",
+    "paymentMethods": "Payment Methods",
+    "requestFeature": "Request Feature",
+    "help": "Help & Support"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications yet"
+  },
+  "course": {
+    "editor": "Course Editor",
+    "finishEditing": "Finish Editing",
+    "edit": "Edit Course",
+    "progress": "Progress",
+    "continue": "Continue"
+  },
+  "flashcards": {
+    "pageTitle": "Flashcards",
+    "pageDescription": "Master concepts with spaced repetition learning",
+    "studyMode": "Study Mode",
+    "review": "Review",
+    "learnNew": "Learn New",
+    "practice": "Practice",
+    "subject": "Subject",
+    "allSubjects": "All Subjects",
+    "mathematics": "Mathematics",
+    "physics": "Physics",
+    "biology": "Biology",
+    "geography": "Geography",
+    "sessionStats": "Session Stats",
+    "cardsStudied": "Cards Studied",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "progress": "Progress",
+    "showAnswer": "Show Answer",
+    "again": "Again",
+    "hard": "Hard",
+    "good": "Good",
+    "easy": "Easy",
+    "cardOf": "Card {current} of {total}",
+    "noCardsAvailable": "No cards available",
+    "noCardsDescription": "No flashcards match your current filters. Try changing the subject or study mode.",
+    "sessionComplete": "Session Complete!",
+    "sessionCompleteDesc": "Great job! You've completed your study session. You got {correct} out of {total} cards correct.",
+    "studyAgain": "Study Again",
+    "practiceMode": "Practice Mode",
+    "backToDashboard": "Back to Dashboard",
+    "viewStatistics": "View Statistics",
+    "difficulties": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "types": {
+      "text": "Text",
+      "image": "Image",
+      "audio": "Audio",
+      "video": "Video"
+    }
+  },
+  "profile": {
+    "pageTitle": "Profile",
+    "back": "Back",
+    "editProfile": "Edit Profile",
+    "verified": "Verified",
+    "student": {
+      "statsTitle": "Study Statistics",
+      "totalHours": "Total Hours",
+      "currentStreak": "Current Streak",
+      "completedSubjects": "Completed Subjects",
+      "averageScore": "Average Score",
+      "learningProfile": "Learning Profile",
+      "learningStyle": "Learning Style",
+      "memoryType": "Memory Type",
+      "currentLevel": "Current Level"
+    },
+    "teacher": {
+      "statsTitle": "Teacher Statistics",
+      "coursesCreated": "Courses Created",
+      "publishedCourses": "Published Courses",
+      "totalStudents": "Total Students",
+      "averageRating": "Average Rating",
+      "reviews": "reviews",
+      "engagement": "Engagement",
+      "monthlyViews": "Monthly Views",
+      "certifications": "Certifications",
+      "totalRevenue": "Total Revenue",
+      "noActivities": "No teacher activities yet",
+      "noActivitiesDesc": "This teacher hasn't created courses or content yet. Check back soon!",
+      "noActivitiesDescOwn": "You haven't started your teaching journey yet.",
+      "becomeTeacher": "Become a Teacher"
+    },
+    "memberSince": "Member since",
+    "location": "Location",
+    "stats": {
+      "studyHours": "Study Hours",
+      "currentStreak": "Current Streak",
+      "completedSubjects": "Completed Subjects",
+      "achievements": "Achievements"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "student": "Student",
+      "teacher": "Teacher",
+      "achievements": "Achievements"
+    },
+    "overview": {
+      "studentActivities": "Student Activities",
+      "teacherActivities": "Teacher Activities",
+      "currentLevel": "Current Level",
+      "levelProgress": "Level Progress",
+      "averageScore": "Average Score",
+      "flashcards": "Flashcards",
+      "noTeacherActivities": "No teacher activities yet",
+      "noTeacherActivitiesDesc": "This user hasn't created courses or content as a teacher yet.",
+      "noTeacherActivitiesDescOwn": "You haven't started teaching activities yet.",
+      "startAsTeacher": "Start as Teacher",
+      "recentActivities": "Recent Activities"
+    },
+    "achievements": {
+      "unlockedAchievements": "Unlocked Achievements",
+      "unlockedAt": "Unlocked at",
+      "badges": "Badges",
+      "earnedAt": "Earned at"
+    },
+    "activities": {
+      "studySession": "Completed study session",
+      "achievement": "Unlocked achievement",
+      "flashcardReview": "Reviewed flashcards",
+      "accuracy": "accuracy",
+      "timeAgo": {
+        "now": "Just now",
+        "hours": "hours ago",
+        "hour": "hour ago",
+        "days": "days ago",
+        "day": "day ago"
+      }
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    }
+  },
+  "chats": {
+    "pageTitle": "Study Chats",
+    "pageDescription": "Connect with fellow learners and discuss study topics",
+    "studyGroups": "Study Groups",
+    "searchGroups": "Search groups...",
+    "members": "members",
+    "membersOnline": "members online",
+    "selectChat": "Select a chat group",
+    "selectChatDesc": "Choose a study group from the sidebar to start chatting",
+    "typeMessage": "Type your message...",
+    "sendMessage": "Send Message",
+    "study": "Study",
+    "messageTypes": {
+      "text": "Text",
+      "image": "Image",
+      "file": "File"
+    }
+  },
+  "calendar": {
+    "pageTitle": "Study Calendar",
+    "pageDescription": "Track your study sessions and plan your learning schedule",
+    "thisMonth": "This Month",
+    "studyProgress": "Your study progress overview",
+    "studySessions": "Study Sessions",
+    "totalHours": "Total Hours",
+    "completed": "Completed",
+    "selectedDate": "Study sessions for this day",
+    "noSessions": "No study sessions scheduled for this day",
+    "moreSessions": "{count} more",
+    "quickActions": "Quick Actions",
+    "scheduleSession": "Schedule Study Session",
+    "setGoals": "Set Goals",
+    "viewProgress": "View Progress",
+    "sessionTypes": {
+      "study": "Study",
+      "review": "Review",
+      "practice": "Practice"
+    },
+    "status": {
+      "done": "Done",
+      "pending": "Pending"
+    },
+    "days": {
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat"
+    }
+  },
+  "leaderboard": {
+    "pageTitle": "Leaderboard & Achievements",
+    "pageDescription": "Compete with peers and celebrate your learning achievements",
+    "gamificationComingSoon": "Gamification Coming Soon!",
+    "gamificationDesc": "Leaderboards and achievements will be unlocked when we have 2 or more active users.",
+    "currentUsers": "Current users",
+    "requiredUsers": "Required",
+    "tabs": {
+      "overall": "Overall",
+      "competitive": "Competitive",
+      "collaborative": "Collaborative",
+      "challenges": "Challenges"
+    },
+    "searchUsers": "Search users...",
+    "allLeagues": "All Leagues",
+    "yourRanking": "Your Ranking",
+    "xpProgress": "XP Progress",
+    "toNextLevel": "to next level",
+    "topPerformers": "Top Performers",
+    "fullRankings": "Full Rankings",
+    "completeLeaderboard": "Complete leaderboard of all participants",
+    "competitiveRankings": "Competitive Rankings",
+    "competitiveDesc": "Rankings based on competitive achievements and challenges",
+    "collaborativeRankings": "Collaborative Rankings",
+    "collaborativeDesc": "Rankings based on community contributions and peer support",
+    "challenges": "Challenges",
+    "joinChallenge": "Join Challenge",
+    "stats": {
+      "competitivePoints": "competitive points",
+      "collaborativePoints": "collaborative points",
+      "groups": "groups",
+      "peersHelped": "peers helped",
+      "wins": "wins",
+      "losses": "losses",
+      "draws": "draws"
+    },
+    "leagues": {
+      "bronze": "Bronze League",
+      "silver": "Silver League",
+      "gold": "Gold League",
+      "diamond": "Diamond League",
+      "master": "Master League"
+    },
+    "leagueDescriptions": {
+      "bronze": "Starting your learning journey",
+      "silver": "Building consistent study habits",
+      "gold": "Mastering advanced study techniques",
+      "diamond": "Elite learners pushing boundaries",
+      "master": "Legendary scholars inspiring others"
+    },
+    "challengeCategories": {
+      "learning": "Learning",
+      "competitive": "Competitive",
+      "collaborative": "Collaborative"
+    },
+    "challengeTypes": {
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly"
+    },
+    "challengeStats": {
+      "joined": "joined",
+      "daysLeft": "days left",
+      "reward": "Reward"
+    }
+  },
+  "ai": {
+    "pageTitle": "AI Content Generator",
+    "pageDescription": "Generate educational content automatically using artificial intelligence",
+    "courseGenerator": {
+      "title": "AI Course Generator",
+      "description": "Create complete courses automatically using AI. Just provide a topic and let AI do the rest!",
+      "configureGeneration": "Configure Generation",
+      "configureDesc": "Set parameters to generate your personalized course",
+      "courseTopic": "Course Topic",
+      "topicPlaceholder": "Ex: Basic Mathematics, Brazilian History, Python Programming...",
+      "difficultyLevel": "Difficulty Level",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "language": "Language",
+      "generateCourse": "Generate Course with AI",
+      "generating": "Generating Course...",
+      "courseStructure": "Course Structure",
+      "subjects": "Subjects",
+      "lessons": "Lessons",
+      "students": "Students",
+      "rating": "Rating",
+      "saveCourse": "Save Course",
+      "generateNew": "Generate New",
+      "aiGenerated": "AI Generated"
+    },
+    "flashcardGenerator": {
+      "title": "AI Flashcard Generator",
+      "description": "Create flashcards automatically from any topic",
+      "topic": "Topic",
+      "count": "Number of Cards",
+      "generateFlashcards": "Generate Flashcards",
+      "generating": "Generating...",
+      "cardsGenerated": "cards generated successfully"
+    },
+    "exerciseGenerator": {
+      "title": "AI Exercise Generator",
+      "description": "Generate exercises and questions automatically",
+      "topic": "Topic",
+      "count": "Number of Exercises",
+      "generateExercises": "Generate Exercises",
+      "exercisesGenerated": "exercises generated successfully"
+    },
+    "success": "Success",
+    "error": "Error",
+    "courseGenerated": "Course generated successfully!",
+    "flashcardsGenerated": "Flashcards generated successfully!",
+    "exercisesGenerated": "Exercises generated successfully!",
+    "generationFailed": "Failed to generate content. Please try again.",
+    "courseSaved": "Course Saved",
+    "courseSavedDesc": "The generated course has been saved to your courses.",
+    "validationError": "Validation Error",
+    "topicRequired": "Please enter a topic to generate content.",
+    "settings": {
+      "title": "AI Settings",
+      "description": "Configure AI generation preferences",
+      "provider": "AI Provider",
+      "openai": "OpenAI",
+      "local": "Local Model",
+      "apiKey": "API Key",
+      "apiKeyDesc": "Enter your OpenAI API key to enable AI generation",
+      "saveSettings": "Save Settings",
+      "testConnection": "Test Connection",
+      "connectionSuccess": "Connection successful!",
+      "connectionFailed": "Connection failed. Check your API key."
+    },
+    "usage": {
+      "title": "AI Usage",
+      "description": "Monitor your AI usage and costs",
+      "requestsToday": "Requests Today",
+      "tokensUsed": "Tokens Used",
+      "estimatedCost": "Estimated Cost",
+      "monthlyLimit": "Monthly Limit",
+      "upgrade": "Upgrade Plan"
+    }
+  }
+}

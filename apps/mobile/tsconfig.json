@@ -1,0 +1,17 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@studycycle/core": ["../../packages/core/src"],
+      "@studycycle/core/*": ["../../packages/core/src/*"],
+      "@studycycle/ui": ["../../packages/ui/src"],
+      "@studycycle/ui/*": ["../../packages/ui/src/*"],
+      "@studycycle/db-sync": ["../../packages/db-sync/src"],
+      "@studycycle/db-sync/*": ["../../packages/db-sync/src/*"]
+    },
+    "types": ["react", "react-native"]
+  }
+}

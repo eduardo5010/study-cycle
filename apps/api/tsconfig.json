@@ -1,0 +1,30 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "types": ["node"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@studycycle/core": ["../../packages/core/src"],
+      "@studycycle/core/*": ["../../packages/core/src/*"],
+      "@studycycle/ui": ["../../packages/ui/src"],
+      "@studycycle/ui/*": ["../../packages/ui/src/*"],
+      "@studycycle/db-sync": ["../../packages/db-sync/src"],
+      "@studycycle/db-sync/*": ["../../packages/db-sync/src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
