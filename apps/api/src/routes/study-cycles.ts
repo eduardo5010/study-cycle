@@ -1,13 +1,22 @@
 import express from 'express';
 import type { Request, Response } from 'express';
+import { eq } from 'drizzle-orm';
+import { db } from '../db/connection.js';
+import { studyCycles } from '../db/schema.js';
 
 const router = express.Router();
 
 // Get all study cycles
 router.get('/', async (req: Request, res: Response) => {
   try {
-    // TODO: Implement study cycles fetching from database
-    res.json({ studyCycles: [] });
+    const userId = req.query.userId as string;
+    let allStudyCycles;
+    if (userId) {
+      allStudyCycles = await db.select().from(studyCycles).where(eq(studyCycles.userId, userId));
+    } else {
+      allStudyCycles = await db.select().from(studyCycles);
+    }
+    res.json({ studyCycles: allStudyCycles });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch study cycles' });
   }
@@ -16,11 +25,17 @@ router.get('/', async (req: Request, res: Response) => {
 // Create study cycle
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const { name, startDate, endDate } = req.body;
-    // TODO: Implement study cycle creation
+    const { userId, name, description, startDate, endDate } = req.body;
+    const newStudyCycle = await db.insert(studyCycles).values({
+      userId,
+      name,
+      description,
+      startDate: new Date(startDate),
+      endDate: new Date(endDate),
+    }).returning();
     res.status(201).json({
       message: 'Study cycle created',
-      studyCycle: { name, startDate, endDate },
+      studyCycle: newStudyCycle[0],
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to create study cycle' });
@@ -31,8 +46,11 @@ router.post('/', async (req: Request, res: Response) => {
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    // TODO: Implement study cycle fetch by ID
-    res.json({ studyCycle: { id } });
+    const studyCycle = await db.select().from(studyCycles).where(eq(studyCycles.id, id));
+    if (studyCycle.length === 0) {
+      return res.status(404).json({ error: 'Study cycle not found' });
+    }
+    res.json({ studyCycle: studyCycle[0] });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch study cycle' });
   }
@@ -42,7 +60,15 @@ router.get('/:id', async (req: Request, res: Response) => {
 router.put('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    // TODO: Implement study cycle update
+    const { name, description, startDate, endDate, isActive } = req.body;
+    await db.update(studyCycles).set({
+      name,
+      description,
+      startDate: startDate ? new Date(startDate) : undefined,
+      endDate: endDate ? new Date(endDate) : undefined,
+      isActive,
+      updatedAt: new Date(),
+    }).where(eq(studyCycles.id, id));
     res.json({ message: 'Study cycle updated', id });
   } catch (error) {
     res.status(500).json({ error: 'Failed to update study cycle' });
@@ -53,7 +79,7 @@ router.put('/:id', async (req: Request, res: Response) => {
 router.delete('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    // TODO: Implement study cycle deletion
+    await db.delete(studyCycles).where(eq(studyCycles.id, id));
     res.json({ message: 'Study cycle deleted', id });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete study cycle' });

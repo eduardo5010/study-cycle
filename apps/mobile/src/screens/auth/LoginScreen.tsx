@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
+  Linking,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -93,6 +94,29 @@ const LoginScreen: React.FC = () => {
             </Text>
           </TouchableOpacity>
 
+          <View style={styles.divider}>
+            <Text style={styles.dividerText}>ou continue com</Text>
+          </View>
+
+          <View style={styles.oauthButtons}>
+            <TouchableOpacity
+              style={styles.oauthButton}
+              onPress={() => {
+                Linking.openURL('http://localhost:3001/api/auth/github'); // Adjust URL for production
+              }}
+            >
+              <Text style={styles.oauthButtonText}>GitHub</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.oauthButton}
+              onPress={() => {
+                Linking.openURL('http://localhost:3001/api/auth/google'); // Adjust URL for production
+              }}
+            >
+              <Text style={styles.oauthButtonText}>Google</Text>
+            </TouchableOpacity>
+          </View>
+
           <TouchableOpacity
             style={styles.linkButton}
             onPress={() => navigation.navigate('Register')}
@@ -170,6 +194,33 @@ const styles = StyleSheet.create({
   },
   linkButton: {
     marginTop: 16,
+  },
+  divider: {
+    marginVertical: 16,
+    alignItems: 'center',
+  },
+  dividerText: {
+    color: '#6B7280',
+    fontSize: 14,
+  },
+  oauthButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  oauthButton: {
+    backgroundColor: '#F3F4F6',
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    flex: 1,
+    marginHorizontal: 4,
+  },
+  oauthButtonText: {
+    color: '#374151',
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
   },
   linkText: {
     color: '#2563EB',

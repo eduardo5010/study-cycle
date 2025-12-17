@@ -1,16 +1,24 @@
 import express from 'express';
 import type { Request, Response } from 'express';
+import { eq, gt, and } from 'drizzle-orm';
+import { db } from '../db/connection.js';
+import { syncLogs } from '../db/schema.js';
 
 const router = express.Router();
 
 // Sync data from mobile to server
 router.post('/push', async (req: Request, res: Response) => {
   try {
-    const { _data, timestamp } = req.body;
-    // TODO: Implement data sync push
+    const { userId, entityType, entityId, operation, changes } = req.body;
+    await db.insert(syncLogs).values({
+      userId,
+      entityType,
+      entityId,
+      operation,
+      changes,
+    });
     res.json({
       message: 'Data synced successfully',
-      timestamp,
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to sync data' });
@@ -20,12 +28,16 @@ router.post('/push', async (req: Request, res: Response) => {
 // Pull data from server to mobile
 router.get('/pull', async (req: Request, res: Response) => {
   try {
-    const { lastSync } = req.query;
-    // TODO: Implement data sync pull
+    const { userId, lastSync } = req.query as { userId: string; lastSync?: string };
+    const logs = lastSync
+      ? await db
+          .select()
+          .from(syncLogs)
+          .where(and(eq(syncLogs.userId, userId), gt(syncLogs.createdAt, new Date(lastSync))))
+      : await db.select().from(syncLogs).where(eq(syncLogs.userId, userId));
     res.json({
       message: 'Data pulled successfully',
-      data: [],
-      lastSync,
+      data: logs,
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to pull data' });
@@ -33,7 +45,7 @@ router.get('/pull', async (req: Request, res: Response) => {
 });
 
 // Get sync status
-router.get('/status', async (req: Request, res: Response) => {
+router.get('/status', async (_req: Request, res: Response) => {
   try {
     res.json({
       status: 'OK',

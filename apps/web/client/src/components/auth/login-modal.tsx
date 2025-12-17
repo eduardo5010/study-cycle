@@ -143,7 +143,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToRegister }: Logi
                 variant="outline"
                 className="flex-1"
                 onClick={() => {
-                  window.location.href = `${window.location.origin}/api/auth/oauth/github`;
+                  window.location.href = `${window.location.origin}/api/auth/github`;
                 }}
               >
                 <Github className="w-4 h-4 mr-2" />
@@ -154,7 +154,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToRegister }: Logi
                 variant="outline"
                 className="flex-1"
                 onClick={() => {
-                  window.location.href = `${window.location.origin}/api/auth/oauth/google`;
+                  window.location.href = `${window.location.origin}/api/auth/google`;
                 }}
               >
                 <GoogleIcon />

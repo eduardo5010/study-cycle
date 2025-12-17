@@ -43,6 +43,5 @@
     "eslint": "^9.0.0",
     "prettier": "^3.4.0",
     "turbo": "^2.6.3"
-  },
-  "packageManager": "npm@10.0.0"
+  }
 }
